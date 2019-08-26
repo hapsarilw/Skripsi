@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+\markright{\textbf{\textsc{AIF184001.03 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2019/2020}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -31,11 +31,11 @@
 \author{\nama \textendash \@npm} 
 
 %tulis nama dan NPM anda di sini:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+\newcommand{\nama}{Hapsari Laksmi W}
+\newcommand{\@npm}{2015730037}
+\newcommand{\@judultopik}{Migrasi Zurb Foundation ke Bootstrap 4} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{01/01/1900}
+\newcommand{\tanggal}{24/08/2019}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -44,37 +44,55 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
+%Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
 
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
+BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textit{Codeigniter} dan \textit{Zurb Foundation.}  
 
-Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
+Meskipun \textit{open-source}, saat ini \textit{Zurb Foundation} tidak sepopuler \textit{framework} \textit{Bootstrap}. 
+\textit{Bootstrap} adalah \textit{ Javascript framework} yang didesain untuk membantu membangun komponen \textit{user interface} yang terdiri dari \textit{CSS, JavaScript/jQuery}, dan \textit{glyphicons}. Pembangunan \textit{website} yang lebih cepat dan besarnya komunitas yang ada berdampak pada banyaknya pengembang \textit{web} yang memanfaatkan \textit{framework Bootstrap}. Sehingga jumlah proyek yang dihasilkan oleh\textit{ framework Bootstrap} lebih banyak dibanding \textit{Zurb Foundation}. 
 
-Dst, dst, dst, \ldots\ldots\ldots 
+%Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
+%
 
-Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
+%Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
+%
+%Dst, dst, dst, \ldots\ldots\ldots 
+%
+%Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
+%
+%Dst, dst, dst, \ldots\ldots\ldots 
+Pada skripsi ini akan dirubah \textit{view} pada keseluruhan  aplikasi BlueTape menggunakan \textit{framework} Bootstrap 4. Setiap view menggunakan template yang menampilkan nama \textit{module}, menu navigasi, dan \textit{flash message} (bila diperlukan).
 
-Dst, dst, dst, \ldots\ldots\ldots 
+
 
 \section{Rumusan Masalah}
-Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+%Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+
+\begin{itemize}
+	\item Bagaimana membuat \textit{template} manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen.
+	\item Bagaimana mengimplentasikan \textit{plugin} yang tersedia di dalam \textit{Bootstrap 4}.
+\end{itemize}
 
 \section{Tujuan}
-Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+%Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Tujuan yang ingin dicapai dalam penelitian ini :
+
+	\begin{itemize}	
+	\item Membuat \textit{template} cetak transkrip nilai, \textit{template} manajemen cetak transkrip, \textit{template} perubahan kuliah, \textit{module} manajemen perubahan kuliah, \textit{modul} entri jadwal dosen dan \textit{module} lihat jadwal dosen dengan \textit{framework Bootstrap 4} yang \textit{responsive} untuk berbagai platform.
+	\item Mengimplentasikan \textit{plugin} yang tersedia dalam \textit{library} Bootstrap 4.
+	
+		
+\end{itemize}
+	
+		
+
 
 \section{Deskripsi Perangkat Lunak}
-Tuliskan deksripsi dari perangkat lunak yang akan anda hasilkan. Apa saja fitur yang disediakan oleh PL tersebut dan apa saja kemampuan dari PL tersebut. Perhatikan contoh di bawah ini:
 
 Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 \begin{itemize}
-	\item Pengguna dapat melihat denah Musem Geologi Bandung dalam bidang dua dimensi. Sedangkan pengunjung direpresentasikan menggunakan lingkaran-lingkaran kecil (tidak menggunakan gambar manusia yang diambil dari atas)
-	\item Pengguna dapat memunculkan atau menghilangkan gambar {\it flow tiles} pada denah museum. 
-	\item Pengguna dapat mengatur jalannya simulasi: memulai(start) simulasi, menunda(pause) simulasi, melanjutkan(continue) simulasi, maupun menghentikan(stop) simulasi
-	\item Pengguna dapat mengatur banyaknya pengunjung di dalam museum, baik melalui perubahan frekuensi kedatangan pengunjung maupun menambahkan dan menghapus pengunjung satu-persatu secara manual.
-	\item Posisi kamera dapat diubah (pergerakan di bidang tiga dimensi) sehingga pengguna dapat melihat simulasi di museum dari berbagai arah. 
-	\item Posisi kamera dapat diubah untuk emngikuti perjalanan seorang pengunjung di dalam 
-	\item Pengguna dapat memilih apakah akan menggunakan teknik {\it flow tiles} atau tidak pada saat simulasi berlangsung
-	\item Jenis {\it flow tiles} yang digunakan dapat diubah-ubah pada saat simulasi sedang berlangsung
+	\item Mampu menghasilkan \textit{view}\textit{website} yang \textit{responsive} untuk berbagai \textit{platform} menggunakan \textit{Bootstrap 4}.
+	\item Mampu mengimplementasikan \textit{plugin Bootstrap 4} sesuai kebutuhan aplikasi BlueTape	
 		
 \end{itemize}
 
@@ -83,30 +101,31 @@ Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan terseb
 
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
-		\item Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll)
-		\item Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.
-		\item Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}
-		\item Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer
-		\item Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung
-		\item Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)
-		\item Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer 
-		\item Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif
-		\item Menulis dokumen skripsi
+		\item Mempelajari cara membangun \textit{website} yang \textit{responsive} dan memiliki \textit{user experience }yang baik.  
+		\item Mempelajari \textit{framework PHP Codeigniter}.
+		\item Mempelajari framework \textit{front-end} \textit{Bootstrap 4} beserta plugin-plugin yang tersedia
+		\item Membuat rancangan tampilan website dan \textit{template}.
+		\item Mengimplementasikan keseluruhan rancangan tampilan dan \textit{template}.
+		\item Menguji kecepatan \textit{website}.
+		\item Menulis dokumen skripsi.
 	\end{enumerate}
 
 \section{Rencana Kerja}
 Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Memahami penggunaan \textit{framework Bootstrap 4} dan \textit{CodeIgniter}.
+\item Mempelajari desain \textit{web} yang responsive dan mempunyai \textit{user experience} yang baik.
+\item Menganalisis plugin - plugin yang diperlukan dalam website Blue Tape.
+\item Merancang tampilan \textit{website} Blue Tape yang memiliki \textit{user experience} yang baik dan responsive untuk semua platform.
+\item Menulis dokumen skripsi.
 \end{enumerate}
 
 Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Mengimplementasikan tampilan website dengan \textit{framework Bootstrap 4}.
+\item Menyelesaikan dokumen skripsi.
+\item Menyelesaikan implementasi tampilan. \textit{website} dengan \textit{Bootstrap 4}.
+\item Melakukan pengujian kecepatan \textit{website}.
 \end{enumerate}
 
 \vspace{1cm}
