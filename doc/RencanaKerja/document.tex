@@ -3,6 +3,7 @@
 \usepackage[bahasa]{babel}
 \usepackage{graphicx}
 \usepackage{graphics}
+\graphicspath{ {./gambar/} }
 \usepackage{float}
 \usepackage[cm]{fullpage}
 \pagestyle{myheadings}
@@ -16,7 +17,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF184001.03 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2019/2020}}}
+\markright{\textbf{\textsc{AIF184001 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2019/2020}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -33,7 +34,7 @@
 %tulis nama dan NPM anda di sini:
 \newcommand{\nama}{Hapsari Laksmi W}
 \newcommand{\@npm}{2015730037}
-\newcommand{\@judultopik}{Migrasi Zurb Foundation ke Bootstrap 4} % Judul/topik anda
+\newcommand{\@judultopik}{Migrasi \textit{Zurb Foundation} ke \textit{Bootstrap 4}} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
 \newcommand{\tanggal}{24/08/2019}
 
@@ -46,7 +47,40 @@
 \section{Deskripsi}
 %Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
 
-BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textit{Codeigniter} dan \textit{Zurb Foundation.}  
+BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textit{Codeigniter} dan \textit{Zurb Foundation}.  
+
+\begin{figure}[h]
+\includegraphics [scale=0.5] {Tampilan-Cetak-Transkrip.PNG}
+\caption{Tampilan Cetak Transkrip}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics [scale=0.5] {Tampilan-Lihat-Jadwal-Dosen.PNG}
+\caption{Tampilan Lihat Jadwal Dosen}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics [scale=0.5] {Tampilan-Manajemen-Cetak-Transkrip.PNG}
+\caption{Tampilan-Manajemen-Cetak-Transkrip}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics [scale=0.5] {Tampilan-Entri-Jadwal-Dosen.PNG}
+\caption{Tampilan Entri Jadwal Dosen}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics [scale=0.5] {Tampilan-Perubahan-Kuliah.PNG}
+\caption{Tampilan Perubahan Kuliah}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics [scale=0.5] {Tampilan-Manajemen-Perubahan-Kuliah.PNG}
+\caption{Tampilan Manajemen Perubahan Kuliah}
+\end{figure}
+
+
+
 
 Meskipun \textit{open-source}, saat ini \textit{Zurb Foundation} tidak sepopuler \textit{framework} \textit{Bootstrap}. 
 \textit{Bootstrap} adalah \textit{ Javascript framework} yang didesain untuk membantu membangun komponen \textit{user interface} yang terdiri dari \textit{CSS, JavaScript/jQuery}, dan \textit{glyphicons}. Pembangunan \textit{website} yang lebih cepat dan besarnya komunitas yang ada berdampak pada banyaknya pengembang \textit{web} yang memanfaatkan \textit{framework Bootstrap}. Sehingga jumlah proyek yang dihasilkan oleh\textit{ framework Bootstrap} lebih banyak dibanding \textit{Zurb Foundation}. 
@@ -101,31 +135,26 @@ Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan terseb
 
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
-		\item Mempelajari cara membangun \textit{website} yang \textit{responsive} dan memiliki \textit{user experience }yang baik.  
 		\item Mempelajari \textit{framework PHP Codeigniter}.
 		\item Mempelajari framework \textit{front-end} \textit{Bootstrap 4} beserta plugin-plugin yang tersedia
 		\item Membuat rancangan tampilan website dan \textit{template}.
 		\item Mengimplementasikan keseluruhan rancangan tampilan dan \textit{template}.
-		\item Menguji kecepatan \textit{website}.
 		\item Menulis dokumen skripsi.
 	\end{enumerate}
 
 \section{Rencana Kerja}
 Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
-\item Memahami penggunaan \textit{framework Bootstrap 4} dan \textit{CodeIgniter}.
-\item Mempelajari desain \textit{web} yang responsive dan mempunyai \textit{user experience} yang baik.
+\item Memahami penggunaan \textit{framework Bootstrap 4} dan \textit{CodeIgniter}, \textit{Zurb Foundation}.
 \item Menganalisis plugin - plugin yang diperlukan dalam website Blue Tape.
-\item Merancang tampilan \textit{website} Blue Tape yang memiliki \textit{user experience} yang baik dan responsive untuk semua platform.
+\item Merancang tampilan \textit{website} Blue Tape menggunakan Bootstrap 4.
 \item Menulis dokumen skripsi.
 \end{enumerate}
 
 Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 \begin{enumerate}
-\item Mengimplementasikan tampilan website dengan \textit{framework Bootstrap 4}.
+\item Mengimplementasi tampilan \textit{website} dengan \textit{Bootstrap 4}.
 \item Menyelesaikan dokumen skripsi.
-\item Menyelesaikan implementasi tampilan. \textit{website} dengan \textit{Bootstrap 4}.
-\item Melakukan pengujian kecepatan \textit{website}.
 \end{enumerate}
 
 \vspace{1cm}

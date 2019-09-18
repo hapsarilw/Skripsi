@@ -81,6 +81,31 @@
 
 \graphicspath{{./Gambar/}}% folder tempat gambar 
 
+%Highligt untuk kode PHP
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+ 
+\lstset{language=php,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+stepnumber=2,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false
+breaklines=true,
+breakatwhitespace=true,
+}
+
+
+
+
+
 %cek apakah text default
 \newcommand{\vtext}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\rtext{#2}#3}}{\newcommand{#1}{#2}}}
 \newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}
@@ -210,7 +235,7 @@
 %setting daftar isi dan daftar lainnya
 \cftsetpnumwidth{25pt}	% perbaikan untuk halaman daftar isi romawi yg overfull
 \renewcommand{\cftchapfont}{\scshape \bfseries} 
-\renewcommand{\cfttoctitlefont}{\vdierror\Large\bfseries\MakeUppercase} 
+%\renewcommand{\cfttoctitlefont}{\vdierror\Large\bfseries\MakeUppercase} 
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftloftitlefont}{\hfill\Large\bfseries\MakeUppercase} 
 \renewcommand{\cftafterloftitle}{\hfill}
@@ -412,7 +437,8 @@
 %include bab 
 \foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
 
-%update nama daftar referensi
+%update nama daftar 
+
 \renewcommand{\bibname}{Daftar Referensi}
 
 \singlespacing%selalu single spacing untuk lampiran dan daftar referensi
@@ -421,6 +447,7 @@
 
 \bibliographystyle{compj} %gunakan compj 
 \bibliography{referensi}
+
 
 %listing khusus untuk penulisan kode program, menggunakan font Bera Mono
 \lstset{numbers=left,stepnumber=1, numbersep=5pt, frame=leftline,
