@@ -3,12 +3,25 @@
 \label{chap:teori}
 
 \section{BlueTape}
-\label{sec:blurtape}
+\label{sec:bluetape}
+BlueTape adalah aplikasi+framework untuk membuat urusan-urusan paper-based di FTIS UNPAR menjadi paperless. Aplikasi ini berbasis web dengan memanfaatkan CodeIgniter + ZURB Foundation.
+
+Fitur-fitur:
+\begin{itemize}
+  \item Framework disediakan untuk menambah layanan baru. Menu sudah disediakan, developer tinggal menambah dalam bentuk modul (lihat CONTRIBUTING.md)
+  \item Layanan OAuth ke Google, memungkinkan autentikasi pengguna dan menentukan hak akses yang bisa dilihat dari alamat email pengguna, misalnya: membatasi akses ke mahasiswa Informatika ke email 73.....@student.unpar.ac.id, akses ke mahasiswa FTIS ke 7[0123].....@student.unpar.ac.id. Untuk staf TU / dosen bisa juga dengan mendaftarkan email staf / dosen.
+\end{itemize}
+
+Saat ini tersedia layanan:
+\begin{itemize}
+	\item
+	\item
+\end{itemize}
 
 
 \section{CodeIgniter}
 \label{sec:code_igniter}
-Codeigniter adalah sebuah kerangka kerja untuk pengembangan aplikasi - sebuah alat - bagi masyarakat yang ingin membangun website menggunakan PHP. Bertujuan agar proyek yang sedang dikembangkan lebih cepat daripada Anda menulis kode dari awal / \textit{scratch}, dengan menyediakan seperangkat libraries untuk tugas yang umumnya digunakan, semudah sebuah \textit{interface} dan struktur logika untuk mengakses \textit{libraries} tersebut. Codeigniter memungkinkan untuk fokus pada proyek Anda dengan mengurangi kode yang dibutuhkan untuk tugas tertentu. \cite{codeIgniter:17}
+Codeigniter adalah sebuah kerangka kerja untuk pengembangan aplikasi - sebuah alat - bagi masyarakat yang ingin membangun website menggunakan PHP. Bertujuan agar proyek yang sedang dikembangkan lebih cepat daripada Anda menulis kode dari awal / \textit{scratch}, dengan menyediakan seperangkat libraries untuk tugas yang umumnya digunakan, semudah sebuah \textit{interface} dan struktur logika untuk mengakses \textit{libraries} tersebut. Codeigniter memungkinkan untuk fokus pada proyek Anda dengan mengurangi kode yang dibutuhkan untuk tugas tertentu. \cite{codeigniter:17}
 \subsection{Application Flow Chart}
 \label{subs:app_flowchart}
 Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
@@ -16,7 +29,7 @@ Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{appflowchart.png}  
-	\caption[Flow Chart Codeignter. Sumber:\/\/www.codeigniter.com\/user\_guide\/\_images\/appflowchart.gif]{Flow Chart Codeignter. Sumber:\textit{ \/\/www.codeigniter.com\/user\_guide\/\_images\/appflowchart.gif}} 
+	\caption{Flow Chart Aplikasi CodeIgniter}
 	\label{fig:flow-chart-CodeIgniter} 
 \end{figure}
 
@@ -26,18 +39,18 @@ Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
 \item Apabila terdapat \textit{cache}, maka \textit{cache} tersebut akan dikirimkan langsung ke browser, dengan melewati sistem eksekusi normal.
 \item Keamanan. Sebelum \textit{controller} aplikasi dimuat, \textit{HTTP request} dan \textit{user} mana pun yang mengirimkan data diseleksi dahulu untuk keamanan.
 \item Controller memuat \textit{model, core libraries, helpers}, dan \textit{resources} yang dibutuhkan untuk proses \textit{request} yang spesifik.
-\item \textit{View} yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan dicache terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.
+\item \textit{View} yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan dicache terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\citep{codeIgniter:17}
 
 \subsection{CodeIgniter URLs}
 \label{subs:urls}
-Codeigniter menggunakan pendekatan \textbf{berbasis-segmen}:
+Codeigniter menggunakan pendekatan \textbf{berbasis-segmen}:\cite{codeigniter:17}
 \begin{lstlisting}[frame=single] 
 example.com/news/article/my_article
 \end{lstlisting}
 
 \subsubsection{Url Segments}
 \label{sssec:url_1}
-Segmen didalam URl, 
+
 
 \subsection{Model-View-Controller}
 \label{subs:mvc}
@@ -47,12 +60,12 @@ Codeigniter bedasarkan pola pembangunan Model-View-Controller. MVC adalah pendek
 \label{subs:model}
 \textit{Model} merepresentasikan struktur data Anda. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database.
 
-Dalam Codeigniter \textit{models} merupakan opsi yang tersedia untuk mereka yang ingin lebih menggunakan sebuah pendekatan tradisional MVC.
+Dalam Codeigniter \textit{models} merupakan opsi yang tersedia untuk mereka yang ingin lebih menggunakan sebuah pendekatan tradisional MVC.\cite{codeigniter:17}
 
 \subsubsection{Anatomi Model}
 \label{sssec:model_1}
 
-Kelas model akan disimpan di direktori \textbf{application/models/directory}. Kelas ini dapat bersarang didalam \textit{sub-directories} jika Anda menginginkan tipe organisasi seperti ini. 
+Kelas model akan disimpan di direktori \textbf{application/models/directory}. Kelas ini dapat bersarang didalam \textit{sub-directories} jika Anda menginginkan tipe organisasi seperti ini. \cite{codeigniter:17}
 
 Prototipe dasar dari sebuah model kelas :
 \begin{lstlisting}[label=phpheg, frame=single]  
@@ -71,7 +84,7 @@ application/models/User_model.php
 \subsubsection{Loading a Model}
 \label{sssec:model_2}
 
-Model Anda biasanya akan dimuat dan dipanggil didalam metode \textit{controller} Anda. Untuk memuat sebuah model anda akan menggunakan metode berikut:
+Model Anda biasanya akan dimuat dan dipanggil didalam metode \textit{controller} Anda. Untuk memuat sebuah model anda akan menggunakan metode berikut:\cite{codeigniter:17}
 
 \begin{lstlisting}[label=phpheg, frame=single] 
 $this->load->model('model_name');
@@ -79,7 +92,7 @@ $this->load->model('model_name');
 
 \subsubsection{Koneksi ke Database}
 \label{sssec:model_3}
-Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektfitas database melalui parameter ketiga:
+Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektfitas database melalui parameter ketiga:\cite{codeigniter:17}
 
 \begin{lstlisting}[label=phpheg, frame=single]
 $config['hostname'] = 'localhost';
@@ -99,11 +112,11 @@ $this->load->model('model_name', '', $config);
 \label{subs:view}
 \textit{View} adalah informasi yang sedang dilihat oleh \textit{user}. Sebuah \textit{View} normalnya menjadi sebuah halaman web, namun dalam CodeIgniter, sebuah \textit{view} dapat menjadi sebuah \textit{page fragment} seperti \textit{header} atau \textit{footer}. Dapat juga menjadi halaman RSS, atau tipe apapun dari "page".
 
-\textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Ingat bahwa dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu. 
+\textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Ingat bahwa dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu.\cite{codeigniter:17} 
 
 \subsubsection{Membuat sebuah View}
 \label{sssec:view_1}
-Dengan menggunakan \textit{text editor}, buat sebuah file yang memanggil \verb|blogview.php|, dan isi dengan kode berikut:
+Dengan menggunakan \textit{text editor}, buat sebuah file yang memanggil \verb|blogview.php|, dan isi dengan kode berikut:\cite{codeigniter:17}
 \begin{lstlisting}[frame=single, language=html]% 
 <html>
 <head>
@@ -143,7 +156,7 @@ class Blog extends CI_Controller {
 
 \subsubsection{Memuat Beberapa View}
 \label{sssec:view_2}
-Codeigniter akan menangani beberapa panggilan dari dalam controller dengan syntax \verb|$this->load->view()|. Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan. Berikut ini kode yang digunakan apabila pengembang web ingin mempunyai sebuah \textit{header view}, sebuah \textit{menu view}, sebuah \textit{content view}, dan sebuah \textit{footer view}. 
+Codeigniter akan menangani beberapa panggilan dari dalam controller dengan syntax \verb|$this->load->view()|. Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan. Berikut ini kode yang digunakan apabila pengembang web ingin mempunyai sebuah \textit{header view}, sebuah \textit{menu view}, sebuah \textit{content view}, dan sebuah \textit{footer view}. \cite{codeigniter:17}
 \begin{lstlisting}[label=phpheg, frame=single] 
 <?php
 
@@ -170,7 +183,7 @@ $this->load->view('directory_name/file_name');
 
 \subsubsection{Menambahkan data dinamis ke View}
 \label{sssec:view_4}
-Data yang dikirim dari controller menuju view dalam bentuk \textbf{array} atau objek akan dilampirkan dalam parameter kedua dalam metode loading view. 
+Data yang dikirim dari controller menuju view dalam bentuk \textbf{array} atau objek akan dilampirkan dalam parameter kedua dalam metode loading view. \cite{codeigniter:17}
 Berikut ini pengguanaan dengan array:
 \begin{lstlisting}[label=phpheg, frame=single] 
 $data = array(
@@ -219,14 +232,14 @@ Untuk mengaksesnya dalam file HTML maka dapat digunakan syntax php
 \label{subs:controller}
 \textit{Controller} bertindak sebagai sebuah penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan menghasilkan sebuah halaman web.
 
-Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan sehingga dapat dikaitkan dengan URl.
+Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan sehingga dapat dikaitkan dengan URl.\cite{codeigniter:17}
 Misalnya untuk URl ini:
 \begin{lstlisting}[label=phpheg, frame=single] 
 <?php
 example.com/index.php/blog/
 \end{lstlisting}
 
-Dalam contoh diatas, \textit{Codeigniter} berusaha menemukan \textit{controller} bernama Blog.php dan memuatnya. Ketika sebuah nama \textit{controller} sesuai dengan \textit{first segment} dari sebuah URl, maka URl akan memuatnya.
+Dalam contoh diatas, \textit{Codeigniter} berusaha menemukan \textit{controller} bernama Blog.php dan memuatnya. Ketika sebuah nama \textit{controller} sesuai dengan \textit{first segment} dari sebuah URl, maka URl akan memuatnya.\cite{codeigniter:17}
 
 Kode berikut merupakan contoh dari \textit{controller} sederhana.
 \begin{lstlisting}[label=phpheg, frame=single] 
@@ -242,7 +255,7 @@ class Blog extends CI_Controller {
 
 \subsubsection{Method}
 \label{sssec:controller_1}
-Dalam sebuah kelas \textit{controller} akan terdapat beberapa method, untuk memanggil fungsi didalamnya maka dapat mengisi segmen kedua dari sebuah url.
+Dalam sebuah kelas \textit{controller} akan terdapat beberapa method, untuk memanggil fungsi didalamnya maka dapat mengisi segmen kedua dari sebuah url. \cite{codeigniter:17}
 \begin{lstlisting}[label=phpheg, frame=single] 
 <?php
 class Blog extends CI_Controller {
@@ -277,57 +290,375 @@ example.com/index.php/blog/comments/
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{filestructure_zurb.png}  
+	\caption{Struktur File Zurb Foundation}
 	\label{fig:filestructure_zurb} 
 \end{figure}
 
 Framework Foundation terdiri dari 3 folder utama:
 Folder \textbf{css} terdiri dari semua \textit{CSS Style} yang digunakan dalam Foundation 6. Didalam folder terdapat versi yag diperkecil \verb|foundation.min.css| atau versi yang tidak dikompresi \verb|foundation.css|. Seluruh modifikasi \textit{stylesheets} ditempatkan pada folder ini agar lebih terstruktur.
 Folder \textbf{img} tempat meletakkan semua gambar untuk projek web.
-Folder \textbf{js} terdiri dari semua file Javascript yang sudah ditentukan sebelumnya.
+Folder \textbf{js} terdiri dari semua file Javascript yang sudah ditentukan sebelumnya.\cite{zurbfoundation:17}
 
 \subsection{Sistem Grid pada Foundation}
 \label{subs:grid_zurb}
-\begin{lstlisting}[breaklines,breakatwhitespace, frame=single, basicstyle=\small] 
-<!doctype html> <html class="no-js" lang="en">  
-	<head>    
-	<meta charset="utf-8" />    
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />    
-	<title>Foundation | Interchange</title> 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ foundation/6.0.1/css/foundation.min.css">
-	 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/ vendor/jquery.min.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/ foundation.min.js"></script>
-	 
-	</head> 
- <body >  
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.0.1/js/ vendor/what-input.min.js"></script> 
-	 <script>      $(document).foundation();  </script>     
- </body> 
-</html>
+Penggunaan grid pada \texttt{Foundation} dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat sebuah blok horizontal yang berisi kolom vertikal. Kemudian tambahkan kelas \texttt{.column} pada baris tersebut, serta tentukan masing-masing kolom dengan kelas \texttt{.small-#, .medium-#} dan \texttt{.large-#}. 
+\textbf{\textit{Foundation}} adalah \textit{mobile-first}. Kode yang dihasilkan dibuat untuk layar kecil terlebih dahulu, dan layar besar akan mewarisi \textit{style} dari kode tersebut. \cite{zurbfoundation:17}
+\begin{lstlisting}[frame=single] 
+<div class="row">
+  <div class="columns small-2 large-4"><!-- ... --></div>
+  <div class="columns small-4 large-4"><!-- ... --></div>
+  <div class="columns small-6 large-4"><!-- ... --></div>
+</div>
+<div class="row">
+  <div class="columns large-3"><!-- ... --></div>
+  <div class="columns large-6"><!-- ... --></div>
+  <div class="columns large-3"><!-- ... --></div>
+</div>
+<div class="row">
+  <div class="columns small-6 large-2"><!-- ... --></div>
+  <div class="columns small-6 large-8"><!-- ... --></div>
+  <div class="columns small-12 large-2"><!-- ... --></div>
+</div>
+<div class="row">
+  <div class="columns small-3"><!-- ... --></div>
+  <div class="columns small-9"><!-- ... --></div>
+</div>
+<div class="row">
+  <div class="columns large-4"><!-- ... --></div>
+  <div class="columns large-8"><!-- ... --></div>
+</div>
+<div class="row">
+  <div class="columns small-6 large-5"><!-- ... --></div>
+  <div class="columns small-6 large-7"><!-- ... --></div>
+</div>
+<div class="row">
+  <div class="columns large-6"><!-- ... --></div>
+  <div class="columns large-6"><!-- ... --></div>
+</div>
 \end{lstlisting}
 
-Pada bagian \verb|<head>|, terdapat tag meta charset yang digunakan untuk mendefinisikan set karakter dokumen HTML. Kemudian tag meta viewport membantu desainer untuk mengatur \texttt{viewport}, yaitu pembagian dari halaman web yang terlihat oleh pengguna. Sementara \texttt{width=device-width} menetapkan lebar halaman sesuai layar perangkat, \texttt{initial-scale=1.0} menunjukan bahwa device akan menampilkan layar tanpa diperbesar. Kemudian ada link yang menjelaskan mengenai CDN, berikut link nya:
-
-\url{https://cdnjs.com/libraries/foundation}
-
-Tag \texttt{<link>} akan mendefinisikan link CDN\texttt{foundation.min.css} yang berfungsi untuk file \texttt{CSS} secara default. Tautan \texttt{jquery.min.js} harus dimasukkan sebelum
-tautan \texttt{foundation.min.js}, sebagaimana plug-in dan atribut JavaScript milik Foundation
-bergantung pada jQuery.
-
-Tepat sebelum kita memanggil fungsi Foundation, kita perlu memasukkan \texttt{what-input}.
-tautan CDN \texttt{min.js}. File ini digunakan untuk melacak metode input saat ini, apakah itu 
-mouse, keyboard, atau layar sentuh. ~\cite{zurb:15:introfoundation}
-
-Buku:~\cite{berg:08:compgeom} 
-
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{gridbasic_zurb.png}  
+	\caption{Grid pada Zurb Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
 
 \subsection{\textit{Navigation} dan \textit{Media Attributes}}
 \label{subs:view}
+Komponen menu yang fleksibel pada Foundation membuat pembangunan navigasi secara umum lebih mudah karena semua pola memiliki markup yang sama.
+
+\subsubsection{Basic Menu}
+\label{sssec:navigation_1}
+
+Semua versi menu terdiri dari sebuah \texttt{<ul>} yang diisi oleh beberapa elemen \texttt{<li>}. Secara default, menu akan berorientasi horizontal.\cite{zurbfoundation:17}
+
+Berikut ini contoh penggunaan kode navigasi pada menu:
+
+\begin{lstlisting}[frame=single] 
+<ul class="menu">
+  <li><a href="#">One</a></li>
+  <li><a href="#">Two</a></li>
+  <li><a href="#">Three</a></li>
+  <li><a href="#">Four</a></li>
+</ul>
+\end{lstlisting}
+
+\begin{figure} [H]  
+    \centering  
+	\includegraphics[scale=0.7,\textwidth]{basicmenu_zurb.png}  
+	\caption{\textit{Basic Navigation Menu} pada Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\subsubsection{Item Alignment}
+\label{sssec:navigation_2}
+Secara default, setiap item dalam menu sejajar ke arah kiri. Menu dapat diubah sejajar ke arah kanan dengan menggunakan kelas \texttt{.align-right} atau kearah tengah dengan menambahkan kelas \texttt{.align-center} ke kelas \texttt{.menu} \cite{zurbfoundation:17}
+\begin{lstlisting}[frame=single] 
+<ul class="menu align-right">
+  <li><a href="#">One</a></li>
+  <li><a href="#">Two</a></li>
+  <li><a href="#">Three</a></li>
+  <li><a href="#">Four</a></li>
+</ul>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{basicmenuRight_zurb.png}  
+	\caption{Menu \textit{align to right in Foundation}}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\begin{lstlisting}[frame=single] 
+<ul class="menu align-center">
+  <li><a href="#">One</a></li>
+  <li><a href="#">Two</a></li>
+  <li><a href="#">Three</a></li>
+  <li><a href="#">Four</a></li>
+</ul>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{basicmenuCenter_zurb.png}  
+	\caption{Menu \textit{align to center in Foundation}}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\subsubsection{Active State}
+\label{sssec:navigation_3}
+Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk membuat sebuah \texttt{active state}. \texttt{Active state} bisa diatur dengan  menandai halaman aktif secara dinamis dengan Javascript atau menerapkannya pada \textit{server-side}.\cite{zurbfoundation:17}
+
+\begin{lstlisting}[frame=single] 
+<ul class="menu">
+  <li class="is-active"><a>Home</a></li>
+  <li><a>About</a></li>
+  <li><a>Nachos</a></li>
+</ul>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{activestatemenu_zurb.png}  
+	\caption{Menu \textit{active state menu in Foundation}}
+	\label{fig:activestate_zurb} 
+\end{figure}
+
+
+\subsubsection{Text}
+\label{sssec:navigation_4}
+Karena \textit{padding} item menu digunakan pada tag \texttt{<a>}, maka saat menerapkan item yang berisi teks saja, teks tersebut akan tidak selaras. Untuk menyiasatinya, maka dapat menggunakan kelas \texttt{.menu-text} ke \textit{<li>} dengan menyertakan teks tanpa link.\cite{zurbfoundation:17}
+
+\begin{lstlisting}[frame=single]
+ <ul class="menu">
+  <li class="menu-text">Site Title</li>
+  <li><a href="#">One</a></li>
+  <li><a href="#">Two</a></li>
+  <li><a href="#">Three</a></li>
+</ul>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{menutext_zurb.png}  
+	\caption{Menu \textit{active state menu in Foundation}}
+	\label{fig:activestate_zurb} 
+\end{figure}
 
 \subsection{Komponen CSS}
 \label{subs:css_zurb}
+Alasan penggunaan \textit{CSS framework} pada Foundation adalah komponen bawaan antarmuka pengguna. Dengan sistem grid dan komponennya, cukup mudah bagi pengembang untuk mengembangkan situs web yang rumit.~\cite{zurb:15:introfoundation}Beberapa komponen tersebut adalah \textit{\textbf{button, tables}} dan \textit{\textbf{forms}}.\cite{zurbfoundation:17}
+
+\subsubsection{Button}
+\label{sssec:css_1}
+\textit{Basic button} dapat dibuat dengan markup minimal. Karena tombol dapat digunakan untuk banyak tujuan, penting untuk menggunakan tag yang tepat.
+\begin{itemize}
+  \item Gunakan tag \texttt{<a> }jika tombolnya adalah tautan ke halaman lain, atau tautan ke jangkar di dalam halaman. Umumnya jangkar tidak memerlukan JavaScript untuk berfungsi.
+  \item Gunakan tag \texttt{<button>} jika tombol melakukan tindakan yang mengubah sesuatu pada halaman saat ini. Elemen \texttt{<button>} hampir selalu membutuhkan JavaScript agar berfungsi. \cite{zurbfoundation:17}
+\end{itemize}\cite{zurbfoundation:17}
+
+\begin{lstlisting}[frame=single] 
+<!-- Anchors (links) -->
+<a href="about.html" class="button">Learn More</a>
+<a href="#features" class="button">View All Features</a>
+
+<!-- Buttons (actions) -->
+<button type="button" class="success button">Save</button>
+<button type="button" class="alert button">Delete</button>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{basicbutton_zurb.png}  
+	\caption{Basic Button pada Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+Warna dapat ditambahkan untuk memberikan \textit{buttons} arti yang bermakna.
+\begin{lstlisting}[frame=single] 
+<a class="button primary" href="#">Primary</a>
+<a class="button secondary" href="#">Secondary</a>
+<a class="button success" href="#">Success</a>
+<a class="button alert" href="#">Alert</a>
+<a class="button warning" href="#">Warning</a>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{coloringbutton_zurb.png}  
+	\caption{Coloring Button pada Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\subsubsection{Tables}
+\label{sssec:css_2}
+\begin{lstlisting}[frame=single] 
+<table>
+  <thead>
+    <tr>
+      <th width="200">Table Header</th>
+      <th>Table Header</th>
+      <th width="150">Table Header</th>
+      <th width="150">Table Header</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+    <tr>
+      <td>Content Goes Here</td>
+      <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+      <td>Content Goes Here</td>
+      <td>Content Goes Here</td>
+    </tr>
+  </tbody>
+</table>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{basictable_zurb.png}  
+	\caption{Basic Table pada Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\paragraph{Hover State}
+Penggunaan Hover State dengan menambahkan kelas \texttt{.hover} untuk sedikit menggelapkan baris tabel.
+\begin{lstlisting}[frame=single] 
+<table class="hover">
+</table>
+\end{lstlisting}
+
+\paragraph{Striped}
+Secara default, tabel akan memiliki baris yang bergaris. Untuk menghapus garis-garis tersebut dapat menggunakan kelas \texttt{.unstriped} atau dengan mengubah \verb|$table-is-striped| ke \textit{false} untuk menghapus semua strip pada seluruh tabel. Gunakan pula kelas \texttt{.striped} untuk menambahkan strip.\cite{zurbfoundation:17}
+
+\subsubsection{Forms}
+\label{sssec:css_3}
+Pembuatan sebuah \textit{form} di \textit{Foundation} didesain mudah namum fleksibel. \texttt{Forms} dibuat dengan kombinasi standar dari elemen \texttt{form}, serta \textit{grid rows} dan \textit{columns} atau \textit{cells}. \cite{zurbfoundation:17}
+
+\paragraph{Text Inputs}
+Tipe input berikut ini akan membuat sebuah \textit{text field} : \verb|text, date, datetime, datetime-local, email, month, number, password, search, tel, time, url,| dan \verb|week|.
+
+\begin{lstlisting}[frame=single] 
+<form>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <label>Input Label
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+      <div class="medium-6 cell">
+        <label>Input Label
+          <input type="text" placeholder=".medium-6.cell">
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{input_zurb.png}  
+	\caption{Text Input pada Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\paragraph{Text Inputs}
+Penggunaan \texttt{select menus} untuk kombinasi beberapa pilihan ke dalam satu menu.
+\begin{lstlisting}[frame=single] 
+<label>Select Menu
+  <select>
+    <option value="husker">Husker</option>
+    <option value="starbuck">Starbuck</option>
+    <option value="hotdog">Hot Dog</option>
+    <option value="apollo">Apollo</option>
+  </select>
+</label>
+\end{lstlisting}\cite{zurbfoundation:17}
 
 \subsection{Komponen JavaScript}
-\label{subs:css_javascript}
+\label{subs:javascript_zurb}
+Foundation dilengkapi dengan komponen JavaScript untuk menambah fungsionalitas yang rumit. Komponen JavaScript dapat dimasukkan ke dalam proyek \textit{developer} sehingga membuat pengembangan front-end lebih cepat dan lebih mudah.
+
+\subsubsection{Tabs}
+\label{subs:tabs_javascript_zurb}
+Tab semakin banyak digunakan dalam desain web karena \textit{developer} dapat menyajikan konten secara seragam. Ini memungkinkan \textit{developer} untuk menyimpan banyak dokumen dalam satu \textit{window}. \textit{developer} dapat menggunakan tab sebagai widget navigasi untuk beralih antar konten sehingga menghasilkan tata letak yang sistematis dan bersih. Komponen Tab dari Foundation membantu \textit{developer} melakukan hal itu hanya dengan menambahkan beberapa baris kode. \cite{zurb:15:introfoundation}
+
+\begin{lstlisting}[frame=single] 
+<ul class="tabs" data-tabs id="tab_component">
+ <li class="tabs-title"><a href="#pub1">Section 1</a></li>
+ <li class="tabs-title is-active"><a href="#pub2">Section 2</a></li>
+ <li class="tabs-title"><a href="#pub3">Section 3</a></li>
+ <li class="tabs-title"><a href="#pub4">Section 4</a></li>
+</ul>
+<div class="tabs-content" data-tabs-content="tab_component">
+ <div class="tabs-panel" id="pub1">
+ <p>Far far away, behind the word mountains, far from the countries
+Vokalia and Consonantia, there live the blind texts.</p>
+ </div>
+ <div class="tabs-panel is-active" id="pub2">
+ <p> Separated they live in Bookmarksgrove right at the coast of the
+Semantics, a large language ocean. </p>
+ </div>
+ <div class="tabs-panel" id="pub3">
+ <p>A small river named Duden flows by their place and supplies it with
+the necessary regelialia.</p>
+ </div>
+ <div class="tabs-panel" id="pub4">
+ <p>It is a paradisematic country, in which roasted parts of sentences
+fly into your mouth. </p>
+ </div>
+</div>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{tabs_component_zurb.png}  
+	\caption{Grid pada Zurb Foundation}
+	\label{fig:gridbasic_zurb} 
+\end{figure}
+
+\subsubsection{Dropdown Menu}
+\label{subs:dropdown_javascript_zurb}
+Berfungsi untuk mengubah menu dasar menjadi menu dropdown yang dapat di-expand dengan plugin Menu Dropdown.
+Menu dropdown dibangun berdasarkan sintaks komponen \textbf{Menu}. Tambahkan kelas \texttt{.dropdown} dan atribut \texttt{data-dropdown-menu} ke wadah menu untuk mengatur dropdown. \cite{zurbfoundation:17}
+\begin{lstlisting}[frame=single] 
+<ul class="dropdown menu" data-dropdown-menu>
+  <li><a href="#">Item 1</a></li>
+  <li><a href="#">Item 2</a></li>
+  <li><a href="#">Item 3</a></li>
+  <li><a href="#">Item 4</a></li>
+</ul>
+\end{lstlisting}
+
+\subsubsection{Reveal}
+\label{subs:modals_javascript_zurb}
+Modal hanyalah wadah kosong, sehingga \textit{developer} dapat menaruh segala jenis konten di dalamnya, seperti teks ke formulir hingga video ke seluruh \textit{grid}.
+Untuk membuat modal, tambahkan kelas \texttt{.reveal}, atribut \texttt{data-reveal}, dan ID yang unik ke dalam \textit{container}.
+
+\begin{lstlisting}[frame=single] 
+<div class="reveal" id="exampleModal1" data-reveal>
+  <h1>Awesome. I Have It.</h1>
+  <p class="lead">Your couch. It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+\end{lstlisting}
  
 
 \section{Bootstrap 4}
