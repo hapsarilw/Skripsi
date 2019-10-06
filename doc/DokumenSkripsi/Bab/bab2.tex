@@ -4,26 +4,99 @@
 
 \section{BlueTape}
 \label{sec:bluetape}
-BlueTape adalah aplikasi+framework untuk membuat urusan-urusan paper-based di FTIS UNPAR menjadi paperless. Aplikasi ini berbasis web dengan memanfaatkan CodeIgniter + ZURB Foundation.
+Bluetape merupakan aplikasi berbasis web, berguna sebagai aplikasi yang menunjang proses administrasi dalam lingkungan FTIS UNPAR. Web ini dapat diakses pada \url{http://www.bluetape.azurewebsites.net}.
 
-Fitur-fitur:
+\subsection{Login}
+Halaman utama aplikasi BlueTape akan mengarahkan \textit{user} untuk \textit{login} dengan menggunakan Google, user akan login dengan melihat beberapa kondisi ini:
 \begin{itemize}
-  \item Framework disediakan untuk menambah layanan baru. Menu sudah disediakan, developer tinggal menambah dalam bentuk modul (lihat CONTRIBUTING.md)
-  \item Layanan OAuth ke Google, memungkinkan autentikasi pengguna dan menentukan hak akses yang bisa dilihat dari alamat email pengguna, misalnya: membatasi akses ke mahasiswa Informatika ke email 73.....@student.unpar.ac.id, akses ke mahasiswa FTIS ke 7[0123].....@student.unpar.ac.id. Untuk staf TU / dosen bisa juga dengan mendaftarkan email staf / dosen.
+\item Apabila \textit{user} belum pernah login menggunakan akun UNPAR(xxx@student.unpar.ac.id atau yyy@unpar.ac.id) maka  \textit{user} akan diminta untuk memasukan email UNPAR dan password
+\item Apabila user sudah pernah login menggunakan akun UNPAR, maka \textit{user} akan diminta untuk memilih akun beserta password.
+\item User akan terhubung otomatis dengan akun @gmail.com. Apabila BlueTape menolak autentikasi user maka: User akan diminta untuk buka halaman Gmail lalu klik avatar di kanan atas dan memilih akun UNPAR yang tepat pada \textit{button} "Add Account"
+\end{itemize}
+User akan melihat beberapa menu sesuai dengan \textit{role} user, sebagau mahasiswa, staf TU, dll.
+
+\subsection{Dosen}
+\subsubsection{Perubahan Kuliah}
+Modul perubahan kuliah berguna untuk mengirimkan permintaan perubahan mata kuliah yang dikirim oleh dosen kepada staf Tata Usaha. Kolom - kolom yang terdapat dalam modul ini:
+\begin{itemize}
+\item Kode MK (Mata Kuliah)
+\item Nama Mata Kuliah
+\item Kelas
+\item Jenis perubahan (diganti / tambahan / ditiadakan)
+\item Dari (hari/jam dan ruang) dan ke(hari/jam dan tempat)
+\item Keterangan
+\end{itemize}
+Apabila ada kolom yang belum dapat diisi(contoh : dosen belum tahu tempat kelas pengganti) maka kolom kelas dapat dikosongkan.
+Dosen juga dapat membuat lebih dari 1 kelas pengganti, dengan mengklik tombol "Tambah Pertemuan Ekstra".
+Setelah dosen klik "Kirim Permohonan", maka sistem akan mengirim permohonan ke halaman BlueTape bagian Tata Usaha utnuk diperiksa, disetujui, dan dicetak sebagai pengumuman. Jika staf Tata Usaha telah selesai mengkonfirmasi(atau menolak), maka dosen akan mendapatkan e-mail notifikasi.
+
+\subsection{Dosen Informatika}
+\subsubsection{Entri Jadwal Dosen}
+Dosen informatika dapat menggunakan menu ini untuk mengisikan jadwal mingguan. Hasil dari pengisian jadwal dapat diekspor ke XLS, atau dapat dilihat oleh mahasiswa informatika melalui portal BlueTape.
+\subsubsection{Tambah Jadwal}
+Pada bagian entri jadwal, dosen informatika dapat mengisikan hari, jam mulai, durasi, label, dan sejenisnya. Berikut ini jenis yang dapat dipilih:
+\begin{itemize}
+\item Konsultasi : Waktu yang dosen siapkan untuk konsultasi mahasiswa. Pada tabel akan diberi \textit{background} berwaena kuning.
+\item Terjadwal: Kegiatan mingguan dosen informatika yang telah terjadwal. Contoh : rapat jurusan
+\item Kelas : Kelas kuliah maupun praktikum.
+\end{itemize}
+Lalu dosen dapat klik tombol "Tambah" untuk menambahkan
+
+\subsubsection{Ubah/Hapus Jadwal}
+Dosen dapat mengubah atau menghapus jadwal yang tertera pada tabel. Lalu Pop up window akan terbuka dengan pilihan-pilihan yang sesuai dengan permintaan dosen.
+
+\subsubsection{Hapus Semua}
+Tombol "Delete All" dapat digunakan untuk menghapus secara cepat seluruh jadwal yang telah dosen buat sebelumnya. Penggunaan tombol ini biasa nya digunakan pada awal semester, dimana jadwal yang dosen miliki berubah seluruhnya.
+
+\subsubsection{Ekspor ke XLS}
+Tombol "Ekspor ke XLS" berfungsi untuk membuat file XLS untuk jadwal dosen.
+
+\subsection{Mahasiswa}
+\subsubsection{Cetak Transkrip}
+Mahasiswa dapat menggunakan menu ini untuk mengirimkan permohonan cetak transkrip
+Mahasiswa mengirimkan permohonan pencetakan transkrip dengan mengisi kolom-kolom pada formulir "Permohonan Baru".
+Mahasiswa hanya dapat mengirimkan permohonan:
+\begin{itemize}
+\item Maksimal 1x dalam satu semester (kecuali permohonan ditolak)
+\item Jika ada permohonan yang belum dijawab.
 \end{itemize}
 
-Saat ini tersedia layanan:
+\subsubsection{Mahasiswa Informatika}
+\subsubsection{Lihat Jadwal Dosen}
+Mahasiswa dapat melihat jadwal mingguan seluruh dosen dengan memilih nama dosen pada seleksi tab, dan tabel jadwal dosen akan ditampilkan pada bagian bawah halaman. Selain itu tabel juga berisi informasi tanggal terakhir dosen meng-\textit{update} jadwal sehingga mahasiswa dapat melihat apakah jadwal tersebut merupakan jadwal semester ini atau semester lalu. 
+Lalu terdapat tombol "Ekspor ke XLS" pada halaman lihat jadwal dosen, sehingga mahasiswa dapat menyimpan atau mencetak jadwal tersebut. 
+
+\subsection{Staf Tata Usaha}
+\subsubsection{Manajemen Perubahan Kuliah}
+Staf Tata Usaha dapat melakukan manajemen permintaan perubahan kuliah. Sebuah tabel akan menampilkan daftar permohonan dengan menampilkan tanggal kapan permohonan dibuat.
+Setiap daftar permohonan akan memiliki beberapa tombol :
 \begin{itemize}
-	\item
-	\item
+\item \includegraphics[height=0.7\baselineskip]{tombol_eye.png} berfungsi untuk melihat detail permohonan sehingga dapat menentukan apakah permohonan disetujui atau tidak.
+\item \includegraphics[height=0.7\baselineskip]{tombol_print.png} berfungsi untuk membuka pop-up print-out pengumuman.
+\item \includegraphics[height=0.7\baselineskip]{tombol_good.png} berfungsi sebagai konfirmasi bahwa pengumuman telah dicetak dan disebarkan.
+\item \includegraphics[height=0.7\baselineskip]{tombol_bad.png} berfungsi untuk menyatakan bahwa permohonan ditolak. Staf Tata Usaha akan mengisi alasan mengapa permohonan ditolak sehingga tidak membingungkan pemohon.
+\item \includegraphics[height=0.7\baselineskip]{tombol_trash.png} berfungsi untuk menghapus permohonan \textbf{secara permanen}. Staf Tata Usaha dihimbau agar tidak menggunakan tombol ini kecuali dalam keadaan terpaksa.
 \end{itemize}
 
+\subsubsection{Manajemen Cetak Transkrip}
+Staf Tata Usaha dapat melihat daftar perminttan transkrip dalam bentuk tabel. Keterangan mengenai transkrip dapat dilihat menggunakan tombol \includegraphics[height=0.6\baselineskip]{tombol_eye.png} (detail). Selain itu terdapat dua pilihan jawaban dalam setiap daftar permintaan yaitu \includegraphics[height=0.7\baselineskip]{tombol_bad.png} (tolak) dan 
+\includegraphics[height=0.7\baselineskip]{tombol_print.png} (cetak). Masing-masing tombol memerlukan keterangan tambahan mengeai alasan mengapa transkrip dapat dicetak maupun ditolak.
+
+Modul ini berguna untuk manajemen permohonan cetka transkrip. Terdapat sebuah tabel yang menapilkan daftar pemohonan dengan tanggal yang terurut. Staf Tata Usaha dapat mencari daftar permintaan berdasarkan NPM pemohon.
+
+Beberapa tombol yang tersedia untuk setiap permohonan :
+
+\begin{itemize}
+\item \includegraphics[height=0.7\baselineskip]{tombol_eye.png} berfungsi untuk melihat detail permohonan sehingga dapat menentukan apakah permohonan disetujui atau tidak.
+\item \includegraphics[height=0.7\baselineskip]{tombol_print.png} berfungsi untuk membuka pop-up print-out pengumuman. Dalam pop-up akan disediakan sebuah link menuju halaman percetakan transkrip pada SIAkad.
+\item \includegraphics[height=0.7\baselineskip]{tombol_bad.png} berfungsi untuk menyatakan bahwa permohonan ditolak. Staf Tata Usaha akan mengisi alasan mengapa permohonan ditolak sehingga tidak membingungkan pemohon.
+\item \includegraphics[height=0.7\baselineskip]{tombol_trash.png} berfungsi untuk menghapus permohonan \textbf{secara permanen}. Staf Tata Usaha dihimbau agar tidak menggunakan tombol ini kecuali dalam keadaan terpaksa.
+\end{itemize}  
 
 \section{CodeIgniter}
 \label{sec:code_igniter}
-Codeigniter adalah sebuah kerangka kerja untuk pengembangan aplikasi - sebuah alat - bagi masyarakat yang ingin membangun website menggunakan PHP. Bertujuan agar proyek yang sedang dikembangkan lebih cepat daripada Anda menulis kode dari awal / \textit{scratch}, dengan menyediakan seperangkat libraries untuk tugas yang umumnya digunakan, semudah sebuah \textit{interface} dan struktur logika untuk mengakses \textit{libraries} tersebut. Codeigniter memungkinkan untuk fokus pada proyek Anda dengan mengurangi kode yang dibutuhkan untuk tugas tertentu. \cite{codeigniter:17}
+
 \subsection{Application Flow Chart}
-\label{subs:app_flowchart}
 Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
 
 \begin{figure} [H]
@@ -39,26 +112,25 @@ Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
 \item Apabila terdapat \textit{cache}, maka \textit{cache} tersebut akan dikirimkan langsung ke browser, dengan melewati sistem eksekusi normal.
 \item Keamanan. Sebelum \textit{controller} aplikasi dimuat, \textit{HTTP request} dan \textit{user} mana pun yang mengirimkan data diseleksi dahulu untuk keamanan.
 \item Controller memuat \textit{model, core libraries, helpers}, dan \textit{resources} yang dibutuhkan untuk proses \textit{request} yang spesifik.
-\item \textit{View} yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan dicache terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\citep{codeIgniter:17}
+\item \textit{View} yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan dicache terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\cite{codeigniter:17}
+\end{enumerate}
 
 \subsection{CodeIgniter URLs}
 \label{subs:urls}
 Codeigniter menggunakan pendekatan \textbf{berbasis-segmen}:\cite{codeigniter:17}
 \begin{lstlisting}[frame=single] 
-example.com/news/article/my_article
+example.com/class/function/ID
 \end{lstlisting}
 
-\subsubsection{Url Segments}
-\label{sssec:url_1}
-
-
-\subsection{Model-View-Controller}
-\label{subs:mvc}
-Codeigniter bedasarkan pola pembangunan Model-View-Controller. MVC adalah pendekatan perangkat lunak yang memisahkan aplikasi logik dari presentasi. Dalam prakteknya, memungkinkan untuk \textit{web pages} Anda berisi \textit{scripting} yang sedikit karena presentasi terpisah dari skrip PHP.
+\begin{enumerate}
+\item Segmen pertama menyatakan kelas \textit{controller} yang harus dipanggil.
+\item Segmen kedua menyatakan fungsi kelas, atau metode, yang harus dipanggil.
+\item Segmen ketiga dan setiap segmen setelahnya menyatakan ID dan variabel apa pun yang akan diteruskan ke controller.
+\end{enumerate}
 
 \subsection{Model}
 \label{subs:model}
-\textit{Model} merepresentasikan struktur data Anda. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database.
+\textit{Model} merepresentasikan struktur data. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database.
 
 Dalam Codeigniter \textit{models} merupakan opsi yang tersedia untuk mereka yang ingin lebih menggunakan sebuah pendekatan tradisional MVC.\cite{codeigniter:17}
 
@@ -68,7 +140,7 @@ Dalam Codeigniter \textit{models} merupakan opsi yang tersedia untuk mereka yang
 Kelas model akan disimpan di direktori \textbf{application/models/directory}. Kelas ini dapat bersarang didalam \textit{sub-directories} jika Anda menginginkan tipe organisasi seperti ini. \cite{codeigniter:17}
 
 Prototipe dasar dari sebuah model kelas :
-\begin{lstlisting}[label=phpheg, frame=single]  
+\begin{lstlisting}[frame=single]  
 <?php
 class Model_name extends CI_Model {
 
@@ -77,7 +149,7 @@ class Model_name extends CI_Model {
 
 Nama file juga harus sama dengan nama kelas. Sehingga apabila kita ada kelas \verb|User_model| maka file Anda akan seperti ini.
 
-\begin{lstlisting}[label=phpheg, frame=single]  
+\begin{lstlisting}[frame=single]  
 application/models/User_model.php
 \end{lstlisting}
 
@@ -86,7 +158,7 @@ application/models/User_model.php
 
 Model Anda biasanya akan dimuat dan dipanggil didalam metode \textit{controller} Anda. Untuk memuat sebuah model anda akan menggunakan metode berikut:\cite{codeigniter:17}
 
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 $this->load->model('model_name');
 \end{lstlisting}
 
@@ -94,7 +166,7 @@ $this->load->model('model_name');
 \label{sssec:model_3}
 Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektfitas database melalui parameter ketiga:\cite{codeigniter:17}
 
-\begin{lstlisting}[label=phpheg, frame=single]
+\begin{lstlisting}[frame=single]
 $config['hostname'] = 'localhost';
 $config['username'] = 'myusername';
 $config['password'] = 'mypassword';
@@ -105,8 +177,7 @@ $config['pconnect'] = FALSE;
 $config['db_debug'] = TRUE;
 
 $this->load->model('model_name', '', $config);
-\end{lstlisting}
-
+\end{lstlisting}{listing only}
 
 \subsection{View}
 \label{subs:view}
@@ -143,7 +214,7 @@ Dimana \textit{name} adalah nama dari file \textit{view}.
 
 Lalu, buka file \textit{controller} yang dibuat sebelumnya bernama Blog.php, dan pindahkan \textit{echo statement} dengan \textit{view loading method.}
 
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 <?php
 class Blog extends CI_Controller {
 
@@ -157,7 +228,7 @@ class Blog extends CI_Controller {
 \subsubsection{Memuat Beberapa View}
 \label{sssec:view_2}
 Codeigniter akan menangani beberapa panggilan dari dalam controller dengan syntax \verb|$this->load->view()|. Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan. Berikut ini kode yang digunakan apabila pengembang web ingin mempunyai sebuah \textit{header view}, sebuah \textit{menu view}, sebuah \textit{content view}, dan sebuah \textit{footer view}. \cite{codeigniter:17}
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 <?php
 
 class Page extends CI_Controller {
@@ -177,7 +248,7 @@ class Page extends CI_Controller {
 \subsubsection{Menyimpan Views didalam \textit{Sub-directories}}
 \label{sssec:view_3}
 View files dapat disimpan didalam \textit{sub-directories} dengan menyertakan nama direktori yang memuat \textit{view}.
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 $this->load->view('directory_name/file_name');
 \end{lstlisting}
 
@@ -185,7 +256,7 @@ $this->load->view('directory_name/file_name');
 \label{sssec:view_4}
 Data yang dikirim dari controller menuju view dalam bentuk \textbf{array} atau objek akan dilampirkan dalam parameter kedua dalam metode loading view. \cite{codeigniter:17}
 Berikut ini pengguanaan dengan array:
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 $data = array(
         'title' => 'My Title',
         'heading' => 'My Heading',
@@ -196,13 +267,13 @@ $this->load->view('blogview', $data);
 \end{lstlisting}
 
 Kemudian, penggunaan dengan objek:
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 $data = new Someclass();
 $this->load->view('blogview', $data);
 \end{lstlisting}
 
 Sehingga apabila dimasukan ke controller, kode yang ditambahkan adalah:
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 <?php
 class Blog extends CI_Controller {
 
@@ -234,7 +305,7 @@ Untuk mengaksesnya dalam file HTML maka dapat digunakan syntax php
 
 Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan sehingga dapat dikaitkan dengan URl.\cite{codeigniter:17}
 Misalnya untuk URl ini:
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 <?php
 example.com/index.php/blog/
 \end{lstlisting}
@@ -242,13 +313,13 @@ example.com/index.php/blog/
 Dalam contoh diatas, \textit{Codeigniter} berusaha menemukan \textit{controller} bernama Blog.php dan memuatnya. Ketika sebuah nama \textit{controller} sesuai dengan \textit{first segment} dari sebuah URl, maka URl akan memuatnya.\cite{codeigniter:17}
 
 Kode berikut merupakan contoh dari \textit{controller} sederhana.
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 <?php
 class Blog extends CI_Controller {
 
         public function index()
         {
-                echo 'Hello World!';
+                echo 'Hello World'
         }
 }
 \end{lstlisting} 
@@ -256,7 +327,7 @@ class Blog extends CI_Controller {
 \subsubsection{Method}
 \label{sssec:controller_1}
 Dalam sebuah kelas \textit{controller} akan terdapat beberapa method, untuk memanggil fungsi didalamnya maka dapat mengisi segmen kedua dari sebuah url. \cite{codeigniter:17}
-\begin{lstlisting}[label=phpheg, frame=single] 
+\begin{lstlisting}[frame=single] 
 <?php
 class Blog extends CI_Controller {
 
@@ -658,149 +729,481 @@ Untuk membuat modal, tambahkan kelas \texttt{.reveal}, atribut \texttt{data-reve
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-\end{lstlisting}
- 
+\end{lstlisting} 
 
 \section{Bootstrap 4}
-\label{sec:bootstrap4}
- 
-\section{Template Skripsi FTIS UNPAR}
-\label{sec:template}
- 
-Akan dipaparkan bagaimana menggunakan template ini, termasuk petunjuk singkat membuat referensi, gambar dan tabel.
-Juga hal-hal lain yang belum terpikir sampai saat ini. 
- 
-\dtext{15-16}
+\subsection{Sistem Grid Bootstrap}
+Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{gridbasic_bootstrap.png}  
+	\caption{Grid pada Bootstrap} 
+\end{figure}
 
-\subsection{Tabel}  
-Berikut adalah contoh pembuatan tabel. 
-Penempatan tabel dan gambar secara umum diatur secara otomatis oleh \LaTeX{}, perhatikan contoh di file bab2.tex untuk melihat bagaimana cara memaksa tabel ditempatkan sesuai keinginan kita.
+\begin{lstlisting}[frame=single] 
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+\end{lstlisting}
+Dalam contoh diatas akan dibuat tiga kolom yang memiliki lebar yang sama baik dalam \textit{device} \textit{small, medium, large} dan \textit{extra large} menggunakan kelas grid yang sudah ditentukan sebelumnya oleh Bootstrap. Penggunaan \verb|.container| akan membuat kolom berada ditengah halaman.
 
-Perhatikan bawa berbeda dengan penempatan judul gambar gambar, keterangan tabel harus diletakkan di atas tabel!!
-Lihat Tabel~\ref{tab:contoh1} berikut ini:
-
-\begin{table}[H] %atau h saja untuk "kira kira di sini"
-	\centering 
-	\caption{Tabel contoh}
-	\label{tab:contoh1}
-	\begin{tabular}{cccc}
-		\toprule
-		& $v_{start}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
-
-		\midrule
-		$\tau_{1}$ & 1 & 12& 20\\
-		$\tau_{2}$ & 1 &  & 20\\
-		$\tau_{3}$ & 1 & 9 & 20\\
-		$\tau_{4}$ & 1 &  & 20\\
-
-		\bottomrule
-		
-	\end{tabular} 
-\end{table}
-Tabel~\ref{tab:cthwarna1} dan Tabel~\ref{tab:cthwarna2} berikut ini adalah tabel dengan sel yang berwarna dan ada dua tabel yang bersebelahan. 
-\begin{table}[H]
-	\begin{minipage}[c]{0.49\linewidth}
-		\centering
-		\caption{Tabel bewarna(1)}
-		\label{tab:cthwarna1}
-		\begin{tabular}{ccccc}
-			\toprule
-			 & $v_{start}$ & $\mathcal{S}_{2}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
-			
-			\midrule
-			$\tau_{1}$ & 1 & 5 \cellcolor{green}& 12& 20\\
-			$\tau_{2}$ & 1 & 8 \cellcolor{green}& & 20\\
-			$\tau_{3}$ & 1 & 2/8/17 \cellcolor{green}& 9 & 20\\
-			$\tau_{4}$ & 1 & \cellcolor{red}& & 20\\
-			
-			\bottomrule
-
-		\end{tabular}
-	\end{minipage}
-	\begin{minipage}[c]{0.49\linewidth}
-		
-		\centering 
-		\caption{Tabel bewarna(2)}
-		\label{tab:cthwarna2}
-		\begin{tabular}{ccccc}
-			\toprule
-			 & $v_{start}$ & $\mathcal{S}_{1}$ & $\mathcal{S}_{2}$ & $v_{end}$\\
-			
-			\midrule
-			$\tau_{1}$ & 1 & 12& 5 \cellcolor{red} &20\\
-			$\tau_{2}$ & 1 &  &  8 \cellcolor{green} &20\\
-			$\tau_{3}$ & 1 & 9 & 2/8/17 \cellcolor{green} &20\\
-			$\tau_{4}$ & 1 &   & \cellcolor{red} &20\\
-			
-			\bottomrule
-		
-		\end{tabular}
-	\end{minipage}
-\end{table}
-
- 
-\subsection{Kutipan}
-\label{subs:kutipan} 
-Berikut contoh kutipan dari berbagai sumber, untuk keterangan lebih lengkap, silahkan membaca file referensi.bib yang disediakan juga di template ini.
-Contoh kutipan:
+Secara detil, bootstrap bekerja dengan cara:
 \begin{itemize}
-	\item Buku:~\cite{berg:08:compgeom} 
-	\item Bab dalam buku:~\cite{kreveld:04:GIS}
-	\item Artikel dari Jurnal:~\cite{buchin:13:median}
-	\item Artikel dari prosiding seminar/konferensi:~\cite{kreveld:11:median}
-	\item Skripsi/Thesis/Disertasi:~\cite{lionov:02:animasi}~\cite{wiratma:10:following}~\cite{wiratma:22:later}
-	\item Technical/Scientific Report:~\cite{kreveld:07:watertight}
-	\item RFC (Request For Comments):~\cite{RFC1654}
-	\item Technical Documentation/Technical Manual:~\cite{Z.500}~\cite{unicode:16:stdv9}~\cite{google:16:and7}
-	\item Paten:~\cite{webb:12:comm}
-	\item Tidak dipublikasikan:~\cite{wiratma:09:median}~\cite{lionov:11:cpoly}
-	\item Laman web:~\cite{erickson:03:cgmodel}  
-	\item Lain-lain:~\cite{agung:12:tango}
-\end{itemize}    
-  
-\subsection{Gambar}
-
-Pada hampir semua editor, penempatan gambar di dalam dokumen \LaTeX{} tidak dapat dilakukan melalui proses {\it drag and drop}.
-Perhatikan contoh pada file bab2.tex untuk melihat bagaimana cara menempatkan gambar.
-Beberapa hal yang harus diperhatikan pada saat menempatkan gambar:
-\begin{itemize}
-	\item Setiap gambar {\bf harus} diacu di dalam teks (gunakan {\it field} {\sc label})
-	\item {\it Field} {\sc caption} digunakan untuk teks pengantar pada gambar. Terdapat dua bagian yaitu yang ada di antara tanda $[$ dan $]$ dan yang ada di antara tanda $\{$ dan $\}$. Yang pertama akan muncul di Daftar Gambar, sedangkan yang kedua akan muncul di teks pengantar gambar. Untuk skripsi ini, samakan isi keduanya.
-	\item Jenis file yang dapat digunakan sebagai gambar cukup banyak, tetapi yang paling populer adalah tipe {\sc 
-	} (lihat Gambar~\ref{fig:ularpng}), tipe {\sc jpg} (Gambar~\ref{fig:ularjpg}) dan tipe {\sc pdf} (Gambar~\ref{fig:ularpdf})
-	\item Besarnya gambar dapat diatur dengan {\it field} {\sc scale}.
-	\item Penempatan gambar diatur menggunakan {\it placement specifier} (di antara tanda  $[$ dan $]$ setelah deklarasi gambar.
-	Yang umum digunakan adalah {\bf H} untuk menempatkan gambar {\bf sesuai} penempatannya di file .tex atau  {\bf h} yang berarti "kira-kira" di sini. \\
-	Jika tidak menggunakan {\it placement specifier}, \LaTeX{} akan menempatkan gambar secara otomatis untuk menghindari bagian kosong pada dokumen anda.
-	Walaupun cara ini sangat mudah, hindarkan terjadinya penempatan dua gambar secara berurutan. 	
-	\begin{itemize}
-		\item Gambar~\ref{fig:ularpng} ditempatkan di bagian atas halaman, walaupun penempatannya dilakukan setelah penulisan 3 paragraf setelah penjelasan ini.
-		\item Gambar~\ref{fig:ularjpg} dengan skala 0.5 ditempatkan di antara dua buah paragraf. Perhatikan penulisannya di dalam file bab2.tex!
-		\item Gambar~\ref{fig:ularpdf} ditempatkan menggunakan {\it specifier} {\bf h}.
-	\end{itemize}
+\item \textit{Container} disediakan agar konten berada ditengah halaman dan mengisi konten tersebut secara horizontal. Penggunaan \verb|.container| untuk menentukan lebar pixel secara responsif atau \verb|.container-fluid| untuk membuat lebar: 100\%  di semua ukuran \textit{viewport} dan perangkat.
+\item Sebuah baris akan membungkus kolom - kolom. Setiap kolom akan memiliki \textit{padding} secara horizontal yang disebut \verb|gutter| untuk mengatur jarak antar kolom.
+\item Penggunaan flexbox akan membuat lebar pada kolom tidak perlu dispesifikasikan. Misalnya empat variabel dari \verb|.com-sm| akan secara otomatis membuat lebar kolom sebesar 25\%.
+\item Kelas kolom menunjukkan jumlah kolom yang ingin digunakan, dengan maksimal 12 kolom per baris. Apabila \textit{developer} menginginkan tiga kolom yang memiliki lebar yang sama maka dapat menggunakan \texttt{.col-4}.
+\item Lebar kolom diatur dalam persentase, sehingga kolom akan memiliki lebar yang berubah-ubah dan ukuran bergantung dengan elemen \textit{parent} nya.
 \end{itemize}
+\subsubsection{Pilihan Grid}
+Bootstrap menggunakan px untuk grid breakpoint dan lebar container. Ini dikarenakan lebar \textit{viewport} ditentukan denga satuan pixels.
+Berikut ini tabel yang menjelaskan penggunaan kelas grid dalam berbagai perangkat :
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{gridoption_bootstrap.png}  
+	\caption{Pilihan kelas grid pada Bootstrap} 
+\end{figure}
+
+\subsection{Konten}
+\subsubsection{Tabel}
+Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{tablebasic_bootstrap.png}  
+	\caption{Tabel default pada Bootstrap} 
+\end{figure}
+
+\begin{lstlisting}[frame=single] 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+\end{lstlisting}
+
+\subsubsection{Opsi Tabel dengan \textit{head} yang dimodifikasi}
+Penggunaan kelas \texttt{.thead-light} atau \texttt{.thead-dark} dapat digunakan untuk membuat \texttt{<thead>} menjadi abu muda atau abu tua.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{tablehead_bootstrap.png}  
+	\caption{Tabel dengan thead yang dimodifikasi pada Bootstrap} 
+\end{figure}
+
+\begin{lstlisting}[frame=single] 
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+\end{lstlisting}
+
+\subsubsection{Gambar}
+Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan kelas \texttt{.img-fluid} serta mengatur lebar gambar dengan properties \texttt{max-width: 100\%} dan \texttt{height: auto}. Sehingga gambar tidak pernah lebih besar dari \textit{parent} nya. 
+
+\textit{Developer} dapat menyelaraskan (align) sebuah gambar ke kiri atau kanan dengan \textbf{helper float classes} atau \textbf{text alignment classes}. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{imgalign_bootstrap.PNG}  
+	\caption{\it{Menyelaraskan gambar ke kanan dan kiri pada bootstrap}} 
+\end{figure}
+\begin{lstlisting}[frame=single]
+<img src="..." class="rounded float-left" alt="...">
+<img src="..." class="rounded float-right" alt="...">
+\end{lstlisting}
+
+
+
+\subsection{Komponen}
+\subsubsection{Formulir}
+\textit{Form} pada Bootstrap menyediakan beragam tipe input sesuai dengan kebutuhan \textit{user}. Contohnya penggunaan kelas \texttt{email} untuk \textit{input} email atau \texttt{number} untuk input berupa angka.
+\subsubsection{Form Controls}
+\textit{Developer} dapat membuat form menggunakan kelas \texttt{.form-control}. Kelas ini terdiri dari beberapa tag seperti tag \texttt{<input>, <select>} dan \texttt{<textarea>}.
+\begin{lstlisting}[frame=single, basicstyle=\tiny] 
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{formsbasic_bootstrap.png}  
+	\caption{Forms Basic pada Bootstrap} 
+\end{figure} 
+\subsubsection{Column Sizing}
+Bootstrap memungkinkan \textit{developer} untuk menempatkan sejumlah \texttt{.col} di dalam baris \texttt{.row} atau \texttt{.form} dengan lebar tertentu. Misalnya ada tiga buah kolom, kolom pertama memiliki lebar 7 dengan menggunakan kelas \texttt{.col-7} maka dua kolom sisanya akan memiliki lebar yang  memenuhi baris tersebut.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{columnsizing_bootstrap.png}  
+	\caption{Forms Basic pada Bootstrap} 
+\end{figure} 
+\begin{lstlisting}[frame=single] 
+<form>
+  <div class="form-row">
+    <div class="col-7">
+      <input type="text" class="form-control" placeholder="City">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="State">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="Zip">
+    </div>
+  </div>
+</form>
+\end{lstlisting}
+\subsubsection{Disabled Forms}
+Penambahan atribut boolean \texttt{disabled} pada sebuah input membuat \textit{user} tidak bisa mengisi data pada \textit{field} tersebut. Untuk non-aktifkan seluruh \textit{field} pada sebuah kolom dapat menambahkan atribut \texttt{disabled} pada tag \texttt{<fieldset>}.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{disabledforms_bootstrap.png}  
+	\caption{Disabled Basic pada Bootstrap} 
+\end{figure}
+\begin{lstlisting}[frame=single, basicstyle=\tiny] 
+<form>
+  <fieldset disabled>
+    <div class="form-group">
+      <label for="disabledTextInput">Disabled input</label>
+      <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+    </div>
+    <div class="form-group">
+      <label for="disabledSelect">Disabled select menu</label>
+      <select id="disabledSelect" class="form-control">
+        <option>Disabled select</option>
+      </select>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+      <label class="form-check-label" for="disabledFieldsetCheck">
+        Can't check this
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+\end{lstlisting}
+\subsubsection{Tombol}
+Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisikan sebelumnya, membuat setiap button akan memiliki makna nya sendiri.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{buttons_bootstrap.png}  
+	\caption{Button pada Bootstrap} 
+\end{figure}
+\begin{lstlisting}[frame=single] 
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+\end{lstlisting}
+\subsubsection{Button with Dropdowns}
+\begin{lstlisting}[frame=single, basicstyle=\tiny]
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+  <input type="text" class="form-control" aria-label="Text input with dropdown button">
+</div>
+
+<div class="input-group">
+  <input type="text" class="form-control" aria-label="Text input with dropdown button">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+</div>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{buttonsdropdown_bootstrap.PNG}  
+	\caption{Tombol \textit{dropdown} pada Bootstrap} 
+\end{figure}
+
+\subsubsection{Navigation Bar}
+Navbar pada Bootstrap terdiri dari beberapa sub-komponen yang bisa digunakan sesuai dengan kebutuhan:
+\begin{itemize}
+    \item \texttt{.navbar-brand} : Komponen untuk menampilkan nama perusahaan, nama produk atau nama proyek.
+    \item \texttt{.navbar-nav} : Komponen untuk membuat navigasi memiliki lebar yang memenuhi layar.
+    \item \texttt{.navbar-toggler} : Komponen yang digunakan bersamaan dengan plugin untuk membuat efek jatuh dan perilaku navigasi lainnya.
+    \item \texttt{.form-inline} : Komponen untuk pengaturan formulir dan aksi.
+    \item \texttt{.collapse.navbar-collapse} : Komponen untuk mengelompokkan dan menyembunyikan \textit{navigation bar} dengan sebuah breakpoint induknya.
+    %breakpoint : titik dimana terjadi perubahan (xs(br:0px), sm.. )
+\end{itemize}
+Berikut ini merupakan semua sub-komponen yang termasuk dalam navigation bar, navbar mengimplementasikan tema \texttt{light-themed} yang secara otomatis menyembunyilan menu pada breakpoint \texttt{lg}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{navbar_bootstrap.PNG}  
+	\caption{Navigation Bar pada Bootstrap} 
+\end{figure}
+
+\begin{lstlisting}[frame=single, basicstyle=\tiny] 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+\end{lstlisting}
+
+\subsubsection{Modal}
+Bagaimana Modal bekerja :
+\begin{itemize}
+\item Modal dibangun dengan HTML, CSS dan Javascript. 
+\item Menekan modal "backdrop" otomatis menutup komponen modal.
+\item Bootstrap hanya mendukung satu modal dalam sebuah window pada satu waktu. Penggunaan modal yang bercabang dalam Bootstrap dipercaya memberikan \textit{user experience} yang buruk.
+\item Modal menggunakann \texttt{position: fixed} yang diletakkan pada posisi teratas dalam kode agar terhindar dari \textit{bug} yang disebabkan elemen lain yang memiliki posisi \textit{fixed}. 
+\end{itemize}
+Komponen modal terdiri dari modal headerm modal body dan modal footer (opsional).
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.5]{livemodal_bootstrap.png}  
+	\caption{Modal pada Bootstrap} 
+\end{figure}
+\begin{lstlisting}[frame=single, basicstyle=\tiny] 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+\end{lstlisting}
+
+\subsubsection{Ikon}
+Bootstrap tidak memiliki \textit{library} ikon secara \textit{default}, sehingga ikon yang digunakan diambil dari \textbf{Font Awesome}. Penggunaan ikon dengan menggunakan tag \texttt{<i>} yang disertai dengan kelas \texttt{fa} (font-awesome). 
+
+\begin{lstlisting}[frame=single]
+<i class="fa fa-coffee"></i>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{fa_coffee.PNG}  
+	\caption{Ikon \textit{Coffee} pada Font Awesome} 
+\end{figure}
+\subsubsection{Alert}
+Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringatan yang tersedia. Untuk gaya yang sesuai \textit{developer} dapat menggunakan delapan kelas yang tersedia.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{alert_bootstrap.PNG}  
+	\caption{Alert pada Bootstrap} 
+\end{figure}
+\begin{lstlisting}[frame=single] 
+<div class="alert alert-primary" role="alert">
+  This is a primary alert—check it out!
+</div>
+<div class="alert alert-secondary" role="alert">
+  This is a secondary alert—check it out!
+</div>
+<div class="alert alert-success" role="alert">
+  This is a success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+  This is a danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+  This is a warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+  This is a info alert—check it out!
+</div>
+<div class="alert alert-light" role="alert">
+  This is a light alert—check it out!
+</div>
+<div class="alert alert-dark" role="alert">
+  This is a dark alert—check it out!
+</div>
+\end{lstlisting}
+
+
  
-\dtext{17-18}
-\begin{figure} 
-	\centering  
-	\includegraphics[scale=1]{ular-png}  
-	\caption[Gambar {\it Serpentes} dalam format png]{Gambar {\it Serpentes} dalam format png} 
-	\label{fig:ularpng} 
-\end{figure} 
 
-\dtext{19-20}
-\begin{figure}[H]
-	\centering  
-	\includegraphics[scale=0.5]{ular-jpg}  
-	\caption[Ular kecil]{Ular kecil} 
-	\label{fig:ularjpg} 
-\end{figure} 
-\dtext{21-22}
-
-\begin{figure}[ht] 
-	\centering  
-	\includegraphics[scale=1]{ular-pdf}  
-	\caption[ {\it Serpentes} betina]{ {\it Serpentes} jantan} 
-	\label{fig:ularpdf} 
-\end{figure} 
  
