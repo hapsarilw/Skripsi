@@ -4,7 +4,7 @@
 
 \section{BlueTape}
 \label{sec:bluetape}
-Bluetape merupakan aplikasi berbasis web, berguna sebagai aplikasi yang menunjang proses administrasi dalam lingkungan FTIS UNPAR. Web ini dapat diakses pada \url{http://www.bluetape.azurewebsites.net}. \cite{bluetape}
+Bluetape merupakan aplikasi berbasis web, berguna sebagai aplikasi yang menunjang proses administrasi dalam lingkungan FTIS UNPAR. Web ini dapat diakses pada \url{http://www.bluetape.azurewebsites.net}. \cite{blueTape}
 
 \subsection{Login}
 Halaman utama aplikasi BlueTape akan mengarahkan \textit{user} untuk \textit{login} dengan menggunakan Google, user akan login dengan melihat beberapa kondisi ini:
@@ -181,9 +181,8 @@ $this->load->model('model_name', '', $config);
 \textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu. 
 
 \subsubsection{Membuat sebuah View}
-\label{sssec:view_1}
 CodeIgniter memuat view dengan memanggil sebuah file php, misalkan \verb|blogview.php|, dan \textit{developer} dapat mengisinya dengan kode HTML sebgaai berikut:
-\begin{lstlisting}[frame=single]% 
+\begin{lstlisting}[frame=single] 
 <html>
 <head>
         <title>My Blog</title>
@@ -197,7 +196,7 @@ CodeIgniter memuat view dengan memanggil sebuah file php, misalkan \verb|blogvie
 File tersebut akan disimpan di direktori \texttt{application/views/}.
 
 \subsubsection{Loading sebuah View}
-\label{sssec:view_1}
+
 
 View dapat dimuat dengan membuat file \texttt{view} dengan syntax berikut:
 
@@ -208,7 +207,7 @@ $this->load->view('name');
 \noindent Dimana \texttt{name} adalah nama dari file view.
 
 \subsubsection{Memuat Beberapa View}
-\label{sssec:view_2}
+
 CodeIgniter dapat menangani beberapa panggilan dari dalam controller dengan menggunakan syntax : 
 
 \begin{lstlisting}[frame=single] 
@@ -236,14 +235,14 @@ class Page extends CI_Controller {
 \end{lstlisting}
 
 \subsubsection{Menyimpan Views didalam Sub Direktori}
-\label{sssec:view_3}
+
 Untuk menyimpan didalam sub direktori maka dapat menyertakan nama direktori yang memuat \texttt{view}.
 \begin{lstlisting}[frame=single] 
 $this->load->view('directory_name/file_name');
 \end{lstlisting}
 
 \subsubsection{Menambahkan data dinamis ke View}
-\label{sssec:view_4}
+
 Data yang dikirim dari controller menuju view berbentuk array atau objek, sehingga akan dilampirkan dalam parameter kedua dalam metode loading view.
 Berikut ini pengguanaan dengan array:
 \begin{lstlisting}[frame=single] 
@@ -290,7 +289,6 @@ Untuk mengaksesnya dalam file HTML maka \textit{developer} dapat menggunakan syn
 \end{lstlisting}
 
 \subsection{Controller}
-\label{subs:controller}
 \textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web.
 
 Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
@@ -315,7 +313,6 @@ class Blog extends CI_Controller {
 \end{lstlisting} 
 
 \subsubsection{Method}
-\label{sssec:controller_1}
 Dalam sebuah kelas \textit{controller} akan memiliki beberapa method, lalu untuk memanggil fungsi didalamnya maka \textit{developer} dapat mengisi segmen kedua dari sebuah url dengan sebuah method. Misalnya controller dengan dua method yaitu \texttt{index()} dan \texttt{comments()}.
 \begin{lstlisting}[frame=single] 
 <?php
@@ -345,15 +342,12 @@ example.com/index.php/blog/comments/
 \end{lstlisting}
 
 \section{Zurb Foundation 6}
-\label{sec:zurb_foundation6}
 
 \subsection{Struktur File}
-\label{subs:strukturfile_zurb}
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{filestructure_zurb.png}  
-	\caption{Struktur File Zurb Foundation}
-	\label{fig:filestructure_zurb} 
+	\caption{Struktur File Zurb Foundation} 
 \end{figure}
 
 Framework Foundation terdiri dari 3 folder utama:
@@ -364,8 +358,7 @@ Framework Foundation terdiri dari 3 folder utama:
 \end{itemize} \cite{zurbfoundation:17}
 
 \subsection{Sistem Grid pada Foundation}
-\label{subs:grid_zurb}
-Penggunaan grid pada \texttt{Foundation} dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu \texttt{.small-#, .medium-#} dan \texttt{.large-#}. 
+Penggunaan grid pada \texttt{Foundation} dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu \texttt{.small-\#\, .medium-\#} dan \texttt{.large-\#}. 
 
 \begin{lstlisting}[frame=single] 
 <div class="row">
@@ -404,16 +397,13 @@ Penggunaan grid pada \texttt{Foundation} dapat dilakukan dengan menambahkan sebu
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{gridbasic_zurb.png}  
-	\caption{Grid pada Zurb Foundation}
-	\label{fig:gridbasic_zurb} 
+	\caption{Grid pada Zurb Foundation}	 
 \end{figure}
 
 \subsection{\textit{Navigation} dan \textit{Media Attributes}}
-\label{subs:view}
 Komponen menu yang fleksibel pada Foundation membuat pembangunan navigasi secara umum lebih mudah karena semua pola memiliki markup yang sama.
 
 \subsubsection{Basic Menu}
-\label{sssec:navigation_1}
 
 Menu terdiri dari sebuah \texttt{<ul>} yang diisi oleh beberapa tag \texttt{<li>}. Secara default, menu akan berorientasi horizontal.
 
@@ -432,11 +422,9 @@ Berikut ini contoh penggunaan kode navigasi pada menu:
     \centering  
 	\includegraphics[scale=0.7]{basicmenu_zurb.png}  
 	\caption{\textit{Basic Navigation Menu} pada Foundation}
-	\label{fig:gridbasic_zurb} 
 \end{figure}
 
 \subsubsection{Item Alignment}
-\label{sssec:navigation_2}
 Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \texttt{.align-right} atau kearah tengah dengan menambahkan kelas \texttt{.align-center} didalam kelas \texttt{.menu}.
 \begin{lstlisting}[frame=single] 
 <ul class="menu align-right">
@@ -451,7 +439,6 @@ Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat di
 	\centering  
 	\includegraphics[scale=0.7]{basicmenuRight_zurb.png}  
 	\caption{Menu \textit{align to right in Foundation}}
-	\label{fig:gridbasic_right_zurb} 
 \end{figure}
 
 \begin{lstlisting}[frame=single] 
@@ -467,11 +454,9 @@ Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat di
 	\centering  
 	\includegraphics[scale=0.7]{basicmenuCenter_zurb.png}  
 	\caption{Menu \textit{align to center in Foundation}}
-	\label{fig:gridbasic_center_zurb} 
 \end{figure}
 
 \subsubsection{Active State}
-\label{sssec:navigation_3}
 Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk membuat menu terpilih yang aktif terlihat saat di klik. 
 
 \begin{lstlisting}[frame=single] 
@@ -486,12 +471,10 @@ Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk mem
 	\centering  
 	\includegraphics[scale=0.7]{activestatemenu_zurb.png}  
 	\caption{Menu \textit{active state menu in Foundation}}
-	\label{fig:activestate_zurb} 
 \end{figure}
 
 
 \subsubsection{Text}
-\label{sssec:navigation_4}
 Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.
 
 \begin{lstlisting}[frame=single]
@@ -507,14 +490,11 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 	\centering  
 	\includegraphics[scale=0.7]{menutext_zurb.png}  
 	\caption{Menu \textit{active state menu in Foundation}}
-	\label{fig:activestate_zurb} 
 \end{figure}
 
 \subsection{Komponen}
-\label{subs:css_zurb}
  
 \subsubsection{Button}
-\label{sssec:css_1}
 \textit{Basic button} dapat digunakan untuk banyak tujuan, sehingga penting untuk \textit{developer} menggunakan tag yang tepat. Berikut ini penjelasan penggunaan \textit{Basic button} dalam Foundation
 \begin{itemize}
   \item Penggunaan tag \texttt{<a>} digunakan apabila tombol memiliki \textit{link} ke halaman lain, atau \textit{link} menuju ke halaman itu sendiri. Penggunaan links tidak membutuhkan JavaScript.
@@ -535,7 +515,6 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 	\centering  
 	\includegraphics[scale=0.7]{basicbutton_zurb.png}  
 	\caption{Basic Button pada Foundation}
-	\label{fig:gridbasic_zurb} 
 \end{figure}
 
 \noindent Warna pada button dapat diterapkan untuk memperlihatkan fungsi yang sesuai dengan aksi yang digunakan.
@@ -551,11 +530,9 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 	\centering  
 	\includegraphics[scale=0.7]{coloringbutton_zurb.png}  
 	\caption{Coloring Button pada Foundation}
-	\label{fig:gridbasic_zurb} 
 \end{figure}
 
 \subsubsection{Tabel}
-\label{sssec:css_2}
 
 Tabel dalam foundation akan menjadikan proses penampilan data bersifat responsif dan memiliki tata letak yang bisa disesuaikan oleh kebutuhan \textit{developer}.
 
@@ -597,7 +574,6 @@ Tabel dalam foundation akan menjadikan proses penampilan data bersifat responsif
 	\centering  
 	\includegraphics[scale=0.7]{basictable_zurb.png}  
 	\caption{Basic Table pada Foundation}
-	\label{fig:basictable_zurb} 
 \end{figure}
 
 \subsubsection{Hover State}
@@ -616,7 +592,6 @@ Ada beberapa pilihan kelas untuk mengubah desain tabelnya.
 \end{itemize}
 
 \subsubsection{Forms}
-\label{sssec:css_3}
 \texttt{Forms} pada Foundation dibuat dengan kombinasi standar dari elemen \texttt{form}, serta \textit{grid rows} dan \textit{columns} atau \textit{cells}. 
 
 \paragraph{Text Inputs}
@@ -663,7 +638,6 @@ Penggunaan \texttt{select menus} digunakan apabila \textit{developer} mengingink
 
 
 \subsubsection{Tabs}
-\label{subs:tabs_javascript_zurb}
 Tab semakin banyak digunakan dalam desain web karena \textit{developer} dapat menyajikan konten secara seragam. Ini memungkinkan \textit{developer} untuk menyimpan banyak dokumen dalam satu \textit{window}. \textit{developer} dapat menggunakan tab sebagai widget navigasi untuk beralih antar konten sehingga menghasilkan tata letak yang sistematis dan bersih. Komponen Tab dari Foundation membantu \textit{developer} melakukan hal itu hanya dengan menambahkan beberapa baris kode. 
 
 \begin{lstlisting}[frame=single] 
@@ -697,11 +671,9 @@ fly into your mouth. </p>
 	\centering  
 	\includegraphics[scale=0.7]{tabs_component_zurb.png}  
 	\caption{Grid pada Zurb Foundation}
-	\label{fig:gridbasic_zurb} 
 \end{figure}
 
 \subsubsection{Dropdown Menu}
-\label{subs:dropdown_javascript_zurb}
 Berfungsi untuk mengubah menu dasar menjadi menu dropdown yang dapat di-expand dengan plugin Menu Dropdown.
 Menu dropdown dibangun berdasarkan sintaks komponen \textbf{Menu}. Tambahkan kelas \texttt{.dropdown} dan atribut \texttt{data-dropdown-menu} ke wadah menu untuk mengatur dropdown. 
 \begin{lstlisting}[frame=single] 
@@ -714,7 +686,6 @@ Menu dropdown dibangun berdasarkan sintaks komponen \textbf{Menu}. Tambahkan kel
 \end{lstlisting}
 
 \subsubsection{Reveal}
-\label{subs:modals_javascript_zurb}
 Modal hanyalah wadah kosong, sehingga \textit{developer} dapat menaruh segala jenis konten di dalamnya, seperti teks ke formulir hingga video ke seluruh \textit{grid}.
 Untuk membuat modal, tambahkan kelas \texttt{.reveal}, atribut \texttt{data-reveal}, dan ID yang unik ke dalam \textit{container}.
 
@@ -1201,6 +1172,22 @@ Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringa
 </div>
 \end{lstlisting}
 
+\subsection{Plugin}
+\texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada forms.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{datetimepicker_bootstrap4.PNG}  
+	\caption{Datetimepicker pada Bootstrap} 
+\end{figure}
+\noindent Penggunaan nya dalam kode HTML sebagai berikut :
+\begin{lstlisting}[frame=single] 
+<input id="datetimepicker" type="text" >
+\end{lstlisting}
+
+\noindent Penggunaan dalam kode Javascript sebagai berikut :
+\begin{lstlisting}[frame=single] 
+jQuery('#datetimepicker').datetimepicker();
+\end{lstlisting}
 
  
 
