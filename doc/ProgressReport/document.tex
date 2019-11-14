@@ -11,12 +11,13 @@
 \usepackage{lipsum} 
 \setlength{\headsep}{30pt}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
+\graphicspath{ {./gambar/} }
 % \pagestyle{empty}
 
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Genap 2015/2016}}}
+\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Ganjil 2019/2020}}}
 
 \onehalfspacing
  
@@ -26,15 +27,15 @@
 \author{\nama \textendash \@npm} 
 
 %ISILAH DATA BERIKUT INI:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\tanggal}{01/01/1900} %Tanggal pembuatan dokumen
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
-\newcommand{\kodetopik}{TAB0901}
+\newcommand{\nama}{Hapsari Laksmi W}
+\newcommand{\@npm}{2015730037}
+\newcommand{\tanggal}{11/14/2019} %Tanggal pembuatan dokumen
+\newcommand{\@judultopik}{Migrasi Zurb Foundation ke Bootstrap 4} % Judul/topik anda
+\newcommand{\kodetopik}{PAN4791}
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\pembA}{Thomas Anung Basuki}
+\newcommand{\pembA}{Pascal Alfadian .N}
 \newcommand{\pembB}{-}
-\newcommand{\semesterPertama}{40 - Genap 15/16} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
+\newcommand{\semesterPertama}{47 - Ganjil 19/20} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
 \newcommand{\lamaSkripsi}{1} % Jumlah semester untuk mengerjakan skripsi s.d. dokumen ini dibuat
 \newcommand{\kulPertama}{Skripsi 1} % Kuliah dimana topik ini diambil pertama kali
 \newcommand{\tipePR}{B} % tipe progress report :
@@ -65,75 +66,121 @@ Tipe Laporan : {\bf \tipePR} -
 		}
 		
 \section{Latar Belakang}
+BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textit{Codeigniter} dan \textit{Zurb Foundation}.  
+
+\begin{figure}[h]
+	\includegraphics [scale=0.5] {Tampilan-Cetak-Transkrip.PNG}
+	\caption{Tampilan Cetak Transkrip}
+\end{figure}
+
+\begin{figure}[h]
+	\includegraphics [scale=0.5] {Tampilan-Lihat-Jadwal-Dosen.PNG}
+	\caption{Tampilan Lihat Jadwal Dosen}
+\end{figure}
+
+\begin{figure}[h]
+	\includegraphics [scale=0.5] {Tampilan-Manajemen-Cetak-Transkrip.PNG}
+	\caption{Tampilan-Manajemen-Cetak-Transkrip}
+\end{figure}
+
+\begin{figure}[h]
+	\includegraphics [scale=0.5] {Tampilan-Entri-Jadwal-Dosen.PNG}
+	\caption{Tampilan Entri Jadwal Dosen}
+\end{figure}
+
+\begin{figure}[ht!]
+	\includegraphics [scale=0.5] {Tampilan-Perubahan-Kuliah.PNG}
+	\caption{Tampilan Perubahan Kuliah}
+\end{figure}
+
+\begin{figure}[ht!]
+	\includegraphics [scale=0.5] {Tampilan-Manajemen-Perubahan-Kuliah.PNG}
+	\caption{Tampilan Manajemen Perubahan Kuliah}
+\end{figure}
+
+
+
+
+Meskipun \textit{open-source}, saat ini \textit{Zurb Foundation} tidak sepopuler \textit{framework} \textit{Bootstrap}. 
+\textit{Bootstrap} adalah \textit{ Javascript framework} yang didesain untuk membantu membangun komponen \textit{user interface} yang terdiri dari \textit{CSS, JavaScript/jQuery}, dan \textit{glyphicons}. Pembangunan \textit{website} yang lebih cepat dan besarnya komunitas yang ada berdampak pada banyaknya pengembang \textit{web} yang memanfaatkan \textit{framework Bootstrap}. Sehingga jumlah proyek yang dihasilkan oleh\textit{ framework Bootstrap} lebih banyak dibanding \textit{Zurb Foundation}. 
 
 \section{Tujuan}
+Tujuan yang ingin dicapai dalam penelitian ini :
+\begin{enumerate}
+	\item Membuat template cetak transkrip nilai, template manajemen cetak transkrip, template perubahan kuliah, module manajemen perubahan kuliah, modul entri jadwal dosen dan module lihat jadwal dosen dengan framework Bootstrap 4 yang responsive untuk berbagai platform.
+	\item Mengimplentasikan plugin yang tersedia dalam library Bootstrap 4.	
+\end{enumerate}
 
 \section{Rumusan Masalah}
+\begin{enumerate}
+	\item Bagaimana membuat template manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen.
+	\item Bagaimana mengimplentasikan plugin yang tersedia di dalam Bootstrap 4.	
+\end{enumerate}
 
 \section{Detail Perkembangan Pengerjaan Skripsi}
 Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 	\begin{enumerate}
-		\item \textbf{Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll).}\\
+		\item \textbf{Mempelajari framework PHP Codeigniter.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Survei sudah dilakukan sebanyak 3x pada tanggal X, Y dan Z. Pada kunjungan pertama, diperhaitkan denah museum dan dibuat sketsa berdasarkan pengamatan. Pada kunjunga kedua, bertemu dengan bagian humas museum dan berhasil mendapatkan denah serta melakukan wawancara. Hasil wawancara sudah dibuat dan ada softcopy-nya. Pada kunjungan ketiga, secara khusus dilihat perilaku pengunjung. Masih direncakanan 2x kunjungan lagi. Bukti-bukti kunjungan dapat dilihat di lampiran
+		{\bf Hasil :} Mempelajari konsep codeigniter dan mencoba langsung didalam projek BlueTape
 		
-		\item \textbf{Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.}\\
+		\item \textbf{Mempelajari framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Sudah dicoba pada sebagian besar projek BlurTape.
 
-		\item \textbf{Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}}\\
+		\item \textbf{Membuat rancangan tampilan website dan template.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Rancangan sebagian sudah dijelaskan
 
-		\item \textbf{Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer}\\
+		\item \textbf{Mengimplementasikan keseluruhan rancangan tampilan dan template.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
+		{\bf Hasil :} Sebagian besar tampilan sudah diimplementasi
 
-		\item \textbf{Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung}\\
+		\item \textbf{Menulis dokumen skripsi.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)}\\
-		{\bf Status :} dihapuskan/tidak dikerjakan \\
-		{\bf Hasil :} berdasarkan analisis singkat, tidak dilakukan analisis lebih jauh karena tidak diperlukan struktur data baru, karena sudah disediakan oleh OpenSteer versi terbaru
-
-		\item \textbf{Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer} \\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
-
-		\item \textbf{Menulis dokumen skripsi}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} \lipsum[1]
-		
-		\item \textbf{Mempelajari cara menggunakan fitur manipulasi obstacle yang disediakan oleh framework Opensteer versi terbaru}\\
-		{\bf Status :} baru ditambahkan pada semester ini\\
-		{\bf Hasil :} baru direncanakan karena framework Opensteer versi paling akhir baru selesai diinstall dan dilihat-lihat bagian contoh-contoh simulasinya
-		
-
+		{\bf Hasil :} Mengerjakan bab 1, bab 2 dan bab 3
 	\end{enumerate}
 
 \section{Pencapaian Rencana Kerja}
 Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+	\item Mempelajari framework PHP Codeigniter.
+	\item Mempelajari framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.
+	\item Menulis dokumen skripsi.
 \end{enumerate}
-
-
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} 
+		\hline
+		1* & 2*(\%) & 3*(\%) & 4*(\%) & 5*(\%) \\ [0.5ex] 
+		\hline\hline
+		1 & 10 & 5 & 5 & memahami konsep MVC pada codeigniter pada projek BlueTape\\ 
+		\hline
+		2 & 20 & 5 & 15 & plugin baru diterapkan, belum menggunakan fitur yang sesuai \\
+		\hline
+		3 & 10 & 5 & 5 &  rancangan dijelaskan pada bab analisis\\
+		\hline
+		4 & 30 & 20 & 10 & sebagian besar antarmuka diterapkan\\
+		\hline
+		5 & 30 & 10 & 20 & sebagian besar bab 1, bab 2 dan sebagian kecil bab 3\\ [1ex] 
+		\hline
+		Total & 100 & 60 & 40 & \\ [1ex] 
+		\hline
+	\end{tabular}
+\end{center}
+Keterangan (*)
+\begin{itemize}
+	\item [$ $] 1 : Bagian pengerjaan Skripsi (nomor disesuaikan dengan detail pengerjaan di bagian 5)
+	\item [$ $] 2 : Persentase total
+	\item [$ $] 3 : Persentase yang akan diselesaikan di Skripsi 1
+	\item [$ $] 4 : Persentase yang akan diselesaikan di Skripsi 2
+	\item [$ $] 5 : Penjelasan singkat apa yang dilakukan di S1 (Skripsi 1) atau S2 (skripsi 2)	
+\end{itemize}
 
 \section{Kendala yang Dihadapi}
 %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
 Kendala - kendala yang dihadapi selama mengerjakan skripsi :
 \begin{itemize}
-	\item Terlalu banyak melakukan prokratinasi
-	\item Terlalu banyak godaan berupa hiburan (game, film, dll)
-	\item Skripsi diambil bersamaan dengan kuliah ASD karena selama 5 semester pertama kuliah tersebut sangat dihindari dan tidak diambil, dan selama 4 semester terakhir kuliah tersebut selalu mendapat nilai E
-	\item Mengalami kesulitan pada saat sudah mulai membuat program komputer karena selama ini selalu dibantu teman
+	\item Sulit mengubah lebar cell dalam tabel.
 \end{itemize}
 
 \vspace{1cm}
