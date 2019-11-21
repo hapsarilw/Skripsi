@@ -81,6 +81,11 @@
 
 \graphicspath{{./Gambar/}}% folder tempat gambar 
 
+%Preamble, highlight nama kelas
+\usepackage{xcolor} 
+\definecolor{mygray}{gray}{0.80}
+% for 'lightgray' color
+
 %cek apakah text default
 \newcommand{\vtext}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\rtext{#2}#3}}{\newcommand{#1}{#2}}}
 \newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}

@@ -1,55 +1,76 @@
+
+
 \chapter{Analisis}
-
-
+Proyek BlueTape dijalankan menggunakan \textit{framework front-end}  Foundation. Secara garis besar, file-file yang berkaitan dengan Foundation seperti file javascript dan css akan dipanggil di file BlueTape/www/application/views/templates/script{\_}foundation.php dan BlueTape/www/application/views/templates/head{\_}loggedin.php. Kemudian penggunaan komponen Foundation terdapat pada file-file main.php yang terletak di setiap modul pada folder BlueTape/www/application/views/ beserta kegunaan nya pada website.
 \section{Analisis Frontend Library}
 \subsection{Foundation}
-Dalam projek BlueTape, file Foundation tersimpan di folder js dan css. Foundation yang digunakan pada projek ini adalah versi 6.1.2. Detail dari file - file dalam folder css sebagai berikut :
-\begin{enumerate}		
-	\item \verb|foundation-flex.css| : Penggunaan Flex Grid yang dipakai sebelum versi 6.4.
-	\item \verb|foundation-icons.css| : Terdiri dari semua ikon yang dimiliki Foundation.
-	\item \verb|foundation-icons.eot|, \verb|foundation-icons.svg|, \verb|foundation-icons.ttf|, \verb|foundation-icons.woff| : Serangkaian file stylesheets untuk menunjang penggunaan web fonts.
-	\item \verb|foundation.css| : File foundation yang berisi desain default dari framework Foundation. 
-\end{enumerate}	
-Detail dari file - file dalam folder js sebagai berikut :
+Dalam proyek BlueTape, file Foundation tersimpan di folder js dan css. Foundation yang digunakan pada projek ini adalah versi 6.1.2. Detail komponen yang digunakan adalah sebagai berikut :
 \begin{enumerate}
-	\item Folder vendor : terdiri dari file \verb|jquery.min.js| dan \verb|what-input.min.js| yaitu file jQuery yang digunakan untuk membangun framework dengan Foundation.
-	\item \verb|app.js| : Berisi fungsi untuk menginisiasi semua plugin pada Foundation.
-	\item \verb|foundation.js| : Berisi semua file javascript dari framework Foundation.
+	\item \colorbox{mygray}{\texttt{.row}}
+	\begin{itemize}
+		\item Untuk membuat konten yang terletak di dalam satu baris untuk setiap halaman website.
+		\item Untuk memisahkan baris dari sekumpulan field dalam sebuah form.
+	\end{itemize}
+	\item \colorbox{mygray}{\texttt{.column}}
+	\begin{itemize}
+		\item Membuat kolom untuk menampung konten
+		\item Membuat kolom pada field dalam form
+	\end{itemize}	
+	\item \colorbox{mygray}{\texttt{<table>}}  \par
+	\begin{itemize}
+		\item 	Seluruh tabel dalam proyek BlueTape memiliki format yang akan menyesuaikan posisinya dengan menampilkan data nya secara bertumpuk, sehingga dibutuhkan tag \colorbox{mygray}{\texttt{<table>}}dan kelas \colorbox{mygray}{\texttt{.stack}}. Tabel akan terdiri dari satu tag \colorbox{mygray}{\texttt{<thead>}} dan \colorbox{mygray}{\texttt{<tbody>}}.
+		\item Bagian thead terdiri dari satu tag \colorbox{mygray}{\texttt{<tr>}} dan beberapa tag \colorbox{mygray}{\texttt{<th>}} yang membuat tulisan di dalam sel bersifat \texttt{bold}. Bagian tbody terdiri dari satu tag \colorbox{mygray}{\texttt{<tr>}} dan beberapa tag \colorbox{mygray}{\texttt{<td>}}. 
+	\end{itemize}
+ 	Tabel yang menggunakan kelas ini sebagai berikut :
+	\begin{center}
+		\begin{tabular}{||c | c | c||} 
+			\hline
+			Tabel & Modul & Keterangan \\ [0.5ex] 
+			\hline\hline
+			Daftar Jadwal &  Entri Jadwal Dosen &\\
+			\hline
+			Permohonan Perubahan Kuliah &  Perubahan Kuliah Manage &\\
+			\hline
+			Detail Permohonan  &  Perubahan Kuliah Manage & Modal dari Aksi Lihat\\
+			\hline
+			Histori Permohonan &  Perubahan Kuliah Request & \\
+			\hline
+			Permintaan Transkrip &  Transkrip Manage &\\
+			\hline
+			Detail Permohonan &   Transkrip Manage & Modal dari Aksi Lihat\\
+			\hline
+			Histori Permohonan &  Transkrip Request & Modal dari Aksi Lihat\\
+			\hline	
+		\end{tabular}
+	\end{center}	
+	\item Kelas \colorbox{mygray}{\texttt{.callout}} : Border untuk menampung setiap konten di website BlueTape seperti form dan tabel. 
+	\item Kelas \colorbox{mygray}{\texttt{.large-*}}, \colorbox{mygray}{\texttt{.medium-*}} :
+	\begin{itemize}
+		\item Komponen medium-12 digunakan dalam callout, sehingga apabila layar berukuran sedang, callout akan memiliki lebar 12 grid.
+		\item Sedangkan komponen  large-* digunakan untuk mengatur lebar suatu input field dalam satu form. Lebar field berbeda - beda tergantung presentase suatu input field dalam satu baris.
+	\end{itemize} 
+	\item Tag \colorbox{mygray}{\texttt{<form>}} : \par
+	Ada dua jenis metode yang digunakan dalam \texttt{form} :
+	\begin{itemize}
+		\item POST : Digunakan untuk memasukan input user yang disertai oleh aksi yang memanggil suatu method tertentu dari controller. Dalam BlueTape form post digunakan untuk membuat request transkrip, setiap aksi untuk konfirmasi permohonan transkrip, permohonan baru  perubahan kuliah.
+		\item GET : Digunakan untuk mencari permintaan transkrip berdasarkan NPM.
+	\end{itemize}	  
+	Atribut yang digunakan dalam website BlueTape : 	
+	\begin{itemize}
+		\item \colorbox{mygray}{\texttt{aria-label}} : digunakan untuk memberi keterangan pada input field dalam form.
+		\item \colorbox{mygray}{\texttt{aria-hidden}} : digunakan ketika ingin mengambil data dari database atau data dari akun yang teregeristrasi.
+		\item \colorbox{mygray}{\texttt{aria-selected}} : digunakan apabila input terdiri dari beberapa pilihan dan menggunakan empa
+	\end{itemize}	
+	\item Reveal
+	Modal digunakan untuk menampilkan data tertentu berdasarkan aksi yang dipilih. Terdapat empat aksi yang menggunakan modal yaitu modal lihat, setuju, tolak dan hapus.
+	\begin{itemize}
+		\item Modal memiliki kelas \colorbox{mygray}{\texttt{.reveal}} dan atribut \colorbox{mygray}{\texttt{data-reveal}}.
+		\item Setiap modal akan memiliki tombol hapus. Penggunaan kelas \texttt{.close-button} dan atribut \colorbox{mygray}{\texttt{data-close}} akan diaplikasikan.
+	\end{itemize} 	 
 \end{enumerate}
-\subsection{Xdan datetime picker}
-Penggunaan plugin date time picker pada Foundation disimpan pada folder lib/xdan-datetimepicker dan css :
-\begin{enumerate}
-	\item \verb|foundation-datepicker.min.css| : File berisi pengaturan desain dari penggunaan plugin datepicker yang disimpan pada folder css.
-	\item \verb|jquery.datepickerpicker.full.min.css| : browser file
-	\item \verb|jquery.datepickerpicker.min.css| : browser minified file
-	\item \verb|jquery.datepickerpicker.min.js| : amd module style minified file	
-\end{enumerate}
-
-\section{Analisis views}
-\subsection{Folder Templates}
-Website BlueTape terdiri dari beberapa template yang disimpan di path BlueTape/www/application/views/template yaitu:
-\begin{enumerate}
-	\item \verb|flashmessage.php| : Template berisi kode php yang akan memberi tahu user apabila proses yang dilakukan terjadi error atau memiliki informasi tertentu. kelas \verb|alert| dibutuhkan untuk kebutuhan tampilan notifikasi.	
-	\item \verb|head_loggedin.php| : Bagian \texttt{<head>} yang medefinisikan seluruh file css beserta plugin yang digunakan. Disini nantinya akan didefinisikan file css dari bootstrap dan plugin \textit{date-time-picker} dari bootstrap.
-	\item \verb|script_foundation| : Bagian yang mendefinisikan seluruh file javascript yang digunakan oleh framework.  Disini nantinya akan didefinisikan file js dari bootstrap dan plugin \textit{date-time-picker} dari bootstrap.
-	\item \verb|topbar_loggedin.php| : Template berisi navigation bar yang terdiri menu - menu. Dibutuhkan kelas \verb|navbar| dan kelas \verb|form-inline| untuk membuat sebuah navigation bar yang memiliki menu - menu yang sebaris.
-\end{enumerate}
-
-\subsection{Antarmuka Login}
-\begin{figure} [H]	
-	\centering  
-	\includegraphics[scale=0.5]{Tampilan-Login.png}  
-	\caption{Antarmuka Login BlueTape} 
-\end{figure}
-\noindent Antarmuka login tersimpan di folder \verb|auth| yang berisi tampilan HTML dan inisiasi file yang digunakan pada halaman ini. File css bootstrap akan didefinisikan disini. Analisis setiap bagian tampilan sebagai berikut :
-\begin{itemize}
-	\item Seluruh bagian disimpan dalam satu baris vertikal yang berukuran 6 grid. Sehingga dibutuhkan kelas \verb|row| \verb|col-lg-6| 	
-	\item Text, logo dan link akan diletakkan ditengah, dibutuhkan kelas \verb|text-center|
-	\item Tombol memiliki warna biru sehingga dibutuhkan kelas \verb|btn btn-primary|
-\end{itemize}
 
 \subsection{Antarmuka Cetak Transkrip}
-Isi dari halaman antarmuka cetak transkrip terdiri dari dua bagian yaitu :
+Antarmuka diaplikasikan pada file BlueTape/www/application/views/TranskripRequest/main.php. Isi dari halaman antarmuka cetak transkrip terdiri dari dua bagian yaitu :
 \begin{enumerate}
 	\item \verb|Permohonan Baru| : Sistem akan memberikan dua tampilan untuk bagian ini, dengan kondisi sebagai berikut:
 	\begin{itemize}
@@ -59,19 +80,18 @@ Isi dari halaman antarmuka cetak transkrip terdiri dari dua bagian yaitu :
 	\item \verb|Histori Permohonan| : Tabel untuk menampilkan informasi permohonan transkrip seorang mahasiswa. Status, tanggal pembuatan, tipe transkrip, tanggal cetak keterangan dan aksi. 
 \end{enumerate}
 Desain antarmuka sebagai berikut : \par
-"Konten Permohonan Baru dan Histori permohonan" akan diletakkan pada sebuah \textit{container}, yang tiap konten nya akan dipisahkan oleh border yang memiliki padding. Sehingga dibutuhkan kelas \verb|container|, \verb|row|, \verb|col| dan \verb|p-*|. \par
+Konten \texttt{Permohonan Baru} dan \texttt{Histori Permohonan} akan diletakkan pada satu \textit{row} yang memiliki kolom sebesar 12 grid pada layar medium dengan menggunakan komponen \textit{medium-12 column}, untuk setiap konten nya akan dipisahkan oleh panel yang disebut dengan \texttt{callout}. \par
 Untuk konten Permohonan Baru :
 \begin{itemize}
-	\item Bagian isi akan memiliki dua tampilan yaitu berbentuk form atau notifikasi yang berbentuk paragraf. Sehingga dibutuhkan kelas \verb|form-control| dan \verb|<p>|.
-	\item Untuk field pada baris pertama akan memiliki kolom dengan panjang 4 grid. Sehingga dibutuhkan kelas \verb|col-lg-4|.
-	\item Untuk field pada baris kedua memiliki dua jenis lebar grid yaitu 4 grid dan 8 grid. Sehingga membutuhkan kelas \verb|col-lg-4|, \verb|col-lg-8|.
-	\item Tombol "Kirim Permohonan" memiliki \textit{background color} berwarna biru sehingga akan digunakan kelas \verb|btn btn-primary|
+	\item Bagian isi akan memiliki dua tampilan yaitu berbentuk form atau notifikasi yang berbentuk paragraf. Sehingga dibutuhkan komponen \verb|<form>| dan \verb|<p>|.
+	\item Form terdiri dari dua baris yang dipisahkan oleh komponen \texttt{row}.
+	\item Untuk field pada baris pertama akan memiliki kolom dengan panjang 4 grid. Sehingga dibutuhkan kelas \verb|large-4 column|. Jenis input yang digunakan bertipe email dan text. Selain itu untuk setiap input akan disertakan satu label sehingga menggunakan komponen \texttt{<label>}.
+	\item Untuk field pada baris kedua memiliki dua jenis lebar grid yaitu 4 grid dan 8 grid. Sehingga membutuhkan kelas \verb|large-4 column|, \verb|large-8 column|. Untuk fied pada baris ketiga, tombol "Kirim Permohonan" memiliki \textit{background color} berwarna biru sehingga akan digunakan kelas \verb|button|.
 \end{itemize}
-Untuk konten Histori Permohonan :
-\begin{enumerate}
-	\item Terdapat sebuah tabel yang memiliki \verb|th| bersifat \textit{bold} sehingga dibutuhkan kelas \verb|table-active|. \verb|tbody| yang memiliki desain tabel bergaris sehingga dibutuhkan kelas \verb|table table-striped|.
-	\item Pada kolom "Status" akan memiliki tiga jenis bentuk alert dengan \textit{backgroud} warna hijau, abu-abu dan merah. Sehingga dibutuhkan kelas \verb|bg-secondary|, \verb|bg-success|, \verb|bg-danger|.
-	\item Aksi memiliki satu ikon "lihat" berwarna biru yang akan menampilkan sebuah modal. Sehingga dibutuhkan kelas ikon \verb|fas fa-eye|.
+Untuk konten "Histori Permohonan" :
+\begin{enumerate}	
+	\item Pada kolom "Status" akan memiliki tiga jenis bentuk alert dengan \textit{backgroud} warna hijau, abu-abu dan merah. Sehingga dibutuhkan kelas \verb|warning|, \verb|success|, \verb|alert|.
+	\item Aksi memiliki satu ikon "lihat" berwarna biru yang akan menampilkan sebuah modal. Sehingga dibutuhkan kelas ikon \verb|fi-eye|.
 \end{enumerate}
 \begin{figure} [H]
 	\centering  
@@ -83,13 +103,13 @@ Untuk konten Histori Permohonan :
 	\includegraphics[scale=0.5]{Tampilan-Cetak-Transkrip.png}  
 	\caption{Antarmuka Cetak Transkrip bagian 2} 
 \end{figure}
-Detail dari tabel permohonan baru, semua field akan  :
-\begin{itemize}
+Detail dari form permohonan baru, semua field akan disertai sebuah label untuk menjelaskan fungsi setiap field sehingga membutuhkan tag \texttt{<label>}  :
+\begin{itemize}	
 	\item \texttt{Yang memohon} : Berisi email UNPAR mahasiswa, otomatis terisi saat login melalui gmail. Sehingga field tidak bisa diisi atau \textit{disabled} dibutuhkan atribut boolean \verb|readonly|
-	\item \texttt{NPM} : Berisi NPM mahasiswa yang ter-\textit{generate} secara otomatis. Sehingga field tidak bisa diisi atau \textit{disabled} dibutuhkan atribut boolean \verb|readonly|
-	\item \texttt{Nama} : Nama mahasiswa yang tergenerate secara otomatis. Sehingga field tidak bisa diisi atau \textit{disabled} dibutuhkan atribut boolean \verb|readonly|
-	\item \texttt{Tipe Transkrip} : Terdiri dari tiga pilihan yaitu DPS Bahasa Indonesia(Seluruh Semester), DPS Bahasa Inggris(Seluruh Semester), LHS (Semester Terakhir). Wajib diisi.
-	\item Keperluan : Keterangan keperluan dibuat nya transkrip, wajib diisi mahasiswa.
+	\item \texttt{NPM} : Berisi NPM mahasiswa yang ter-\textit{generate} secara otomatis. Sehingga field tidak bisa diisi atau \textit{disabled} dibutuhkan atribut boolean \verb|readonly| dan \texttt{<input>} dengan tipe text.
+	\item \texttt{Nama} : Nama mahasiswa yang tergenerate secara otomatis. Sehingga field tidak bisa diisi atau \textit{disabled} dibutuhkan atribut boolean \verb|readonly| dan \texttt{<input>} dengan tipe text.
+	\item \texttt{Tipe Transkrip} : Terdiri dari tiga pilihan yaitu DPS Bahasa Indonesia(Seluruh Semester), DPS Bahasa Inggris(Seluruh Semester), LHS (Semester Terakhir). Wajib diisi. Tag \texttt{<select>} dan \texttt{<option>} yang \textit{value} nya diambil dari varibel \$type.
+	\item Keperluan : Keterangan keperluan dibuat nya transkrip, wajib diisi mahasiswa. Menggunakan tag \texttt{<input>} dengan tipe text.
 \end{itemize}
 Apabila ada form yang belum diisi maka akan terdapat \textit{warning} untuk \textit{field} yang kosong.
 Berikut ini apabila mahasiswa menekan tombol aksi lihat \includegraphics[height=0.7\baselineskip]{tombol_eye.png} :
@@ -98,7 +118,7 @@ Berikut ini apabila mahasiswa menekan tombol aksi lihat \includegraphics[height=
 	\includegraphics[scale=0.5]{Modal-Lihat-Cetak-Transkrip.png}  
 	\caption{Modal Lihat Cetak Transkrip} 
 \end{figure}
-\noindent Disini aksi 'lihat' akan menampilkan sebuah modal yang berisi sebuah tabel bergaris yang menyimpan informasi detil permohonan, baik detil informasi dari mahasiswa maupun konfirmasi dari staf Tata Usaha. Sehingga dibutuhkan kelas \verb|modal-fade| dan \verb|table table-stripped|.
+\noindent Disini aksi 'lihat' akan menampilkan sebuah modal yang berisi sebuah tabel bergaris yang menyimpan informasi detil permohonan, baik detil informasi dari mahasiswa maupun konfirmasi dari staf Tata Usaha. Sehingga dibutuhkan kelas \verb|.reveal| dan atribut \verb|data-reveal|.
 
 \subsection{Antarmuka Manajemen Cetak Transkrip}
 \begin{figure} [H]
@@ -111,15 +131,20 @@ Tampilan Manajemen Cetak Transkrip berisi sebuah tabel permintaan transkrip yang
 
 \noindent Detail penjelasan untuk field 'Status' dan 'Aksi' :
 \begin{itemize}
-	\item[ ] \texttt{Status} : Output terdiri dari tiga jenis label yaitu 'MENUNGGU'(berwarna kuning), 'DITOLAK' (berwarna merah) dan 'TERCETAK'(berwarna hijau).  Sehingga dibutuhkan kelas \verb|bg-secondary|, \verb|bg-success|, \verb|bg-danger|. 
-	\item[ ] \texttt{Aksi} : Terdiri dari empat ikon font-awesome yaitu \verb|fas fa-eye, fas fa-eye,fas fa-eye,fas fa-eye,| yang akan menampilkan modal berisi informasi yang sesuai dengan perintah.
+	\item \texttt{Status} : Output terdiri dari tiga jenis label yaitu 'MENUNGGU'(berwarna kuning), 'DITOLAK' (berwarna merah) dan 'TERCETAK'(berwarna hijau).  Sehingga dibutuhkan kelas \verb|secondary|, \verb|success|, \verb|alert|. 
+	\item \texttt{Aksi} : Terdiri dari empat ikon font-awesome yaitu \verb|fi-eye, fi-dislike, fi-print, fi-trash,| yang akan menampilkan modal berisi informasi yang sesuai dengan perintah.
 \end{itemize}
-Detail penjelasan untuk modal :
+Modal akan menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal} Detail penjelasan untuk modal : 
+
 \begin{enumerate}
-	\item Modal Lihat : Terdiri dari sebuah tabel bergaris sehingga membutuhkan kelas \verb|table table-striped|.
-	\item Modal Tolak : Terdiri dari sebuah form yang terdiri dari label, field dan tombol berwarna merah yang diletakan dalam satu baris yang memanjang secara vertikal sehingga membutuhkan kelas \verb|col-form-label, form-control, row, col-lg-*, btn btn-danger|.
-	\item Modal Print : Terdiri dari sebuah form yang terdiri dari label, field dan tombol berwarna merah yang diletakan dalam satu baris yang memanjang secara vertikal sehingga membutuhkan kelas \verb|col-form-label, form-control, row, col-lg-*, btn btn-primary|.
-	\item Modal Hapus : Terdiri dari sebuah form yang terdiri dari paragraf yang bersifat bold dan tombol berwarna merah yang diletakan dalam satu baris yang memanjang secara vertikal sehingga membutuhkan kelas \verb|<p>, row, btn btn-danger|.
+	
+	\item Modal Lihat : Terdiri dari sebuah \texttt{table} yang menampilkan data permintaan transkrip. Ikon menggunakan kelas \texttt{fi-eye} dan menerapkan atribut \texttt{data-open} yang berisi method hapus menuju ID tertentu.
+	
+	\item Modal Tolak : Terdiri dari sebuah \texttt{form} yang memiliki method \texttt{POST} yang memanggil sebuah method "/TranskripManage/answer". Terdapat tiga tipe input yang digunakan yaitu \texttt{hidden, text, submit}. Pada input text untuk label Alasan Penolakan, menggunakan kelas "input-group-field". Lalu untuk input bertipe \texttt{submit} menggunakan kelas alert-button untuk membuat button berwarna merah. Ikon menggunakan kelas \texttt{fi-dislike} dan menerapkan atribut \texttt{data-open} yang berisi method tolak menuju ID tertentu.
+	
+	\item Modal Print : Terdiri dari sebuah form yang terdiri dari label, field dan tombol berwarna biru sehingga membutuhkan kelas \verb|input-group-field, button|.Ikon menggunakan kelas \texttt{fi-print} dan menerapkan atribut \texttt{data-open} yang berisi method cetak menuju ID tertentu.
+	
+	\item Modal Hapus : Terdiri dari sebuah form yang terdiri dari paragraf yang bersifat bold, beberapa input dan tombol berwarna merah sehingga membutuhkan kelas \verb|<p>, <strong>, <input>|.Ikon menggunakan kelas \texttt{fi-trash} dan menerapkan atribut \texttt{data-open} yang berisi method hapus menuju ID tertentu.
 \end{enumerate}
 
 \begin{figure} [H]
@@ -145,69 +170,73 @@ Detail penjelasan untuk modal :
 \end{figure}
 Modul Perubahan Kuliah terdiri dari dua tabel yaitu :
 
+
 \subsection{Permohonan Baru}
+Permohonan baru diletakkan dalam sebuah row selebar 12 grid dan dikelilingi oleh sebuah border, membutuhkan kelas \texttt{row, large-12 column} dan \texttt{callout}. Selain itu sebuah form dengan tipe \texttt{POST} akan ditampilkan untuk menyimpan masukan pemohon. Format dari form sebagai berikut :
 
 \begin{tabular}{ |p{4cm}|p{2cm}|p{10cm}|}
 	\hline
 	Nama Kolom & Pilihan & Keterangan\\
 	\hline
-	\texttt{Pemohon} &  &Field terisi secara otomatis, user tidak bisa mengisi field atau \textit{disabled} dan memiliki lebar 4 grid, sehingga membutuhkan kelas \verb|readonly, col-lg-4, form-control|.\\
+	\texttt{Pemohon} &  &Field terisi secara otomatis, user tidak bisa mengisi field atau \textit{disabled} dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|readonly, large-4 column|.\\
 	\hline
-	\texttt{Nama} &  & Field terisi secara otomatis, user tidak bisa mengisi field atau \textit{disabled} dan memiliki lebar 4 grid, sehingga membutuhkan kelas \verb|readonly, col-lg-8, form-control|.\\
+	\texttt{Nama} &  & Field terisi secara otomatis, user tidak bisa mengisi field atau \textit{disabled} dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|readonly, large-8 column|.\\
 	\hline
-	\texttt{Kode MK} & & Field bertipe text dan memiliki lebar 2 grid , sehingga membutuhkan kelas \verb|col-lg-2, form-control|.\\
+	\texttt{Kode MK} & & Field bertipe text dan memiliki lebar 2 grid pada layar besar, sehingga membutuhkan kelas \verb|large-2 column|.\\
 	\hline
-	\texttt{Nama Mata Kuliah} & & Field bertipe text dan memiliki lebar 5 grid, sehingga membutuhkan kelas \verb|form-control, col-lg-5| \\
+	\texttt{Nama Mata Kuliah} & & Field bertipe text dan memiliki lebar 5 grid pada layar besar, sehingga membutuhkan kelas \verb|large-5 column| \\
 	\hline
-	\texttt{Kelas} &  & Field bertipe text dan memiliki lebar 1 grid, sehingga membutuhkan kelas \verb|form-control, col-lg-1| \\
+	\texttt{Kelas} &  & Field bertipe text dan memiliki lebar 1 grid pada layar besar, sehingga membutuhkan kelas \verb|large-1 column| \\
 	\hline
-	\texttt{Jenis Perubahan} & Diganti &  Field 'Dari Hari dan Jam' dan 'Dari Ruang' disabled  \\
-	& Tambahkan &    Field 'Dari Hari dan Jam' dan 'Dari Ruang' dapat ditambahkan lebih dari satu kolom dan memiliki lebar 4 grid, sehingga membutuhkan kelas \verb|form-control, col-lg-4|\\	 
-	& Ditiadakan &  Field 'Menjadi Hari dan Jam' dan 'Menjadi Ruangan' disabled, sehingga membutuhkan kelas \verb|readonly|  \\
+	\texttt{Jenis Perubahan} & Diganti &  Field 'Dari Hari dan Jam' dan 'Dari Ruang' disabled dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|large-4 column|  \\
+	& Tambahkan &    Field 'Dari Hari dan Jam' dan 'Dari Ruang' dapat ditambahkan lebih dari satu kolom dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|large-4 column|\\	 
+	& Ditiadakan &  Field 'Menjadi Hari dan Jam' dan 'Menjadi Ruangan' disabled dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|large-4 column| dan \verb|readonly|  \\
 	\hline
-	\texttt{Dari Hari dan Jam} &  & Menggunakan plugin bootstrap \textit{calendar} yang bisa menampilkan pilihan tanggal dan waktu \\
+	\texttt{Dari Hari dan Jam} &  & Menggunakan plugin \texttt{xdan timepicker}   yang bisa menampilkan pilihan tanggal dan waktu. Memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| \\
 	\hline
-	\texttt{Dari Ruang} &  & Field bertipe text, sehingga membutuhkan kelas \verb|form-control| \\
+	\texttt{Dari Ruang} &  & Field bertipe text dan memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| d \\
 	\hline
 	\texttt{Keterangan Tambahan} &  & Field bertipe text, sehingga membutuhkan kelas \verb|form-control| \\
 	\hline
-	\texttt{Menjadi Hari dan Jam} &  & Menggunakan plugin \textit{calendar} \\
+	\texttt{Menjadi Hari dan Jam} &  & Menggunakan plugin \texttt{xdan timepicker}   yang bisa menampilkan pilihan tanggal dan waktu. Memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| \\
 	\hline
-	\texttt{Menjadi Ruangan} &  & Field bertipe text, sehingga membutuhkan kelas \verb|form-control| \\
+	\texttt{Menjadi Ruang} &  & Field bertipe text dan memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| \\
 	\hline
+	Tombol Aksi & \texttt{Kirim Permohonan} & Berbentuk button dengan menggunakan kelas \texttt{button}
+	 & \texttt{Tambah Pertemuan Ekstra} & Berbentuk button dengan menggunakan kelas \texttt{button secondary}
 \end{tabular}
 
 \subsection{Histori Pemohonan}
+Histori Permohonan menggunakan tabel yang bisa menyesuaikan lebarnya dengan menampilkan data secara bertumpuk sehingga menggunakan kelas \texttt{stack}. Jenis data akan diletakkan dalam tag \texttt{<thead>} dalam satu baris sehingga menggunakan satu tag \texttt{<tr>} dan\texttt{delapan} tag \texttt{<th>}. Untuk bagian isi data menggunakan tag \texttt{<tbody>}.
 \begin{tabular}{ |p{4cm}|p{2cm}|p{10cm}|  }
 	\hline
 	Nama Kolom & Pilihan & Keterangan\\
 	\hline
-	\texttt{Status} & dikonfirmasi, menggunakan kelas \verb|bg-success| & Apabila staf TU menyetujui permohonanan\\
+	\texttt{Status} & dikonfirmasi, menggunakan kelas \verb|success| & Apabila staf TU menyetujui permohonanan\\
 	\hline
-	&  ditolak, menggunakan kelas \verb|bg-danger|  & Apabila staf TU menolak permohonanan\\
+	&  ditolak, menggunakan kelas \verb|alert|  & Apabila staf TU menolak permohonanan\\
 	\hline
-	& ditunggu, menggunakan kelas \verb|bg-secondary| &  Apabila staf TU belum konfirmasi permohonan \\
+	& ditunggu, menggunakan kelas \verb|secondary| &  Apabila staf TU belum konfirmasi permohonan \\
 	\hline
-	\texttt{Tanggal Permohonan}    & & Data bertipe tanggal yang sudah diconvert\\
+	\texttt{Tanggal Permohonan}    & & Data bertipe tanggal dengan format yang sudah ditentukan\\
 	\hline
-	\texttt{Kode MK} &  & Field bertipe text, menggunakan kelas \verb|form-control| \\
+	\texttt{Kode MK} &  & Data berbentuk text \\
 	\hline
-	\texttt{Perubahan} &  &  Konfirmasi staf TU : Diganti, Ditambahkan, Ditiadakan, menggunakan \verb|select| yang menggunakan kelas \verb|form-control| \\
+	\texttt{Perubahan} &  & Data berbentuk text \\
 	\hline
 	\texttt{Tanggal Jawab} &  & Data bertipe tanggal \\
 	\hline
-	\texttt{Keterangan} &  & Field bertipe text, menggunakan kelas \verb|form-control| \\
+	\texttt{Keterangan} &  & Data berbentuk text \\
 	\hline
-	\texttt{Aksi} &  & Terdapat tombol aksi 'Lihat', menggunakan font awesome dan kelas \verb|fas fa-eyes| \\
+	\texttt{Aksi} &  & Terdapat tombol aksi 'Lihat', menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
 	\hline
 \end{tabular}
-Ketika user menekan tombol aksi 'lihat', maka modal berisi informasi data permohonan yang sesuai dengan ID 
+Ketika user menekan tombol aksi 'lihat', maka modal berisi sebuah tabel informasi data permohonan akan ditampilkan sesuai dengan ID.
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.5]{Modal-Lihat-Perubahan-Kuliah.png}  
 	\caption{Modal Lihat Perubahan Kuliah} 
 \end{figure}
-
 
 \subsection{Antarmuka Manajemen Perubahan Kuliah}
 \begin{figure} [H]
@@ -216,18 +245,54 @@ Ketika user menekan tombol aksi 'lihat', maka modal berisi informasi data permoh
 	\caption{Tampilan Manajemen Perubahan Kuliah} 
 \end{figure}
 Tabel Pemohonan Kuliah memiliki detail yang sama dengan tabel histori permohonan, namun aksi yang dilakukan terdiri dari lima perintah:
+
+\begin{tabular}{|p{4cm}|p{2cm}|p{10cm}|}
+	\hline
+	Nama Kolom & Pilihan & Keterangan\\
+	\hline
+	\texttt{Status} & dikonfirmasi, menggunakan kelas \verb|success| & Apabila staf TU menyetujui permohonanan\\
+	\hline
+	&  ditolak, menggunakan kelas \verb|alert|  & Apabila staf TU menolak permohonanan\\
+	\hline
+	& ditunggu, menggunakan kelas \verb|secondary| &  Apabila staf TU belum konfirmasi permohonan \\
+	\hline
+	\texttt{Tanggal Permohonan}    & & Data bertipe tanggal dengan format yang sudah ditentukan\\
+	\hline
+	\texttt{Kode MK} &  & Data berbentuk text \\
+	\hline
+	\texttt{Perubahan} &  & Data berbentuk text \\
+	\hline
+	\texttt{Tanggal Jawab} &  & Data bertipe tanggal \\
+	\hline
+	\texttt{Keterangan} &  & Data berbentuk text \\
+	\hline
+	\texttt{Aksi} & ikon \texttt{Lihat} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+	\hline
+	& ikon \texttt{Print} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+	\hline
+	& ikon \texttt{Setuju} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+	\hline
+	& ikon \texttt{Tolak} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+	\hline
+	& ikon \texttt{Hapus} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\	
+	\hline
+\end{tabular}
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.3]{Modal-Lihat-Manajemen-Perubahan-Kuliah.png}  
 	\includegraphics[scale=0.3]{Modal-Print-Manajemen-Perubahan-Kuliah.png} 
 	\caption{Modal aksi Lihat dan Print Manajemen Perubahan Kuliah} 
 \end{figure}
+
+
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.3]{Modal-Setuju-Manajemen-Perubahan-Kuliah.png}
 	\includegraphics[scale=0.3]{Modal-Tolak-Manajemen-Perubahan-Kuliah.png}    
 	\caption{Modal aksi Setuju dan Tolak Manajemen Perubahan Kuliah} 
 \end{figure}
+
+
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.3]{Modal-Hapus-Manajemen-Perubahan-Kuliah.png}  
@@ -240,6 +305,7 @@ Tabel Pemohonan Kuliah memiliki detail yang sama dengan tabel histori permohonan
 	\includegraphics[scale=0.5]{Tampilan-Entri-Jadwal-Dosen.png}  
 	\caption{Modal Print Manajemen Perubahan Kuliah} 
 \end{figure}
+
 Detail mengenai tabel Tambah Jadwal :
 \begin{itemize}
 	\item \texttt{Hari} : Terdiri dari nama hari dari senin sampai jumat.
@@ -254,12 +320,29 @@ Detail mengenai tabel Tambah Jadwal :
 	\end{enumerate}
 \end{itemize}
 
-Tabel Daftar jadwal akan \textit{retrieve} data jadwal dari dosen yang dibuat. Terdiri dari rentang waktu dan hari. Jadwal yang terlihat pada tabel ini bisa diedit dan dihapus.
+Desain antarmuka sebagai berikut : \par
+Konten "Tambah Jadwal" dan "Daftar Jadwal" akan diletakkan pada satu \textit{row} yang memiliki kolom sebesar 12 grid pada layar medium dengan menggunakan komponen \textit{large-12 column}, untuk setiap konten nya akan dipisahkan oleh panel yang disebut dengan \texttt{callout}. \par
+Untuk konten \texttt{Tambah Jadwal} :
+\begin{itemize}
+	\item \texttt{Hari} : Penggunaan kelas \texttt{<select>} dan \texttt{<option>}.
+	\item \texttt{Jam Mulai} : Penggunaan kelas \texttt{<select>} dan \texttt{<option>}.
+	\item \texttt{Durasi} : Penggunaan kelas \texttt{large-4 columns}
+\end{itemize}
+
+
+Tabel Daftar jadwal akan \textit{retrieve} data jadwal dari dosen yang dibuat. Terdiri dari rentang waktu dan hari. Jadwal yang terlihat pada tabel ini bisa diedit dan dihapus. Menggunakan kelas \texttt{large-12 column callout} dan \texttt{table-scroll}.
 Dibagian bawah tabel akan terlihat tanggal jadwal tersebut di update dan memiliki dua tombol :
 \begin{itemize}
-	\item \texttt{Delete All} : Menghapus semua jadwal yang sudah dibuat.
-	\item \texttt{Export ke XLS} : Secara otomatis akan membuat file excel dan mendownload di device secara lokal.
+	\item \texttt{Delete All} : Menghapus semua jadwal yang sudah dibuat, tombol berwarna merah dengan menerapkan kelas \texttt{alert button}.
+	\item \texttt{Export ke XLS} : Secara otomatis akan membuat file excel dan mendownload di device secara lokal.Ttombol berwarna biru dengan menerapkan kelas \texttt{button}.
 \end{itemize}
+Setiap data yang ditampilkan bisa diedit atau hapus, apabila ditekan maka sebuah modal akan muncul.  
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.5]{Modal-Daftar-Jadwal-zurb.png}  
+	\caption{} 	
+\end{figure}
+Modal merupakan sebuah form dengan metode "POST". Untuk field \texttt{Hari, Jam Mulai, Durasi, Jenis} dan \texttt{label} memiliki input bertipe \texttt{select}. Lalu terdapat dua button \texttt{Save} dan \texttt{Submit} yang masing - masing menggunakan kelas \texttt{button} dan \texttt{alert button}.
 
 \subsection{Antarmuka Lihat Jadwal Dosen}
 \begin{figure} [H]
@@ -267,5 +350,4 @@ Dibagian bawah tabel akan terlihat tanggal jadwal tersebut di update dan memilik
 	\includegraphics[scale=0.5]{Tampilan-Lihat-Jadwal-Dosen.png}  
 	\caption{Struktur File Zurb Foundation} 	
 \end{figure}
-Tabel Jadwal Dosen akan \textit{retrieve} data jadwal dari setiap dosen yang dibuat. Seluruh mahasiswa dapat mengakses halaman ini. Terdiri dari rentang waktu dan hari. 
-Lalu akan terlihat tanggal kapan terakhir jadwal bisa.
+Tabel Jadwal Dosen terdiri dari list nama dosen yang dibuat dalam bentuk tabs sehingga menggunakan kelas \texttt{tabs-panel}. Apabila dipilih sebuah tabs maka tabel akan menampilkan data jadwal dosen.  Terdiri dari rentang waktu dan hari. Dibagian bawah tabel terdapat tanggal kapan terakhir jadwal dibuat dan tombol "Ekspor ke XLS".
