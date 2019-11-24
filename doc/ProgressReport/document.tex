@@ -10,9 +10,16 @@
 \usepackage{setspace} 
 \usepackage{lipsum} 
 
+
+\usepackage{xcolor} 
+\definecolor{mygray}{gray}{0.80}
+% for 'lightgray' color
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
 \setlength{\headsep}{30pt}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
-\graphicspath{ {./gambar/} }
+\graphicspath{ {./Gambar/} }
 % \pagestyle{empty}
 
 \usepackage{listings}%untuk penulisan source code
@@ -20,7 +27,7 @@
 \lstset{numbers=left,stepnumber=1, numbersep=5pt, frame=leftline,
 	tabsize=4, breaklines=true, basicstyle=\fontfamily{fvm}\selectfont\tiny, 
 	commentstyle=\itshape\color{gray}, keywordstyle=\bfseries\color{blue}, 
-	identifierstyle=\color{black}, stringstyle=\color{orange},
+	stringstyle=\color{orange},
 	literate={-}{-}1{-\,-}{--}1
 } 
 
@@ -32,110 +39,110 @@
 \markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Ganjil 2019/2020}}}
 
 \onehalfspacing
- 
+
 \begin{document}
-
-\title{\@judultopik}
-\author{\nama \textendash \@npm} 
-
-%ISILAH DATA BERIKUT INI:
-\newcommand{\nama}{Hapsari Laksmi W}
-\newcommand{\@npm}{2015730037}
-\newcommand{\tanggal}{11/14/2019} %Tanggal pembuatan dokumen
-\newcommand{\@judultopik}{Migrasi Zurb Foundation ke Bootstrap 4} % Judul/topik anda
-\newcommand{\kodetopik}{PAN4791}
-\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\pembA}{Pascal Alfadian .N}
-\newcommand{\pembB}{-}
-\newcommand{\semesterPertama}{47 - Ganjil 19/20} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
-\newcommand{\lamaSkripsi}{1} % Jumlah semester untuk mengerjakan skripsi s.d. dokumen ini dibuat
-\newcommand{\kulPertama}{Skripsi 1} % Kuliah dimana topik ini diambil pertama kali
-\newcommand{\tipePR}{B} % tipe progress report :
-% A : dokumen pendukung untuk pengambilan ke-2 di Skripsi 1
-% B : dokumen untuk reviewer pada presentasi dan review Skripsi 1
-% C : dokumen pendukung untuk pengambilan ke-2 di Skripsi 2
-
-% Dokumen hasil template ini harus dicetak bolak-balik !!!!
-
-\maketitle
-
-\pagenumbering{arabic}
-
-\section{Data Skripsi} %TIDAK PERLU MENGUBAH BAGIAN INI !!!
-Pembimbing utama/tunggal: {\bf \pembA}\\
-Pembimbing pendamping: {\bf \pembB}\\
-Kode Topik : {\bf \kodetopik}\\
-Topik ini sudah dikerjakan selama : {\bf \lamaSkripsi} semester\\
-Pengambilan pertama kali topik ini pada : Semester {\bf \semesterPertama} \\
-Pengambilan pertama kali topik ini di kuliah : {\bf \kulPertama} \\
-Tipe Laporan : {\bf \tipePR} -
-\ifdefstring{\tipePR}{A}{
-			Dokumen pendukung untuk {\BF pengambilan ke-2 di Skripsi 1} }
-		{
+	
+	\title{\@judultopik}
+	\author{\nama \textendash \@npm} 
+	
+	%ISILAH DATA BERIKUT INI:
+	\newcommand{\nama}{Hapsari Laksmi W}
+	\newcommand{\@npm}{2015730037}
+	\newcommand{\tanggal}{11/14/2019} %Tanggal pembuatan dokumen
+	\newcommand{\@judultopik}{Migrasi Zurb Foundation ke Bootstrap 4} % Judul/topik anda
+	\newcommand{\kodetopik}{PAN4791}
+	\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
+	\newcommand{\pembA}{Pascal Alfadian .N}
+	\newcommand{\pembB}{-}
+	\newcommand{\semesterPertama}{47 - Ganjil 19/20} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
+	\newcommand{\lamaSkripsi}{1} % Jumlah semester untuk mengerjakan skripsi s.d. dokumen ini dibuat
+	\newcommand{\kulPertama}{Skripsi 1} % Kuliah dimana topik ini diambil pertama kali
+	\newcommand{\tipePR}{B} % tipe progress report :
+	% A : dokumen pendukung untuk pengambilan ke-2 di Skripsi 1
+	% B : dokumen untuk reviewer pada presentasi dan review Skripsi 1
+	% C : dokumen pendukung untuk pengambilan ke-2 di Skripsi 2
+	
+	% Dokumen hasil template ini harus dicetak bolak-balik !!!!
+	
+	\maketitle
+	
+	\pagenumbering{arabic}
+	
+	\section{Data Skripsi} %TIDAK PERLU MENGUBAH BAGIAN INI !!!
+	Pembimbing utama/tunggal: {\bf \pembA}\\
+	Pembimbing pendamping: {\bf \pembB}\\
+	Kode Topik : {\bf \kodetopik}\\
+	Topik ini sudah dikerjakan selama : {\bf \lamaSkripsi} semester\\
+	Pengambilan pertama kali topik ini pada : Semester {\bf \semesterPertama} \\
+	Pengambilan pertama kali topik ini di kuliah : {\bf \kulPertama} \\
+	Tipe Laporan : {\bf \tipePR} -
+	\ifdefstring{\tipePR}{A}{
+		Dokumen pendukung untuk {\BF pengambilan ke-2 di Skripsi 1} }
+	{
 		\ifdefstring{\tipePR}{B} {
-				Dokumen untuk reviewer pada presentasi dan {\bf review Skripsi 1}}
-			{	Dokumen pendukung untuk {\bf pengambilan ke-2 di Skripsi 2}}
-		}
-		
-\section{Latar Belakang}
-BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textit{Codeigniter} dan \textit{Zurb Foundation}.  
-
-\begin{figure}[h]
-	\includegraphics [scale=0.5] {Tampilan-Cetak-Transkrip.PNG}
-	\caption{Tampilan Cetak Transkrip}
-\end{figure}
-
-\begin{figure}[h]
-	\includegraphics [scale=0.5] {Tampilan-Lihat-Jadwal-Dosen.PNG}
-	\caption{Tampilan Lihat Jadwal Dosen}
-\end{figure}
-
-\begin{figure}[h]
-	\includegraphics [scale=0.5] {Tampilan-Manajemen-Cetak-Transkrip.PNG}
-	\caption{Tampilan-Manajemen-Cetak-Transkrip}
-\end{figure}
-
-\begin{figure}[h]
-	\includegraphics [scale=0.5] {Tampilan-Entri-Jadwal-Dosen.PNG}
-	\caption{Tampilan Entri Jadwal Dosen}
-\end{figure}
-
-\begin{figure}[ht!]
-	\includegraphics [scale=0.5] {Tampilan-Perubahan-Kuliah.PNG}
-	\caption{Tampilan Perubahan Kuliah}
-\end{figure}
-
-\begin{figure}[ht!]
-	\includegraphics [scale=0.5] {Tampilan-Manajemen-Perubahan-Kuliah.PNG}
-	\caption{Tampilan Manajemen Perubahan Kuliah}
-\end{figure}
-
-
-
-
-Meskipun \textit{open-source}, saat ini \textit{Zurb Foundation} tidak sepopuler \textit{framework} \textit{Bootstrap}. 
-\textit{Bootstrap} adalah \textit{ Javascript framework} yang didesain untuk membantu membangun komponen \textit{user interface} yang terdiri dari \textit{CSS, JavaScript/jQuery}, dan \textit{glyphicons}. Pembangunan \textit{website} yang lebih cepat dan besarnya komunitas yang ada berdampak pada banyaknya pengembang \textit{web} yang memanfaatkan \textit{framework Bootstrap}. Sehingga jumlah proyek yang dihasilkan oleh\textit{ framework Bootstrap} lebih banyak dibanding \textit{Zurb Foundation}. 
-
-\section{Tujuan}
-Tujuan yang ingin dicapai dalam penelitian ini :
-\begin{enumerate}
-	\item Membuat template cetak transkrip nilai, template manajemen cetak transkrip, template perubahan kuliah, module manajemen perubahan kuliah, modul entri jadwal dosen dan module lihat jadwal dosen dengan framework Bootstrap 4 yang responsive untuk berbagai platform.
-	\item Mengimplentasikan plugin yang tersedia dalam library Bootstrap 4.	
-\end{enumerate}
-
-\section{Rumusan Masalah}
-\begin{enumerate}
-	\item Bagaimana membuat template manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen.
-	\item Bagaimana mengimplentasikan plugin yang tersedia di dalam Bootstrap 4.	
-\end{enumerate}
-
-\section{Detail Perkembangan Pengerjaan Skripsi}
-Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
+			Dokumen untuk reviewer pada presentasi dan {\bf review Skripsi 1}}
+		{	Dokumen pendukung untuk {\bf pengambilan ke-2 di Skripsi 2}}
+	}
+	
+	\section{Latar Belakang}
+	BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textit{Codeigniter} dan \textit{Zurb Foundation}.  
+	
+	\begin{figure}[h]
+		\includegraphics [scale=0.5] {Tampilan-Cetak-Transkrip.PNG}
+		\caption{Tampilan Cetak Transkrip}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\includegraphics [scale=0.5] {Tampilan-Lihat-Jadwal-Dosen.PNG}
+		\caption{Tampilan Lihat Jadwal Dosen}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\includegraphics [scale=0.5] {Tampilan-Manajemen-Cetak-Transkrip.PNG}
+		\caption{Tampilan-Manajemen-Cetak-Transkrip}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\includegraphics [scale=0.5] {Tampilan-Entri-Jadwal-Dosen.PNG}
+		\caption{Tampilan Entri Jadwal Dosen}
+	\end{figure}
+	
+	\begin{figure}[ht!]
+		\includegraphics [scale=0.5] {Tampilan-Perubahan-Kuliah.PNG}
+		\caption{Tampilan Perubahan Kuliah}
+	\end{figure}
+	
+	\begin{figure}[ht!]
+		\includegraphics [scale=0.5] {Tampilan-Manajemen-Perubahan-Kuliah.PNG}
+		\caption{Tampilan Manajemen Perubahan Kuliah}
+	\end{figure}
+	
+	
+	
+	
+	Meskipun \textit{open-source}, saat ini \textit{Zurb Foundation} tidak sepopuler \textit{framework} \textit{Bootstrap}. 
+	\textit{Bootstrap} adalah \textit{ Javascript framework} yang didesain untuk membantu membangun komponen \textit{user interface} yang terdiri dari \textit{CSS, JavaScript/jQuery}, dan \textit{glyphicons}. Pembangunan \textit{website} yang lebih cepat dan besarnya komunitas yang ada berdampak pada banyaknya pengembang \textit{web} yang memanfaatkan \textit{framework Bootstrap}. Sehingga jumlah proyek yang dihasilkan oleh\textit{ framework Bootstrap} lebih banyak dibanding \textit{Zurb Foundation}. 
+	
+	\section{Tujuan}
+	Tujuan yang ingin dicapai dalam penelitian ini :
+	\begin{enumerate}
+		\item Membuat template cetak transkrip nilai, template manajemen cetak transkrip, template perubahan kuliah, module manajemen perubahan kuliah, modul entri jadwal dosen dan module lihat jadwal dosen dengan framework Bootstrap 4 yang responsive untuk berbagai platform.
+		\item Mengimplentasikan plugin yang tersedia dalam library Bootstrap 4.	
+	\end{enumerate}
+	
+	\section{Rumusan Masalah}
+	\begin{enumerate}
+		\item Bagaimana membuat template manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen.
+		\item Bagaimana mengimplentasikan plugin yang tersedia di dalam Bootstrap 4.	
+	\end{enumerate}
+	
+	\section{Detail Perkembangan Pengerjaan Skripsi}
+	Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 	\begin{enumerate}
 		\item \textbf{Mempelajari framework PHP Codeigniter.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Mempelajari konsep codeigniter dan mencoba langsung didalam proyek BlueTape \par
-		\paragraph{Application Flow Chart} \par
+		\myparagraph{Application Flow Chart} \par
 		Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
 		
 		\begin{figure} [H]
@@ -154,7 +161,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\item \texttt{View} : Tampilan yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\cite{codeigniter}
 		\end{enumerate}
 		
-		\paragraph{CodeIgniter URLs}
+		\myparagraph{CodeIgniter URLs}
 		\label{subs:urls}
 		Codeigniter menggunakan pendekatan berbasis segment :
 		\begin{lstlisting}[frame=single] 
@@ -167,11 +174,11 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\item Segmen ketiga dan setiap segmen setelahnya menyatakan ID dan variabel apa pun yang akan diteruskan ke controller.
 		\end{enumerate}
 		
-		\paragraph{Model}
+		\myparagraph{Model}
 		\label{subs:model}
 		\textit{Model} merepresentasikan struktur data. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database.
 		
-		\paragraph{Anatomi Model}
+		\myparagraph{Anatomi Model}
 		\label{sssec:model_1}
 		Kelas model akan disimpan dalam direktori \textbf{application/models/directory}.Prototipe dasar dari sebuah model kelas :
 		
@@ -186,7 +193,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		application/models/User_model.php
 		\end{lstlisting}
 		
-		\paragraph{Loading a Model}
+		\myparagraph{Loading a Model}
 		\label{sssec:model_2}
 		
 		Model akan dimuat dan dipanggil didalam metode \textit{controller}. Untuk memuat sebuah model maka dapat digunakan metode berikut:
@@ -195,7 +202,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		$this->load->model('model_name');
 		\end{lstlisting}
 		
-		\paragraph{Koneksi ke Database}
+		\myparagraph{Koneksi ke Database}
 		\label{sssec:model_3}
 		Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektfitas database melalui parameter ketiga:
 		
@@ -212,13 +219,13 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		$this->load->model('model_name', '', $config);
 		\end{lstlisting}{listing only}
 		
-		\paragraph{View}
+		\myparagraph{View}
 		\label{subs:view}
 		\textit{View} adalah informasi yang sedang dilihat oleh \textit{user}. Sebuah \textit{View} normalnya menjadi sebuah halaman web, namun dalam CodeIgniter, sebuah \textit{view} dapat menjadi sebuah \textit{page fragment} seperti \textit{header} atau \textit{footer}. Dapat juga menjadi halaman RSS, atau tipe apapun dari "page".
 		
 		\textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu. 
 		
-		\paragraph{Membuat sebuah View} \par
+		\myparagraph{Membuat sebuah View} \par
 		CodeIgniter memuat view dengan memanggil sebuah file php, misalkan \verb|blogview.php|, dan \textit{developer} dapat mengisinya dengan kode HTML sebgaai berikut:
 		\begin{lstlisting}[frame=single] 
 		<html>
@@ -233,7 +240,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		File tersebut akan disimpan di direktori \texttt{application/views/}.
 		
-		\paragraph{Loading sebuah View} \par
+		\myparagraph{Loading sebuah View} \par
 		
 		
 		View dapat dimuat dengan membuat file \texttt{view} dengan syntax berikut:
@@ -244,7 +251,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		\noindent Dimana \texttt{name} adalah nama dari file view.
 		
-		\paragraph{Memuat Beberapa View} \par
+		\myparagraph{Memuat Beberapa View} \par
 		
 		CodeIgniter dapat menangani beberapa panggilan dari dalam controller dengan menggunakan syntax : 
 		
@@ -272,14 +279,14 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		}
 		\end{lstlisting}
 		
-		\paragraph{Menyimpan Views didalam Sub Direktori}
+		\myparagraph{Menyimpan Views didalam Sub Direktori}
 		
 		Untuk menyimpan didalam sub direktori maka dapat menyertakan nama direktori yang memuat \texttt{view}.
 		\begin{lstlisting}[frame=single] 
 		$this->load->view('directory_name/file_name');
 		\end{lstlisting}
 		
-		\paragraph{Menambahkan data dinamis ke View}
+		\myparagraph{Menambahkan data dinamis ke View}
 		
 		Data yang dikirim dari controller menuju view berbentuk array atau objek, sehingga akan dilampirkan dalam parameter kedua dalam metode loading view.
 		Berikut ini pengguanaan dengan array:
@@ -326,7 +333,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</html>
 		\end{lstlisting}
 		
-		\paragraph{Controller} \par
+		\myparagraph{Controller} \par
 		\textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web.
 		
 		Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
@@ -350,7 +357,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		}
 		\end{lstlisting} 
 		
-		\paragraph{Method} \par
+		\myparagraph{Method} \par
 		Dalam sebuah kelas \textit{controller} akan memiliki beberapa method, lalu untuk memanggil fungsi didalamnya maka \textit{developer} dapat mengisi segmen kedua dari sebuah url dengan sebuah method. Misalnya controller dengan dua method yaitu \texttt{index()} dan \texttt{comments()}.
 		\begin{lstlisting}[frame=single] 
 		<?php
@@ -381,9 +388,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		\item \textbf{Mempelajari framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Sudah dicoba pada sebagian besar projek BlurTape.
+		{\bf Hasil :} 
 		
-		\paragraph{Sistem Grid Bootstrap} \par
+		\myparagraph{Sistem Grid Bootstrap}
 		Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \cite{bootstrap:19}
 		\begin{figure} [H]
 			\centering  
@@ -413,10 +420,10 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\item \textit{Container} disediakan agar konten berada ditengah halaman dan mengisi konten tersebut secara horizontal. Penggunaan \verb|.container| untuk menentukan lebar pixel secara responsif atau \verb|.container-fluid| untuk membuat lebar: 100\%  di semua ukuran \textit{viewport} dan perangkat.
 			\item Sebuah baris akan membungkus kolom - kolom. Setiap kolom akan memiliki \textit{padding} secara horizontal yang disebut \verb|gutter| untuk mengatur jarak antar kolom.
 			\item Penggunaan flexbox akan membuat lebar pada kolom tidak perlu dispesifikasikan. Misalnya empat variabel dari \verb|.com-sm| akan secara otomatis membuat lebar kolom sebesar 25\%.
-			\item Kelas kolom menunjukkan jumlah kolom yang ingin digunakan, dengan maksimal 12 kolom per baris. Apabila \textit{developer} menginginkan tiga kolom yang memiliki lebar yang sama maka dapat menggunakan \texttt{.col-4}.
+			\item Kelas kolom menunjukkan jumlah kolom yang ingin digunakan, dengan maksimal 12 kolom per baris. Apabila \textit{developer} menginginkan tiga kolom yang memiliki lebar yang sama maka dapat menggunakan \colorbox{mygray}{\texttt{.col-4}}.
 			\item Lebar kolom diatur dalam persentase, sehingga kolom akan memiliki lebar yang berubah-ubah dan ukuran bergantung dengan elemen \textit{parent} nya.
 		\end{itemize}
-	\paragraph{Pilihan Grid}
+		\myparagraph{Pilihan Grid}
 		Bootstrap menggunakan px untuk grid breakpoint dan lebar container. Ini dikarenakan lebar \textit{viewport} ditentukan denga satuan pixels.
 		Berikut ini tabel yang menjelaskan penggunaan kelas grid dalam berbagai perangkat :
 		\begin{figure} [H]
@@ -425,9 +432,10 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\caption{Pilihan kelas grid pada Bootstrap} 
 		\end{figure}
 		
-		\subsection{Konten}
-		\subsubsection{Tabel}
-		Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.
+		\myparagraph{Konten}
+		\myparagraph{Tabel}
+		\paragraph{Tabel Default}
+		Dengan penggunaan kelas \verb|.table| pada seluruh tag \colorbox{mygray}{\texttt{<table>}} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.7]{tablebasic_bootstrap.png}  
@@ -467,17 +475,18 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</table>
 		\end{lstlisting}
 		
-		\paragraph{Opsi Tabel dengan \textit{head} yang dimodifikasi} \par
-		Penggunaan kelas \texttt{.thead-light} atau \texttt{.thead-dark} dapat digunakan untuk membuat \texttt{<thead>} menjadi abu muda atau abu tua.
+		\myparagraph{Tabel dengan Garis Batas}
+		Penggunaan kelas \colorbox{mygray}{\texttt{.table-bordered}} akan membuat tabel memiliki garis batas untuk semua sisi didalam tabel dan \textit{cells}.
+		
 		\begin{figure} [H]
 			\centering  
-			\includegraphics[scale=0.7]{tablehead_bootstrap.png}  
-			\caption{Tabel dengan thead yang dimodifikasi pada Bootstrap} 
+			\includegraphics[scale=0.7]{tablebordered_bootstrap.png}  
+			\caption{Tabel default pada Bootstrap} 
 		\end{figure}
 		
 		\begin{lstlisting}[frame=single] 
-		<table class="table">
-		<thead class="thead-dark">
+		<table class="table table-bordered">
+		<thead>
 		<tr>
 		<th scope="col">#</th>
 		<th scope="col">First</th>
@@ -500,47 +509,57 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</tr>
 		<tr>
 		<th scope="row">3</th>
-		<td>Larry</td>
-		<td>the Bird</td>
-		<td>@twitter</td>
-		</tr>
-		</tbody>
-		</table>
-		
-		<table class="table">
-		<thead class="thead-light">
-		<tr>
-		<th scope="col">#</th>
-		<th scope="col">First</th>
-		<th scope="col">Last</th>
-		<th scope="col">Handle</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<th scope="row">1</th>
-		<td>Mark</td>
-		<td>Otto</td>
-		<td>@mdo</td>
-		</tr>
-		<tr>
-		<th scope="row">2</th>
-		<td>Jacob</td>
-		<td>Thornton</td>
-		<td>@fat</td>
-		</tr>
-		<tr>
-		<th scope="row">3</th>
-		<td>Larry</td>
-		<td>the Bird</td>
+		<td colspan="2">Larry the Bird</td>
 		<td>@twitter</td>
 		</tr>
 		</tbody>
 		</table>
 		\end{lstlisting}
 		
-		\paragraph{Gambar} \par
-		Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan kelas \texttt{.img-fluid} serta mengatur lebar gambar dengan properties \texttt{max-width: 100\%} dan \texttt{height: auto}. Sehingga gambar tidak pernah lebih besar dari \textit{parent} nya. 
+		\myparagraph{Tabel dengan Warna Baris Berbeda}
+		Penggunaan kelas \colorbox{mygray}{\texttt{.table-striped}} akan membuat tabel memiliki warna baris berbeda batas antara baris genap dan ganjil didalam tag \colorbox{mygray}{\texttt{<tbody>}}.
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{tablestriped_bootstrap.png}  
+			\caption{Tabel default pada Bootstrap} 
+		\end{figure}
+		
+		\begin{lstlisting}[frame=single] 
+		<table class="table table-striped">
+		<thead>
+		<tr>
+		<th scope="col">#</th>
+		<th scope="col">First</th>
+		<th scope="col">Last</th>
+		<th scope="col">Handle</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<th scope="row">1</th>
+		<td>Mark</td>
+		<td>Otto</td>
+		<td>@mdo</td>
+		</tr>
+		<tr>
+		<th scope="row">2</th>
+		<td>Jacob</td>
+		<td>Thornton</td>
+		<td>@fat</td>
+		</tr>
+		<tr>
+		<th scope="row">3</th>
+		<td colspan="2">Larry the Bird</td>
+		<td>@twitter</td>
+		</tr>
+		</tbody>
+		</table>
+		\end{lstlisting}
+		
+		
+		\myparagraph{Gambar}
+		Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan kelas \colorbox{mygray}{\texttt{.img-fluid}} serta mengatur lebar gambar dengan properties \colorbox{mygray}{\texttt{max-width: 100\%}} dan \texttt{height: auto}. Sehingga gambar tidak pernah lebih besar dari \textit{parent} nya. 
 		
 		\textit{Developer} dapat menyelaraskan (align) sebuah gambar ke kiri atau kanan dengan \textbf{helper float classes} atau \textbf{text alignment classes}. 
 		\begin{figure} [H]
@@ -555,11 +574,11 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		
 		
-		\paragraph{Komponen}
-		\paragraph{Formulir} \par
+		\myparagraph{Komponen}
+		\myparagraph{Formulir}
 		\textit{Form} pada Bootstrap menyediakan beragam tipe input sesuai dengan kebutuhan \textit{user}. Contohnya penggunaan kelas \texttt{email} untuk \textit{input} email atau \texttt{number} untuk input berupa angka.
-		\subsubsection{Form Controls}
-		\textit{Developer} dapat membuat form menggunakan kelas \texttt{.form-control}. Kelas ini terdiri dari beberapa tag seperti tag \texttt{<input>, <select>} dan \texttt{<textarea>}.
+		\myparagraph{Form Controls}
+		\textit{Developer} dapat membuat form menggunakan kelas \colorbox{mygray}{\texttt{.form-control}}. Kelas ini terdiri dari beberapa tag seperti tag\colorbox{mygray}{\texttt{ <input>}}, \colorbox{mygray}{\texttt{<select>}} dan \colorbox{mygray}{\texttt{<textarea>}}.
 		\begin{lstlisting}[frame=single, basicstyle=\tiny] 
 		<form>
 		<div class="form-group">
@@ -598,8 +617,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\includegraphics[scale=0.7]{formsbasic_bootstrap.png}  
 			\caption{Forms Basic pada Bootstrap} 
 		\end{figure} 
-		\subsubsection{Column Sizing}
-		Bootstrap memungkinkan \textit{developer} untuk menempatkan sejumlah \texttt{.col} di dalam baris \texttt{.row} atau \texttt{.form} dengan lebar tertentu. Misalnya ada tiga buah kolom, kolom pertama memiliki lebar 7 dengan menggunakan kelas \texttt{.col-7} maka dua kolom sisanya akan memiliki lebar yang  memenuhi baris tersebut.
+		\myparagraph{Column Sizing}
+		Bootstrap memungkinkan \textit{developer} untuk menempatkan sejumlah \colorbox{mygray}{\texttt{.col}} di dalam baris \colorbox{mygray}{\texttt{.row}} atau \colorbox{mygray}{\texttt{.form}} dengan lebar tertentu. Misalnya ada tiga buah kolom, kolom pertama memiliki lebar 7 dengan menggunakan kelas \colorbox{mygray}{\texttt{.col-7}} maka dua kolom sisanya akan memiliki lebar yang  memenuhi baris tersebut.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.7]{columnsizing_bootstrap.png}  
@@ -620,8 +639,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</div>
 		</form>
 		\end{lstlisting}
-		\paragraph{Disabled Forms} \par
-		Penambahan atribut boolean \texttt{disabled} pada sebuah input membuat \textit{user} tidak bisa mengisi data pada \textit{field} tersebut. Untuk non-aktifkan seluruh \textit{field} pada sebuah kolom dapat menambahkan atribut \texttt{disabled} pada tag \texttt{<fieldset>}.
+		\myparagraphn{Disabled Forms}
+		Penambahan atribut boolean \colorbox{mygray}{\texttt{disabled}} pada sebuah input membuat \textit{user} tidak bisa mengisi data pada \textit{field} tersebut. Untuk non-aktifkan seluruh \textit{field} pada sebuah kolom dapat menambahkan atribut \texttt{disabled} pada tag \colorbox{mygray}{\texttt{<fieldset>}}.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.7]{disabledforms_bootstrap.png}  
@@ -650,7 +669,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</fieldset>
 		</form>
 		\end{lstlisting}
-		\paragraph{Tombol} \par
+		\myparagraph{Button}
 		Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisikan sebelumnya, membuat setiap button akan memiliki makna nya sendiri.
 		\begin{figure} [H]
 			\centering  
@@ -669,7 +688,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		<button type="button" class="btn btn-link">Link</button>
 		\end{lstlisting}
-		\subsubsection{Button with Dropdowns}
+		
+		
+		\myparagraph{Button with Dropdowns}
 		\begin{lstlisting}[frame=single, basicstyle=\tiny]
 		<div class="input-group mb-3">
 		<div class="input-group-prepend">
@@ -708,17 +729,59 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\caption{Tombol \textit{dropdown} pada Bootstrap} 
 		\end{figure}
 		
-		\paragraph{Navigation Bar} \par
+		\myparagraph{Badge}
+		Kelas \colorbox{mygray}{\texttt{badge}} dan \colorbox{mygray}{\texttt{.badge-*}} di dalam sebuah \colorbox{mygray}{\texttt{<a>}} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. 
+		\begin{lstlisting}[frame=single, basicstyle=\tiny]
+		<a href="#" class="badge badge-primary">Primary</a>
+		<a href="#" class="badge badge-secondary">Secondary</a>
+		<a href="#" class="badge badge-success">Success</a>
+		<a href="#" class="badge badge-danger">Danger</a>
+		<a href="#" class="badge badge-warning">Warning</a>
+		<a href="#" class="badge badge-info">Info</a>
+		<a href="#" class="badge badge-light">Light</a>
+		<a href="#" class="badge badge-dark">Dark</a>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=1.0]{badge_bootstrap.PNG}  
+			\caption{Badge pada Bootstrap} 
+		\end{figure}
+		
+		\myparagraph{Card}
+		Kelas \colorbox{mygray}{\texttt{.card}} adalah kontainer konten yang fleksibel dan bisa diatur lebarnya. Sebuah card memiliki sebuah \textit{headers} dan \textit{footers}.
+		
+		\begin{lstlisting}[frame=single, basicstyle=\tiny]
+		<div class="card">
+		<div class="card-header">
+		Featured
+		</div>
+		<div class="card-body">
+		<h5 class="card-title">Special title treatment</h5>
+		<p class="card-text">With supporting text below as 
+		a natural lead-in to additional content.</p>
+		<a href="#" class="btn btn-primary"card>Go somewhere</a>
+		</div>
+		</div>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=1.0]{card_bootstrap.PNG}  
+			\caption{Card pada Bootstrap} 
+		\end{figure}
+		
+		\myparagraph{Navigation Bar}
 		Navbar pada Bootstrap terdiri dari beberapa sub-komponen yang bisa digunakan sesuai dengan kebutuhan:
 		\begin{itemize}
-			\item \texttt{.navbar-brand} : Komponen untuk menampilkan nama perusahaan, nama produk atau nama proyek.
-			\item \texttt{.navbar-nav} : Komponen untuk membuat navigasi memiliki lebar yang memenuhi layar.
-			\item \texttt{.navbar-toggler} : Komponen yang digunakan bersamaan dengan plugin untuk membuat efek jatuh dan perilaku navigasi lainnya.
-			\item \texttt{.form-inline} : Komponen untuk pengaturan formulir dan aksi.
-			\item \texttt{.collapse.navbar-collapse} : Komponen untuk mengelompokkan dan menyembunyikan \textit{navigation bar} dengan sebuah breakpoint induknya.
+			\item \colorbox{mygray}{\texttt{.navbar-brand}} : Komponen untuk menampilkan nama perusahaan, nama produk atau nama proyek.
+			\item \colorbox{mygray}{\texttt{.navbar-nav}} : Komponen untuk membuat navigasi memiliki lebar yang memenuhi layar.
+			\item \colorbox{mygray}{\texttt{.navbar-toggler}} : Komponen yang digunakan bersamaan dengan plugin untuk membuat efek jatuh dan perilaku navigasi lainnya.
+			\item \colorbox{mygray}{\texttt{.form-inline}} : Komponen untuk pengaturan formulir dan aksi.
+			\item \colorbox{mygray}{\texttt{.collapse.navbar-collapse}} : Komponen untuk mengelompokkan dan menyembunyikan \textit{navigation bar} dengan sebuah breakpoint induknya.
 			%breakpoint : titik dimana terjadi perubahan (xs(br:0px), sm.. )
 		\end{itemize}
-		Berikut ini merupakan semua sub-komponen yang termasuk dalam navigation bar, navbar mengimplementasikan tema \texttt{light-themed} yang secara otomatis menyembunyilan menu pada breakpoint \texttt{lg}
+		Berikut ini merupakan semua sub-komponen yang termasuk dalam navigation bar, navbar mengimplementasikan tema \colorbox{mygray}{\texttt{light-themed}} yang secara otomatis menyembunyilan menu pada breakpoint \texttt{lg}
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=1.0]{navbar_bootstrap.PNG}  
@@ -765,7 +828,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</nav>
 		\end{lstlisting}
 		
-		\paragraph{Modal} \par
+		\myparagraph{Modal}
 		Bagaimana Modal bekerja :
 		\begin{itemize}
 			\item Modal dibangun dengan HTML, CSS dan Javascript. 
@@ -808,8 +871,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</div>
 		\end{lstlisting}
 		
-		\paragraph{Ikon} \par
-		Bootstrap tidak memiliki \textit{library} ikon secara \textit{default}, sehingga ikon yang digunakan diambil dari \textbf{Font Awesome}. Penggunaan ikon dengan menggunakan tag \texttt{<i>} yang disertai dengan kelas \texttt{fa} (font-awesome). 
+		\myparagraph{Ikon}
+		Bootstrap tidak memiliki \textit{library} ikon secara \textit{default}, sehingga ikon yang digunakan diambil dari \textbf{Font Awesome}. Penggunaan ikon dengan menggunakan tag \colorbox{mygray}{\texttt{<i>}} yang disertai dengan kelas \colorbox{mygray}{\texttt{fa}} (font-awesome). 
 		
 		\begin{lstlisting}[frame=single]
 		<i class="fa fa-coffee"></i>
@@ -820,7 +883,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\includegraphics[scale=1.0]{fa_coffee.PNG}  
 			\caption{Ikon \textit{Coffee} pada Font Awesome} 
 		\end{figure}
-		\subsubsection{Alert}
+		\myparagraph{Alert}
 		Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringatan yang tersedia. Untuk gaya yang sesuai \textit{developer} dapat menggunakan delapan kelas yang tersedia.
 		\begin{figure} [H]
 			\centering  
@@ -854,9 +917,10 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		</div>
 		\end{lstlisting}
 		
-		\paragraph{Plugin} :
-		
-		\texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada forms. 
+		\myparagraph{Plugin}
+		\colorbox{mygray}{\texttt{DateTimePicker}} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada bagian forms. 
+		\myparagraph{Inline DateTimePicker}
+		Penggunaan plugin ini, memungkinkan \textit{users} untuk memilih tanggal dan waktu secara bersamaan.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=1.0]{datetimepicker_bootstrap4.PNG}  
@@ -872,55 +936,26 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		jQuery('#datetimepicker').datetimepicker();
 		\end{lstlisting}
 		
-
+		
 		\item \textbf{Membuat rancangan tampilan website dan template.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Sebagian besar sudah diimplementasikan.
-
+		{\bf Hasil :} Belum diimplementasikan.
+		
 		\item \textbf{Mengimplementasikan keseluruhan rancangan tampilan dan template.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Sebagian besar tampilan sudah diimplementasi
-		\begin{figure}[ht!]
-			\includegraphics [scale=0.5] {home_bootstrap.PNG}
-			\caption{Tampilan Cetak Transkrip dengan Bootstrap}
-		\end{figure}
+		{\bf Hasil :} Sebagian besar tampilan sudah diimplementasi. \\
+		Berikut ini link perubahannya : \\
+		\url{https://github.com/ftisunpar/BlueTape/compare/master...hapsarilw:master}
 		
-		\begin{figure}[ht!]
-			\includegraphics [scale=0.5] {Tampilan-Cetak-Transkrip_Bootstrap.PNG}
-			\caption{Tampilan Cetak Transkrip dengan Bootstrap}
-		\end{figure}
+		\item \textbf{Menganalisis website BlueTape.}\\
+		{\bf Status :} Baru dibuat saat ini.\\
+		{\bf Hasil :}  \\
 		
-		\begin{figure}[h]
-			\includegraphics [scale=0.5] {Tampilan-Lihat-Jadwal-Dosen_Bootstrap.PNG}
-			\caption{Tampilan Lihat Jadwal Dosen dengan Bootstrap}
-		\end{figure}
 		
-		\begin{figure}[ht!]
-			\includegraphics [scale=0.5] {Tampilan-Manajemen-Cetak-Transkrip_Bootstrap.PNG}
-			\caption{Tampilan-Manajemen-Cetak-Transkrip dengan Bootstrap}
-		\end{figure}
-		
-		\begin{figure}[ht!]
-			\includegraphics [scale=0.5] {Tampilan-Entri-Jadwal-Dosen_Bootstrap.PNG}
-			\caption{Tampilan Entri Jadwal Dosen dengan Bootstrap}
-		\end{figure}
-		
-		\begin{figure}[ht!]
-			\includegraphics [scale=0.5] {Tampilan-Perubahan-Kuliah_Bootstrap.PNG}
-			\caption{Tampilan Perubahan Kuliah dengan Bootstrap}
-		\end{figure}
-		
-		\begin{figure}[ht!]
-			\includegraphics [scale=0.5] {Tampilan-Manajemen-Perubahan-Kuliah_Bootstrap.PNG}
-			\caption{Tampilan Manajemen Perubahan Kuliah dengan Bootstrap}
-		\end{figure}
-
-		\item \textbf{Menulis dokumen skripsi.}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Mengerjakan bab 1, bab 2 dan bab 3
-		Proyek BlueTape dijalankan menggunakan \textit{framework front-end}  Foundation. Secara garis besar, file-file yang berkaitan dengan Foundation seperti file javascript dan css akan dipanggil di file BlueTape/www/application/views/templates/script{\_}foundation.php dan BlueTape/www/application/views/templates/head{\_}loggedin.php. Kemudian penggunaan komponen Foundation terdapat pada file-file main.php yang terletak di setiap modul pada folder BlueTape/www/application/views/ beserta kegunaan nya pada website.
-		\paragraph{Analisis Frontend Library} \par
-		\paragraph{Foundation}
+		\chapter{Analisis}
+		Proyek BlueTape dijalankan menggunakan \textit{framework front-end}  Foundation. Secara garis besar, file-file yang berkaitan dengan Foundation seperti file javascript dan css akan dipanggil di file \textbf{BlueTape/www/application/views/templates/script{\_}foundation.php} dan \textbf{BlueTape/www/application/views/templates/head{\_}loggedin.php}. Kemudian penggunaan komponen Foundation terdapat pada file-file main.php yang terletak di setiap modul pada folder \textbf{BlueTape/www/application/views/} beserta kegunaan nya pada website.
+		\myparagraph{Analisis Frontend Library}
+		\myparagraph{Foundation}
 		Dalam proyek BlueTape, file Foundation tersimpan di folder js dan css. Foundation yang digunakan pada projek ini adalah versi 6.1.2. Detail komponen yang digunakan adalah sebagai berikut :
 		\begin{enumerate}
 			\item \colorbox{mygray}{\texttt{.row}}
@@ -982,12 +1017,53 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			Modal digunakan untuk menampilkan data tertentu berdasarkan aksi yang dipilih. Terdapat empat aksi yang menggunakan modal yaitu modal lihat, setuju, tolak dan hapus.
 			\begin{itemize}
 				\item Modal memiliki kelas \colorbox{mygray}{\texttt{.reveal}} dan atribut \colorbox{mygray}{\texttt{data-reveal}}.
-				\item Setiap modal akan memiliki tombol hapus. Penggunaan kelas \texttt{.close-button} dan atribut \colorbox{mygray}{\texttt{data-close}} akan diaplikasikan.
+				\item Setiap modal akan memiliki tombol hapus. Penggunaan kelas \texttt{.close-button} dan atribut \colorbox{mygray}{\texttt{data-close}} akan diaplikasikan.			
 			\end{itemize} 	 
 		\end{enumerate}
+		\myparagraph{Template Flash Message}
+		File ini terletak di \textbf{BlueTape/www/application/views/templates/flashmessage.php}, disini akan diletakkan tampilan alerts yang terdiri dari dua jenis :
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{alertInfo_zurb.png}  
+			\caption{Alert mengenai 'info' pada BlueTape}	 
+		\end{figure}
 		
-		\subsection{Antarmuka Cetak Transkrip}
-		Antarmuka diaplikasikan pada file BlueTape/www/application/views/TranskripRequest/main.php. Isi dari halaman antarmuka cetak transkrip terdiri dari dua bagian yaitu :
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{alertError_zurb.png}  
+			\caption{Alert mengenai 'error' pada BlueTape}	 
+		\end{figure}
+		\begin{enumerate}
+			\item Alert 'error' : Penggunaan kelas \colorbox{mygray}{\texttt{.error}} akan membuat komponen \textit{alert} berwarna merah.
+			\item Alert 'info' : Penggunaan kelas \colorbox{mygray}{\texttt{.alert}} akan membuat komponen \textit{alert} berwarna biru.
+		\end{enumerate}
+		
+		\myparagraph{Template Head Logged In}
+		File ini terletak di \textbf{BlueTape/www/application/views/templates/head\_loggedin.php}. Disini seluruh file css dari foundation dan plugin akan dimuat.
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{head_loggedin.png}  
+			\caption{Kode template untuk file head\_loggedin.php} 
+		\end{figure}
+		
+		\myparagraph{Template Script Foundation}
+		File ini terletak di \textbf{BlueTape/www/application/views/templates/script\_loggedin.php}.Disini seluruh file js dari foundation, jQuery dan plugin akan dimuat.
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{script_foundation.png}  
+			\caption{Kode template untuk file script_foundation.php} 
+		\end{figure}
+		\subsection{Template Top Bar Logged In}
+		File ini terletak di \textbf{BlueTape/www/application/views/templates/topbar\_loggedin.php}.
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.5]{Tampilan_navbar_zurb.png}  
+			\caption{Tampilan navbar dengan foundation} 
+		\end{figure}
+		\myparagraph{Antarmuka Cetak Transkrip}
+		Antarmuka diaplikasikan pada file \textbf{BlueTape/www/application/views/TranskripRequest/main.php}. Isi dari halaman antarmuka cetak transkrip terdiri dari dua bagian yaitu :
 		\begin{enumerate}
 			\item \verb|Permohonan Baru| : Sistem akan memberikan dua tampilan untuk bagian ini, dengan kondisi sebagai berikut:
 			\begin{itemize}
@@ -997,7 +1073,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\item \verb|Histori Permohonan| : Tabel untuk menampilkan informasi permohonan transkrip seorang mahasiswa. Status, tanggal pembuatan, tipe transkrip, tanggal cetak keterangan dan aksi. 
 		\end{enumerate}
 		Desain antarmuka sebagai berikut : \par
-		Konten \texttt{Permohonan Baru} dan \texttt{Histori Permohonan} akan diletakkan pada satu \textit{row} yang memiliki kolom sebesar 12 grid pada layar medium dengan menggunakan komponen \textit{medium-12 column}, untuk setiap konten nya akan dipisahkan oleh panel yang disebut dengan \texttt{callout}. \par
+		Konten 'Permohonan Baru' dan 'Histori Permohonan' akan diletakkan pada satu \textit{row} yang memiliki kolom sebesar 12 grid pada layar medium dengan menggunakan komponen \colorbox{mygray}{\texttt{medium-12 column}}, untuk setiap konten nya akan dipisahkan oleh panel yang disebut dengan \texttt{callout}. \par
 		Untuk konten Permohonan Baru :
 		\begin{itemize}
 			\item Bagian isi akan memiliki dua tampilan yaitu berbentuk form atau notifikasi yang berbentuk paragraf. Sehingga dibutuhkan komponen \verb|<form>| dan \verb|<p>|.
@@ -1037,7 +1113,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		\end{figure}
 		\noindent Disini aksi 'lihat' akan menampilkan sebuah modal yang berisi sebuah tabel bergaris yang menyimpan informasi detil permohonan, baik detil informasi dari mahasiswa maupun konfirmasi dari staf Tata Usaha. Sehingga dibutuhkan kelas \verb|.reveal| dan atribut \verb|data-reveal|.
 		
-		\subsection{Antarmuka Manajemen Cetak Transkrip}
+		\myparagraph{Antarmuka Manajemen Cetak Transkrip}
+		Antarmuka diaplikasikan pada file \textbf{BlueTape/www/application/views/TranskripManage/main.php}.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.5]{Tampilan-Manajemen-Cetak-Transkrip.png}  
@@ -1048,7 +1125,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		
 		\noindent Detail penjelasan untuk field 'Status' dan 'Aksi' :
 		\begin{itemize}
-			\item \texttt{Status} : Output terdiri dari tiga jenis label yaitu 'MENUNGGU'(berwarna kuning), 'DITOLAK' (berwarna merah) dan 'TERCETAK'(berwarna hijau).  Sehingga dibutuhkan kelas \verb|secondary|, \verb|success|, \verb|alert|. 
+			\item \texttt{Status} : Output terdiri dari tiga jenis label yaitu 'MENUNGGU'(berwarna kuning), 'DITOLAK' (berwarna merah) dan 'TERCETAK'(berwarna hijau).  Sehingga dibutuhkan kelas \colorbox{mygray}{\verb|secondary|}, \colorbox{mygray}{\verb|success|}, \colorbox{mygray}{\verb|alert|}. 
 			\item \texttt{Aksi} : Terdiri dari empat ikon font-awesome yaitu \verb|fi-eye, fi-dislike, fi-print, fi-trash,| yang akan menampilkan modal berisi informasi yang sesuai dengan perintah.
 		\end{itemize}
 		Modal akan menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal} Detail penjelasan untuk modal : 
@@ -1059,9 +1136,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			
 			\item Modal Tolak : Terdiri dari sebuah \texttt{form} yang memiliki method \texttt{POST} yang memanggil sebuah method "/TranskripManage/answer". Terdapat tiga tipe input yang digunakan yaitu \texttt{hidden, text, submit}. Pada input text untuk label Alasan Penolakan, menggunakan kelas "input-group-field". Lalu untuk input bertipe \texttt{submit} menggunakan kelas alert-button untuk membuat button berwarna merah. Ikon menggunakan kelas \texttt{fi-dislike} dan menerapkan atribut \texttt{data-open} yang berisi method tolak menuju ID tertentu.
 			
-			\item Modal Print : Terdiri dari sebuah form yang terdiri dari label, field dan tombol berwarna biru sehingga membutuhkan kelas \verb|input-group-field, button|.Ikon menggunakan kelas \texttt{fi-print} dan menerapkan atribut \texttt{data-open} yang berisi method cetak menuju ID tertentu.
+			\item Modal Print : Terdiri dari sebuah form yang terdiri dari label, field dan tombol berwarna biru sehingga membutuhkan kelas \colorbox{mygray}{\verb|input-group-field|}. Ikon menggunakan kelas \colorbox{mygray}{\texttt{fi-print}} dan menerapkan atribut \colorbox{mygray}{\texttt{data-open}} yang berisi method cetak menuju ID tertentu.
 			
-			\item Modal Hapus : Terdiri dari sebuah form yang terdiri dari paragraf yang bersifat bold, beberapa input dan tombol berwarna merah sehingga membutuhkan kelas \verb|<p>, <strong>, <input>|.Ikon menggunakan kelas \texttt{fi-trash} dan menerapkan atribut \texttt{data-open} yang berisi method hapus menuju ID tertentu.
+			\item Modal Hapus : Terdiri dari sebuah form yang terdiri dari paragraf yang bersifat bold, beberapa input dan tombol berwarna merah sehingga membutuhkan kelas \colorbox{mygray}{\verb|<p>|}, \colorbox{mygray}{\texttt{<strong>}},\colorbox{mygray}{\texttt{<input>}}.Ikon menggunakan kelas \texttt{fi-trash} dan menerapkan atribut \texttt{data-open} yang berisi method hapus menuju ID tertentu.
 		\end{enumerate}
 		
 		\begin{figure} [H]
@@ -1079,61 +1156,31 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		\end{figure}
 		
 		
-		\subsection{Antarmuka Perubahan Kuliah}
+		\myparagraph{Antarmuka Perubahan Kuliah}
+		Antarmuka diaplikasikan pada file \textbf{BlueTape/www/application/views/PerubahanKuliahRequest/main.php}.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.5]{Tampilan-Perubahan-Kuliah.png}  
 			\caption{Tampilan Perubahan Kuliah} 
 		\end{figure}
+		
 		Modul Perubahan Kuliah terdiri dari dua tabel yaitu :
 		
+		\myparagraph{Permohonan Baru}
+		Permohonan baru diletakkan dalam sebuah row selebar 12 grid dan dikelilingi oleh sebuah border, membutuhkan kelas \colorbox{mygray}{\texttt{row}}, \colorbox{mygray}{\texttt{.large-12}}, \colorbox{mygray}{\texttt{column}} dan \texttt{callout}. Selain itu sebuah form dengan tipe \texttt{POST} akan ditampilkan untuk menyimpan masukan pemohon. Format dari form sebagai berikut :
 		
-		\subsection{Permohonan Baru}
-		Permohonan baru diletakkan dalam sebuah row selebar 12 grid dan dikelilingi oleh sebuah border, membutuhkan kelas \texttt{row, large-12 column} dan \texttt{callout}. Selain itu sebuah form dengan tipe \texttt{POST} akan ditampilkan untuk menyimpan masukan pemohon. Format dari form sebagai berikut :
+		\myparagraph{Histori Pemohonan}
+		Histori Permohonan menggunakan tabel yang bisa menyesuaikan lebarnya dengan menampilkan data secara bertumpuk sehingga menggunakan kelas \colorbox{mygray}{\texttt{.stack}}. Jenis data akan diletakkan dalam tag \\colorbox{mygray}{texttt{<thead>}} dalam satu baris sehingga menggunakan satu tag \colorbox{mygray}{\texttt{<tr>}} dan delapan tag \colorbox{mygray}{\texttt{<th>}}. Untuk bagian isi data menggunakan tag \colorbox{mygray}{\texttt{<tbody>}}.
 		
-		\begin{tabular}{ |p{4cm}|p{2cm}|p{10cm}|}
+		\begin{tabular}[!htbp]{ |p{4cm}|p{2cm}|p{10cm}|  }
 			\hline
-			Nama Kolom & Pilihan & Keterangan\\
+			Nama Kolom & Pilihan & Kelas Foundation yang digunakan\\
 			\hline
-			\texttt{Pemohon} &  &Field terisi secara otomatis, user tidak bisa mengisi field atau \textit{disabled} dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|readonly, large-4 column|.\\
+			\texttt{Status} & dikonfirmasi, menggunakan kelas \colorbox{mygray}{\texttt{.success}} & Apabila staf TU menyetujui permohonanan\\
 			\hline
-			\texttt{Nama} &  & Field terisi secara otomatis, user tidak bisa mengisi field atau \textit{disabled} dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|readonly, large-8 column|.\\
+			&  ditolak, menggunakan kelas \colorbox{mygray}{\texttt{.alert}}  & Apabila staf TU menolak permohonanan\\
 			\hline
-			\texttt{Kode MK} & & Field bertipe text dan memiliki lebar 2 grid pada layar besar, sehingga membutuhkan kelas \verb|large-2 column|.\\
-			\hline
-			\texttt{Nama Mata Kuliah} & & Field bertipe text dan memiliki lebar 5 grid pada layar besar, sehingga membutuhkan kelas \verb|large-5 column| \\
-			\hline
-			\texttt{Kelas} &  & Field bertipe text dan memiliki lebar 1 grid pada layar besar, sehingga membutuhkan kelas \verb|large-1 column| \\
-			\hline
-			\texttt{Jenis Perubahan} & Diganti &  Field 'Dari Hari dan Jam' dan 'Dari Ruang' disabled dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|large-4 column|  \\
-			& Tambahkan &    Field 'Dari Hari dan Jam' dan 'Dari Ruang' dapat ditambahkan lebih dari satu kolom dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|large-4 column|\\	 
-			& Ditiadakan &  Field 'Menjadi Hari dan Jam' dan 'Menjadi Ruangan' disabled dan memiliki lebar 4 grid pada layar besar, sehingga membutuhkan kelas \verb|large-4 column| dan \verb|readonly|  \\
-			\hline
-			\texttt{Dari Hari dan Jam} &  & Menggunakan plugin \texttt{xdan timepicker}   yang bisa menampilkan pilihan tanggal dan waktu. Memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| \\
-			\hline
-			\texttt{Dari Ruang} &  & Field bertipe text dan memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| d \\
-			\hline
-			\texttt{Keterangan Tambahan} &  & Field bertipe text, sehingga membutuhkan kelas \verb|form-control| \\
-			\hline
-			\texttt{Menjadi Hari dan Jam} &  & Menggunakan plugin \texttt{xdan timepicker}   yang bisa menampilkan pilihan tanggal dan waktu. Memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| \\
-			\hline
-			\texttt{Menjadi Ruang} &  & Field bertipe text dan memiliki lebar 3 grid pada layar besar, sehingga membutuhkan kelas \verb|large-3 column| \\
-			\hline
-			Tombol Aksi & \texttt{Kirim Permohonan} & Berbentuk button dengan menggunakan kelas \texttt{button}
-			& \texttt{Tambah Pertemuan Ekstra} & Berbentuk button dengan menggunakan kelas \texttt{button secondary}
-		\end{tabular}
-		
-		\subsection{Histori Pemohonan}
-		Histori Permohonan menggunakan tabel yang bisa menyesuaikan lebarnya dengan menampilkan data secara bertumpuk sehingga menggunakan kelas \texttt{stack}. Jenis data akan diletakkan dalam tag \texttt{<thead>} dalam satu baris sehingga menggunakan satu tag \texttt{<tr>} dan\texttt{delapan} tag \texttt{<th>}. Untuk bagian isi data menggunakan tag \texttt{<tbody>}.
-		\begin{tabular}{ |p{4cm}|p{2cm}|p{10cm}|  }
-			\hline
-			Nama Kolom & Pilihan & Keterangan\\
-			\hline
-			\texttt{Status} & dikonfirmasi, menggunakan kelas \verb|success| & Apabila staf TU menyetujui permohonanan\\
-			\hline
-			&  ditolak, menggunakan kelas \verb|alert|  & Apabila staf TU menolak permohonanan\\
-			\hline
-			& ditunggu, menggunakan kelas \verb|secondary| &  Apabila staf TU belum konfirmasi permohonan \\
+			& ditunggu, menggunakan kelas \colorbox{mygray}{\texttt{.secondary}} &  Apabila staf TU belum konfirmasi permohonan \\
 			\hline
 			\texttt{Tanggal Permohonan}    & & Data bertipe tanggal dengan format yang sudah ditentukan\\
 			\hline
@@ -1145,7 +1192,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\hline
 			\texttt{Keterangan} &  & Data berbentuk text \\
 			\hline
-			\texttt{Aksi} &  & Terdapat tombol aksi 'Lihat', menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+			\texttt{Aksi} &  & Terdapat tombol aksi 'Lihat', menggunakan font awesome dan kelas \colorbox{mygray}{\texttt{fas fa-eye}} yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \colorbox{mygray}{\texttt{data-reveal}}\\
 			\hline
 		\end{tabular}
 		Ketika user menekan tombol aksi 'lihat', maka modal berisi sebuah tabel informasi data permohonan akan ditampilkan sesuai dengan ID.
@@ -1155,7 +1202,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\caption{Modal Lihat Perubahan Kuliah} 
 		\end{figure}
 		
-		\subsection{Antarmuka Manajemen Perubahan Kuliah}
+		\myparagraph{Antarmuka Manajemen Perubahan Kuliah}
+		Antarmuka diaplikasikan pada file \textbf{BlueTape/www/application/views/PerubahanKuliahManage/main.php}.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.5]{Tampilan-Manajemen-Perubahan-Kuliah.png}  
@@ -1167,31 +1215,31 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\hline
 			Nama Kolom & Pilihan & Keterangan\\
 			\hline
-			\texttt{Status} & dikonfirmasi, menggunakan kelas \verb|success| & Apabila staf TU menyetujui permohonanan\\
+			\texttt{Status} & dikonfirmasi, menggunakan kelas \colorbox{mygray}{\texttt{success}} & Apabila staf TU menyetujui permohonanan\\
 			\hline
-			&  ditolak, menggunakan kelas \verb|alert|  & Apabila staf TU menolak permohonanan\\
+			&  ditolak, menggunakan kelas \colorbox{mygray}{\texttt{alert}}  & Apabila staf TU menolak permohonanan\\
 			\hline
-			& ditunggu, menggunakan kelas \verb|secondary| &  Apabila staf TU belum konfirmasi permohonan \\
+			& ditunggu, menggunakan kelas \colorbox{mygray}{\texttt{secondary}} &  Apabila staf TU belum konfirmasi permohonan \\
 			\hline
 			\texttt{Tanggal Permohonan}    & & Data bertipe tanggal dengan format yang sudah ditentukan\\
 			\hline
-			\texttt{Kode MK} &  & Data berbentuk text \\
+			\texttt{Kode MK} &  & Menampilkan data berbentuk text \\
 			\hline
-			\texttt{Perubahan} &  & Data berbentuk text \\
+			\texttt{Perubahan} &  & Menampilkan data berbentuk text \\
 			\hline
-			\texttt{Tanggal Jawab} &  & Data bertipe tanggal \\
+			\texttt{Tanggal Jawab} &  & Menampilkan data bertipe tanggal \\
 			\hline
-			\texttt{Keterangan} &  & Data berbentuk text \\
+			\texttt{Keterangan} &  & Menampilkan data berbentuk text \\
 			\hline
-			\texttt{Aksi} & ikon \texttt{Lihat} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+			\texttt{Aksi} & ikon \texttt{Lihat} & Ikon menggunakan font awesome dan kelas  \colorbox{mygray}{\texttt{fas fa-eye}} yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
 			\hline
-			& ikon \texttt{Print} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+			& ikon \texttt{Print} & Ikon menggunakan font awesome dan kelas  \colorbox{mygray}{\texttt{fas fa-print}} yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
 			\hline
-			& ikon \texttt{Setuju} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+			& ikon \texttt{Setuju} & Ikon menggunakan font awesome dan kelas  \colorbox{mygray}{\texttt{fa-thumbs-up}} yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
 			\hline
-			& ikon \texttt{Tolak} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
+			& ikon \texttt{Tolak} & Ikon menggunakan font awesome dan kelas  \colorbox{mygray}{\texttt{fa-thumbs-down}} yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\
 			\hline
-			& ikon \texttt{Hapus} & Ikon menggunakan font awesome dan kelas \verb|fas fa-eyes| yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\	
+			& ikon \texttt{Hapus} & Ikon menggunakan font awesome dan kelas  \colorbox{mygray}{\texttt{fas fa-trash}} yang akan memanggil sebuah modal sesuai id yang diinginkan user. Untuk modal, menggunakan kelas \texttt{reveal} dan atribut \texttt{data-reveal}\\	
 			\hline
 		\end{tabular}
 		\begin{figure} [H]
@@ -1216,7 +1264,22 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\caption{Modal Hapus Manajemen Perubahan Kuliah} 
 		\end{figure}
 		
-		\subsection{Antarmuka Entri Jadwal Dosen}
+		Berikut ini penjelasan masing - masing modal.
+		\begin{enumerate}
+			
+			\item Modal Lihat : Terdiri dari sebuah tabel yang menampilkan data tabel permohonan. Ikon menggunakan kelas  \colorbox{mygray}{\texttt{fi-eye}} dan menerapkan atribut  \colorbox{mygray}{\texttt{data-open}} yang berisi method hapus menuju ID tertentu.
+			
+			\item Modal Print : Terdiri dari sebuah form yang terdiri dari label, field dan tombol berwarna biru sehingga membutuhkan kelas  \colorbox{mygray}{\texttt{input-group-field}}.Ikon menggunakan kelas  \colorbox{mygray}{\texttt{fi-print}} dan menerapkan atribut \texttt{data-open} yang berisi method cetak menuju ID tertentu.
+			
+			\item Modal Setuju : Terdiri dari sebuah \texttt{table} yang menampilkan data permintaan transkrip. Ikon menggunakan kelas  \colorbox{mygray}{\texttt{fi-eye}} dan menerapkan atribut  \colorbox{mygray}{\texttt{data-open}} yang berisi method hapus menuju ID tertentu.
+			
+			\item Modal Tolak : Terdiri dari sebuah \textit{form} yang memiliki method \texttt{POST} yang memanggil sebuah method "/TranskripManage/answer". Terdapat tiga tipe input yang digunakan yaitu  \colorbox{mygray}{\texttt{hidden, text, submit}}. Pada input text untuk label Alasan Penolakan, menggunakan kelas "input-group-field". Lalu untuk input bertipe  \colorbox{mygray}{\texttt{submit}} menggunakan kelas alert-button untuk membuat button berwarna merah. Ikon menggunakan kelas \texttt{fi-dislike} dan menerapkan atribut  \colorbox{mygray}{\texttt{data-open}} yang berisi method tolak menuju ID tertentu.	
+			
+			\item Modal Hapus : Terdiri dari sebuah form yang terdiri dari paragraf yang bersifat bold, beberapa input dan tombol berwarna merah sehingga membutuhkan kelas \colorbox{mygray}{\texttt{<p>}}, \colorbox{mygray}{\texttt{<strong>}} dan \colorbox{mygray}{\texttt{<input>}}. Ikon menggunakan kelas  \colorbox{mygray}{\texttt{fi-trash}} dan menerapkan atribut \colorbox{mygray}{\texttt{data-open}} yang berisi method hapus menuju ID tertentu.
+		\end{enumerate}
+		
+		\myparagraph{Antarmuka Entri Jadwal Dosen}
+		Antarmuka diaplikasikan pada file \textbf{BlueTape/www/application/views/EntriJadwalDosen/main.php}.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.5]{Tampilan-Entri-Jadwal-Dosen.png}  
@@ -1238,19 +1301,19 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 		\end{itemize}
 		
 		Desain antarmuka sebagai berikut : \par
-		Konten "Tambah Jadwal" dan "Daftar Jadwal" akan diletakkan pada satu \textit{row} yang memiliki kolom sebesar 12 grid pada layar medium dengan menggunakan komponen \textit{large-12 column}, untuk setiap konten nya akan dipisahkan oleh panel yang disebut dengan \texttt{callout}. \par
+		Konten "Tambah Jadwal" dan "Daftar Jadwal" akan diletakkan pada satu \textit{row} yang memiliki kolom sebesar 12 grid pada layar medium dengan menggunakan komponen \colorbox{mygray}{\texttt{large-12 column}}, untuk setiap konten nya akan dipisahkan oleh panel yang disebut dengan \colorbox{mygray}{\texttt{callout}}. \par
 		Untuk konten \texttt{Tambah Jadwal} :
 		\begin{itemize}
-			\item \texttt{Hari} : Penggunaan kelas \texttt{<select>} dan \texttt{<option>}.
-			\item \texttt{Jam Mulai} : Penggunaan kelas \texttt{<select>} dan \texttt{<option>}.
-			\item \texttt{Durasi} : Penggunaan kelas \texttt{large-4 columns}
+			\item \texttt{Hari} : Penggunaan tag \colorbox{mygray}{\texttt{<select>}} dan \colorbox{mygray}{\texttt{<option>}}.
+			\item \texttt{Jam Mulai} : Penggunaan tag \colorbox{mygray}{\texttt{<select>}} dan \colorbox{mygray}{\texttt{<option>}}.
+			\item \texttt{Durasi} : Penggunaan tag \colorbox{mygray}{\texttt{large-4 columns}}
 		\end{itemize}
 		
 		
-		Tabel Daftar jadwal akan \textit{retrieve} data jadwal dari dosen yang dibuat. Terdiri dari rentang waktu dan hari. Jadwal yang terlihat pada tabel ini bisa diedit dan dihapus. Menggunakan kelas \texttt{large-12 column callout} dan \texttt{table-scroll}.
+		Tabel Daftar jadwal akan \textit{retrieve} data jadwal dari dosen yang dibuat. Terdiri dari rentang waktu dan hari. Jadwal yang terlihat pada tabel ini bisa diedit dan dihapus. Menggunakan kelas \colorbox{mygray}{\texttt{large-12 column}}, \colorbox{mygray}{\texttt{.callout}} dan \texttt{table-scroll}.
 		Dibagian bawah tabel akan terlihat tanggal jadwal tersebut di update dan memiliki dua tombol :
 		\begin{itemize}
-			\item \texttt{Delete All} : Menghapus semua jadwal yang sudah dibuat, tombol berwarna merah dengan menerapkan kelas \texttt{alert button}.
+			\item \texttt{Delete All} : Menghapus semua jadwal yang sudah dibuat, tombol berwarna merah dengan menerapkan kelas \colorbox{mygray}{\texttt{.alert}}.
 			\item \texttt{Export ke XLS} : Secara otomatis akan membuat file excel dan mendownload di device secara lokal.Ttombol berwarna biru dengan menerapkan kelas \texttt{button}.
 		\end{itemize}
 		Setiap data yang ditampilkan bisa diedit atau hapus, apabila ditekan maka sebuah modal akan muncul.  
@@ -1259,53 +1322,56 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\includegraphics[scale=0.5]{Modal-Daftar-Jadwal-zurb.png}  
 			\caption{} 	
 		\end{figure}
-		Modal merupakan sebuah form dengan metode "POST". Untuk field \texttt{Hari, Jam Mulai, Durasi, Jenis} dan \texttt{label} memiliki input bertipe \texttt{select}. Lalu terdapat dua button \texttt{Save} dan \texttt{Submit} yang masing - masing menggunakan kelas \texttt{button} dan \texttt{alert button}.
+		Modal merupakan sebuah form dengan metode "POST". Untuk field \texttt{Hari, Jam Mulai, Durasi, Jenis} dan \texttt{label} memiliki input bertipe \colorbox{mygray}{\texttt{select}}. Lalu terdapat dua button \texttt{Save} dan \texttt{Submit} yang masing - masing menggunakan kelas tag \colorbox{mygray}{\texttt{<button>}} dan \colorbox{mygray}{\texttt{.alert}}.
 		
-		\subsection{Antarmuka Lihat Jadwal Dosen}
+		\myparagraph{Antarmuka Lihat Jadwal Dosen}
+		Antarmuka diaplikasikan pada file \textbf{BlueTape/www/application/views/LihatJadwalDosen/main.php}.
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.5]{Tampilan-Lihat-Jadwal-Dosen.png}  
 			\caption{Struktur File Zurb Foundation} 	
 		\end{figure}
-		Tabel Jadwal Dosen terdiri dari list nama dosen yang dibuat dalam bentuk tabs sehingga menggunakan kelas \texttt{tabs-panel}. Apabila dipilih sebuah tabs maka tabel akan menampilkan data jadwal dosen.  Terdiri dari rentang waktu dan hari. Dibagian bawah tabel terdapat tanggal kapan terakhir jadwal dibuat dan tombol "Ekspor ke XLS".
-	\end{enumerate}
-\section{Pencapaian Rencana Kerja}
-Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
-\begin{enumerate}
-	\item Mempelajari framework PHP Codeigniter.
-	\item Mempelajari framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.
-	\item Mengimplementasikan sebagian besar framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.
-	\item Menulis dokumen skripsi.
-\end{enumerate}
-
-\section{Kendala yang Dihadapi}
-%TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
-Kendala - kendala yang dihadapi selama mengerjakan skripsi :
-\begin{itemize}
-	\item Sulit mengubah lebar cell dalam tabel.
-\end{itemize}
-
-\vspace{1cm}
-\centering Bandung, \tanggal\\
-\vspace{2cm} \nama \\ 
-\vspace{1cm}
-
-Menyetujui, \\
-\ifdefstring{\jumpemb}{2}{
-\vspace{1.5cm}
-\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
-\begin{minipage}[b]{0.45\linewidth}
-% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
-\vspace{2cm} Nama: \pembA \\ Pembimbing Utama
-\end{minipage} \hspace{0.5cm}
-\begin{minipage}[b]{0.45\linewidth}
-% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-\vspace{2cm} Nama: \pembB \\ Pembimbing Pendamping
-\end{minipage}
-\vspace{0.5cm}
-}{
-% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-\vspace{2cm} Nama: \pembA \\ Pembimbing Tunggal
-}
-\end{document}
-
+		Tabel Jadwal Dosen terdiri dari list nama dosen yang dibuat dalam bentuk tabs sehingga menggunakan kelas \colorbox{mygray}{\texttt{tabs-panel}}. Apabila dipilih sebuah tabs maka tabel akan menampilkan data jadwal dosen.  Terdiri dari rentang waktu dan hari. Dibagian bawah tabel terdapat tanggal kapan terakhir jadwal dibuat dan tombol "Ekspor ke XLS".
+		
+		
+		\item \textbf{Menulis dokumen skripsi.}\\
+		{\bf Status :} Masih dalam pengerjaan. \\
+		{\bf Hasil :}  Sudah mencapai bab 3.\\
+		
+		\section{Pencapaian Rencana Kerja}
+		Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
+		\begin{enumerate}
+			\item Mempelajari framework PHP Codeigniter.
+			\item Mempelajari framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.
+			\item Mengimplementasikan sebagian besar framework front-end Bootstrap 4 beserta plugin-plugin yang tersedia.
+			\item Menulis dokumen skripsi.
+		\end{enumerate}
+		
+		\section{Kendala yang Dihadapi}
+		%TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
+		Kendala - kendala yang dihadapi selama mengerjakan skripsi :
+		
+		\vspace{1cm}
+		\centering Bandung, \tanggal\\
+		\vspace{2cm} \nama \\ 
+		\vspace{1cm}
+		
+		Menyetujui, \\
+		\ifdefstring{\jumpemb}{2}{
+			\vspace{1.5cm}
+			\begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
+			\begin{minipage}[b]{0.45\linewidth}
+				% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
+				\vspace{2cm} Nama: \pembA \\ Pembimbing Utama
+			\end{minipage} \hspace{0.5cm}
+			\begin{minipage}[b]{0.45\linewidth}
+				% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+				\vspace{2cm} Nama: \pembB \\ Pembimbing Pendamping
+			\end{minipage}
+			\vspace{0.5cm}
+		}{
+			% \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
+			\vspace{2cm} Nama: \pembA \\ Pembimbing Tunggal
+		}
+	\end{document}
+	

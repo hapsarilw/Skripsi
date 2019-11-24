@@ -421,20 +421,20 @@
 
 \renewcommand{\bibname}{Daftar Referensi}
 
-\singlespacing%selalu single spacing untuk lampiran dan daftar referensi
+\singlespacing%selalu single %listing khusus untuk penulisan kode program, menggunakan font Bera Mono
+\lstset{numbers=left,stepnumber=1, numbersep=5pt, frame=leftline,
+	tabsize=4, breaklines=true, basicstyle=\fontfamily{fvm}\selectfont\tiny, 
+	commentstyle=\itshape\color{gray}, keywordstyle=\bfseries\color{blue}, 
+	identifierstyle=\color{black}, stringstyle=\color{orange},
+	literate={-}{-}1{-\,-}{--}1
+} %spacing untuk lampiran dan daftar referensi
 
 \nolinenumbers%tidak ada line number untuk lampiran dan daftar referensi
 
 \bibliographystyle{compj} %gunakan compj 
 \bibliography{referensi}
 
-%listing khusus untuk penulisan kode program, menggunakan font Bera Mono
-\lstset{numbers=left,stepnumber=1, numbersep=5pt, frame=leftline,
-	tabsize=4, breaklines=true, basicstyle=\fontfamily{fvm}\selectfont\tiny, 
-	commentstyle=\itshape\color{gray}, keywordstyle=\bfseries\color{blue}, 
-	identifierstyle=\color{black}, stringstyle=\color{orange},
-	literate={-}{-}1{-\,-}{--}1
-} 
+
 
 \appendix%Penomoran lampiran dengan huruf  
 

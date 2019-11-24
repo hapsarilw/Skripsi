@@ -11,9 +11,9 @@ Halaman utama aplikasi BlueTape akan mengarahkan \textit{user} untuk \textit{log
 \begin{itemize}
 \item Apabila \textit{user} belum pernah login menggunakan akun UNPAR(xxx@student.unpar.ac.id atau yyy@unpar.ac.id) maka  \textit{user} akan diminta untuk memasukan email UNPAR dan password
 \item Apabila user sudah pernah login menggunakan akun UNPAR, maka \textit{user} akan diminta untuk memilih akun beserta password.
-\item User akan terhubung otomatis dengan akun @gmail.com. Apabila BlueTape menolak autentikasi user maka: User akan diminta untuk buka halaman Gmail lalu klik avatar di kanan atas dan memilih akun UNPAR yang tepat pada \textit{button} "Add Account"
+\item User akan terhubung otomatis dengan akun @gmail.com. Apabila BlueTape menolak autentikasi user maka: User akan diminta untuk buka halaman Gmail lalu klik avatar di kanan atas dan memilih akun UNPAR yang tepat pada tombol "Add Account"
 \end{itemize}
-User akan melihat beberapa menu sesuai dengan \textit{role} user, sebagau mahasiswa, staf TU, dll.
+User akan melihat beberapa menu sesuai dengan \textit{role} user, sebagai mahasiswa, staf TU, dll.
 
 \subsection{Dosen}
 \subsubsection{Perubahan Kuliah}
@@ -43,13 +43,13 @@ Pada bagian entri jadwal, dosen informatika dapat mengisikan hari, jam mulai, du
 Lalu dosen dapat klik tombol "Tambah" untuk menambahkan
 
 \subsubsection{Ubah/Hapus Jadwal}
-Dosen dapat mengubah atau menghapus jadwal yang tertera pada tabel. Lalu Pop up window akan terbuka dengan pilihan-pilihan yang sesuai dengan permintaan dosen.
+Dosen dapat mengubah atau menghapus jadwal yang tertera pada tabel. Lalu \textit{pop-up} window akan terbuka dengan pilihan-pilihan yang sesuai dengan permintaan dosen.
 
 \subsubsection{Hapus Semua}
 Tombol "Delete All" dapat digunakan untuk menghapus secara cepat seluruh jadwal yang telah dosen buat sebelumnya. Penggunaan tombol ini biasa nya digunakan pada awal semester, dimana jadwal yang dosen miliki berubah seluruhnya.
 
 \subsubsection{Ekspor ke XLS}
-Tombol "Ekspor ke XLS" berfungsi untuk membuat file XLS untuk jadwal dosen.
+Tombol "Ekspor ke XLS" berfungsi untuk membuat file excel (.xls) untuk jadwal dosen.
 
 \subsection{Mahasiswa}
 \subsubsection{Cetak Transkrip}
@@ -80,8 +80,8 @@ Setiap daftar permohonan akan memiliki beberapa tombol :
 \end{itemize}
 
 \subsubsection{Manajemen Cetak Transkrip}
-Staf Tata Usaha dapat melihat daftar perminttan transkrip dalam bentuk tabel. Keterangan mengenai transkrip dapat dilihat menggunakan tombol \includegraphics[height=0.6\baselineskip]{tombol_eye.png} (detail). Selain itu terdapat dua pilihan jawaban dalam setiap daftar permintaan yaitu \includegraphics[height=0.7\baselineskip]{tombol_bad.png} (tolak) dan 
-\includegraphics[height=0.7\baselineskip]{tombol_print.png} (cetak). Masing-masing tombol memerlukan keterangan tambahan mengeai alasan mengapa transkrip dapat dicetak maupun ditolak.
+\indent Staf Tata Usaha dapat melihat daftar perminttan transkrip dalam bentuk tabel. Keterangan mengenai transkrip dapat dilihat menggunakan tombol \includegraphics[height=0.6\baselineskip]{tombol_eye.png} (detail). Selain itu terdapat dua pilihan jawaban dalam setiap daftar permintaan yaitu \includegraphics[height=0.7\baselineskip]{tombol_bad.png} (tolak) dan 
+\includegraphics[height=0.7\baselineskip]{tombol_print.png} (cetak). Masing-masing tombol memerlukan keterangan tambahan mengeai alasan mengapa transkrip dapat dicetak maupun ditolak.\\
 
 Modul ini berguna untuk manajemen permohonan cetka transkrip. Terdapat sebuah tabel yang menapilkan daftar pemohonan dengan tanggal yang terurut. Staf Tata Usaha dapat mencari daftar permintaan berdasarkan NPM pemohon.
 
@@ -89,13 +89,12 @@ Beberapa tombol yang tersedia untuk setiap permohonan :
 
 \begin{itemize}
 \item \includegraphics[height=0.7\baselineskip]{tombol_eye.png} berfungsi untuk melihat detail permohonan sehingga dapat menentukan apakah permohonan disetujui atau tidak.
-\item \includegraphics[height=0.7\baselineskip]{tombol_print.png} berfungsi untuk membuka pop-up print-out pengumuman. Dalam pop-up akan disediakan sebuah link menuju halaman percetakan transkrip pada SIAkad.
+: \item \includegraphics[height=0.7\baselineskip]{tombol_print.png} berfungsi untuk membuka pop-up print-out pengumuman. Dalam pop-up akan disediakan sebuah link menuju halaman percetakan transkrip pada SIAkad.
 \item \includegraphics[height=0.7\baselineskip]{tombol_bad.png} berfungsi untuk menyatakan bahwa permohonan ditolak. Staf Tata Usaha akan mengisi alasan mengapa permohonan ditolak sehingga tidak membingungkan pemohon.
 \item \includegraphics[height=0.7\baselineskip]{tombol_trash.png} berfungsi untuk menghapus permohonan \textbf{secara permanen}. Staf Tata Usaha dihimbau agar tidak menggunakan tombol ini kecuali dalam keadaan terpaksa.
 \end{itemize}  
 
 \section{CodeIgniter}
-\label{sec:code_igniter}
 
 \subsection{Application Flow Chart}
 Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
@@ -113,12 +112,12 @@ Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
 \item \texttt{Cache} : Apabila terdapat \textit{cache}, maka \textit{cache} tersebut akan dikirimkan langsung ke browser, dengan melewati sistem eksekusi normal.
 \item \texttt{Security} : Sebelum \textit{controller} dimuat, \textit{HTTP request} dan \textit{user} mana pun yang mengirimkan data diseleksi dahulu untuk keamanan.
 \item \texttt{Controller} : Terdiri dari \textit{model, core libraries, helpers}, dan \textit{resources} yang dibutuhkan untuk proses \textit{request} tertentu.
-\item \texttt{View} : Tampilan yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\cite{codeigniter}
+\item \texttt{View} : Tampilan yang telah selesai dirubah kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\cite{codeigniter}
 \end{enumerate}
 
 \subsection{CodeIgniter URLs}
 \label{subs:urls}
-Codeigniter menggunakan pendekatan berbasis segment :
+CodeIgniter menggunakan pendekatan berbasis segmen :
 \begin{lstlisting}[frame=single] 
 example.com/class/function/ID
 \end{lstlisting}
@@ -126,7 +125,7 @@ example.com/class/function/ID
 \begin{enumerate}
 \item Segmen pertama menyatakan kelas \textit{controller} yang harus dipanggil.
 \item Segmen kedua menyatakan fungsi kelas, atau metode, yang harus dipanggil.
-\item Segmen ketiga dan setiap segmen setelahnya menyatakan ID dan variabel apa pun yang akan diteruskan ke controller.
+\item Segmen ketiga dan setiap segmen setelahnya menyatakan ID dan variabel apa pun yang akan diteruskan ke \textit{controller}.
 \end{enumerate}
 
 \subsection{Model}
@@ -135,7 +134,7 @@ example.com/class/function/ID
 
 \subsubsection{Anatomi Model}
 \label{sssec:model_1}
-Kelas model akan disimpan dalam direktori \textbf{application/models/directory}.Prototipe dasar dari sebuah model kelas :
+Kelas model akan disimpan dalam direktori \textbf{application/models/directory}. Prototipe dasar dari sebuah model kelas :
 
 \begin{lstlisting}[frame=single]  
 <?php
@@ -159,7 +158,7 @@ $this->load->model('model_name');
 
 \subsubsection{Koneksi ke Database}
 \label{sssec:model_3}
-Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektfitas database melalui parameter ketiga:
+Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektivitas database melalui parameter ketiga:
 
 \begin{lstlisting}[frame=single]
 $config['hostname'] = 'localhost';
@@ -172,11 +171,10 @@ $config['pconnect'] = FALSE;
 $config['db_debug'] = TRUE;
 
 $this->load->model('model_name', '', $config);
-\end{lstlisting}{listing only}
+\end{lstlisting}
 
 \subsection{View}
-\label{subs:view}
-\textit{View} adalah informasi yang sedang dilihat oleh \textit{user}. Sebuah \textit{View} normalnya menjadi sebuah halaman web, namun dalam CodeIgniter, sebuah \textit{view} dapat menjadi sebuah \textit{page fragment} seperti \textit{header} atau \textit{footer}. Dapat juga menjadi halaman RSS, atau tipe apapun dari "page".
+\textit{View } adalah informasi yang disajikan kepada pengguna. Tampilan atau \textit{View} biasanya akan menjadi halaman web, tetapi dalam CodeIgniter, tampilan juga bisa berupa fragmen halaman seperti header atau footer. 
 
 \textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu. 
 
@@ -198,7 +196,7 @@ File tersebut akan disimpan di direktori \texttt{application/views/}.
 \subsubsection{Loading sebuah View}
 
 
-View dapat dimuat dengan membuat file \texttt{view} dengan syntax berikut:
+View dapat dimuat dengan membuat file \textit{view} dengan syntax berikut:
 
 \begin{lstlisting}[frame=single] 
 $this->load->view('name');
@@ -208,13 +206,13 @@ $this->load->view('name');
 
 \subsubsection{Memuat Beberapa View}
 
-CodeIgniter dapat menangani beberapa panggilan dari dalam controller dengan menggunakan syntax : 
+CodeIgniter dapat menangani beberapa panggilan dari dalam \textit{controller} dengan menggunakan syntax : 
 
 \begin{lstlisting}[frame=single] 
 $this->load->view()
 \end{lstlisting}
 
-Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan. Berikut ini kode yang digunakan jika \textit{developer} ingin mempunyai \textit{header view}, \texttt{menu view}, \texttt{content view}, dan \texttt{footer view}. 
+Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan. Berikut ini kode yang digunakan jika \textit{developer} ingin mempunyai sebuah halaman yang terdiri dari \texttt{header, menu, content} dan \texttt{footer}. 
 
 
 \begin{lstlisting}[frame=single] 
@@ -236,7 +234,7 @@ class Page extends CI_Controller {
 
 \subsubsection{Menyimpan Views didalam Sub Direktori}
 
-Untuk menyimpan didalam sub direktori maka dapat menyertakan nama direktori yang memuat \texttt{view}.
+Untuk menyimpan didalam sub direktori maka dapat menyertakan nama direktori yang memuat \textit{view}.
 \begin{lstlisting}[frame=single] 
 $this->load->view('directory_name/file_name');
 \end{lstlisting}
@@ -289,18 +287,14 @@ Untuk mengaksesnya dalam file HTML maka \textit{developer} dapat menggunakan syn
 \end{lstlisting}
 
 \subsection{Controller}
-\textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web.
-
-Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
+\textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web. Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
 Misalnya untuk URl ini:
 \begin{lstlisting}[frame=single] 
 <?php
 example.com/index.php/blog/
 \end{lstlisting}
 
-Dalam contoh diatas, \textit{Codeigniter} berusaha menemukan \textit{controller} bernama Blog.php dan lalu memuatnya. Ketika sebuah nama \textit{controller} sesuai dengan segmen pertama dari sebuah URl, maka URl akan memuatnya.
-
-Kode berikut merupakan contoh dari \textit{controller} sederhana.
+Dalam contoh diatas, \textit{CodeIgniter} berusaha menemukan \textit{controller} bernama Blog.php dan lalu memuatnya. Ketika sebuah nama \textit{controller} sesuai dengan segmen pertama dari sebuah URl, maka URl akan memuatnya. Kode berikut merupakan contoh dari \textit{controller} sederhana.
 \begin{lstlisting}[frame=single] 
 <?php
 class Blog extends CI_Controller {
@@ -341,7 +335,7 @@ example.com/index.php/blog/index/
 example.com/index.php/blog/comments/
 \end{lstlisting}
 
-\section{Zurb Foundation 6}
+\section{Foundation 6}
 
 \subsection{Struktur File}
 \begin{figure} [H]
@@ -358,8 +352,9 @@ Framework Foundation terdiri dari 3 folder utama:
 \end{itemize} \cite{zurbfoundation:17}
 
 \subsection{Sistem Grid pada Foundation}
-Penggunaan grid pada \texttt{Foundation} dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu \texttt{.small-\#\, .medium-\#} dan \texttt{.large-\#}. 
-
+Penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu 
+\colorbox{mygray}{\texttt{.small-\#}}, \colorbox{mygray}{\texttt{.medium-\#}} dan \colorbox{mygray}{\texttt{.large-\#}}.
+ 
 \begin{lstlisting}[frame=single] 
 <div class="row">
   <div class="columns small-2 large-4"><!-- ... --></div>
@@ -405,7 +400,7 @@ Komponen menu yang fleksibel pada Foundation membuat pembangunan navigasi secara
 
 \subsubsection{Basic Menu}
 
-Menu terdiri dari sebuah \texttt{<ul>} yang diisi oleh beberapa tag \texttt{<li>}. Secara default, menu akan berorientasi horizontal.
+Menu terdiri dari sebuah \colorbox{mygray}{\texttt{<ul>}} yang diisi oleh beberapa tag \colorbox{mygray}{\texttt{<li>}}. Secara default, menu akan berorientasi horizontal.
 
 Berikut ini contoh penggunaan kode navigasi pada menu:
 
@@ -425,7 +420,7 @@ Berikut ini contoh penggunaan kode navigasi pada menu:
 \end{figure}
 
 \subsubsection{Item Alignment}
-Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \texttt{.align-right} atau kearah tengah dengan menambahkan kelas \texttt{.align-center} didalam kelas \texttt{.menu}.
+Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \colorbox{mygray}{\texttt{.align-right}} atau kearah tengah dengan menambahkan kelas \colorbox{mygray}{\texttt{.align-center}} didalam kelas \colorbox{mygray}{\texttt{.menu}}.
 \begin{lstlisting}[frame=single] 
 <ul class="menu align-right">
   <li><a href="#">One</a></li>
@@ -457,7 +452,7 @@ Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat di
 \end{figure}
 
 \subsubsection{Active State}
-Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk membuat menu terpilih yang aktif terlihat saat di klik. 
+Kelas \colorbox{mygray}{\texttt{.is-active}} dapat ditambahkan ke dalam tag \colorbox{mygray}{\texttt{<li>}} untuk membuat menu terpilih yang aktif terlihat saat di klik. 
 
 \begin{lstlisting}[frame=single] 
 <ul class="menu">
@@ -475,7 +470,7 @@ Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk mem
 
 
 \subsubsection{Text}
-Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.
+Karena \textit{padding} untuk setiap item menu menggunakan tag \colorbox{mygray}{\texttt{<a>}}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.
 
 \begin{lstlisting}[frame=single]
  <ul class="menu">
@@ -745,6 +740,7 @@ Berikut ini tabel yang menjelaskan penggunaan kelas grid dalam berbagai perangka
 
 \subsection{Konten}
 \subsubsection{Tabel}
+\paragraph{Tabel Default}
 Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.
 \begin{figure} [H]
 	\centering  
@@ -785,77 +781,88 @@ Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \te
 </table>
 \end{lstlisting}
 
-\subsubsection{Opsi Tabel dengan \textit{head} yang dimodifikasi}
-Penggunaan kelas \texttt{.thead-light} atau \texttt{.thead-dark} dapat digunakan untuk membuat \texttt{<thead>} menjadi abu muda atau abu tua.
+\paragraph{Tabel dengan Garis Batas}
+Penggunaan kelas \texttt{.table-bordered} akan membuat tabel memiliki garis batas untuk semua sisi didalam tabel dan \textit{cells}.
+
 \begin{figure} [H]
 	\centering  
-	\includegraphics[scale=0.7]{tablehead_bootstrap.png}  
-	\caption{Tabel dengan thead yang dimodifikasi pada Bootstrap} 
+	\includegraphics[scale=0.7]{tablebordered_bootstrap.png}  
+	\caption{Tabel default pada Bootstrap} 
 \end{figure}
 
 \begin{lstlisting}[frame=single] 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Handle</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th scope="row">1</th>
+		<td>Mark</td>
+		<td>Otto</td>
+		<td>@mdo</td>
+	</tr>
+	<tr>
+		<th scope="row">2</th>
+		<td>Jacob</td>
+		<td>Thornton</td>
+		<td>@fat</td>
+	</tr>
+	<tr>
+		<th scope="row">3</th>
+		<td colspan="2">Larry the Bird</td>
+		<td>@twitter</td>
+	</tr>
+	</tbody>
 </table>
 \end{lstlisting}
+
+\paragraph{Tabel dengan Warna Baris Berbeda}
+Penggunaan kelas \colorbox{mygray}{\texttt{.table-striped}} akan membuat tabel memiliki warna baris berbeda batas antara baris genap dan ganjil didalam tag \texttt{<tbody>}.
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{tablestriped_bootstrap.png}  
+	\caption{Tabel default pada Bootstrap} 
+\end{figure}
+
+\begin{lstlisting}[frame=single] 
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Handle</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<th scope="row">1</th>
+		<td>Mark</td>
+		<td>Otto</td>
+		<td>@mdo</td>
+	</tr>
+	<tr>
+	<th scope="row">2</th>
+		<td>Jacob</td>
+		<td>Thornton</td>
+		<td>@fat</td>
+	</tr>
+	<tr>
+		<th scope="row">3</th>
+		<td colspan="2">Larry the Bird</td>
+		<td>@twitter</td>
+	</tr>
+	</tbody>
+</table>
+\end{lstlisting}
+
 
 \subsubsection{Gambar}
 Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan kelas \texttt{.img-fluid} serta mengatur lebar gambar dengan properties \texttt{max-width: 100\%} dan \texttt{height: auto}. Sehingga gambar tidak pernah lebih besar dari \textit{parent} nya. 
@@ -968,7 +975,7 @@ Penambahan atribut boolean \texttt{disabled} pada sebuah input membuat \textit{u
   </fieldset>
 </form>
 \end{lstlisting}
-\subsubsection{Tombol}
+\subsubsection{Button}
 Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisikan sebelumnya, membuat setiap button akan memiliki makna nya sendiri.
 \begin{figure} [H]
 	\centering  
@@ -987,6 +994,8 @@ Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisik
 
 <button type="button" class="btn btn-link">Link</button>
 \end{lstlisting}
+
+
 \subsubsection{Button with Dropdowns}
 \begin{lstlisting}[frame=single, basicstyle=\tiny]
 <div class="input-group mb-3">
@@ -1024,6 +1033,48 @@ Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisik
 	\centering  
 	\includegraphics[scale=1.0]{buttonsdropdown_bootstrap.PNG}  
 	\caption{Tombol \textit{dropdown} pada Bootstrap} 
+\end{figure}
+
+\subsubsection{Badge}
+Kelas \colorbox{mygray}{\texttt{badge}} dan \colorbox{mygray}{\texttt{.badge-*}} di dalam sebuah \colorbox{mygray}{\texttt{<a>}} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. 
+\begin{lstlisting}[frame=single, basicstyle=\tiny]
+<a href="#" class="badge badge-primary">Primary</a>
+<a href="#" class="badge badge-secondary">Secondary</a>
+<a href="#" class="badge badge-success">Success</a>
+<a href="#" class="badge badge-danger">Danger</a>
+<a href="#" class="badge badge-warning">Warning</a>
+<a href="#" class="badge badge-info">Info</a>
+<a href="#" class="badge badge-light">Light</a>
+<a href="#" class="badge badge-dark">Dark</a>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{badge_bootstrap.PNG}  
+	\caption{Badge pada Bootstrap} 
+\end{figure}
+
+\subsubsection{Card}
+\texttt{Card} adalah kontainer konten yang fleksibel dan bisa diatur lebarnya. Sebuah card memiliki sebuah \textit{headers} dan \textit{footers}.
+
+\begin{lstlisting}[frame=single, basicstyle=\tiny]
+<div class="card">
+	<div class="card-header">
+		Featured
+	</div>
+	<div class="card-body">
+		<h5 class="card-title">Special title treatment</h5>
+		<p class="card-text">With supporting text below as 
+		a natural lead-in to additional content.</p>
+		<a href="#" class="btn btn-primary"card>Go somewhere</a>
+	</div>
+</div>
+\end{lstlisting}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=1.0]{card_bootstrap.PNG}  
+	\caption{Card pada Bootstrap} 
 \end{figure}
 
 \subsubsection{Navigation Bar}
@@ -1173,7 +1224,9 @@ Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringa
 \end{lstlisting}
 
 \section{Plugin}
-\texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada forms. 
+\texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada bagian forms. 
+\subsubsection{Inline DateTimePicker}
+Penggunaan plugin ini, memungkinkan \textit{users} untuk memilih tanggal dan waktu secara bersamaan.
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{datetimepicker_bootstrap4.PNG}  
