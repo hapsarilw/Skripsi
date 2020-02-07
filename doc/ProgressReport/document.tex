@@ -48,11 +48,11 @@
 	%ISILAH DATA BERIKUT INI:
 	\newcommand{\nama}{Hapsari Laksmi W}
 	\newcommand{\@npm}{2015730037}
-	\newcommand{\tanggal}{11/14/2019} %Tanggal pembuatan dokumen
+	\newcommand{\tanggal}{25/11/2019} %Tanggal pembuatan dokumen
 	\newcommand{\@judultopik}{Migrasi Zurb Foundation ke Bootstrap 4} % Judul/topik anda
 	\newcommand{\kodetopik}{PAN4791}
 	\newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-	\newcommand{\pembA}{Pascal Alfadian .N}
+	\newcommand{\pembA}{Pascal Alfadian Nugroho}
 	\newcommand{\pembB}{-}
 	\newcommand{\semesterPertama}{47 - Ganjil 19/20} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
 	\newcommand{\lamaSkripsi}{1} % Jumlah semester untuk mengerjakan skripsi s.d. dokumen ini dibuat
@@ -158,7 +158,7 @@
 			\item \texttt{Cache} : Apabila terdapat \textit{cache}, maka \textit{cache} tersebut akan dikirimkan langsung ke browser, dengan melewati sistem eksekusi normal.
 			\item \texttt{Security} : Sebelum \textit{controller} dimuat, \textit{HTTP request} dan \textit{user} mana pun yang mengirimkan data diseleksi dahulu untuk keamanan.
 			\item \texttt{Controller} : Terdiri dari \textit{model, core libraries, helpers}, dan \textit{resources} yang dibutuhkan untuk proses \textit{request} tertentu.
-			\item \texttt{View} : Tampilan yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\cite{codeigniter}
+			\item \texttt{View} : Tampilan yang telah selesai dirender kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\footnote{Codeigniter 3 (2017) Codeigniter 3.1.4 Documentation. British Columbia Institute of Technology. 5112 Bobby Hicks Hwy, Gray, TN 37615, USA.}
 		\end{enumerate}
 		
 		\myparagraph{CodeIgniter URLs}
@@ -324,12 +324,12 @@
 		Untuk mengaksesnya dalam file HTML maka \textit{developer} dapat menggunakan syntax php :
 		\begin{lstlisting}[frame=single] 
 		<html>
-		<head>
-		<title><?php echo $title;?></title>
-		</head>
-		<body>
-		<h1><?php echo $heading;?></h1>
-		</body>
+			<head>
+				<title><?php echo $title;?></title>
+			</head>
+			<body>
+				<h1><?php echo $heading;?></h1>
+			</body>
 		</html>
 		\end{lstlisting}
 		
@@ -391,7 +391,7 @@
 		{\bf Hasil :} 
 		
 		\myparagraph{Sistem Grid Bootstrap}
-		Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \cite{bootstrap:19}
+		Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \footnote{Bootstrap 4 (2019) Bootstrap v4.3.1 Documentation. Bootstrap Core Team. 77 Massachusetts Avenue Cambridge, MA 02139, USA.}
 		\begin{figure} [H]
 			\centering  
 			\includegraphics[scale=0.7]{gridbasic_bootstrap.png}  
@@ -400,17 +400,17 @@
 		
 		\begin{lstlisting}[frame=single] 
 		<div class="container">
-		<div class="row">
-		<div class="col-sm">
-		One of three columns
-		</div>
-		<div class="col-sm">
-		One of three columns
-		</div>
-		<div class="col-sm">
-		One of three columns
-		</div>
-		</div>
+			<div class="row">
+				<div class="col-sm">
+					One of three columns
+				</div>
+				<div class="col-sm">
+					One of three columns
+				</div>
+				<div class="col-sm">
+					One of three columns
+				</div>
+			</div>
 		</div>
 		\end{lstlisting}
 		Dalam contoh diatas akan dibuat tiga kolom yang memiliki lebar yang sama baik dalam \textit{device} \textit{small, medium, large} dan \textit{extra large} menggunakan kelas grid yang sudah ditentukan sebelumnya oleh Bootstrap. Penggunaan \verb|.container| akan membuat kolom berada ditengah halaman.
@@ -432,9 +432,8 @@
 			\caption{Pilihan kelas grid pada Bootstrap} 
 		\end{figure}
 		
-		\myparagraph{Konten}
 		\myparagraph{Tabel}
-		\paragraph{Tabel Default}
+		\myparagraph{Tabel Default}
 		Dengan penggunaan kelas \verb|.table| pada seluruh tag \colorbox{mygray}{\texttt{<table>}} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.
 		\begin{figure} [H]
 			\centering  
@@ -444,34 +443,34 @@
 		
 		\begin{lstlisting}[frame=single] 
 		<table class="table">
-		<thead>
-		<tr>
-		<th scope="col">#</th>
-		<th scope="col">First</th>
-		<th scope="col">Last</th>
-		<th scope="col">Handle</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<th scope="row">1</th>
-		<td>Mark</td>
-		<td>Otto</td>
-		<td>@mdo</td>
-		</tr>
-		<tr>
-		<th scope="row">2</th>
-		<td>Jacob</td>
-		<td>Thornton</td>
-		<td>@fat</td>
-		</tr>
-		<tr>
-		<th scope="row">3</th>
-		<td>Larry</td>
-		<td>the Bird</td>
-		<td>@twitter</td>
-		</tr>
-		</tbody>
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">First</th>
+					<th scope="col">Last</th>
+					<th scope="col">Handle</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td>Larry</td>
+					<td>the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
 		</table>
 		\end{lstlisting}
 		
@@ -486,33 +485,33 @@
 		
 		\begin{lstlisting}[frame=single] 
 		<table class="table table-bordered">
-		<thead>
-		<tr>
-		<th scope="col">#</th>
-		<th scope="col">First</th>
-		<th scope="col">Last</th>
-		<th scope="col">Handle</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<th scope="row">1</th>
-		<td>Mark</td>
-		<td>Otto</td>
-		<td>@mdo</td>
-		</tr>
-		<tr>
-		<th scope="row">2</th>
-		<td>Jacob</td>
-		<td>Thornton</td>
-		<td>@fat</td>
-		</tr>
-		<tr>
-		<th scope="row">3</th>
-		<td colspan="2">Larry the Bird</td>
-		<td>@twitter</td>
-		</tr>
-		</tbody>
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">First</th>
+					<th scope="col">Last</th>
+					<th scope="col">Handle</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
 		</table>
 		\end{lstlisting}
 		
@@ -527,33 +526,33 @@
 		
 		\begin{lstlisting}[frame=single] 
 		<table class="table table-striped">
-		<thead>
-		<tr>
-		<th scope="col">#</th>
-		<th scope="col">First</th>
-		<th scope="col">Last</th>
-		<th scope="col">Handle</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<th scope="row">1</th>
-		<td>Mark</td>
-		<td>Otto</td>
-		<td>@mdo</td>
-		</tr>
-		<tr>
-		<th scope="row">2</th>
-		<td>Jacob</td>
-		<td>Thornton</td>
-		<td>@fat</td>
-		</tr>
-		<tr>
-		<th scope="row">3</th>
-		<td colspan="2">Larry the Bird</td>
-		<td>@twitter</td>
-		</tr>
-		</tbody>
+			<thead>
+				<tr>
+				<th scope="col">#</th>
+				<th scope="col">First</th>
+				<th scope="col">Last</th>
+				<th scope="col">Handle</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
 		</table>
 		\end{lstlisting}
 		
@@ -574,41 +573,40 @@
 		
 		
 		
-		\myparagraph{Komponen}
 		\myparagraph{Formulir}
 		\textit{Form} pada Bootstrap menyediakan beragam tipe input sesuai dengan kebutuhan \textit{user}. Contohnya penggunaan kelas \texttt{email} untuk \textit{input} email atau \texttt{number} untuk input berupa angka.
 		\myparagraph{Form Controls}
 		\textit{Developer} dapat membuat form menggunakan kelas \colorbox{mygray}{\texttt{.form-control}}. Kelas ini terdiri dari beberapa tag seperti tag\colorbox{mygray}{\texttt{ <input>}}, \colorbox{mygray}{\texttt{<select>}} dan \colorbox{mygray}{\texttt{<textarea>}}.
 		\begin{lstlisting}[frame=single, basicstyle=\tiny] 
 		<form>
-		<div class="form-group">
-		<label for="exampleFormControlInput1">Email address</label>
-		<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="form-group">
-		<label for="exampleFormControlSelect1">Example select</label>
-		<select class="form-control" id="exampleFormControlSelect1">
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>4</option>
-		<option>5</option>
-		</select>
-		</div>
-		<div class="form-group">
-		<label for="exampleFormControlSelect2">Example multiple select</label>
-		<select multiple class="form-control" id="exampleFormControlSelect2">
-		<option>1</option>
-		<option>2</option>
-		<option>3</option>
-		<option>4</option>
-		<option>5</option>
-		</select>
-		</div>
-		<div class="form-group">
-		<label for="exampleFormControlTextarea1">Example textarea</label>
-		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-		</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Email address</label>
+				<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">Example select</label>
+				<select class="form-control" id="exampleFormControlSelect1">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlSelect2">Example multiple select</label>
+				<select multiple class="form-control" id="exampleFormControlSelect2">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1">Example textarea</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			</div>
 		</form>
 		\end{lstlisting}
 		
@@ -626,20 +624,20 @@
 		\end{figure} 
 		\begin{lstlisting}[frame=single] 
 		<form>
-		<div class="form-row">
-		<div class="col-7">
-		<input type="text" class="form-control" placeholder="City">
-		</div>
-		<div class="col">
-		<input type="text" class="form-control" placeholder="State">
-		</div>
-		<div class="col">
-		<input type="text" class="form-control" placeholder="Zip">
-		</div>
-		</div>
+			<div class="form-row">
+				<div class="col-7">
+					<input type="text" class="form-control" placeholder="City">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" placeholder="State">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" placeholder="Zip">
+				</div>
+			</div>
 		</form>
 		\end{lstlisting}
-		\myparagraphn{Disabled Forms}
+		\myparagraph{Disabled Forms}
 		Penambahan atribut boolean \colorbox{mygray}{\texttt{disabled}} pada sebuah input membuat \textit{user} tidak bisa mengisi data pada \textit{field} tersebut. Untuk non-aktifkan seluruh \textit{field} pada sebuah kolom dapat menambahkan atribut \texttt{disabled} pada tag \colorbox{mygray}{\texttt{<fieldset>}}.
 		\begin{figure} [H]
 			\centering  
@@ -648,25 +646,25 @@
 		\end{figure}
 		\begin{lstlisting}[frame=single, basicstyle=\tiny] 
 		<form>
-		<fieldset disabled>
-		<div class="form-group">
-		<label for="disabledTextInput">Disabled input</label>
-		<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
-		</div>
-		<div class="form-group">
-		<label for="disabledSelect">Disabled select menu</label>
-		<select id="disabledSelect" class="form-control">
-		<option>Disabled select</option>
-		</select>
-		</div>
-		<div class="form-check">
-		<input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
-		<label class="form-check-label" for="disabledFieldsetCheck">
-		Can't check this
-		</label>
-		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-		</fieldset>
+			<fieldset disabled>
+			<div class="form-group">
+				<label for="disabledTextInput">Disabled input</label>
+				<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+			</div>
+			<div class="form-group">
+				<label for="disabledSelect">Disabled select menu</label>
+				<select id="disabledSelect" class="form-control">
+				<option>Disabled select</option>
+				</select>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+				<label class="form-check-label" for="disabledFieldsetCheck">
+				Can't check this
+				</label>
+			</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</fieldset>
 		</form>
 		\end{lstlisting}
 		\myparagraph{Button}
@@ -689,46 +687,7 @@
 		<button type="button" class="btn btn-link">Link</button>
 		\end{lstlisting}
 		
-		
-		\myparagraph{Button with Dropdowns}
-		\begin{lstlisting}[frame=single, basicstyle=\tiny]
-		<div class="input-group mb-3">
-		<div class="input-group-prepend">
-		<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false">Dropdown</button>
-		<div class="dropdown-menu">
-		<a class="dropdown-item" href="#">Action</a>
-		<a class="dropdown-item" href="#">Another action</a>
-		<a class="dropdown-item" href="#">Something else here</a>
-		<div role="separator" class="dropdown-divider"></div>
-		<a class="dropdown-item" href="#">Separated link</a>
-		</div>
-		</div>
-		<input type="text" class="form-control" aria-label="Text input with dropdown button">
-		</div>
-		
-		<div class="input-group">
-		<input type="text" class="form-control" aria-label="Text input with dropdown button">
-		<div class="input-group-append">
-		<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false">Dropdown</button>
-		<div class="dropdown-menu">
-		<a class="dropdown-item" href="#">Action</a>
-		<a class="dropdown-item" href="#">Another action</a>
-		<a class="dropdown-item" href="#">Something else here</a>
-		<div role="separator" class="dropdown-divider"></div>
-		<a class="dropdown-item" href="#">Separated link</a>
-		</div>
-		</div>
-		</div>
-		\end{lstlisting}
-		
-		\begin{figure} [H]
-			\centering  
-			\includegraphics[scale=1.0]{buttonsdropdown_bootstrap.PNG}  
-			\caption{Tombol \textit{dropdown} pada Bootstrap} 
-		\end{figure}
-		
+					
 		\myparagraph{Badge}
 		Kelas \colorbox{mygray}{\texttt{badge}} dan \colorbox{mygray}{\texttt{.badge-*}} di dalam sebuah \colorbox{mygray}{\texttt{<a>}} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. 
 		\begin{lstlisting}[frame=single, basicstyle=\tiny]
@@ -753,15 +712,15 @@
 		
 		\begin{lstlisting}[frame=single, basicstyle=\tiny]
 		<div class="card">
-		<div class="card-header">
-		Featured
-		</div>
-		<div class="card-body">
-		<h5 class="card-title">Special title treatment</h5>
-		<p class="card-text">With supporting text below as 
-		a natural lead-in to additional content.</p>
-		<a href="#" class="btn btn-primary"card>Go somewhere</a>
-		</div>
+			<div class="card-header">
+			Featured
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Special title treatment</h5>
+				<p class="card-text">With supporting text below as 
+				a natural lead-in to additional content.</p>
+				<a href="#" class="btn btn-primary"card>Go somewhere</a>
+			</div>
 		</div>
 		\end{lstlisting}
 		
@@ -790,41 +749,41 @@
 		
 		\begin{lstlisting}[frame=single, basicstyle=\tiny] 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
-		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-		</button>
-		
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-		<li class="nav-item active">
-		<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		</li>
-		<li class="nav-item">
-		<a class="nav-link" href="#">Link</a>
-		</li>
-		<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Dropdown
-		</a>
-		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		<a class="dropdown-item" href="#">Action</a>
-		<a class="dropdown-item" href="#">Another action</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" href="#">Something else here</a>
-		</div>
-		</li>
-		<li class="nav-item">
-		<a class="nav-link disabled" href="#">Disabled</a>
-		</li>
-		</ul>
-		<form class="form-inline my-2 my-lg-0">
-		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		</form>
-		</div>
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dropdown
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+					<li class="nav-item">
+					<a class="nav-link disabled" href="#">Disabled</a>
+					</li>
+				</ul>
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+			</div>
 		</nav>
 		\end{lstlisting}
 		
@@ -851,23 +810,23 @@
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-		<div class="modal-content">
-		<div class="modal-header">
-		<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		<span aria-hidden="true">&times;</span>
-		</button>
-		</div>
-		<div class="modal-body">
-		...
-		</div>
-		<div class="modal-footer">
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary">Save changes</button>
-		</div>
-		</div>
-		</div>
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+					...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		\end{lstlisting}
 		
@@ -892,25 +851,25 @@
 		\end{figure}
 		\begin{lstlisting}[frame=single] 
 		<div class="alert alert-primary" role="alert">
-		This is a primary alert—check it out!
+			This is a primary alert—check it out!
 		</div>
 		<div class="alert alert-secondary" role="alert">
-		This is a secondary alert—check it out!
+			This is a secondary alert—check it out!
 		</div>
 		<div class="alert alert-success" role="alert">
-		This is a success alert—check it out!
+			This is a success alert—check it out!
 		</div>
 		<div class="alert alert-danger" role="alert">
-		This is a danger alert—check it out!
+			This is a danger alert—check it out!
 		</div>
 		<div class="alert alert-warning" role="alert">
-		This is a warning alert—check it out!
+			This is a warning alert—check it out!
 		</div>
 		<div class="alert alert-info" role="alert">
-		This is a info alert—check it out!
+			This is a info alert—check it out!
 		</div>
 		<div class="alert alert-light" role="alert">
-		This is a light alert—check it out!
+			This is a light alert—check it out!
 		</div>
 		<div class="alert alert-dark" role="alert">
 		This is a dark alert—check it out!
@@ -1336,7 +1295,287 @@
 		
 		\item \textbf{Menulis dokumen skripsi.}\\
 		{\bf Status :} Masih dalam pengerjaan. \\
-		{\bf Hasil :}  Sudah mencapai bab 3.\\
+		{\bf Hasil :}  \\
+		Detail Pengerjaan Skripsi sebagai berikut :
+		\begin{itemize}
+			\item Bab 1 Pendahuluan : Dijelaskan pada Latar Belakang
+			\item Bab 2 Landasan Teori : Dijelaskan pada poin 1 dan 2.
+			\item Bab 3 Analisis : Dijelaskan pada poin nomor 5.
+		\end{itemize}
+		Berikut ini landasan teori untuk framework Foundation :
+		\myparagraph{Struktur File}
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=1.0]{filestructure_zurb.png}  
+			\caption{Struktur File Zurb Foundation} 
+		\end{figure}
+		
+		Framework Foundation terdiri dari 3 folder utama:
+		\begin{itemize}
+			\item Folder \textbf{css} terdiri dari semua \textit{CSS Style} yang digunakan dalam Foundation 6. Didalam folder terdapat versi yag diperkecil yaitu \verb|foundation.min.css| atau versi yang tidak dikompresi \verb|foundation.css|. Lalu seluruh modifikasi \textit{stylesheets} ditempatkan didalam folder ini agar lebih terstruktur.
+			\item Folder \textbf{img} tempat meletakkan semua gambar untuk projek web.
+			\item Folder \textbf{js} terdiri dari semua file Javascript.
+		\end{itemize} \footnote{Foundation 6 (2017) Foundation v6.3.1 Documentation. ZurbInc. 100 W RinconAve, Campbell, CA 95008, USA. }
+		
+		\myparagraph{Sistem Grid pada Foundation}
+		Penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu 
+		\colorbox{mygray}{\texttt{.small-\#}}, \colorbox{mygray}{\texttt{.medium-\#}} dan \colorbox{mygray}{\texttt{.large-\#}}.
+		
+		\begin{lstlisting}[frame=single] 
+		<div class="row">
+			<div class="columns small-2 large-4"><!-- ... --></div>
+			<div class="columns small-4 large-4"><!-- ... --></div>
+			<div class="columns small-6 large-4"><!-- ... --></div>
+		</div>
+		<div class="row">
+			<div class="columns large-3"><!-- ... --></div>
+			<div class="columns large-6"><!-- ... --></div>
+			<div class="columns large-3"><!-- ... --></div>
+		</div>
+		<div class="row">
+			<div class="columns small-6 large-2"><!-- ... --></div>
+			<div class="columns small-6 large-8"><!-- ... --></div>
+			<div class="columns small-12 large-2"><!-- ... --></div>
+		</div>
+		<div class="row">
+			<div class="columns small-3"><!-- ... --></div>
+			<div class="columns small-9"><!-- ... --></div>
+		</div>
+		<div class="row">
+			<div class="columns large-4"><!-- ... --></div>
+			<div class="columns large-8"><!-- ... --></div>
+		</div>
+		<div class="row">
+			<div class="columns small-6 large-5"><!-- ... --></div>
+			<div class="columns small-6 large-7"><!-- ... --></div>
+		</div>
+		<div class="row">
+			<div class="columns large-6"><!-- ... --></div>
+			<div class="columns large-6"><!-- ... --></div>
+		</div>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{gridbasic_zurb.png}  
+			\caption{Grid pada Zurb Foundation}	 
+		\end{figure}
+	
+		\myparagraph{Top Bar}
+		Top bar digunakan untuk membuat menu responsif dengan memberikan ID unik pada menu, Lalu judul menu akan menggunakan kelas \colorbox{mygray}{\texttt{.title-bar}} dan atribut atribut \texttt{data-responsive-toggle}. Lalu untuk \textit{trigger} toggle, maka dapat menggunakan elemen \colorbox{mygray}{\texttt{data-toggle}} dengan menyertakan ID unik terhadap menu yang ingin dialihkan.
+		Secara default, judul bar akan terlihat pada layar kecil, dan menu akan di \textit{hide}. Pada layar medium, judul bar akan menghilang, dan menu selalu terlihat dengan menerapkan atribut \colorbox{mygray}{\texttt{data-hide-for}}.
+		
+		\begin{lstlisting}
+			<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+				<button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+				<div class="title-bar-title">Menu</div>
+			</div>
+			
+			<div class="top-bar" id="responsive-menu">
+				<div class="top-bar-left">
+				<ul class="dropdown menu" data-dropdown-menu>
+						<li class="menu-text">Site Title</li>
+				<li class="has-submenu">
+					<a href="#0">One</a>
+					<ul class="submenu menu vertical" data-submenu>
+						<li><a href="#0">One</a></li>
+						<li><a href="#0">Two</a></li>
+						<li><a href="#0">Three</a></li>
+					</ul>
+				</li>
+				<li><a href="#0">Two</a></li>
+				<li><a href="#0">Three</a></li>
+				</ul>
+				</div>
+				<div class="top-bar-right">
+					<ul class="menu">
+					<li><input type="search" placeholder="Search"></li>
+					<li><button type="button" class="button">Search</button></li>
+					</ul>
+				</div>
+			</div>
+		\end{lstlisting}
+	
+		\begin{figure} [H]
+		\centering  
+		\includegraphics[scale=0.7]{topbar_zurb.png}  
+		\caption{Top Bar pada Zurb Foundation}	 
+		\end{figure}
+		
+				
+		\myparagraph{Button}
+		\textit{Basic button} dapat digunakan untuk banyak tujuan, sehingga penting untuk \textit{developer} menggunakan tag yang tepat. Berikut ini penjelasan penggunaan \textit{Basic button} dalam Foundation
+		\begin{itemize}
+			\item Penggunaan tag \colorbox{mygray}{\texttt{<a>}} digunakan apabila tombol memiliki \textit{link} ke halaman lain, atau \textit{link} menuju ke halaman itu sendiri. Penggunaan links tidak membutuhkan JavaScript.
+			\item Penggunaan tag \colorbox{mygray}{\texttt{<button>}} jika tombol melakukan tindakan yang mengubah sesuatu pada halaman seperti proses \textit{delete} atau \textit{save}. Elemen \texttt{<button>} akan membutuhkan JavaScript agar proses tersebut berfungsi. 
+		\end{itemize}
+		
+			
+		\noindent Warna pada button dapat diterapkan untuk memperlihatkan fungsi yang sesuai dengan aksi yang digunakan.
+		\begin{lstlisting}[frame=single] 
+		<a class="button primary" href="#">Primary</a>
+		<a class="button secondary" href="#">Secondary</a>
+		<a class="button success" href="#">Success</a>
+		<a class="button alert" href="#">Alert</a>
+		<a class="button warning" href="#">Warning</a>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{coloringbutton_zurb.png}  
+			\caption{Coloring Button pada Foundation}
+		\end{figure}
+		
+		\myparagraph{Tabel}
+		
+		Tabel dalam Foundation akan menjadikan proses penampilan data bersifat responsif dan memiliki tata letak yang bisa disesuaikan oleh kebutuhan \textit{developer}.
+		
+		
+		\begin{lstlisting}[frame=single, basicstyle=\tiny] 
+		<table>
+			<thead>
+				<tr>
+					<th width="200">Table Header</th>
+					<th>Table Header</th>
+					<th width="150">Table Header</th>
+					<th width="150">Table Header</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Content Goes Here</td>
+					<td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+					<td>Content Goes Here</td>
+					<td>Content Goes Here</td>
+				</tr>
+				<tr>
+					<td>Content Goes Here</td>
+					<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+					<td>Content Goes Here</td>
+					<td>Content Goes Here</td>
+				</tr>
+				<tr>
+					<td>Content Goes Here</td>
+					<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+					<td>Content Goes Here</td>
+					<td>Content Goes Here</td>
+				</tr>
+			</tbody>
+		</table>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{basictable_zurb.png}  
+			\caption{Basic Table pada Foundation}
+		\end{figure}
+		
+		\myparagraph{Hover State}
+		Hover State diaplikasikan menggunakan kelas \texttt{.hover} untuk sedikit membedakan baris terpilih dalam tabel dengan baris-baris lainnya dengan cara menggelapkan baris terpilih.
+		\begin{lstlisting}[frame=single] 
+		<table class="hover">
+		
+		</table>
+		\end{lstlisting}
+		
+				
+		\myparagraph{Forms}
+		\texttt{Forms} pada Foundation dibuat dengan kombinasi standar dari elemen \texttt{form}, serta \textit{grid rows} dan \textit{columns} atau \textit{cells}. 
+		
+		\myparagraph{Text Inputs}
+		Kode berikut ini akan membuat sebuah \textit{text field} yang bisa diterapkan untuk \textit{field} : \colorbox{mygray}{\texttt{text}}, \colorbox{mygray}{\texttt{datetime}}, \colorbox{mygray}{\texttt{date}}, \colorbox{mygray}{\texttt{email}}, \colorbox{mygray}{\texttt{month}}, \colorbox{mygray}{\texttt{search}}, \colorbox{mygray}{\texttt{time}}.
+		
+		\begin{lstlisting}[frame=single] 
+		<form>
+			<div class="grid-container">
+				<div class="grid-x grid-padding-x">
+					<div class="medium-6 cell">
+						<label>Input Label
+						<input type="text" placeholder=".medium-6.cell">
+						</label>
+					</div>
+				<div class="medium-6 cell">
+					<label>Input Label
+						<input type="text" placeholder=".medium-6.cell">
+					</label>
+				</div>
+				</div>
+			</div>
+		</form>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{input_zurb.png}  
+			\caption{Text Input pada Foundation}
+			\label{fig:gridbasic_zurb} 
+		\end{figure}
+		
+		\myparagraph{Select Menus}
+		Penggunaan \colorbox{mygray}{\texttt{<select>}} digunakan apabila \textit{developer} menginginkan banyak pilihan data dalam satu menu.
+		\begin{lstlisting}[frame=single] 
+		<label>Select Menu
+			<select>
+				<option value="husker">Husker</option>
+				<option value="starbuck">Starbuck</option>
+				<option value="hotdog">Hot Dog</option>
+				<option value="apollo">Apollo</option>
+			</select>
+		</label>
+		\end{lstlisting}
+		
+		
+		\myparagraph{Tabs}
+		Tab semakin banyak digunakan dalam desain web karena \textit{developer} dapat menyajikan konten secara seragam. Ini memungkinkan \textit{developer} untuk menyimpan banyak dokumen dalam satu \textit{window}. \textit{developer} dapat menggunakan tab sebagai widget navigasi untuk beralih antar konten sehingga menghasilkan tata letak yang sistematis dan bersih. Komponen Tab dari Foundation membantu \textit{developer} melakukan hal itu hanya dengan menambahkan beberapa baris kode. 
+		
+		\begin{lstlisting}[frame=single] 
+		<ul class="tabs" data-tabs id="tab_component">
+			<li class="tabs-title"><a href="#pub1">Section 1</a></li>
+			<li class="tabs-title is-active"><a href="#pub2">Section 2</a></li>
+			<li class="tabs-title"><a href="#pub3">Section 3</a></li>
+			<li class="tabs-title"><a href="#pub4">Section 4</a></li>
+		</ul>
+		<div class="tabs-content" data-tabs-content="tab_component">
+		<div class="tabs-panel" id="pub1">
+			<p>Far far away, behind the word mountains, far from the countries
+			Vokalia and Consonantia, there live the blind texts.</p>
+		</div>
+		<div class="tabs-panel is-active" id="pub2">
+			<p> Separated they live in Bookmarksgrove right at the coast of the
+			Semantics, a large language ocean. </p>
+		</div>
+		<div class="tabs-panel" id="pub3">
+			<p>A small river named Duden flows by their place and supplies it with
+			the necessary regelialia.</p>
+		</div>
+		<div class="tabs-panel" id="pub4">
+			<p>It is a paradisematic country, in which roasted parts of sentences
+			fly into your mouth. </p>
+		</div>
+		</div>
+		\end{lstlisting}
+		
+		\begin{figure} [H]
+			\centering  
+			\includegraphics[scale=0.7]{tabs_component_zurb.png}  
+			\caption{Grid pada Zurb Foundation}
+		\end{figure}	
+		
+		
+		\myparagraph{Reveal}
+		Modal hanyalah wadah kosong, sehingga \textit{developer} dapat menaruh segala jenis konten di dalamnya, seperti teks ke formulir hingga video ke seluruh \textit{grid}.
+		Untuk membuat modal, tambahkan kelas \colorbox{mygray}{\texttt{.reveal}}, atribut \colorbox{mygray}{\texttt{data-reveal}}, dan ID yang unik ke dalam \textit{container}.
+		
+		\begin{lstlisting}[frame=single, basicstyle=\tiny] 
+		<div class="reveal" id="exampleModal1" data-reveal>
+			<h1>Awesome. I Have It.</h1>
+			<p class="lead">Your couch. It is mine.</p>
+			<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+			<button class="close-button" data-close aria-label="Close modal" type="button">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		\end{lstlisting} 
 		
 		\section{Pencapaian Rencana Kerja}
 		Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
@@ -1347,10 +1586,7 @@
 			\item Menulis dokumen skripsi.
 		\end{enumerate}
 		
-		\section{Kendala yang Dihadapi}
-		%TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
-		Kendala - kendala yang dihadapi selama mengerjakan skripsi :
-		
+				
 		\vspace{1cm}
 		\centering Bandung, \tanggal\\
 		\vspace{2cm} \nama \\ 
