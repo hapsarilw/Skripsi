@@ -353,7 +353,7 @@ Framework Foundation terdiri dari 3 folder utama:
 
 \subsection{Sistem Grid pada Foundation}
 Penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu 
-\colorbox{mygray}{\texttt{.small-\#}}, \colorbox{mygray}{\texttt{.medium-\#}} dan \colorbox{mygray}{\texttt{.large-\#}}.
+\texttt{.small-\#}, \texttt{.medium-\#} dan \texttt{.large-\#}.
  
 \begin{lstlisting}[frame=single] 
 <div class="row">
@@ -395,12 +395,12 @@ Penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen
 	\caption{Grid pada Zurb Foundation}	 
 \end{figure}
 
-\subsection{\textit{Navigation} dan \textit{Media Attributes}}
+\subsection{\textit{Navigation} dan \textit{Media Attributes}
 Komponen menu yang fleksibel pada Foundation membuat pembangunan navigasi secara umum lebih mudah karena semua pola memiliki markup yang sama.
 
 \subsubsection{Basic Menu}
 
-Menu terdiri dari sebuah \colorbox{mygray}{\texttt{<ul>}} yang diisi oleh beberapa tag \colorbox{mygray}{\texttt{<li>}}. Secara default, menu akan berorientasi horizontal.
+Menu terdiri dari sebuah \texttt{<ul>} yang diisi oleh beberapa tag \texttt{<li>}. Secara default, menu akan berorientasi horizontal.
 
 Berikut ini contoh penggunaan kode navigasi pada menu:
 
@@ -420,7 +420,7 @@ Berikut ini contoh penggunaan kode navigasi pada menu:
 \end{figure}
 
 \subsubsection{Item Alignment}
-Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \colorbox{mygray}{\texttt{.align-right}} atau kearah tengah dengan menambahkan kelas \colorbox{mygray}{\texttt{.align-center}} didalam kelas \colorbox{mygray}{\texttt{.menu}}.
+Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \texttt{.align-right} atau kearah tengah dengan menambahkan kelas \texttt{.align-center} didalam kelas \texttt{.menu}.
 \begin{lstlisting}[frame=single] 
 <ul class="menu align-right">
   <li><a href="#">One</a></li>
@@ -433,7 +433,7 @@ Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat di
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{basicmenuRight_zurb.png}  
-	\caption{Menu \textit{align to right in Foundation}}
+	\caption{Menu \textit{align to right in Foundation}
 \end{figure}
 
 \begin{lstlisting}[frame=single] 
@@ -448,11 +448,11 @@ Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat di
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{basicmenuCenter_zurb.png}  
-	\caption{Menu \textit{align to center in Foundation}}
+	\caption{Menu \textit{align to center in Foundation}
 \end{figure}
 
 \subsubsection{Active State}
-Kelas \colorbox{mygray}{\texttt{.is-active}} dapat ditambahkan ke dalam tag \colorbox{mygray}{\texttt{<li>}} untuk membuat menu terpilih yang aktif terlihat saat di klik. 
+Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk membuat menu terpilih yang aktif terlihat saat di klik. 
 
 \begin{lstlisting}[frame=single] 
 <ul class="menu">
@@ -465,12 +465,12 @@ Kelas \colorbox{mygray}{\texttt{.is-active}} dapat ditambahkan ke dalam tag \col
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{activestatemenu_zurb.png}  
-	\caption{Menu \textit{active state menu in Foundation}}
+	\caption{Menu \textit{active state menu in Foundation}
 \end{figure}
 
 
 \subsubsection{Text}
-Karena \textit{padding} untuk setiap item menu menggunakan tag \colorbox{mygray}{\texttt{<a>}}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.
+Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.
 
 \begin{lstlisting}[frame=single]
  <ul class="menu">
@@ -484,7 +484,7 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \colorbox{mygray}
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{menutext_zurb.png}  
-	\caption{Menu \textit{active state menu in Foundation}}
+	\caption{Menu \textit{active state menu in Foundation}
 \end{figure}
 
 \subsection{Komponen}
@@ -823,7 +823,7 @@ Penggunaan kelas \texttt{.table-bordered} akan membuat tabel memiliki garis bata
 \end{lstlisting}
 
 \paragraph{Tabel dengan Warna Baris Berbeda}
-Penggunaan kelas \colorbox{mygray}{\texttt{.table-striped}} akan membuat tabel memiliki warna baris berbeda batas antara baris genap dan ganjil didalam tag \texttt{<tbody>}.
+Penggunaan kelas \texttt{.table-striped} akan membuat tabel memiliki warna baris berbeda batas antara baris genap dan ganjil didalam tag \texttt{<tbody>}.
 
 \begin{figure} [H]
 	\centering  
@@ -871,7 +871,7 @@ Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{imgalign_bootstrap.PNG}  
-	\caption{\it{Menyelaraskan gambar ke kanan dan kiri pada bootstrap}} 
+	\caption{\it{Menyelaraskan gambar ke kanan dan kiri pada bootstrap} 
 \end{figure}
 \begin{lstlisting}[frame=single]
 <img src="..." class="rounded float-left" alt="...">
@@ -1036,7 +1036,7 @@ Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisik
 \end{figure}
 
 \subsubsection{Badge}
-Kelas \colorbox{mygray}{\texttt{badge}} dan \colorbox{mygray}{\texttt{.badge-*}} di dalam sebuah \colorbox{mygray}{\texttt{<a>}} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. 
+Kelas \texttt{badge} dan \texttt{.badge-*} di dalam sebuah \texttt{<a>} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. 
 \begin{lstlisting}[frame=single, basicstyle=\tiny]
 <a href="#" class="badge badge-primary">Primary</a>
 <a href="#" class="badge badge-secondary">Secondary</a>
