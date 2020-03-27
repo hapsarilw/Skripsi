@@ -68,6 +68,14 @@
 \usepackage{xstring}%manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
 \usepackage{pgffor}% untuk foreach
+\usepackage{amssymb}% untuk symbol check
+\usepackage{pifont}% untuk symbol check
+\usepackage{multirow}% untul multirow pada tabel
+\usepackage{verbatim}% comment multi-line
+
+%Setting gambar bersebelahan
+\usepackage{caption}
+\usepackage{subcaption}
 
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
@@ -409,6 +417,18 @@
 	
 	\pagestyle{fancy}%header 
 	
+	\definecolor{diffstart}{RGB}{0,0,0} %mendefinisikan warna abu-abu
+	\definecolor{diffincl}{RGB}{0,128,0} %mendefinisikan warna hijau
+	\definecolor{diffrem}{RGB}{255,0,0} %mendefinisikan warna merah
+	
+	\lstdefinelanguage{diff}{ %mendefinisikan bahasa baru
+		basicstyle=\ttfamily\small,
+		morecomment=[f][\color{diffstart}]{@@},
+		morecomment=[f][\color{diffincl}]{+\ },
+		morecomment=[f][\color{diffrem}]{-\ },
+		rulecolor=\color{black},
+	}
+	
 	%include bab 
 	\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
 	
@@ -429,6 +449,8 @@
 		identifierstyle=\color{black}, stringstyle=\color{orange},
 		literate={-}{-}1{-\,-}{--}1
 	} 
+
+
 	
 	\appendix%Penomoran lampiran dengan huruf  
 	
