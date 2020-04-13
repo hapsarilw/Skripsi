@@ -1,8 +1,8 @@
 \chapter{Implemetasi Website BlueTape dengan Bootstrap 4}
 Bab 4 menjelaskan implementasi website BlueTape dengan Framework Bootstrap 4. Pertama akan dijelaskan file apa saja yang dirubah. Kemudian akan disajikan gambar visual mengenai tampilan terkini website beserta kelas yang digunakan dan terakhir detail perubahan kode yang dijelaskan dalam kode \texttt{diff}.
 \section{Daftar File yang Diubah dan Diganti pada Folder}
-Sebelum merubah tampilan website, \textit{developer} akan menghapus framework Foundation 6.  
-\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
+Bagian ini akan menjelaskan isi file website BlueTape dan status dari setiao file yang diganti, diubah dan dihapus.
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single, caption=Perubahan isi folder BlueTape,
 columns=fullflexible, keepspaces=true, breaklines=true, label=ls:8]
 .
 |-- nbproject
@@ -69,12 +69,34 @@ columns=fullflexible, keepspaces=true, breaklines=true, label=ls:8]
 |   |   |--index.html
 |   |-- public
 |   |   |-- fonts
+|   |   |   |-- OFL.txt
+|   |   |   |-- TitilliumWeb-Black.ttf
+|   |   |   |-- TitilliumWeb-Bold.ttf
+|   |   |   |-- TitilliumWeb-BoldItalic.ttf
+|   |   |   |-- TitilliumWeb-ExtraLight.ttf
+|   |   |   |-- TitilliumWeb-ExtraLightItalic.ttf
+|   |   |   |-- TitilliumWeb-Italic.ttf
+|   |   |   |-- TitilliumWeb-Light.ttf
+|   |   |   |-- TitilliumWeb-LightItalic.ttf
+|   |   |   |-- TitilliumWeb-Regular.ttf
+|   |   |   |-- TitilliumWeb-SemiBold.ttf
+|   |   |   |-- TitilliumWeb-SemiBoldItalic.ttf
 |   |   |-- img
+|   |   |   |-- logo.png // File tetap
 |   |   |-- lib 
 |   |   |   |-- css
 |   |   |   |   |-- bootstrap.css // File baru ditambahkan
 |   |   |   |   |-- bootstrap-grid.css // File baru ditambahkan
 |   |   |   |   |-- bootstrap-reboot.css // File baru ditambahkan
+|   |   |   |   |-- app.css // File dihapus
+|   |   |   |   |-- foundation.css // File dihapus
+|   |   |   |   |-- foundation-datetimepicker.min.css // File dihapus
+|   |   |   |   |-- foundation-flex.css // File dihapus
+|   |   |   |   |-- foundation-icon.css // File dihapus
+|   |   |   |   |-- foundation-icon.eot // File dihapus
+|   |   |   |   |-- foundation-icon.svg // File dihapus
+|   |   |   |   |-- foundation-icon.ttf // File dihapus
+|   |   |   |   |-- foundation-icon.woff // File dihapus
 |   |   |   |-- fontawesome
 |   |   |   |   |-- fontawesome.css // File baru ditambahkan
 |   |   |   |-- jquery
@@ -82,7 +104,13 @@ columns=fullflexible, keepspaces=true, breaklines=true, label=ls:8]
 |   |   |   |-- js
 |   |   |   |   |-- bootstrap.js // File baru ditambahkan
 |   |   |   |   |-- bootstrap.bundle.js // File baru ditambahkan
-|   |   |   |-- xdan-datetimepicker
+|   |   |   |   |-- vendor // Folder dihapus
+|   |   |   |   |-- app.js // Folder dihapus
+|   |   |   |   |-- foundation.js // Folder dihapus
+|   |   |   |-- xdan-datetimepicker 
+|   |   |   |   |-- jquery.datetimepicker.full.min.js
+|   |   |   |   |-- jquery.datetimepicker.min.js
+|   |   |   |   |-- jquery.datetimepicker.min.js
 |   |   |-- webfonts // Folder ditambahkan, berfungsi untuk simpan ikon.
 |   |-- system
 |   |-- .htaccess
@@ -92,44 +120,53 @@ columns=fullflexible, keepspaces=true, breaklines=true, label=ls:8]
 |   |-- .licence.txt
 |   |-- readme.rst
 |   |-- web.config
+.
 \end{lstlisting}
 
-\section{Perubahan Akses bagi \textit{Developer}}
-Sebelumm menjalankan website, \textit{developer} akan menyunting email admin dan database agar lebih mudah unutk diakses. Hasil perubahan kode ditampilkan dalam berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4).
-\subsection{Perubahan Akses Email Admin}
-\begin{lstlisting}[language=diff, caption=Perubahan Akses Email Admin, label=Entri, basicstyle=\ttfamily, frame=single,
+\section{Pengaturan Akses bagi \textit{admin}}
+Sebelumm menjalankan website, \textit{admin} akan menyunting email admin dan database agar lebih mudah unutk diakses. Hasil perubahan kode ditampilkan dalam berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4).
+
+\subsection{Perubahan Akses URL}
+Saat admin pertama kali menjalankan aplikasi CodeIgniter maka diperlukan konfigurasi \texttt{base\_url}. Sehingga URL baru terbentuk dan dapat mengakses \textit{resource} yang ada pada direktori \texttt{root}. \\
+
+\begin{lstlisting}[language=diff, caption=Perubahan file /config/config.php, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
-diff --git a/www/application/config/modules.php b/www/application/config/modules.php
-index 4f7bbcc..726ecaf 100644
---- a/www/application/config/modules.php
-+++ b/www/application/config/modules.php
-
-$config['roles'] = array(
--    'root' => array('pascal@unpar.ac.id', 'shao.wei@unpar.ac.id'),
-+    'root' => array('pascal@unpar.ac.id', 'shao.wei@unpar.ac.id', 'amihapsahapsa@gmail.com'),
-
-\end{lstlisting}
-
-\subsection{Perubahan Akses Database Admin}
-\begin{lstlisting}[language=diff, caption=Perubahan Akses Database Admin, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
-diff --git a/www/application/config/config.php b/www/application/config/config.php
-index 8679d53..2d93781 100644
 --- a/www/application/config/config.php
 +++ b/www/application/config/config.php
+
 - $config['base_url'] = 'https://bluetape.azurewebsites.net';
 + $config['base_url'] = 'http://127.0.0.1/';
 \end{lstlisting}
 
-\section{Hasil Implementasi dan Konversi Kode pada Controller}
-% Menjelaskan fungsi kode yang diubah
-% Untuk kode ini dimasukan kode yg tetap juga
-Hasil perubahan kode ditampilkan dalam berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4). 
-\subsection{Penambahan folder Bootstrap 4}
-\begin{lstlisting}[language=diff, caption=Penambahan library js, label=Entri, basicstyle=\ttfamily, frame=single,
+\subsection{Perubahan Akses Email Admin}
+
+Admin akan diarahkan ke halaman login setelah aplikasi berjalan, karena website menggunakan \textit{Google API Console} untuk proses autentikasi maka perlu ditambahkan email admin baru pada file \path{www/application/config/modules.php}. Email ini telah didaftarkan sebelumnya di API tersebut, sehingga admin dapat menggunakan seluruh fitur pada website. \\
+
+\begin{lstlisting}[language=diff, caption=Perubahan file /config/modules.php, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\templates\script_foundation.php	
-+++ C:\xampp\htdocs\BlueTape\www\application\views\templates\script_foundation.php	
+--- a/www/application/config/modules.php
++++ b/www/application/config/modules.php
+
+$config['roles'] = array(
+-  'root' => array('pascal@unpar.ac.id', 'shao.wei@unpar.ac.id'),
++  'root' => array('pascal@unpar.ac.id', 'shao.wei@unpar.ac.id', 'amihapsahapsa@gmail.com'),
+
+\end{lstlisting}
+
+\section{Perubahan Kode pada Tampilan}
+
+Bagian ini akan menjelaskan hasil implementasi dalam bentuk \textit{diff}. Diff membedakan kode berdasarkan warna dimana bagian berwarna merah merupakan kode lampau(implementasi dengan Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (implementasi dengan Bootstrap 4).
+   
+\subsection{Penggunaan folder Bootstrap 4 pada Website}
+
+Library Bootstrap 4 yang sudah dimasukan pada CodeIgniter akan diintegrasikan pada file www/application/config/modules.php dalam bentuk file \texttt{.js} dan \texttt{head\_loggedin.php} dalam bentuk file \texttt{.css}. File ini nantinya akan dipakai keseluruh halaman website kecuali halaman login.\\
+
+Pertama file js dan jquery untuk Bootstrap dan plugin \texttt{xdan-datetimepicker} akan dipanggil pada halaman ini. \\
+
+\begin{lstlisting}[language=diff, caption=Penambahan \path{\views\templates\script_foundation.php}, label=Entri, basicstyle=\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true]
+--- a\www\application\views\templates\script_foundation.php		
++++ b\www\application\views\templates\script_foundation.php	
 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -142,11 +179,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="/public/lib/xdan-datetimepicker/jquery.datetimepicker.full.min.js"></script>
 \end{lstlisting}
 
-\begin{lstlisting}[language=diff, caption=Penambahan library csss, label=Entri, basicstyle=\ttfamily, frame=single,
+Kedua file css akan dipanggil, ada tiga macam file yang dipanggil: file  \textit{library} Bootstrap 4, plugin dari \texttt{xdan-datetimepicker} dan \textit{library} Font Awesome untuk ikon yang dipakai di BlueTape nanti. File ini digunakan pada seluruh halaman website kecuali halaman login.
+ 
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\templates\head_loggedin.php}, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\templates\head_loggedin.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\templates\head_loggedin.php
-@@ -2,11 +2,10 @@
+--- a\www\application\views\templates\head_loggedin.php
++++ b\www\application\views\templates\head_loggedin.php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><head>
 <meta charset="utf-8" />
@@ -162,94 +201,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 +    <link rel="stylesheet" href="public/lib/xdan-datetimepicker/jquery.datetimepicker.min.css">
 \end{lstlisting}
 
-\subsection{Controller Manajemen Perubahan Kuliah}
-%Kode
-\begin{lstlisting}[language=diff, caption=Controller PerubahanKuliahManage, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\controllers\PerubahanKuliahManage.php	
-+++ C:\xampp\htdocs\BlueTape\www\application\controllers\PerubahanKuliahManage.php	
-@@ -38,13 +38,13 @@
-$request->labelClass = 'warning';
-} else if ($request->answer === 'confirmed') {
-$request->status = 'TERKONFIRMASI';
-$request->labelClass = 'success';
-} else if ($request->answer === 'rejected') {
-$request->status = 'DITOLAK';
--                $request->labelClass = 'alert';
-+                $request->labelClass = 'danger';
-}
-\end{lstlisting}  
-
-\subsection{Controller Request Perubahan Kuliah}
-%Kode
-\begin{lstlisting}[language=diff, caption=Controller Request Perubahan Kuliah, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\controllers\PerubahanKuliahRequest.php
-+++ C:\xampp\htdocs\BlueTape\www\application\controllers\PerubahanKuliahRequest.php
-@@ -28,13 +28,13 @@
-$request->labelClass = 'secondary';
-} else if ($request->answer === 'confirmed') {
-$request->status = 'TERKONFIRMASI';
-$request->labelClass = 'success';
-} else if ($request->answer === 'rejected') {
-$request->status = 'DITOLAK';
--                $request->labelClass = 'alert';
-+                $request->labelClass = 'danger';
-}
-\end{lstlisting}
-
-\subsection{Controller Manajemen Cetak Transkrip}
-%Kode
-\begin{lstlisting}[language=diff, caption=Controller Manajemen Cetak Transkrip, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\controllers\TranskripManage.php
-+++ C:\xampp\htdocs\BlueTape\www\application\controllers\TranskripManage.php
-@@ -43,13 +43,13 @@
-$request->labelClass = 'warning';
-} else if ($request->answer === 'printed') {
-$request->status = 'TERCETAK';
-$request->labelClass = 'success';
-} else if ($request->answer === 'rejected') {
-$request->status = 'DITOLAK';
--                $request->labelClass = 'alert';
-+                $request->labelClass = 'danger';
-}
-\end{lstlisting}
-
-\subsection{Controller Request Cetak Transkrip}
-%Kode
-\begin{lstlisting}[language=diff, caption=Controller Request Cetak Transkrip, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\controllers\TranskripRequest.php	
-+++ C:\xampp\htdocs\BlueTape\www\application\controllers\TranskripRequest.php	
-@@ -29,13 +29,13 @@
-$request->labelClass = 'secondary';
-} else if ($request->answer === 'printed') {
-$request->status = 'TERCETAK';
-$request->labelClass = 'success';
-} else if ($request->answer === 'rejected') {
-$request->status = 'DITOLAK';
--                $request->labelClass = 'alert';
-+                $request->labelClass = 'danger';
-}
-\end{lstlisting}
-
-
-
-\section{Hasil Implementasi dan Konversi Kode pada Tampilan}
-Bagian ini akan menjelaskan hasil implementasi dalam bentuk gambar dan \textit{diff}. Gambar akan mencantumkan penggunaan kelas untuk setiap bagian yang dipakai dalam website. Sedangkan hasil perubahan kode akan berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4).   
 \subsection{Halaman Login}
-%Gambar
-\begin{figure} [H]
-	\centering  
-	\includegraphics[trim=left botm right top, clip, width=\textwidth, height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_login.png}  
-	\caption{Konversi Tampilan Login} 
-\end{figure}
-%Kode
-\begin{lstlisting}[language=diff, caption=Kode untuk Halaman Login, label=Entri, basicstyle=\ttfamily, frame=single,
+Pemanggilan file css dilakukan kembali pada file \texttt{login.php} untuk digunakan pada halaman login website BlueTape.
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\auth\login.php}, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\auth\login.php	
-+++ C:\xampp\htdocs\BlueTape\www\application\views\auth\login.php	
+--- a\www\application\views\auth\login.php	
++++ b\www\application\views\auth\login.php	
 @@ -4,26 +4,29 @@
 
 -        <link rel="stylesheet" href="/public/css/foundation.css" />
@@ -260,24 +217,40 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 +        <link rel="stylesheet" href="/public/lib/fontawesome/fontawesome.css" />
 
 
-@@ Implementasi Komponen Grid @@
+@@ Implementasi Grid @@
 -        	<div class="row">
 -        		<div class="large-6 large-centered columns centered">
 +        <div class="container">
 +        	<div class="row justify-content-center">
 +        		<div class="col-lg-6">
 
-@@ Implementasi Komponen Text @@
+@@ Implementasi Posisi Text @@
 - 		<a href="<?= $authURL; ?>" class="button expand">Login dengan Google</a><br/><br/>
 - 		<a class="text-center" href="https://github.com/ftisunpar/BlueTape/wiki/UserGuide" target="_blank">Petunjuk Penggunaan</a>
 + 		<a href="<?= $authURL; ?>" class="btn btn-primary btn-lg">Login dengan Google</a><br/><br/>
 + 		<a href="https://github.com/ftisunpar/BlueTape/wiki/UserGuide" target="_blank">Petunjuk Penggunaan</a>
 \end{lstlisting}
 
-\begin{lstlisting}[language=diff, caption=Kode untuk Notifikasi Login, label=Entri, basicstyle=\ttfamily, frame=single,
+\noindent Penjelasan kode diatas sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Implementasi     & Penjelasan \\
+		\midrule
+		\textbf{Pemanggilan file} & File css dari Foundation akan diganti dnegan file css dari Bootstrap 4.\\
+		\textbf{Grid} & Dalam Foundation 6 untuk membuat satu baris konten hanya menggunakan kelas \texttt{.row}, namun di Bootstrap 4 perlu ditambahakan kelas \texttt{.container}.\\
+		 & Untuk size sama - sama menggunakan lebar 6 grid yang posisi nya diletakkan ditengah website.\\
+		\textbf{Text} & Teks akan diletakkan ditengah, hanya di Foundation 6 saja perlu menginisiasi kelas \texttt{.text-center} pada Bootstrap 4 tidak perlu.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman manajemen perubahan kuliah.}
+\end{table}
+
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\templates\flashmessage.php}, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\templates\flashmessage.php	2019-04-29 13:02:52.000000000 +0700
-+++ C:\xampp\htdocs\BlueTape\www\application\views\templates\flashmessage.php	2020-03-06 09:56:06.000000000 +0700
+--- a\www\application\views\templates\flashmessage.php	2019-04-29 13:02:52.000000000 +0700
++++ b\www\application\views\templates\flashmessage.php	2020-03-06 09:56:06.000000000 +0700
 @@ -1,10 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
@@ -294,23 +267,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 - </div>
 
 \end{lstlisting}
+
+\noindent Penjelasan kode diatas sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Implementasi     & Penjelasan \\
+		\midrule
+		\textbf{Alert} & Labelling menggunakan \texttt{.callout} pada Foundation 6. Boostrap 4 mrnggunakan kelas \texttt{.alert} dan atribut \texttt{role}.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Penjelasan kode konversi halaman login.}
+\end{table}
+
 \subsection{Menu Navigasi}
-%Gambar
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_navbar.png}  
-	\caption{Konversi Tampilan Login} 
-\end{figure}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_small_navbar.png}  
-	\caption{Konversi Tampilan Login} 
-\end{figure}
-%Kode
-\begin{lstlisting}[language=diff, caption=Kode untuk Menu Navigasi, label=Entri, basicstyle=\ttfamily, frame=single,
+Menu navigasi secara umum terdiri dari kelas untuk judul website, letak menu dan menu yang sedang aktif.
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\templates\topbar_loggedin.php} , label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\templates\topbar_loggedin.php	2020-03-25 20:27:35.000000000 +0700
-+++ C:\xampp\htdocs\BlueTape\www\application\views\templates\topbar_loggedin.php	2020-03-06 09:56:06.000000000 +0700
+--- a\www\application\views\templates\topbar_loggedin.php	2020-03-25 20:27:35.000000000 +0700
++++ b\www\application\views\templates\topbar_loggedin.php	2020-03-06 09:56:06.000000000 +0700
 
 @@ Implementasi Komponen Navbar @@
 - <div class="title-bar" data-responsive-toggle="navigation-menu" data-hide-for="medium">
@@ -349,23 +325,19 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 
 \end{lstlisting}
 
-\subsection{Halaman Cetak Transkrip Request}
-\subsubsection{Halaman Utama}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_cetak_transkrip.png}  
-	\caption{Konversi Halaman Cetak Transkrip Request} 
-\end{figure}
-\begin{lstlisting}[language=diff, caption=Kode untuk Halaman Cetak Transkrip Request, label=Entri, basicstyle=\ttfamily, frame=single,
+\subsection{Halaman Permintaan Cetak Transkrip }
+Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.
+Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\TranskripRequest\main.php}, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\TranskripRequest\main.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\TranskripRequest\main.php
+--- a\www\application\views\TranskripRequest\main.php
++++ b\www\application\views\TranskripRequest\main.php
 
 @@ Implementasi Komponen Grid dan Card @@
 + <div class="container">
 <div class="row">
 - <div class="medium-12 column">
--	<div class="callout">
+-	 <div class="callout">
 -    		<h5>Permohonan Baru</h5>
 + <div class="col">
 +    <div class="card">
@@ -390,7 +362,6 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 + <div class="col-lg-4">
 +    <label class="col-form-label">NPM:</label>
 +    <input class="form-control" type="text" value="<?= $requestByNPM ?>" readonly/>
-</div>
 - <div class="large-4 column">
 -    <label>Nama:
 -        <input type="text" name="requestByName" value="<?= $requestByName ?>" readonly="readonly"/>
@@ -407,7 +378,6 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 +    <select class="form-control" name="requestType">
 
 -    </label>
-</div>
 - <div class="large-8 column">
 -    <label>Keperluan:
 -        <input type="text" name="requestUsage" required/>
@@ -431,11 +401,11 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 + </div>
 + <br>
 + <div class="card">
-+ <div class="card-header">
-+    Histori Permohonan
-+ </div>
-+ <div class="card-body">
-+    <table class="table table-striped">
++ 	<div class="card-header">
++    	Histori Permohonan
++ 	</div>
++ 	<div class="card-body">
++    	<table class="table table-striped">
 
 - <th>ID</th>
 - <th>Status</th>
@@ -456,17 +426,7 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 - <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
 + <th>#<?= $request->id ?></th>
 + <td><span class="badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
-\end{lstlisting}
 
-
-\subsubsection{Modal}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_cetak_transkrip.png}  
-	\caption{Konversi Halaman Cetak Transkrip Request} 
-\end{figure}
-\begin{lstlisting}[language=diff, caption=Kode untuk Modal Cetak Transkrip Manage, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
 @@ Implementasi Komponen Modal @@
 -    <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
 + <!-- Button trigger modal -->
@@ -475,9 +435,9 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 + </a>
 -        <h5>Detail Permohonan #<?= $request->id ?></h5>
 -        <table class="stack">
-+<!-- Modal -->
-+<div class="modal fade" id="lihatModal<?= $request->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-+ <div class="modal-dialog modal-dialog-centered" role="document">
++ <!-- Modal -->
++ <div class="modal fade" id="lihatModal<?= $request->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
++ 	<div class="modal-dialog modal-dialog-centered" role="document">
 +    <div class="modal-content">
 +        <div class="modal-header">
 +            <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
@@ -488,41 +448,39 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 +        <div class="modal-body">
 +            <table class="table ">
 
-@@ Implementasi Komponen Tabel@@
+@@ Implementasi Komponen Tabel @@
 - <th>Jawaban</th>
 + <th scope="col">Jawaban</th>
 \end{lstlisting}
 
-\subsection{Halaman Cetak Transkrip Manage}
+\subsection{Halaman Manajemen Cetak Transkrip}
+Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.
+Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}
+Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.
 \subsubsection{Halaman Utama}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_manajemen_cetak_transkrip.png}  
-	\caption{Konversi Halaman Cetak Transkrip Manage} 
-\end{figure}
-\begin{lstlisting}[language=diff, caption=Kode untuk Halaman Cetak Transkrip Manage, label=Entri, basicstyle=\ttfamily, frame=single,
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\TranskripManage\main.php}, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\TranskripManage\main.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\TranskripManage\main.php
+--- a\www\application\views\TranskripManage\main.php
++++ b\www\application\views\TranskripManage\main.php
 
 @@ Implementasi Komponen Grid dan Card @@
 - <div class="row">
 -    <div class="callout">
 -        <h5>Permintaan Transkrip</h5>
 + <div class="container">
-+        <div class="card">
-+            <div class="card-header">
-+                Permintaan Transkrip
-+            </div>
-+            <div class="card-body">
++    <div class="card">
++    	<div class="card-header">
++    		Permintaan Transkrip
++    	</div>
++    	<div class="card-body">
 
 @@ Implementasi Komponen Input Group @@ 
 - <div class="input-group">
-- <span class="input-group-label">Cari NPM:</span>
+- 	<span class="input-group-label">Cari NPM:</span>
 + <div class="input-group mb-3">
-+ <div class="input-group-prepend">
-+    <span class="input-group-text">Cari NPM:</span>
-+ </div>
++ 	<div class="input-group-prepend">
++   	<span class="input-group-text">Cari NPM:</span>
++ 	</div>
 
 - <input name="npm" class="input-group-field" type="text" placeholder="2013730013" maxlength="10" minlength="10"<?= $npmQuery === NULL ? '' : " value='$npmQuery'" ?>/>
 - <div class="input-group-button">
@@ -533,7 +491,6 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 
 @@ Implementasi Komponen Tabel @@ 
 - <table class="stack">
-+ <br>
 + <table class="table table-striped">
 
 - <th>ID</th>
@@ -551,39 +508,7 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 
 - <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
 + <td><span class="badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
-\end{lstlisting}
 
-\subsubsection{Modal}
-\begin{figure}	
-	\centering
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_manajemen_cetak_transkrip.png}
-		\caption{Konversi Modal Lihat} 
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_dislike_manajemen_cetak-tanskrip.png}
-		\caption{Konversi Modal Tolak} 
-	\end{subfigure}
-\end{figure}
-\begin{figure}	
-	\centering
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_print_manajemen_cetak_transkrip.png}
-		\caption{Konversi Modal Print} 
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_trash_manajemen_cetak_transkrip.png}
-		\caption{Konversi Modal Hapus} 
-	\end{subfigure}
-\end{figure}
-\begin{lstlisting}[language=diff, caption=Kode untuk Modal Cetak Transkrip Manage, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
 @@ Implementasi Komponen Modal, Form dan Tabel @@ 
 - <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
 -                <h5>Detail Permohonan #<?= $request->id ?></h5>
@@ -701,17 +626,16 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 + </a>
 \end{lstlisting}
 
-\subsection{Halaman Perubahan Kuliah Request}
-\subsubsection{Halaman Utama}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_perubahan_kuliah.png}
-	\caption{Konversi Halaman Perubahan Kuliah Request}
-\end{figure}
-\begin{lstlisting}[language=diff, caption=Kode untuk Halaman Perubahan Kuliah Request, label=Entri, basicstyle=\ttfamily, frame=single,
+\subsection{Halaman Permintaan Perubahan Kuliah}
+Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. 
+Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.
+Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}.
+Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.
+Tabel pada Foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\PerubahanKuliahRequest\main.php} , label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\PerubahanKuliahRequest\main.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\PerubahanKuliahRequest\main.php
+--- a\www\application\views\PerubahanKuliahRequest\main.php
++++ b\www\application\views\PerubahanKuliahRequest\main.php
 
 @@ Implementasi Komponen Card @@
 - <div class="row">
@@ -875,17 +799,6 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 @@ Implementasi Badges @@
 -  <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
 +  <td><span class=" badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
-\end{lstlisting}
-
-\subsubsection{Modal}
-%Lihat
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_perubahan_kuliah.png}
-	\caption{Konversi Modal Lihat Perubahan Kuliah Request}
-\end{figure}
-\begin{lstlisting}[language=diff, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
 
 @@ Implementasi Ikon Font Awesome @@
 -  <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
@@ -913,16 +826,16 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 \end{lstlisting}
 
 \subsection{Halaman Manajemen Perubahan Kuliah}
-\subsubsection{Halaman Utama}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_manajemen_perubahan_kuliah.png}
-	\caption{Konversi Halaman Manajemen Perubahan Kuliah}
-\end{figure}
-\begin{lstlisting}[language=diff, caption=Kode untuk Halaman Manajemen Perubahan Kuliah, label=Entri, basicstyle=\ttfamily, frame=single,
+Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. 
+Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.
+Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}.
+Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.
+Tabel pada Foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.
+
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\PerubahanKuliahManage\main.php}, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\PerubahanKuliahManage\main.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\PerubahanKuliahManage\main.php00
+--- a\www\application\views\PerubahanKuliahManage\main.php
++++ b\www\application\views\PerubahanKuliahManage\main.php
 
 @@ Implementasi Komponen Card @@
 - <div class="row">
@@ -977,48 +890,7 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 +    <div class="form-group">
 +       <input type="submit" class="btn btn-success" value="Konfirmasi"/>
 +    </div>
-</form>
-\end{lstlisting}
-\subsubsection{Modal}
-%Lihat Terima Tolak Print Hapus
-\begin{figure}	
-	\centering
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_manajemen_perubahan_kuliah.png}
-		\caption{Konversi Modal Lihat} 
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_dislike_manajemen_perubahan_kuliah.png}
-		\caption{Konversi Modal Tolak} 
-	\end{subfigure}
-\end{figure}
-\begin{figure}	
-	\centering
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_print_manajemen_perubahan_kuliah.png}
-		\caption{Konversi Modal Print} 
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_trash_manajemen_perubahan_kuliah.png}
-		\caption{Konversi Modal Hapus} 
-	\end{subfigure}
-\end{figure}
-\begin{figure}	
-	\centering
-	\begin{subfigure}[t]{3in}
-		\centering  
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_like_manajemen_perubahan_kuliah.png}
-		\caption{Konversi Modal Like} 
-	\end{subfigure}
-\end{figure}
-\begin{lstlisting}[language=diff, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
+
 @@ Implementasi Komponen Modal dan Library Ikon Awesome @@
 - <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
 - <a target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fi-print"></i></a>
@@ -1093,7 +965,6 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 + <div class="form-group">
 +     <input type="submit" class="btn btn-danger" value="Tolak"/>
 + </div>
-</form>
 
 @@ Implementasi Komponen Modal @@
 -    	    <button class="close-button" data-close aria-label="Tutup" type="button">
@@ -1115,16 +986,15 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 \end{lstlisting}
 
 \subsection{Halaman Entri Jadwal Dosen}
-\subsubsection{Halaman Utama}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_entri_jadwal_dosen.png}
-	\caption{Konversi Halaman Entri Jadwal Dosen}
-\end{figure}
+Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. 
+Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.
+Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}.
+Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.
+Tabel pada Foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.
 \begin{lstlisting}[language=diff, caption=Kode untuk Halaman Entri Jadwal Dosen, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\EntriJadwalDosen\main.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\EntriJadwalDosen\main.php
+--- a\www\application\views\EntriJadwalDosen\main.php
++++ b\www\application\views\EntriJadwalDosen\main.php
 
 @@ Implementasi Komponen Grid @@
 + <div class="container">
@@ -1141,19 +1011,19 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 
 @@ Implementasi Komponen Form @@
 - <select name="hari"> 
-+        <select class="form-control" name="hari">
++ <select class="form-control" name="hari">
 
 - <select name="jam_mulai"> 
-+        <select class="form-control" name="jam_mulai">
++ <select class="form-control" name="jam_mulai">
 
 - <div class=" large-4 columns">
 + <div class="col-lg-4">
 
 - <select name="durasi"> 
-+    <select class="form-control" name="durasi">
++ <select class="form-control" name="durasi">
 
 - <select name="jenis_jadwal"> 
-+    <select class="form-control" name="jenis_jadwal">
++ <select class="form-control" name="jenis_jadwal">
 
 - <div class="large-4 columns">
 -    Label <input type="text" name="label_jadwal"><br>
@@ -1172,14 +1042,14 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 -	<table border=1 style="border-color:black ; border-collapse:separate">
 + <br>
 + <div class="card">
-+ <div class="card-header">
-+    Daftar Jadwal
-+ </div>
-+ <div class="card-body">
-+    <div id="jadwal_table">
-+        <table class="table table-bordered table-striped">
++ 	<div class="card-header">
++    	Daftar Jadwal
++ 	</div>
++ 	<div class="card-body">
++   	<div id="jadwal_table">
++        	<table class="table table-bordered table-striped">
 
-@@ Perubahan Style di jQuery @@
+@@ Perubahan Lebar Cell pada Tabel @@
 - <td style='width:10%'></td>
 + <th></th>
 
@@ -1189,7 +1059,6 @@ for ($i = 0; $i < 5; $i++) {
 + echo "<th> $namaHari[$i] </th>"; //Membuat Header Tabel yang berisi daftar hari
 
 @@ Pemberian Border di jQuery @@
-
 foreach ($dataJadwal as $dataHariIni) {
 $colIdx = $dataHariIni->hari + 1;   // + 1 karena perbedaan selisih index tabel dan value hari di database 
 $rowIdx = $dataHariIni->jam_mulai - 6;  // + 1 karena perbedaan selisih index tabel dan value jam_mulai di database 
@@ -1221,16 +1090,7 @@ $($cellLocation).attr('rowspan', <?php echo $dataHariIni->durasi ?>);
 - </form><div>
 + <input class="btn btn-danger" type="submit" id="deletebtn<?php echo $dataHariIni->id ?>" name="deletebtn<?php echo $dataHariIni->id ?>" value="Delete">
 + </form>
-\end{lstlisting}
 
-\subsubsection{Modal}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_edit_jadwal_entri_jadwal_dosen.png}
-	\caption{Modal Edit}
-\end{figure}
-\begin{lstlisting}[language=diff, label=Entri, basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true]
 @@ Implementasi Komponen Modal @@
 - <div id="edit_menu<?php echo $dataHariIni->id ?>" class="reveal"  data-reveal >
 - 		<button class="close-button" data-close aria-label="Close modal" type="button">
@@ -1270,15 +1130,10 @@ columns=fullflexible, keepspaces=true, breaklines=true]
 
 \end{lstlisting}
 \subsection{Halaman	Lihat Jadwal Dosen}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_lihat_jadwal_dosen.png}
-	\caption{Konversi Halaman	Lihat Jadwal Dosen}
-\end{figure}
 \begin{lstlisting}[language=diff, caption=Kode untuk Halaman Lihat Jadwal Dosen, label=Entri, basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true]
---- C:\xampp\htdocs\BlueTape2\www\application\views\LihatJadwalDosen\main.php
-+++ C:\xampp\htdocs\BlueTape\www\application\views\LihatJadwalDosen\main.php
+--- a\www\application\views\LihatJadwalDosen\main.php
++++ b\www\application\views\LihatJadwalDosen\main.php
 
 @@ Implementasi Komponen Grid dan Card @@
 -
@@ -1319,4 +1174,81 @@ $($cellLocation).attr('rowspan', <?php echo $dataHariIni->durasi ?>);
 @@ Implementasi Komponen Button @@
 - <a href="/LihatJadwalDosen/export/" class="button">Ekspor ke XLS</a>
 + <a class="btn btn-primary" href="/LihatJadwalDosen/export/" class="button">Ekspor ke XLS</a>
+\end{lstlisting}
+
+
+\section{Perubahan Kode pada Controller}
+% Menjelaskan fungsi kode yang diubah
+% Untuk kode ini dimasukan kode yg tetap juga
+Hasil perubahan kode ditampilkan dalam berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4). 
+\subsection{Controller Manajemen Perubahan Kuliah}
+%Kode
+\begin{lstlisting}[language=diff, caption=Controller PerubahanKuliahManage, label=Entri, basicstyle=\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true]
+--- a\www\application\controllers\PerubahanKuliahManage.php	
++++ b\www\application\controllers\PerubahanKuliahManage.php	
+@@ -38,13 +38,13 @@
+$request->labelClass = 'warning';
+} else if ($request->answer === 'confirmed') {
+$request->status = 'TERKONFIRMASI';
+$request->labelClass = 'success';
+} else if ($request->answer === 'rejected') {
+$request->status = 'DITOLAK';
+-                $request->labelClass = 'alert';
++                $request->labelClass = 'danger';
+}
+\end{lstlisting}  
+
+\subsection{Controller Permintaan Perubahan Kuliah}
+%Kode
+\begin{lstlisting}[language=diff, caption=Controller Request Perubahan Kuliah, label=Entri, basicstyle=\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true]
+--- a\www\application\controllers\PerubahanKuliahRequest.php
++++ b\www\application\controllers\PerubahanKuliahRequest.php
+@@ -28,13 +28,13 @@
+$request->labelClass = 'secondary';
+} else if ($request->answer === 'confirmed') {
+$request->status = 'TERKONFIRMASI';
+$request->labelClass = 'success';
+} else if ($request->answer === 'rejected') {
+$request->status = 'DITOLAK';
+-                $request->labelClass = 'alert';
++                $request->labelClass = 'danger';
+}
+\end{lstlisting}
+
+\subsection{Controller Manajemen Cetak Transkrip}
+%Kode
+\begin{lstlisting}[language=diff, caption=Controller Manajemen Cetak Transkrip, label=Entri, basicstyle=\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true]
+--- a\www\application\controllers\TranskripManage.php
++++ b\www\application\controllers\TranskripManage.php
+@@ -43,13 +43,13 @@
+$request->labelClass = 'warning';
+} else if ($request->answer === 'printed') {
+$request->status = 'TERCETAK';
+$request->labelClass = 'success';
+} else if ($request->answer === 'rejected') {
+$request->status = 'DITOLAK';
+-                $request->labelClass = 'alert';
++                $request->labelClass = 'danger';
+}
+\end{lstlisting}
+
+\subsection{Controller Permintaan Cetak Transkrip}
+%Kode
+\begin{lstlisting}[language=diff, caption=Controller Request Cetak Transkrip, label=Entri, basicstyle=\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true]
+--- a\www\application\controllers\TranskripRequest.php	
++++ b\www\application\controllers\TranskripRequest.php	
+@@ -29,13 +29,13 @@
+$request->labelClass = 'secondary';
+} else if ($request->answer === 'printed') {
+$request->status = 'TERCETAK';
+$request->labelClass = 'success';
+} else if ($request->answer === 'rejected') {
+$request->status = 'DITOLAK';
+-                $request->labelClass = 'alert';
++                $request->labelClass = 'danger';
+}
 \end{lstlisting}

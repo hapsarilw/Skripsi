@@ -1,49 +1,86 @@
-\chapter{Analisis Tampilan Website BlueTape}
-Bab 3 menjelaskan komponen yang digunakan untuk membangun seluruh tampilan website dengan framework Foundation 6 dan kelas dalam Bootstrap 4 yang akan digunakan untuk website BlueTape.
-\section{Analisis Konversi Tampilan dengan Foundation}
-Pada bagian ini akan dijabarkan keseluruhan kelas yang dipakai dalam website BlueTape. Pertama akan dijabarkan file framework yang digunakan, kemudian akan dijelaskan komponen yang digunakan dalam website BluTape dan terakhir penggunaan kelas framework Foundation pada website.
-\subsection{Menjalankan Framework Foundation}
-Website BlueTape menggunakan sebuah framework PHP yaitu CodeIgniter. Hal pertama yang dilakukan saat ingin menjalankan tampilan adalah cek terlebih dimana file yang berkaitan dengan Framework Foundation 6 disimpan, lalu dilihat file tersebut dijalankan ketika membangun sebuah tampilan. 
-\subsection{Folder untuk Menyimpan File Foundation 6 dan Plugin}
-Seluruh file terkait dengan Framework Foundation 6 diletakkan dalam folder \texttt{/www/public}. Dimana terdiri dari folder:
-%direferensikan di bab2
-\begin{enumerate}
-	\item css: Terdiri dari file - file css dari beserta file ikon bawaan dari framework Foundation 6. 
-	\item img: Menyimpan sebuah gambar logo BlueTape. 
-	\item js: Menyimpan file javascript bawaan dari Foundation 6 dan file jquery yang tersimpan dalam folder vendor.
-	\item lib: Menyimpan plugin xdan-datetimepicker.
-\end{enumerate}
+\chapter{Analisis Website BlueTape dengan Foundation 6}
+Bagian ini akan menganalisis kelas yang digunakan dalam website BlueTape dengan menggunakan \textit{framework} Foundation 6. Pertama pengembang akan melihat akses apa saja yang diperlukan untuk menjalankan website pada komputer lokal. Kedua pengembang akan melihat keseluruhan kode pada seluruh tampilan website dan file apa yang perlu diubah nantinya pada saat konversi dengan framework Bootstrap 4.
+ 
+\section{Akses bagi Admin}
+Sebelum mengakses website, \textit{developer} perlu menambahkan email admin agar dapat mengakses keseluruhan fitur dalam BlueTape. Kemudian untuk melihat data, akses database baru akan dibuat pada komputer lokal.
+
+\subsection{Akses Email}
+Daftar email admin yang dapat mengakses keseluruhan fitur dalam website terletak di \path{www/application/config/modules.php}. Keseluruhan email sebelumnya sudah diregistrasi di aplikasi \texttt{Google API Console}.\\
+
+File ini berisi tiga macam modul yaitu :
+\begin{itemize}
+	\item Modul yang mengarakan ke halaman website.
+	\item Modul yang menentukan halaman website yang bisa di akses berdasarkan \textit{role user}.
+	\item Modul yang medefinisikan \textit{role} berdasarkan email.
+\end{itemize}
+\begin{lstlisting}[language=PHP, caption=Penambahan email admin., label=Entri, basicstyle=\footnotesize\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false]
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$config['module-names'] = array(
+'TranskripRequest' => 'Cetak Transkrip',
+'TranskripManage' => 'Manajemen Cetak Transkrip',
+'PerubahanKuliahRequest' => 'Perubahan Kuliah',
+'PerubahanKuliahManage' => 'Manajemen Perubahan Kuliah',
+'EntriJadwalDosen' => 'Entri Jadwal Dosen',
+'LihatJadwalDosen' => 'Lihat Jadwal Dosen'
+
+);
+
+$config['modules'] = array(
+'TranskripRequest' => array('root', 'mahasiswa.ftis'),
+'TranskripManage' => array('root', 'tu.ftis'),
+'PerubahanKuliahRequest' => array('root', 'staf.unpar'),
+'PerubahanKuliahManage' => array('root', 'tu.ftis'),
+'EntriJadwalDosen' => array('root', 'dosen.informatika' ),
+'LihatJadwalDosen' => array('root', 'mahasiswa.informatika', 'dosen.informatika')
+);
+
+$config['roles'] = array(
+'root' => array('pascal@unpar.ac.id', 'shao.wei@unpar.ac.id', 'amihapsahapsa@gmail.com'),
+'tu.ftis' => array('shao.wei@unpar.ac.id', 'pranyoto@unpar.ac.id', 'walip@unpar.ac.id', 'dwina@unpar.ac.id'),
+'mahasiswa.ftis' => '(7[123]\\d{5})|(20[1-9][0-9]7[123][0-9]{4})|(61[678][0-9]{7})@student\\.unpar\\.ac\\.id',
+'staf.unpar' => '.+@unpar\\.ac\\.id',
+'dosen.informatika' => array ('cheni@unpar.ac.id', 'mariskha@unpar.ac.id', 'anung@unpar.ac.id', 'moertini@unpar.ac.id', 'natalia@unpar.ac.id', 'chandraw@unpar.ac.id', 'elisatih@unpar.ac.id', 'gkarya@unpar.ac.id', 'husnulhakim@unpar.ac.id', 'joanna@unpar.ac.id', 'lionov@unpar.ac.id', 'luciana@unpar.ac.id', 'pascal@unpar.ac.id', 'rosad5@unpar.ac.id', 'vania.natali@unpar.ac.id', 'kristopher.h@unpar.ac.id', 'raymond.chandra@unpar.ac.id', 'keenan.leman@unpar.ac.id'),
+'mahasiswa.informatika' => '73\\d{5}@student\\.unpar\\.ac\\.id'
+);
+\end{lstlisting}
+
+\subsection{Akses Database}
+Data akan disimpan dalam database lokal, sehingga \textit{developer} akan mengatur \textit{base URL} yang terletak pada \path{www/application/config/config.php}. \\
+
+\begin{lstlisting}[language=PHP, caption=Setting database lokal, label=Entri, basicstyle=\footnotesize\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false]
+$config['base_url'] = 'http://127.0.0.1/';
+\end{lstlisting}
+
+\section{Kelas dan file yang dipakai pada tampilan Website}
+Bagian ini akan menjelaskan detil penggunaan kelas pada website dengan menggunakan framework Foundation 6. Penjelasan akan berupa \textit{screenshot} halaman website beserta penjelasan kelas yang dipakai. \\
+
+\subsection{File yang memuat \textit{framework} Foundation 6}
+Semua halaman website terhubung ke library Foundation 6 dengan mengakses dua file PHP utama yaitu \texttt{script\_foundation.php} untuk memuat file javascript dan \texttt{head\_loggedin.php} untuk memuat file css dan jquery.\\
 
 
-\subsection{Folder untuk Implementasi Framework Foundation 6 dan Plugin}
-Untuk melihat code tampilan website, maka \textit{user} akan mengakses file - file dalam folder \texttt{/www/application/views/}. Folder views terdiri dari beberapa sub-folder. Secara garis besar, file terdiri dari dua fungsi yaitu menyimpan kode template yang digunakan untuk keseluruhan tampilan dan implementasi komponen - komponen Foundation 6 untuk membangun sebuah website. \\*
+\subsubsection{File untuk mengakses file Javascript}
+\noindent Berikut ini file dari \path{www/application/views/templates/script_foundation.php} untuk menambahkan file \texttt{.js} dari Foundation 6 dan \textit{plugin} \texttt{xdan-datetimepicker}:
+\begin{lstlisting}[language=PHP, caption=Penambahan library js, label=Entri, basicstyle=\footnotesize\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false]
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<script src="/public/js/vendor/jquery.min.js"></script>
+<script src="/public/js/vendor/what-input.min.js"></script>
+<script src="/public/js/foundation.min.js"></script>
+<script src="/public/js/app.js"></script>
+<script src="/public/lib/xdan-datetimepicker/jquery.datetimepicker.full.min.js"></script>
+\end{lstlisting}
 
-Pertama untuk sub-folder template terdiri dari: 
-\begin{enumerate}
-	\item auth	: Berisi file terkait dengan framework Foundation akan diimport disini, kemudian akan disertakan sebuah tampilan login dan notifikasi - notifikasi terkait dengan status login. File tersebut tercatat di \texttt{login.php}.
-	\item error	: Berisi folder untuk mengatasi error ketika user gagal untuk \textit{load} tampilan. Pesan akan ditampilkan pada \textit{user} ketika error terjadi. Folder ini sudah ada sejak pertama mengunduh framework CodeIgniter.
-	\item templates	: Folder ini mencangkup kode template yang digunakan untuk seluruh bagian website BlueTape. Terdiri dari:
-	\begin{itemize}
-		\item flashmessage Menyimpan notifikasi terkait dengan autentikasi ketika login ke dalam website.
-		\item head$\_$loggedin Another descriptive item
-		\item script$\_$foundation And another descriptive item
-		\item head$\_$loggedin And another descriptive item
-	\end{itemize}
-\end{enumerate}
-
-Lalu sub-folder template yang berfungsi untuk menyimpan kode tampilan website terdiri 6 folder. Masing - masing folder memiliki sebuah file \texttt{main.php}. Sub-folder tersebut yaitu:
-\begin{enumerate}
-	\item EntriJadwalDosen
-	\item LihatJadwalDisen
-	\item PerubahanKuliahManage
-	\item PerubahanKuliahRequest
-	\item TranskripManage
-	\item TranskripRequest
-\end{enumerate}
-
-\subsection{Import File Foundation}
-File \texttt{head$\_$loggedin.php} akan memanggil semua file css terkait dengan file Foundation 6.
-\begin{lstlisting}[frame=single, basicstyle=\small]
+\subsubsection{File untuk mengakses file CSS}
+\noindent Berikut ini file dari \path{www/application/views/templates/head_loggedin.php} untuk menambahkan file \texttt{.css} dari Foundation 6 dan \textit{plugin} \texttt{xdan-datetimepicker}:
+\begin{lstlisting}[language=PHP, caption=Penambahan library css, label=Entri, basicstyle=\footnotesize\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false]
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><head>
@@ -54,656 +91,1046 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" href="/public/css/foundation.css" />
 <link rel="stylesheet" href="/public/css/foundation-icons.css" />
 <link rel="stylesheet" href="/public/css/app.css" />
-<link rel="stylesheet" href="/public/lib/xdan-datetimepicker/
-jquery.datetimepicker.min.css" />
-</head>.
-\end{lstlisting}
-Kemudian untuk file jquery dan javascript yang digunakan dalam Foundation 6 akan dipanggil dalam file script$\_$foundation.php
-\begin{lstlisting}[frame=single, basicstyle=\small]
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<script src="/public/js/vendor/jquery.min.js"></script>
-<script src="/public/js/vendor/what-input.min.js"></script>
-<script src="/public/js/foundation.min.js"></script>
-<script src="/public/js/app.js"></script>
-<script src="/public/lib/xdan-datetimepicker/
-jquery.datetimepicker.full.min.js"></script>
+<link rel="stylesheet" href="/public/lib/xdan-datetimepicker/jquery.datetimepicker.min.css" />
+</head>
 \end{lstlisting}
 
-\subsection{Grid System Foundation 6 dalam Website BlueTape}
-Keseluruhan tampilan pada website menggunakan kelas \texttt{float grid} dimana sebelum menggunakan komponen, elemen akan mengimplementasikan kelas:
-\begin{itemize}
-	\item \texttt{.row}: Halaman website BlueTape yang memiliki satu konten akan diletakkan dalam kelas ini.
-	\begin{itemize}
-		\item Halaman Transkrip Manage
-		\item Halaman Perubahan Kuliah Manage
-	\end{itemize}
-	%Buat analisis khusus kelas .row	
-	\item \texttt{.row column}: Untuk halaman yang memiliki lebih dari satu konten akan dimasukan dalam kombinasi kelas dari \texttt{.row} dan \texttt{.column} sehingga konten berbaris secara vertikal.  Halaman yang menggunakan kelas ini adalah:
-	\begin{itemize}
-		\item Halaman Perubahan Kuliah Request
-		\item Halaman Transkrip Request
-		\item Halaman Lihat Jadwal Dosen
-		\item Halaman Entri Jadwal Dosen
-	\end{itemize}	
-	 	 
-\end{itemize}
+\subsection{Halaman Login}
 
-\subsection{Navigation Bar}
+\noindent Halaman pertama yang diakses \textit{user} untuk melakukan proses autentikasi dengan menggunakan tombol "Login dengan Google" dan mengakses halaman dokumentasi BlueTape menggunakan hyperlink "Petunjuk Penggunaan".
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_login.png} 
+	\caption{Analisis Tampilan Login} 
+\end{figure} 
+
+Kelas yang digunakan pada halaman login sebagai berikut:\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.row, .large-6, .column} & Bagian konten akan terletak di tengah halaman utama yang memiliki lebar 6 grid.  \\
+ 		\texttt{.text-center} & Kalimat "Silahkan login .." dan link "Petunjuk Bagian" akan terletak ditengah container.\\
+		\texttt{.button expand} & Tombol "Login dengan Google" akan memiliki \textit{styling} grid yang lebarnya memenuhi panjang grid nya.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman login}
+\end{table} \noindent \\
+
+Pada bagian atas halaman login terdapat notifikasi bagi user saat proses login dan logout. Kelas yang digunakan sebagai berikut.\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.callout primary} & Notifikasi berwarna biru menandakan user berhasil \textit{login}.\\
+		\texttt{.callout alert} & Notifikasi berwarna merah menandakan user berhasil \textit{logout}.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang digunakan untuk notifikasi user}
+\end{table}%
+
+
+\subsection{Menu Navigasi}
+Komponen menu navigasi digunakan pada keseluruhan tampilan website, bentuk menu akan menyesuaikan sesuai dengan layar dimana website diakses. \\
+
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_top_bar.png}  
-	\caption{Analisis Tampilan Login} 
+	\caption{Analisis Menu Navigasi pada layar \textit{large}} 
 \end{figure}
-Navigation bar diaplikasin untuk keseluruhan tampilan website, pada layar medium dan small daftar menu akan berubah menjadi ikon menu.
-Kelas yang digunakan adalah sebagai berikut.
-\begin{itemize}
-	\item \texttt{.top-bar}	: Menu akan terletak pada bagian atas dari halaman.	
-	\item \texttt{.menu}	: Kelas merupakan fondasi untuk membangun komponen dalam sebuah navigasi seperti daftar menu, judul dan letak menu.
-	\item \texttt{.menu-active}: Kelas untuk menandakan menu yang dipilih user.
-	\item \texttt{.menu-text}: Kelas untuk menyelaraskan nama menu berbentuk teks agar sejajar dengan \textit{navigation bar}.	
-	\item \texttt{.top-bar-left}: Kelas yang mengatur daftar menu disebelah kiri.
-	\item \texttt{.top-bar-right}: Kelas yang mengatur daftar menu disebelah kanan.
-\end{itemize} \noindent \\
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_top_bar_small.png}  
-	\caption{Analisis Tampilan Login pada layar Medium dan Small} 
-\end{figure}
-Kemudian pada layar \textit{mobile} digunakan komponen \textit{Advanced Layout} dimana daftar menu akan dalam mode \textit{hide}.
-\begin{itemize}	
-	\item \texttt{.title-bar} \texttt{data-responsive-toggle}: Inisiasi untuk membuat navigasi menu yang responsif. 
-	\item \texttt{.menu-icon}: Kelas untuk membuat icon menu.
-	\item \texttt{.title-bar-title}	: Logo digunakan untuk judul website BlueTape, sehingga akan terletak pada bagian kanan dari \textit{navigation bar}.
-	%belum ada di analisis
-	\item \texttt{data-toggle}: Atribut ini akan memanggil data yang disimpan dalam \texttt{data-toggle}.	
-	\item \texttt{data-hide-for}: Atribut yang mengatur kapan menu navigasi akan responsif.
-\end{itemize}
- 
-\subsection{Halaman Login}
-\begin{figure} [H]
-	\centering  
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_login.png}  
-	\caption{Analisis Tampilan Login} 
-\end{figure} \noindent \\
-Kelas yang digunakan dalam halaman ini sebagai berikut:
-\begin{itemize}
-	%posisi large-centered, .large-6 salah
-	\item \texttt{.row, .large-6, .column}: Konten akan terletak sejajar secara horizontal.
-	\item \texttt{.text-center}: Kalimat login terletak ditengah container.
-	\item \texttt{.button expnad}: Tombol akan memiliki panjang yang menyesuaikan lebar konten.
-	\item Callout]: Terdapat dua jenis kelas yang dipakai
-		\begin{itemize}
-			\item.callout alert	: Notifikasi bahwa user harus login untuk mengakses website.
-			\item.callout primary	: Notifikasi bahwa user berhasil logout.
-		\end{itemize}
-		
-\end{itemize}
+Tabel berikut ini menjelaskan kelas-kelas yang digunakan pada menu navigasi di layar \textit{large} .\\
 
-\subsection{Halaman Cetak Transkrip}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.top-bar}	 & Menu akan terletak pada bagian atas dari halaman.\\	
+		\texttt{.menu}	 & Kelas yang membuat daftar judul halaman website menjadi menu.\\
+		\texttt{.menu-active} & Kelas untuk menandakan menu yang sedang dipilih user.\\
+		\texttt{.menu-text} & Kelas untuk menyelaraskan nama menu berbentuk teks agar sejajar dengan \textit{navigation bar}.\\	
+		\texttt{.top-bar-left} & Kelas yang mengatur daftar menu disebelah kiri.\\
+		\texttt{.top-bar-right} & Kelas yang mengatur daftar menu disebelah kanan.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada menu navigasi pada layar \textit{large}}
+\end{table}%
+
+Lalu untuk layar \textit{medium} dan \textit{small} menggunakan komponen \texttt{Advanced Layout} dimana  daftar halaman website yang ada pada menu berada di mode \textit{hide} dan digantian oleh ikon menu Tabel berikut ini menjelaskan kelas-kelas yang digunakan.\\
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_top_bar_small.png} 
+	\caption{Analisis Menu Navigasi pada layar \textit{medium} dan \textit{small}} 
+\end{figure} \noindent
+
+Komponen \texttt{Advanced Layout} terdiri dari kelas - kelas berikut ini.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.title-bar}  & Kelas yang mendefinisikan penggunaan menu dari \textit{Advanced Layout}.\\
+		\texttt{.title-bar-title}	 & Kelas yang mendefinisikan ikon BlueTape sebagai judul website.\\		
+		\texttt{.menu-icon} & Kelas untuk menampilkan icon menu.\\			
+		%belum ada di analisis
+		\texttt{data-responsive-toggle} & Atribut untuk membuat daftar menu responsive.\\
+		\texttt{data-toggle} & Atribut ini akan memanggil data yang disimpan dalam \texttt{data-toggle}.\\	
+		\texttt{data-hide-for} & Atribut yang mengatur kapan menu navigasi akan responsif.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada meni navigasi pada layar \textit{medium} dan \textit{small}.}
+\end{table}% 
+
+\subsection{Halaman Permintaan Cetak Transkrip}
 \subsubsection{Halaman Utama}
+
+Halaman permintaan cetak transkrip terdiri dari dua konten yaitu: "Permohonan Baru" dan "Histori Permohonan". Setiap konten akan dipisahkan dengan border. Pada konten "Permohonan Baru" terdiri dari sebuah form yang berisi \textit{field} yang terdiri dari 2 \textit{rows} dan sebuah tombol "Kirim Permohonan". Lalu konten "Histori Permohonan" terdiri dari sebuah tabel dimana data akan dipanggil dari \textit{database}.  dan kolom 'Aksi' menngarahkan \textit{user} ke sebuah modal lihat permintaan transkrip yang direpresentasikan dengan ikon mata.
 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_mahasiswa_cetak_transkrip.png}
 	\caption{Analisis Halaman Cetak Transkrip} 
-\end{figure}
-\begin{itemize}
-	\item \texttt{.row}: Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. 
-	\item \texttt{.medium-12 column}: Mengatur agar pada layar medium, semua konten akan selebar 12 grid.
-	\item \texttt{.callout}: Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.
-	\item \texttt{.stack}: Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium tabel akan tersusun secara bertumpuk.
-	\item \texttt{Kode Program-eye}: Ikon Font Awesome yang digunakan untuk link ke modal lihat.
-	\item \texttt{.button}: Jenis kelas yang digunakan pada tombol `Kirim Permohonan'
-	\item \texttt{.stack}
-	\item Label: Terdiri dari tiga jenis kelas:
-	\begin{itemize}
-		\item \texttt{.label success}: Label untuk transkrip yang telah tercetak
-		\item \texttt{.label alert}: Label untuk transkrip yang gagal tercetak
-		\item \texttt{.label secondary}: Label untuk transkrip yang belum tercetak
-	\end{itemize}
-	
-\end{itemize}
-%Modal: eye
-\subsubsection{Modal}
-Ikon eye akan menampilkan sebuah modal yang menampilkan Detail Permohonan berdasarkan ID yang tercatat.
+\end{figure} \\
+
+\noindent Kelas yang digunakan dalam konten Permohonan Baru sebagai berikut.\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.row} & Kelas ini digunakan untuk menyimpan container menjadi satu \textit{cell} dan mengatur \textit{field-form} menjadi satu baris. \\
+		\texttt{.medium-12 column}& Keseluruhan konten akan memiliki lebar 12 grid pada layar medium.\\
+		\texttt{.button} & Jenis kelas yang digunakan pada tombol `Kirim Permohonan'\\
+		\texttt{.callout} & Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.\\
+		\texttt{.fi-eye}& Kelas pada font awesome untuk link ke modal lihat.\\		
+		\texttt{.stack} & Tabel lihat cetak transkrip dengan lebar yang dapat disesuaikan berdasarkan ukuran layar.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman utama cetak transkrip}
+\end{table} \\ 
+
+\noindent Pada kolom 'status' menggunakan highlight yang terdiri dari tiga warna. \textit{Highlight} digunakan untuk menandakan status permintaan transkrip, kelas yang digunakan adalah \texttt{.label}.\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas & Penggunaan \\
+		\midrule
+		\texttt{.label success} & Label hijau menandakan transkrip yang telah tercetak.\\
+		\texttt{.label alert} & Label merah menandakan yang gagal tercetak.\\
+		\texttt{.label secondary} & Label abu-abu menandakan transkrip belum tercetak.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Komponen label yang dipakai pada halaman utama cetak transkrip}
+\end{table}%
+
+\subsubsection{Modal: Lihat}
+Apabila user memilih ikon mata, maka website akan mengarahkan ke modal lihat permintaan cetak transkrip. \\
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_eye_cetak_transkrip.png}  
-	\caption{Analisis Modal Lihat} 
+	\caption{Analisis modal pada permintaan cetak transkrip.} 
 \end{figure}
 
-Komponen Modal terdiri dari:
-\begin{itemize}
-	\item \texttt{.reveal data-reveal}: Membuat modal yang menampung tabel detail permohonan.
-	\item \texttt{.close-button data-close}: Menutup modal yang telah terbuka.
-	\item \texttt{.stack}:	Membuat tabel detail permohonan.
-\end{itemize}
+Modal akan menampilkan detail permohonan cetak transkrip berdasarkan ID yang tercatat. Kelas yang digunakan pada modal lihat sebagai berikut. \\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas & Penggunaan \\
+		\midrule
+		\texttt{.reveal data-reveal} & Kelas yang menampilkan modal lihat cetak transkrip. \\
+		\texttt{.close-button data-close} & Kelas yang memungkinkan \textit{user} untuk menutup halaman modal.\\
+		\texttt{.stack} & Kelas untuk membuat tabel detail permohonan.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada modal lihat}
+\end{table}%
+
 \subsection{Halaman Manajemen Cetak Transkrip}
+Halaman ini terdiri dari satu konten yaitu "Permintaan Transkrip". Bagian form pencarian NPM menggunakan \textit{group field}, dimana nama form , isi form dan tombol merupakan satu kesatuan. Lalu dibawah form terdapat tabel yang menampilkan data permintaan cetak transkrip. 
 \subsubsection{Halaman Utama}
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_manajemen_cetak_transkrip.png}
 	\caption{Analisis Manajemen Cetak Transkrip} 
-\end{figure}
-\begin{itemize}
-	\item \texttt{.row}: Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. 
-	\item \texttt{.callout}: Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.
-	\item \texttt{.stack}: Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium tabel akan tersusun secara bertumpuk.
-	\item Ikon Font Awesome yang terdiri dari 
-	\begin{itemize}
-		\item \texttt{Kode Program-eye}: Ikon untuk menuju modal lihat transkrip.
-		\item \texttt{Kode Program-dislike}: Ikon untuk menuju modal tolak cetak transkrip.
-		\item \texttt{Kode Program-print}: Ikon untuk menuju modal cetak transkrip.
-		\item \texttt{Kode Program-trash}: Ikon untuk menuju hapus permitaan transkrip.
-	\end{itemize}
-	\item Label: Terdiri dari tiga jenis kelas:
-	\begin{itemize}
-		\item \texttt{.label success}: Label untuk transkrip yang telah tercetak
-		\item \texttt{.label alert}: Label untuk transkrip yang gagal tercetak
-		\item \texttt{.label warning}: Label untuk transkrip yang menunggu untuk tercetak
-	\end{itemize}
-	
-\end{itemize}
-%Modal: kecuali like
+\end{figure} 
+
+Kelas yang digunakan dalam halaman ini sebagai berikut:\\
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.row} & Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris.\\
+		\texttt{.callout} & Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.\\
+		\texttt{.stack} & Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium lebar tabel akan menyesuaikan kan tiap \textit{cell} ditampilkan secara bertumpuk.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman manajemen cetak transkrip}
+\end{table} \\
+
+
+\noindent Untuk kolom aksi, terdapat empat kelas dari \textit{library} Font Awesome yang setiap ikon nya mengarahkan \textit{user} ke halaman modal dan halaman \textit{view} print cetak transkrip. Kelas - kelas yang digunakan sebagai berikut.\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.label success} & Label untuk transkrip yang telah tercetak.\\
+		\texttt{.label alert} & Label untuk transkrip yang gagal tercetak.\\
+		\texttt{.label warning} & Label untuk transkrip yang menunggu untuk tercetak.\\		
+		\bottomrule
+	\end{tabularx}%
+	\caption{Komponen Label yang dipakai pada halaman login}
+\end{table}%
+
+\noindent Pada tabel permintaan transkrip terdapat status permintaan transkrip yang di \textit{highlight} menggunakan warna yang berbeda - beda. Kelas yang digunakan sebagai berikut.\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{fi-eye} & \textit{Hypertext reference} berbentuk ikon yang mengarahkan ke modal lihat transkrip.\\
+		\texttt{fi-dislike} & \textit{Hypertext reference} berbentuk ikon yang mengarahkan ke modal tolak cetak transkrip.\\
+		\texttt{fi-print} & \textit{Hypertext reference} berbentuk ikon yang mengarahkan ke modal print cetak transkrip.\\
+		\texttt{fi-trash} & \textit{Hypertext reference} berbentuk ikon yang mengarahkan ke modal hapus permintaan transkrip.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Ikon font awesome yang dipakai pada halaman manajemen cetak transkrip.}
+\end{table} \\
+
+\subsubsection{Modal: Lihat, Tolak, Print dan Hapus}
+
+Bagian modal pada halaman manajemen cetak transkrip terdiri dari empat bagian. Gambar dibawah ini menunjukan kelas yang digunakan untuk setiap modal.
+
 \begin{figure}	
 	\centering
-	\begin{subfigure}[t]{3in}
+	\begin{subfigure}[t]{7in}
 		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_eye_manajemen_cetak.png}
 		\caption{Analisis Modal Lihat} 
 	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}
+	
+	\begin{subfigure}[t]{7in}
 		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_print_manajemen_cetak_transkrip.png}
 		\caption{Analisis Modal Print} 
 	\end{subfigure}
 \end{figure}
+\\
 \begin{figure}	
 	\centering
-	\begin{subfigure}[t]{3in}
+	\begin{subfigure}[t]{7in}
 		\centering 
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_dislike_manajemen_cetak_transkrip.png}
 		\caption{Analisis Modal Tolak}  
 	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}		  
+	
+	\begin{subfigure}[t]{7in}		  
 		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_trash_manajemen_cetak_transkrip.png}
 		\caption{Analisis Modal Hapus}
 	\end{subfigure}
 \end{figure}
 
-Komponen Modal terdiri dari:
-\begin{itemize}
-	\item \texttt{.reveal data-reveal}: Membuat modal yang menampung tabel detail permohonan.
-	\item \texttt{.close-button data-close aria-label}: Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.
-	\item \texttt{.stack}:	Membuat tabel detail permohonan perubahan kuliah.
-\end{itemize}
 
 
-\subsection{Halaman Perubahan Kuliah}
+\noindent Kelas yang digunakan untuk seluruh modal sebagai berikut.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.reveal data-reveal} & Kelas dan atribut untuk membuat komponen modal.\\
+		\texttt{.close-button}  & Memungkinkan user untuk menutup modal yang telah terbuka.\\
+		\texttt{data-close} & \\
+		\texttt{aria-label} & \\
+		\texttt{.stack} & Membuat tabel dalam modal lihat cetak transkrip.\\
+		\texttt{.button} & Tombol "Sudah dicetak" berwarna biru untuk mengirimkan status permintaan sudah dicetak. \\
+		\texttt{.alert button} & Tombol "Tolak" dan "Hapus" berwarna merah untuk menolak dan menghapus permintaan transkrip\\
+		\texttt{.input-group-field} & Membuat  \textit{form} pada kolom "Email Penjawab" dan "Alasan Penolakan" pada modal hapus permintaan traskrip.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada modal manajemen cetak transkrip}
+\end{table}%
+
+\subsection{Halaman Permintaan Perubahan Kuliah}
+Halaman permintaan perubahan kuliah terdiri dari dua konten: "Permohonan Baru" dan "Histori Permohonan". Setiap konten dipisahkan oleh border dalam Foundation disebut \texttt{callout}. Pada "Permohonan Baru" terdapat sebuah form yang berisi field-fiel dengan lebar yang berbeda - beda dan dikelompokan pada beberapa baris. Terdapat tiga tombol yaitu tombol biru "Kirim Permohonan" dan tombol abu-abu "Tambah pertemuan Ektra" .
+Konten "Histori Permohonan" berisi tabel bergaris yang menampilkan data histori permohonan. 
+
 \subsubsection{Halaman Utama}
 \begin{figure} [H]
-\centering  
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_perubahan_kuliah_request.png}
-\caption{Analisis Tampilan Perubahan Kuliah}
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_perubahan_kuliah_request.png}
+	\caption{Analisis Tampilan Perubahan Kuliah}
 \end{figure}
-\begin{itemize}
-	\item \texttt{.row}: Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. 
-	\item \texttt{.callout}: Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.
-	\item \texttt{.stack}: Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium tabel akan tersusun secara bertumpuk.
-	\item Ikon Font Awesome yang terdiri dari 
-	\begin{itemize}
-		\item \texttt{Kode Program-eye data-open}: Ikon untuk menuju modal lihat detail permohonan berdasarkan ID.
-	\end{itemize}
-	\item Label: Terdiri dari tiga jenis kelas:
-	\begin{itemize}
-		\item \texttt{.label success}: Label untuk perubahan kuliah berhasil.
-		\item \texttt{.label alert}: Label untuk perubahan kuliah gagal.
-		\item \texttt{.label warning}: Label untuk perubahan kuliah diproses.
-	\end{itemize}
-	
-\end{itemize}
-%Modal: eye
-\subsubsection{Modal}
-\begin{figure} [H]
-\centering  
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_eye_perubahan_kuliah_request.png}
-\caption{Analisis Modal Lihat}
-\end{figure}
-Komponen Modal terdiri dari:
-\begin{itemize}
-	\item \texttt{.reveal data-reveal}: Membuat modal yang menampung tabel detail permohonan.
-	\item \texttt{.close-button data-close aria-label}: Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.
-	\item \texttt{.stack}:	Membuat tabel detail permohonan perubahan kuliah.
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		 \texttt{.row} & Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. \\
+		 \texttt{.large-* column} & Mendefinisikan lebar grid untuk masing - masing \textit{field} pada \textit{form}. \\
+		 \texttt{.callout} & Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.\\
+		 \texttt{.stack} & Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium tabel akan tersusun secara bertumpuk.\\
+		 \texttt{.fi-eye, data-open} & Ikon untuk menuju modal lihat detail permohonan berdasarkan ID.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman permintaan perubahan kuliah.}
+\end{table}
 
+Kolom 'Status' mendefinisikan hasil permohonan perubahan kuliah, tiga jenis status dengan tiga jenis kelasyang berbeda-beda yaitu.\\
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		 \texttt{.label success} & Label untuk perubahan kuliah berhasil.\\
+		 \texttt{.label alert} & Label untuk perubahan kuliah gagal.\\
+		 \texttt{.label warning} & Label untuk perubahan kuliah diproses.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada status di permintaan perubahan kuliah.}
+\end{table}
+
+\subsubsection{Modal: Lihat}
+Kolom 'Aksi' berisi ikon mata yang akan mereferensikan ke modal lihat pada data permohonan perubahan kuliah. \\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_eye_perubahan_kuliah_request.png}
+	\caption{Analisis Modal Lihat}
+\end{figure}
+
+\noindent Kelas yang digunakan dalam modal ditampilkan pada tabel berikut ini.\\
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		 \texttt{.reveal data-reveal} & Membuat modal yang menampung tabel detail permohonan.\\
+		 \texttt{.close-button data-close aria-label} & Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.\\
+		 \texttt{.stack} &	Membuat tabel detail permohonan perubahan kuliah.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas pada modal lihat di halaman permintaan perubahan kuliah.}
+\end{table}
 
 \subsection{Halaman Manajemen Perubahan Kuliah}
+Halaman ini menampilkan data permohonan perubahan kuliah berisi sebuah tabel dimana pada kolom 'Status' menggunakan kelas \texttt{.callout} untuk \textit{highlight} status dan pada kolom 'Aksi' menampilkan lima jenis ikon dari \textit{Library} Font Awesome. Setiap ikon merupakan link menuju modal.
 \subsubsection{Halaman Utama}
 \begin{figure} [H]
-\centering  
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_manajemen_perubahan_kuliah.png}
-\caption{Analisis Halaman Manajemen Perubahan Kuliah}
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_manajemen_perubahan_kuliah.png}
+	\caption{Analisis Halaman Manajemen Perubahan Kuliah}
 \end{figure}
-\begin{itemize}
-	\item \texttt{.row}: Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. 
-	\item \texttt{.callout}: Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.
-	\item \texttt{.stack}: Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium tabel akan tersusun secara bertumpuk.
-	\item Ikon Font Awesome yang terdiri dari 
-	\begin{itemize}
-		\item \texttt{Kode Program-eye}: Ikon menuju modal lihat permohonan perubahan kuliah.
-		\item \texttt{Kode Program-like}: Ikon menuju modal persetujuan permohonan perubahan kuliah.
-		\item \texttt{Kode Program-dislike}: Ikon menuju modal persetujuan penolakan perubahan kuliah.
-		\item \texttt{Kode Program-print}: Ikon untuk menuju halaman cetak jadwal perubahan kuliah.
-		\item \texttt{Kode Program-trash}: Ikon untuk menghapus permitaan perubahan kuliah.
-	\end{itemize}
-	\item Label: Terdiri dari tiga jenis kelas:
-	\begin{itemize}
-		\item \texttt{.label success}: Label untuk permitaan perubahan kuliah telah disetujui.
-		\item \texttt{.label alert}:  Label untuk permitaan perubahan kuliah telah ditolak.
-		\item \texttt{.label warning}: Label untuk permintaan perubahan kuliah sedang diproses.
-	\end{itemize}
-	
-\end{itemize}
-%Modal: lengkap
-\subsubsection{Modal}
-\begin{figure}	
+\begin{table}[H]
 	\centering
-	\begin{subfigure}[t]{3in}
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.row} & Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris.\\ 
+		\texttt{.callout} & Untuk membuat border yang memisahkan konten permohonan baru dan histori permohonan.\\
+		\texttt{.stack} & Jenis tabel yang digunakan tabel histori permohonan, sehingga pada layar medium tabel akan tersusun secara bertumpuk.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman manajemen perubahan kuliah}
+\end{table}
+
+\noindent Pada kolom 'Status' kelas yang digunakan dari komponen \texttt{callout} sebagai berikut.
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.label success} & Label untuk permitaan perubahan kuliah telah disetujui.\\
+		\texttt{.label alert} &  Label untuk permitaan perubahan kuliah telah ditolak.\\
+		\texttt{.label warning} & Label untuk permintaan perubahan kuliah sedang diproses.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas label yang digunakan pada halaman manajemen perubahan kuliah}
+\end{table}\\
+
+Kemudian pada kolom 'Aksi' kelas yang digunakan dari \textit{library} Font Awesome sebagai berikut.
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{fi-eye} & Ikon menuju modal lihat permohonan perubahan kuliah.\\
+		\texttt{fi-like} & Ikon menuju modal persetujuan permohonan perubahan kuliah.\\
+		\texttt{fi-dislike} & Ikon menuju modal persetujuan penolakan perubahan kuliah.\\
+		\texttt{fi-print} & Ikon untuk menuju halaman cetak jadwal perubahan kuliah.\\
+		\texttt{fi-trash} & Ikon untuk menghapus permitaan perubahan kuliah.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas pada \textit{library} Font Awesome yang digunakan pada halaman manajemen perubahan kuliah.}
+\end{table}
+
+\subsubsection{Modal}
+Apabila user memilih salah satu ikon dari kolom 'Aksi' maka modal akan muncul. Terdapat lima macam modal yaitu: modal lihat, modal setuju, modal tolak, modal print dan modal hapus perubahan kuliah. 
+\begin{figure} [H]	
+	\centering
+	\begin{subfigure}[t]{7in}
 		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_eye_manajemen_perubahan_kuliah.png}
 		\caption{Analisis Modal Lihat}  
 	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}		  
+	
+	\begin{subfigure}[t]{7in}		  
 		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_like_manajemen_perubahan_kuliah.png}
 		\caption{Analisis Modal Setuju}
 	\end{subfigure}
 \end{figure}
-\begin{figure}	
+\begin{figure} [H]	
 	\centering
-	\begin{subfigure}[t]{3in}
+	\begin{subfigure}[t]{7in}
 		\centering 
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_dislike_manajemen_perubahan_kuliah.png}
 		\caption{Analisis Modal Tolak}  
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{3in}		  
+	\end{subfigure}	
+	\begin{subfigure}[t]{7in}		  
 		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_trash_manajemen_perubahan_kuliah.png}
 		\caption{Analisis Modal Hapus}
 	\end{subfigure}
 \end{figure}
-\begin{figure}	
+\begin{figure} [H]	
 	\centering
-	\begin{subfigure}[t]{3in}
+	\begin{subfigure}[t]{7in}
 		\centering 
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_print_manajemen_cetak_transkrip.png}
 		\caption{Analisis Modal Print}  
 	\end{subfigure}	
 \end{figure}
 
-Komponen Modal terdiri dari:
-\begin{itemize}
-	\item \texttt{.reveal data-reveal}: Membuat modal yang menampung tabel detail permohonan.
-	\item \texttt{.close-button data-close aria-label}: Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.
-	\item \texttt{.stack}:	Membuat tabel detail permohonan perubahan kuliah.
-	\item \texttt{.alert button}: Membuat button pada tombol `tolak'  dan `hapus'.
-\end{itemize}
-
+\noindent Kelas - kelas yang digunakan untuk seluruh modal sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.reveal data-reveal} & Membuat modal yang menampung tabel detail permohonan.\\
+		\texttt{.close-button data-close aria-label} & Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.\\
+		\texttt{.stack} &	Membuat tabel detail permohonan perubahan kuliah.\\
+		\texttt{.alert button} & Membuat button pada tombol `tolak'  dan `hapus'.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman manajemen perubahan kuliah.}
+\end{table}
 
 
 \subsection{Halaman Entri Jadwal Dosen}
-\subsubsection{Halaman Utama}
+Entri Jadwal Dosen berisi dua konten: "Tambah Jadwal" dan "Daftar Jadwal". Konten "Tambah Jadwal" merupakan \textit{form} yang terdiri dari label, \textit{field} dari form tersebut dan tombol biru "Tambah". Konten "Daftar Jadwal" terdiri dari sebuah tabel dimana untuk \textit{cell} yang terisi mereferensikan ke modal edit jadwal dosen. Selain itu terdapat dua tombol pada bawah tabel: tombol merah "Delete" dan tombol biru "Ekspor ke XLS".
 
+\subsubsection{Halaman Utama}
 \begin{figure} [H]
-\centering  
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_tampilan_entri_jadwal_dosen.png}
-\caption{Analisis Halaman Entri Jadwal Dosen}
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_tampilan_entri_jadwal_dosen.png}
+	\caption{Analisis Halaman Entri Jadwal Dosen}
 \end{figure}
-\begin{itemize}
-	\item \texttt{.row}: Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. 
-	\item \texttt{.large-4 column}: Setiap field akan pada \textit{form} Tambah Jadwal akan memiliki lebar masing-maisng 4 grid pada layar \textit{large}.
-	\item \texttt{.large-12 column}: Konten Tambah Jadwal dan Daftar Jadwal memiliki lebar 12 grid.
-	\item \texttt{.callout}: Untuk membuat border yang memisahkan konten tambah jadwal dan detail jadwal.
-	\item \texttt{.table-scroll}: Membuat tabel daftar jadwal dapat digerakan secara horizontal.
-	\item \texttt{button}: Membuat button pada tombol `Ekspor ke XLS' untuk konten Daftar Jadwal dan `Tambah' pada konten Tambah Jadwal.
-	\item \texttt{.alert button}: Membuat button pada tombol `Delete All'.
-	
-\end{itemize}
-%Modal: edit
+Kelas - kelas yang digunakan dalam halaman entri jadwal dosen sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.row} & Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. \\
+		\texttt{.large-4 column} & Setiap field akan pada \textit{form} Tambah Jadwal akan memiliki lebar masing-maisng 4 grid pada layar \textit{large}.\\
+		\texttt{.large-12 column} & Konten Tambah Jadwal dan Daftar Jadwal memiliki lebar 12 grid.\\
+		\texttt{.callout} & Untuk membuat border yang memisahkan konten tambah jadwal dan detail jadwal.\\
+		\texttt{.table-scroll} & Membuat tabel daftar jadwal dapat digerakan secara horizontal.\\
+		\texttt{button} & Membuat button pada tombol `Ekspor ke XLS' untuk konten Daftar Jadwal dan `Tambah' pada konten Tambah Jadwal.\\
+		\texttt{.alert button} & Membuat button pada tombol `Delete All'.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman entri jadwal dosen.}
+\end{table}
+
+%Modal & edit
 \subsubsection{Edit Jadwal}
+Cell yang terisi dengan mata kuliah pada halaman ini dapat diedit, apabila dipilih maka sebuah modal edit jadwal dosen akan muncul. 
 \begin{figure} [H]
-\centering  
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_edit_jadwal_entri_jadwal_dosen.png}
-\caption{Analisis Modal Edit Jadwal}
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_edit_jadwal_entri_jadwal_dosen.png}
+	\caption{Analisis Modal Edit Jadwal}
 \end{figure}
-Komponen Modal terdiri dari:
-\begin{itemize}
-	\item \texttt{.reveal data-reveal}: Membuat modal yang menampung tabel detail permohonan.
-	\item \texttt{.close-button data-close aria-label}: Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.
-	\item \texttt{.large-4 column}: Kolom tombol akan memiliki lebar 4 grid pada layar \textit{large}.
-	\item \texttt{.large-2 column}: Masing - masing tombol `Save' dan `Delete' akan memiliki lebar 2 grid pada layar \textit{large}.
-	\item \texttt{.button}: Membuat button `Save'.
-	\item \texttt{.alert button}: Membuat button `Delete'.
-\end{itemize}
+
+Kelas yang digunakan modal edit jadwal dosen sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.reveal data-reveal} & Membuat modal yang menampung tabel detail permohonan.\\
+		\texttt{.close-button data-close aria-label} & Menutup modal yang telah terbuka dengan memberikan label `x' pada tombol.\\
+		\texttt{.large-4 column} & Kolom tombol akan memiliki lebar 4 grid pada layar \textit{large}.\\
+		\texttt{.large-2 column} & Masing - masing tombol `Save' dan `Delete' akan memiliki lebar 2 grid pada layar \textit{large}.\\
+		\texttt{.button} & Membuat button `Save'.\\
+		\texttt{.alert button} & Membuat button `Delete'.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada modal edit jadwal dosen.}
+\end{table}
+
 
 \subsection{Halaman Lihat Jadwal Dosen}
-
+\noindent Lihat jadwal dosen berisi sebuah tabs, dimana setiap judul tabs yang berada diatas tabel mereferensikan ke \texttt{tabs-content} atau halaman jadwal setiap dosen. Kemudian pada bagian bawah tabel terdapat tombol biru "Ekspor ke XLS".
+\subsubsection{Halaman Utama}
 \begin{figure} [H]
-\centering  
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_tampilan_lihat_jadwal_dosen.png}
-\caption{Analisis Modal Edit Jadwal}
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_tampilan_lihat_jadwal_dosen.png}
+	\caption{Analisis Modal Edit Jadwal}
 \end{figure}
 
-\begin{itemize}
-	\item \texttt{.row}: Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. .
-	\item \texttt{.large-12 column}: Konten Tambah Jadwal dan Daftar Jadwal memiliki lebar 12 grid.
-	\item \texttt{.callout}: Untuk membuat border yang memisahkan konten tambah jadwal dan detail jadwal.
-	\item \texttt{.table-scroll}: Membuat tabel lihat jadwal dapat digerakan secara horizontal.
-	\item \texttt{button}: Membuat button pada tombol `Ekspor ke XLS' untuk konten Daftar Jadwal dan `Tambah' pada konten Tambah Jadwal.	
-	\item \texttt{.tabs data-tabs}: Kontainer untuk simpan nama dosen
-	\item \texttt{.tabs-content data-tabs-content}: Kontainer untuk simpan isi konten dari tabs.
-	\item \texttt{.tabs-title}: Kelas untuk judul tabs nama dosen.
-	\item \texttt{.is-active}: Menujukkan tabs nama dosen yang sedang dilihat
-\end{itemize}
+\noindent Kelas-kelas yang digunakan pada modal edit jadwal dosen sebagai berikut:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{lX}
+		\toprule
+		Kelas     & Penggunaan \\
+		\midrule
+		\texttt{.row} & Kelas ini memiliki dua fungsi sebagai container konten dan mengatur beberapa \textit{field-form} menjadi satu baris. \\
+		\texttt{.large-12 column} & Konten Tambah Jadwal dan Daftar Jadwal memiliki lebar 12 grid.\\
+		\texttt{.callout} & Untuk membuat border yang memisahkan konten tambah jadwal dan detail jadwal.\\
+		\texttt{.table-scroll} & Membuat tabel lihat jadwal dapat digerakan secara horizontal.\\
+		\texttt{button} & Membuat button pada tombol `Ekspor ke XLS' untuk konten Daftar Jadwal dan `Tambah' pada konten Tambah Jadwal.	\\
+		\texttt{.tabs data-tabs} & Kontainer untuk simpan nama dosen\\
+		\texttt{.tabs-content data-tabs-content} & Kontainer untuk simpan isi konten dari tabs.\\
+		\texttt{.tabs-title} & Kelas untuk tabs nama-nama dosen.\\
+		\texttt{.is-active} & Menujukkan tabs nama dosen yang sedang dilihat.\\
+		\bottomrule
+	\end{tabularx}%
+	\caption{Kelas yang dipakai pada halaman lihat jadwal dosen.}
+\end{table}
 
-\section{Analisis Perubahan Kelas antara Foundation 6 dan Bootstrap 4}
-Bagian ini menjelaskan detail penggunaan kelas-kelas saat mengaplikasikan framework Foundation 6 dan detail kelas-kelas pada Bootstrap 4 yang nantinya akan digunakan dalam website BlueTape terbaru.
+\section{Penjelasan Kode pada Controller}
+\subsection{Controller Permintaan Cetak Transkrip}
+\subsection{Controller Manajemen Cetak Transkrip}
+\subsection{Controller Permintaan Perubahan Kuliah}
+\subsection{Controller Manajemen Perubahan Kuliah}
 
-\subsubsection{Navigasi Menu}
-Navigasi menu memiliki kelas sebagai berikut: \\
-\begin{tabular}{|c|c|} 
-	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.title-bar-title & .navbar-brand  \\ 
-	\hline
-	.menu & .top-bar  \\
-	\hline
-	.menu-active & .active  \\
-	\hline	
-	.menu-text & .nav-item, .nav-link \\
-	\hline	
-	.top-bar-left & .ml-auto  \\
-	\hline
-	.top-bar-right & .mr-auto  \\
-	\hline
-	.navbar-dark, .bg-dark & -  \\ [1ex] 
-	\hline
-\end{tabular}
-\subsubsection{Halaman Login}
-\begin{tabular}{|c|c|} 
-	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.row, .column &.container    \\ 
-	\hline	
-	.row &.row     \\  
-	\hline
-	 .large-centered &.justify-content-center \\  
-	 \hline
-	 .large-6 &.col-lg-6    \\ 
-	 \hline
-	 .text-center & .text-center   \\ 
-	 \hline
-	 .button & .btn   \\ 
-	 \hline
-	 - & .btn-primary   \\ 
-	\hline
-	.expand & .btn-lg  \\ 
-	\hline
-	.callout alert & -  \\ 
-	\hline
-	.callout primary & -  \\ 
-	\hline
-	- & .btn-lg   \\ [1ex] 
-	\hline
-\end{tabular}
-%Ctt : Label di bs blm ada
+\section{Perancangan Halaman Website dengan Bootstrap 4}
+Setelah menganalisis kelas apa saja yang digunakan dalam website, pada bagian ini akan ditampilkan rancangan penggunaan kelas - kelas dengan menggunakan Bootstrap 4. Perancangan akan dibuat dalam bentuk visual yaitu screenshot setiap halaman dan kelas yang nantinya digunakan dalam tahap implementasi. Selain itu dipaparkan tabel perbandingan antara kelas yang dahulu digunakan dan kelas yang akan digunakan pada tahap implementasi.//
+\subsection{Halaman Login}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman login.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_login.png}  
+	\caption{Konversi Tampilan Login} 
+\end{figure} \noindent \\
 
-\subsubsection{Halaman Cetak Transkrip}
-\begin{tabular}{|c|c|} 
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada halaman login sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
 	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.row &   .container\\ 
-	\hline	
-	.callout &  .card, .card-header, .card-body \\
-	\hline	
-	.medium-12 &  .col-md-12 \\
-	\hline	
-	.larger-4 &  .col-lg-4 \\
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
 	\hline
-	.large-8 &  .col-lg-8 \\
+	Grid untuk menampung konten & \texttt{.row}, \texttt{.column} &\texttt{.container}    \\	
+	& \texttt{.row} &\texttt{.row}     \\  
 	\hline
-	.column &  .col \\	
-	\hline	
-	.button &  .btn btn-primary\\
-	\hline	
-	.label success &  .badge badge-success \\
-	\hline	
-	.label alert & .badge badge-danger  \\
-	\hline	
-	.label secondary & .badge badge-secondary  \\
-	\hline	
-	.fi-eye &  .fas fa-eye \\	
-	\hline	
-	.stack & .table table-striped  \\
-	\hline	
-	- & .col-form-label  \\ 
-	\hline	
-	- & .form-control  \\
-	\hline	
-	&   \\ [1ex] 
+	Konten berada di tengah &\texttt{.large-centered} &\texttt{.justify-content-center} \\  
 	\hline
-\end{tabular}
-
-\subsubsection{Halaman Manajemen Cetak Transkrip}
-\begin{tabular}{|c|c|} 
+	Grid dengan lebar 6 &\texttt{.large-6} &\texttt{.col-lg-6}    \\ 
 	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.row &   .container\\ 
-	\hline	
-	.callout &  .card, .card-header, .card-body \\
-	\hline	
-	.medium-12 &  .col-md-12 \\
-	\hline	
-	.larger-4 &  .col-lg-4 \\
+	Posisi text rata tengah  &\texttt{.text-center} & \texttt{.text-center }  \\ 
 	\hline
-	.large-8 &  .col-lg-8 \\
+	Tombol berwarna biru &\texttt{.button} & \texttt{.btn}   \\ 
 	\hline
-	.column &  .col \\	
-	\hline	
-	.button &  .btn btn-primary\\
-	\hline	
-	.label success &  .badge badge-success \\
-	\hline	
-	.label alert & .badge badge-danger  \\
-	\hline	
-	.label warning & .badge badge-warning  \\
-	\hline	
-	.fi-eye &  .fas fa-eye \\	
-	\hline	
-	.fi-dislike &  .fas fa-thumbs-down \\
-	\hline	
-	.fi-print &  .fas fa-print \\
-	\hline	
-	.fi-trash &  .fas fa-trash \\
-	\hline	
-	.stack & .table table-striped  \\
-	\hline	
-	 .input-group & .input-group  \\ 
-	 \hline	
-	 .input-group-label & .input-group-prepend  \\ 
-	 \hline	
-	 .input-group-field& .form-control  \\ 
-	 \hline	
-	 .button, .input-group-button& .btn btn-outline-primary  \\ [1ex] 
+	Tombol selebar konten & \texttt{.btn expand} & \texttt{.btn-lg}  \\ 
+	\hline
+	Label berwarna merah & \texttt{.callout alert} & \texttt{.alert alert-primary}  \\ 
+	\hline
+	Label berwarna biru & \texttt{.callout primary} & \texttt{.alert alert-danger}  \\ [1ex]
 	\hline
 \end{tabular}
 
 
-\subsubsection{Halaman Perubahan Kuliah}
-\begin{tabular}{|c|c|} 
+\subsection{Menu Navigasi}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada menu navigasi.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_navbar.png}  
+	\caption{Konversi Tampilan Login} 
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada menu navigasi sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
 	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.row &   .container\\ 
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
 	\hline	
-	.callout &  .card, .card-header, .card-body \\
-	\hline	
-	.medium-* column &  .col-md-* \\
-	\hline		
-	.large-* column &  .col-lg-* \\
+	 Judul website & \texttt{.title-bar-title }& \texttt{.navbar-brand}  \\ 
 	\hline
-	.column &  .col \\	
+	Menu &\texttt{.menu }& \texttt{.top-bar } \\
+	\hline
+	Sub-menu terpilih & \texttt{.menu-active} & \texttt{.active}  \\
 	\hline	
-	.button &  .btn btn-primary\\
+	Kelas untuk setiap menu & \texttt{.menu-text} & \texttt{.nav-item .nav-link} \\
 	\hline	
-	.label success &  .badge badge-success \\
-	\hline	
-	.label alert & .badge badge-danger  \\
-	\hline	
-	.label secondary & .badge badge-secondary  \\
-	\hline	
-	.fi-eye &  .fas fa-eye \\	
-	\hline		
-	.stack & .table table-striped  \\
-	\hline	
-	.input-group & .input-group  \\ 
-	\hline	
-	.input-group-label & .input-group-prepend  \\ 
-	\hline	
-	.input-group-field& .form-control  \\ 
-	\hline	
-	.button & .btn btn-primary  \\ 
-	\hline	
-	.button secondary& .btn btn-secondary  \\[1ex] 
+	Menu berada di kiri & \texttt{.top-bar-left} & \texttt{.ml-auto}  \\
+	\hline
+	Menu berada di kanan & \texttt{.top-bar-right} & \texttt{.mr-auto}  \\
+	\hline
+	Tema untuk menu & \texttt{.navbar-dark .bg-dark} & -  \\ [1ex] 
 	\hline
 \end{tabular}
 
-\subsubsection{Halaman Manajemen Perubahan Kuliah}
-\begin{tabular}{|c|c|} 
+\subsection{Halaman Permintaan Cetak Transkrip}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman permintaan cetak transkrip.\\
+
+\subsubsection{Halaman Utama}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_cetak_transkrip.png}
+	\caption{Konversi Halaman Cetak Transkrip} 
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada halaman permintaan cetak transkrip sebagai berikut.\\ 
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
 	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.row &   .container\\ 
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
 	\hline	
-	.callout &  .card, .card-header, .card-body \\
-	\hline		
-	.label success &  .badge badge-success \\
+	Sistem Grid & \texttt{.row} &   \texttt{.container} \\ 
 	\hline	
-	.label alert & .badge badge-danger  \\
+	Border untuk konten & \texttt{.callout} &  .card \newline .card-header \newline .card-body \\
 	\hline	
-	.label warning & .badge badge-warning  \\
+	Lebar 12 grid pada layar \textit{medium} & .medium-12 &  .col-md-12 \\
 	\hline	
-	.fi-eye &  .fas fa-eye \\
+	Lebar 4 grid pada layar \textit{large} & .larger-4 &  .col-lg-4 \\
+	\hline
+	Lebar 8 grid pada layar \textit{large} & .large-8 &  .col-lg-8 \\
+	\hline
+	Kolom & .column &  .col \\	
 	\hline	
-	.fi-like &  .fas fa-thumbs-dup \\	
+	Tombol berwarna biru & .button &  .btn btn-primary\\
 	\hline	
-	.fi-dislike &  .fas fa-thumbs-down \\
+	Label berwarna hijau & .label success &  .badge badge-success \\
 	\hline	
-	.fi-print &  .fas fa-print \\
+	Label berwarna merah &.label alert & .badge badge-danger  \\
 	\hline	
-	.fi-trash &  .fas fa-trash \\
+	Label berwarna abu &.label secondary & .badge badge-secondary  \\
 	\hline	
-	.stack & .table table-striped  \\
+	Ikon bentuk mata & .fi-eye &  .fas fa-eye \\	
 	\hline	
-	.input-group & .input-group  \\ 
+	Tabel & .stack & .table table-striped  \\
 	\hline	
-	.input-group-label & .input-group-prepend  \\ 
+	Nama \textit{form} & - & .col-form-label  \\ 
 	\hline	
-	.input-group-field & .form-control \\ 
-	\hline	
-	data-open & data-toggle, data-target \\
-	\hline	
-	.button, .input-group-butto n& .btn btn-outline-primary  \\ [1ex] 
+	Input \textit{form} & - & .form-control  \\ [1ex] 
 	\hline
 \end{tabular}
 
-\subsubsection{Halaman Entri Jadwal Dosen}
-\begin{tabular}{|c|c|} 
+\subsubsection{Modal : Lihat}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada modal lihat halaman permintaan transkrip.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_cetak_transkrip.png}  
+	\caption{Konversi Modal Lihat} 
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada modal lihat permintaan cetak transkrip sebagai berikut.\\
+
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
 	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	.row &   .row\\ 
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
 	\hline	
-	- &  .container \\
-	\hline	
-	.callout &  .card, .card-header, .card-body \\
+	Modal & \texttt{.reveal data-reveal} & \texttt{.modal-fade} \newline \texttt{.modal-dialog} \newline \texttt{.modal-dialog-centered} \newline \texttt{.modal-content} \\
+	Judul modal & - & \texttt{modal-title}\\
 	\hline
-	.medium-4 column &  .col-md-4 \\
-	\hline		
-	.label success &  .badge badge-success \\
+	Isi modal & - & \texttt{modal-body}\\
+	\hline
+	Tutup modal & \texttt{.close-button} \newline \texttt{data-close} \newline \texttt{aria-label} & \texttt{.close}\\
 	\hline	
-	.label alert & .badge badge-danger  \\
-	\hline	
-	.label warning & .badge badge-warning  \\
-	\hline	
-	.fi-eye &  .fas fa-eye \\
-	\hline	
-	.fi-like &  .fas fa-thumbs-dup \\	
-	\hline	
-	.fi-dislike &  .fas fa-thumbs-down \\
-	\hline	
-	.fi-print &  .fas fa-print \\
-	\hline	
-	.fi-trash &  .fas fa-trash \\
-	\hline	
-	.stack & .table table-striped  \\
-	\hline	
-	.input-group & .input-group  \\ 
-	\hline	
-	.input-group-label & .input-group-prepend  \\ 
-	\hline	
-	.input-group-field & .form-control \\ 	
-	
-	\hline	
-	.table-scroll & .table, .table-bordered, .table-striped \\
-	\hline	
-	.button & .btn btn-primary  \\
-	\hline	
-	.alert button & .btn btn-danger  \\ [1ex] 
+	Tabel & \texttt{.stack} & \texttt{.table} \newline \texttt{.table-striped} \\[1ex]
 	\hline
 \end{tabular}
-\subsubsection{Halaman Lihat Jadwal Dosen}
-\begin{tabular}{|c|c|} 
+
+\subsection{Halaman Manajemen Cetak Transkrip}
+
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman manajemen cetak transkrip.\\
+\subsubsection{Halaman Utama}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_manajemen_cetak_transkrip.png}
+	\caption{Konversi Manajemen Cetak Transkrip} 
+\end{figure}
+
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
 	\hline
-	\textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
-	\hline\hline
-	- &   .container\\ 
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
 	\hline	
-	.row &  .row\\
+	Sistem Grid & \texttt{.row} &   \texttt{.container} \\ 
 	\hline	
-	.callout &  .card, .card-header, .card-body \\
-	\hline	
-	.large-* column &  .col-lg-* \\
-	\hline	
-	.button &  .btn btn-primary\\
-	\hline	
-	.label success &  .badge badge-success \\	
-	\hline	
-	.button & .btn btn-primary  \\
-	\hline	
-	.tabs, data-tabs & .nav, .nav-tabs\\	
-	\hline	
-	.tabs-title, .is-active &  tabs-panel, .is-active \\
+	Border untuk konten & \texttt{.callout} &  \texttt{.card} \newline \texttt{.card-header} \newline .card-body \\
 	\hline
-	.tabs-content, data-tabs-content & .tabs-content, data-tabs-content . \\
+	Kolom & \texttt{.column} &  \texttt{.col} \\	
 	\hline	
-	.table-scroll & .table, .table-bordered, .table-striped \\[1ex] 
+	Label berwarna hijau & \texttt{.label success} &  \texttt{.badge badge-success} \\
+	\hline	
+	Label berwarna merah &\texttt{.label alert} & \texttt{.badge badge-danger}  \\
+	\hline	
+	Label berwarna abu & \texttt{.label secondary} & \texttt{.badge badge-secondary}  \\
+	\hline	
+	Ikon bentuk \textit{eye} & \texttt{.fi-eye} &  \texttt{.fas fa-eye} \\	
+	\hline	
+	Ikon bentuk \textit{down} & \texttt{.fi-dislike} &  \texttt{.fas fa-thumbs-down} \\	
+	\hline
+	Ikon bentuk \textit{print} & \texttt{.fi-print} &  \texttt{.fas fa-prin}t \\	
+	\hline
+	Ikon bentuk \textit{trash} & \texttt{.fi-trash} &  \texttt{.fas fa-trash} \\	
+	\hline
+	Tabel & \texttt{.stack} & \texttt{.table table-striped}  \\
+	\hline	
+	\textit{Input Group} & \texttt{.input-group} \newline \texttt{.input-group-label} \newline \texttt{.input-group-field} \newline \texttt{.input-group-button} & \texttt{.input-group-append} \newline \texttt{.input-group-text} \newline \texttt{.form-control} \newline \texttt{.btn btn-primary} \\[1ex]
+	\hline	
+\end{tabular}
+
+\subsubsection{Modal: Lihat, Tolak, Print, Hapus}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada modal-modal  halaman manajemen cetak transkrip.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_manajemen_cetak_transkrip.png}
+	\caption{Konversi Modal Lihat} 
+\end{figure}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_print_manajemen_cetak_transkrip.png}
+	\caption{Konversi Modal Print} 
+\end{figure}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_dislike_manajemen_cetak_transkrip.png}
+	\caption{Konversi Modal Tolak} 
+\end{figure}
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_trash_manajemen_cetak_transkrip.png}
+	\caption{Konversi Modal Hapus} 
+\end{figure}
+
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Modal & \texttt{.reveal data-reveal} & \texttt{.modal-fade} \newline \texttt{.modal-dialog} \newline \texttt{.modal-dialog-centered} \newline \texttt{.modal-content} \\
+	\hline
+	Judul modal & - & \texttt{modal-title}\\
+	\hline
+	Isi modal & - & \texttt{modal-body}\\
+	\hline
+	Tutup modal & \texttt{.close-button} \newline \texttt{data-close} \newline \texttt{aria-label} & \texttt{.close}\\
+	\hline	
+	Tabel & \texttt{.stack} & \texttt{.table} \newline \texttt{.table-striped} \\	
 	\hline 
+	Judul \textit{form} & - & \texttt{.col-form-label}\\
+	\hline
+	\textit{Field form} & \texttt{.input-group-field} & \texttt{.form-control}\\
+	\hline
+	\textit{Form group} & \texttt{.input-group} & \texttt{.form-group}\\
+	\hline
+	Tombol berwarna biru & \texttt{.button} & \texttt{.btn-primary}  \\
+	\hline
+	Tombol berwarna merah & \texttt{.alert button} & \texttt{.btn btn-danger} \\[1ex]
+	\hline
+\end{tabular}
+
+\subsection{Halaman Permintaan Perubahan Kuliah}
+\subsubsection{Halaman Utama}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman permintaan perubahan kuliah.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_perubahan_kuliah.png}
+	\caption{Konversi Perubahan Kuliah}
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada halaman permintaan perubahan kuliah sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Sistem Grid & \texttt{.row} &   \texttt{.container} \\ 
+	\hline	
+	Border untuk konten & \texttt{.callout} &  .card \newline .card-header \newline .card-body \\
+	\hline	
+	Ukuran grid & \texttt{.small-*} &  \texttt{.col-sm-*} \\
+	\hline
+	Kolom & \texttt{.column} &  \texttt{.col} \\	
+	\hline	
+	Tombol berwarna biru & \texttt{.button} &  \texttt{.btn btn-primary}\\
+	\hline	
+	Label berwarna hijau & \texttt{.label success } & \texttt{.badge badge-success} \\
+	\hline	
+	Label berwarna merah & \texttt{.label alert} & \texttt{.badge badge-danger}  \\
+	\hline	
+	Label berwarna abu & \texttt{.label secondary} & \texttt{.badge badge-secondary}  \\
+	\hline	
+	Ikon bentuk mata & \texttt{.fi-eye} &  \texttt{.fas fa-eye} \\	
+	\hline	
+	Tabel & \texttt{.stack} & \texttt{.table table-striped}  \\
+	\hline	
+	Nama \textit{form} & - & \texttt{.col-form-label}  \\ 
+	\hline	
+	Input \textit{form} & - & \texttt{.form-control}  \\ [1ex] 
+	\hline
+\end{tabular}
+
+\subsubsection{Modal: Lihat}
+
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada modal lihat permintaan perubahan kuliah.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_perubahan_kuliah.png}
+	\caption{Konversi Modal Lihat}
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada modal lihat permintaan perubahan kuliah sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Modal & \texttt{.reveal data-reveal} & \texttt{.modal-fade} \newline \texttt{.modal-dialog} \newline \texttt{.modal-dialog-centered} \newline \texttt{.modal-content} \\
+	\hline
+	Judul modal & - & \texttt{modal-title}\\
+	\hline
+	Isi modal & - & \texttt{modal-body}\\
+	\hline
+	Tutup modal & \texttt{.close-button} \newline \texttt{data-close} \newline \texttt{aria-label} & \texttt{.close}\\
+	\hline	
+	Tabel & \texttt{.stack} & \texttt{.table} \newline \texttt{.table-striped} \\[1ex]
+	\hline
 \end{tabular}
 
 
 
+\subsection{Halaman Manajemen Perubahan Kuliah}
+\subsubsection{Halaman Utama}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman manajemen perubahan kuliah.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_manajemen_perubahan_kuliah.png}
+	\caption{Konversi Halaman Manajemen Perubahan Kuliah}
+\end{figure}
 
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada halaman manajemen perubahan kuliah sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Sistem Grid & \texttt{.row} &   \texttt{.container} \newline \texttt{.row} \newline \texttt{.col} \\ 
+	\hline	
+	Border untuk konten & \texttt{.callout} &  \texttt{.card} \newline \texttt{.card-header} \newline .card-body \\	
+	\hline	
+	Label berwarna hijau & \texttt{.label success} &  \texttt{.badge badge-success} \\
+	\hline	
+	Label berwarna merah &\texttt{.label alert} & \texttt{.badge badge-danger}  \\
+	\hline	
+	Label berwarna kuning & \texttt{.label warning} & \texttt{.badge badge-warning}  \\
+	\hline	
+	Link modal sesuai ID & data-open & \texttt{data-toggle} \newline \texttt{data-target} \\
+	\hline
+	Ikon bentuk \textit{eye} & \texttt{.fi-eye} &  \texttt{.fas fa-eye} \\	
+	\hline	
+	Ikon bentuk \textit{down} & \texttt{.fi-dislike} &  \texttt{.fas fa-thumbs-down} \\	
+	\hline
+	Ikon bentuk \textit{down} & \texttt{.fi-like} &  \texttt{.fas fa-thumbs-up} \\	
+	\hline
+	Ikon bentuk \textit{print} & \texttt{.fi-print} &  \texttt{.fas fa-print} \\	
+	\hline
+	Ikon bentuk \textit{trash} & \texttt{.fi-trash} &  \texttt{.fas fa-trash} \\	
+	\hline
+	Tabel & \texttt{.stack} & \texttt{.table table-striped}  \\
+	\hline	
+	\textit{Input Group} & \texttt{.input-group} \newline \texttt{.input-group-label} \newline \texttt{.input-group-field} \newline \texttt{.input-group-button} & \texttt{.input-group-append} \newline \texttt{.input-group-text} \newline \texttt{.form-control} \newline \texttt{.btn btn-primary} \\[1ex]
+	\hline	
+\end{tabular}
+
+
+
+\subsubsection{Modal: Lihat, Setujui, Tolak, Hapus}
+
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman modal manajemen perubahan kuliah.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_manajemen_perubahan_kuliah.png}
+	\caption{Konversi Modal Lihat}
+\end{figure}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_like_manajemen_perubahan_kuliah.png}
+	\caption{Konversi Modal Setuju}
+\end{figure}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_manajemen_perubahan_kuliah.png}
+	\caption{Konversi Modal Lihat}
+\end{figure}
+
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_dislike_manajemen_perubahan_kuliah.png}
+	\caption{Konversi Modal Tolak}
+\end{figure}
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_trash_manajemen_perubahan_kuliah.png}
+	\caption{Konversi Modal Hapus}
+\end{figure}
+
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Modal & \texttt{.reveal data-reveal} & \texttt{.modal-fade} \newline \texttt{.modal-dialog} \newline \texttt{.modal-dialog-centered} \newline \texttt{.modal-content} \\
+	\hline
+	Judul modal & - & \texttt{modal-title}\\
+	\hline
+	Isi modal & - & \texttt{modal-body}\\
+	\hline
+	Tutup modal & \texttt{.close-button} \newline \texttt{data-close} \newline \texttt{aria-label} & \texttt{.close}\\
+	\hline	
+	Tabel & \texttt{.stack} & \texttt{.table} \newline \texttt{.table-striped} \\[1ex]
+	\hline
+\end{tabular}
+
+\subsection{Halaman Entri Jadwal Dosen}
+\subsubsection{Halaman Utama}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman entri jadwal dosen.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_entri_jadwal_dosen.png}
+	\caption{Konversi Halaman Entri Jadwal Dosen}
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada halaman entri jadwal dosen sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Sistem Grid & \newline \texttt{.row} \newline \texttt{.col} &   \texttt{.container} \newline \texttt{.row} \newline \texttt{.col} \\ 
+	\hline	
+	Border untuk konten & \texttt{.callout} &  \texttt{.card} \newline \texttt{.card-header} \newline \texttt{.card-body} \\
+	\hline
+	Form & - & \texttt{.form-control} \\	
+	\hline		
+	Link modal sesuai ID & \texttt{data-open} & \texttt{data-toggle} \newline \texttt{data-target}\\
+	\hline	
+	Tabel & \texttt{.stack} & \texttt{.table} \newline \texttt{.table-bordered} \newline \texttt{.table table-striped}  \\[1ex]
+	\hline	
+\end{tabular}
+
+\subsubsection{Modal: Edit}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada modal entri jadwal dosen.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_edit_entri_jadwal_dosen.png}
+	\caption{Konversi Modal Edit}
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada modal edit entri jadwal dosen sebagai berikut.\\
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Grid & \texttt{.row} & \texttt{.row} \newline \texttt{.container} \\
+	\hline
+	Ukuran Grid & \texttt{.large-*-columns} & \texttt{.col-lg-*}\\
+	\hline	
+	Modal & \texttt{.reveal} \newline \texttt{data-reveal} & \texttt{.modal-fade} \newline \texttt{.modal-dialog} \newline \texttt{.modal-dialog-centered} \newline \texttt{.modal-content} \\
+	\hline
+	Judul modal & - & \texttt{modal-title}\\
+	\hline
+	Isi modal & - & \texttt{modal-body}\\
+	\hline
+	\textit{Form} & - & \texttt{form-control}\\
+	\hline
+	Tombol berwarna merah & \texttt{.alert button} & \texttt{.btn btn-danger}\\
+	\hline		
+	Tombol berwarna biru & \texttt{.button}  & \texttt{.btn btn-primary}\\
+	\hline
+	Tabel & \texttt{.table-scroll} & \texttt{.table} \newline \texttt{.table-striped} \\[1ex]
+	\hline
+\end{tabular}
+
+\subsection{Halaman Lihat Jadwal Dosen}
+\noindent Berikut ini gambar yang menjelaskan bagian dalam website beserta penggunaan kelas dari Bootstrap 4 pada halaman lihat jadwal dosen.\\
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_lihat_jadwal_dosen.png}
+	\caption{Analisis Modal Edit Jadwal}
+\end{figure}
+
+\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 pada halaman lihat jadwal dosen sebagai berikut.\\
+
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline	
+	Sistem Grid & \newline \texttt{.row} \newline \texttt{.col} &   \texttt{.container} \newline \texttt{.row} \\ 
+	\hline	
+	Judul \textit{tabs} & \texttt{.tabs} \newline \texttt{data-tabs} &  \texttt{.nav} \newline \texttt{.nav-tabs} \newline \texttt{tab-jadwal} \\
+	\hline
+	Isi \textit{tabs} & \texttt{.tabs-content} \newline \texttt{data-tabs-content} &  \texttt{.tabs-content} \newline \texttt{data-tabs-content} \\
+	\hline
+	\textit{Tabs active} & \texttt{.tabs-title} \newline \texttt{.is-active} & \texttt{.tab-panel} \newline \texttt{.is-active} \\
+	\hline	
+	Tabel & \texttt{.stack} & \texttt{.table} \newline \texttt{.table-bordered} \newline \texttt{.table table-striped}  \\
+	\hline
+	Tombol berwarna biru & \texttt{.button} & \texttt{.btn btn-primary}\\ [1ex]
+	\hline
+\end{tabular}
+
+
+
+\section{Perancangan Controller Website dengan Bootstrap 4}
+Khusus untuk penggunaan \textit{label} pada kolom status di tabel permintaan dan manajemen cetak transkrip dan tabel pemrintaan dan manajemen perubahan kuliah, menggunakan logika sederhana berdasarkan data masukan \textit{user}. Kelas yang digunakan ada empat jenis yaitu.\\
+
+\begin{tabular}{| p{0.35\textwidth} | p{0.27\textwidth} | p{0.27\textwidth} |} 
+	\hline
+	\textbf{Jenis Komponen} & \textbf{Foundation 6} & \textbf{Bootstrap 4}  \\ [0.5ex] 
+	\hline		
+	Label berwarna hijau & \texttt{.label success} & \texttt{.badge badge-success} \\
+	Label berwarna merah & \texttt{.label alert} & \texttt{.badge badge-danger} \\
+	Label berwarna abu & \texttt{.label secondary} & \texttt{.badge badge-secondary} \\
+	Label berwarna kuning & \texttt{.label warning} & \texttt{.badge badge-warning} \\ [1ex]
+	\hline
+\end{tabular}
+ 
 
 
