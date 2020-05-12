@@ -5,19 +5,19 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-\par BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu \textbf{CodeIgniter} dan \textbf{Foundation}.  \par
+\par BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu CodeIgniter(bagian ~\ref{sec:codeigniter}) dan Foundation(bagian ~\ref{sec:foundation}).  \par
 Foundation adalah kerangka kerja atau \textit{Framework } untuk semua perangkat, media, dan semua aksesibilitas. Foundation adalah bagian dari \textit{front-end framework}  yang responsif dan memiliki kemudah untuk merancang situs web, aplikasi, dan email. Sehingga akan terlihat lebih menarik saat dilihat dari perangkat mana pun. Foundation bersifat semantik, mudah dibaca, fleksibel, dan sepenuhnya \textit{customizable}.
 \cite{zurbfoundation:17}.\par
 Sejak Bootstrap diluncurkan pada Agustus 2011, \textit{framework} ini mulai populer. Bootstrap telah berkembang sepenuhnya menjadi proyek yang digerakkan oleh CSS untuk menggunakan sejumlah plugin JavaScript dan ikon yang sejalan dengan \textit{forms} dan \textit{buttons}. Pada dasarnya, ini memungkinkan untuk mendesain web yang responsif. Bootstrap memiliki fitur grid 12-kolom dan \textit{container} selebar 940px yang kuat. Salah satu yang menarik adalah \textit{build tool} di situs web Bootstrap, di mana \textit{developer} dapat menyesuaikan pembangunan sesuai dengan kebutuhan, seperti memilih fitur CSS dan JavaScript yang ingin disertakan dalam situs. \cite{bootstrap:19}\par
-Pada skripsi ini akan dirubah keseluruhan  antarmuka untuk setiap modul yang ada di dalam aplikasi BlueTape menggunakan \textit{framework} Bootstrap 4. Saat ini, setiap view menggunakan template yang menampilkan nama \textit{module}, menu navigasi, dan \textit{flash message} (bila diperlukan).
+Pada skripsi ini akan dirubah keseluruhan  antarmuka untuk setiap modul yang ada di dalam aplikasi BlueTape menggunakan \textit{framework} Bootstrap 4. Saat ini, setiap view menggunakan template yang menampilkan nama \textit{module}, menu navigasi, dan \textit{flash message}.
 
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang akan dibahas dalam penelitian ini:
 \begin{enumerate}
-	\item Bagaimana merubah \textit{template} manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen dari framework \textbf{Zurb Foundation} ke \textbf{Bootstrap 4}
-	\item Bagaimana mengimplentasikan \textit{plugin} yang tersedia di dalam \textit{Bootstrap 4}.
+	\item Bagaimana merubah \textit{template} manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen dari framework \textbf{Foundation 6} ke \textbf{Bootstrap 4}
+	\item Bagaimana \textit{plugin} yang ada di BlueTape saat ini dapat berjalan pada \textit{Bootstrap 4}.
 \end{enumerate}
 
 \section{Tujuan}
@@ -26,33 +26,27 @@ Tujuan yang ingin dicapai dalam penelitian ini :
 
 	\begin{enumerate}	
 	\item Merubah \textit{template} cetak transkrip nilai, \textit{template} manajemen cetak transkrip, \textit{template} perubahan kuliah, \textit{module} manajemen perubahan kuliah, \textit{template} entri jadwal dosen dan \textit{template} lihat jadwal dosen dengan \textit{framework Bootstrap 4}.
-	\item Mengimplentasikan \textit{plugin} yang tersedia dalam \textit{library} Bootstrap 4.
+	\item Memastikan \textit{plugin} yang ada di BlueTape saat ini dapat berjalan dengan baik pada \textit{Bootstrap 4}.
 	\end{enumerate}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-%Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
-%
-%\dtext{8}
 Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut.
 \begin{enumerate}	
 	\item Aplikasi ini tidak merubah struktur database dan file yang berisi fungsi-fungsi CRUD.
-	\item Aplikasi ini tidak menambah tampilan baru, hanya merubah penggunaan framework \textit{Zurb Foundation} sesuai dengan tampilan yang sudah ada menggunakan \textit{Bootstrap 4}
+	\item Aplikasi ini tidak menambah tampilan baru, hanya merubah penggunaan framework \textit{ Foundation 6} sesuai dengan tampilan yang sudah ada menggunakan \textit{Bootstrap 4}
 	\end{enumerate}		
 
 
 \section{Metodologi}
 \label{sec:metlit}
-%Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
-%
-%\dtext{9}
 Metode penelitian yang digunakan dalam skripsi ini adalah :
 \begin{enumerate}
 	\item Studi literatur memahami mengenai :
 	\begin{enumerate}
 		\item \textit{framework} CodeIgniter
 		\item \textit{framework} Bootstrap 4
-		\item \textit{framework} Zurb Foundation dan \textit{plugin} - \textit{plugin} nya.
+		\item \textit{framework} Foundation 6 dan \textit{plugin} - \textit{plugin} nya.
 	\end{enumerate}
 	\item  Membangun antarmuka sesuai tampilan website BlueTape. Proses pembuatan antarmuka dibagi menjadi 3 tahap :
 	\begin{enumerate}
@@ -65,9 +59,6 @@ Metode penelitian yang digunakan dalam skripsi ini adalah :
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-%Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-%Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-%Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
 Untuk penulisan skripsi ini akan dibagikan dalam 6 bab sebagai berikut :
 \doublespacing
 \begin{singlespace}
@@ -77,7 +68,7 @@ Bab 1 menjelaskan mengenai latar belakang, rumusan masalah, tujuan, batasan masa
 
 \begin{singlespace}
 \noindent Bab Landasan Teori \\
-Bab 2 berisi dasar-dasar teori pembuatan antarmuka BlueTape. Dasar-dasar teori yang digunakan diantaranya adalah pemrograman PHP, \textit{framework CodeIgniter}, \textit{framework Zurb Foundation}, \textit{framework Bootstrap 4}.
+Bab 2 berisi dasar-dasar teori pembuatan antarmuka BlueTape. Dasar-dasar teori yang digunakan diantaranya adalah pemrograman PHP, \textit{framework CodeIgniter}, \textit{framework Foundation 6}, \textit{framework Bootstrap 4}.
 \end{singlespace}
 
 \begin{singlespace}

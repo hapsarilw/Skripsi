@@ -196,9 +196,9 @@
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda
 %=============================================================================
 \namanpm{Hapsari Laksmi W}{2015730037}
-\tanggal{<<tanggal>>}{<<bulan>>}{<<tahun>>}
-\pembimbing{<<pembimbing utama/1>>}{<<pembimbing pendamping/2>>}    
-\penguji{<<penguji 1>>}{<<penguji 2>>} 
+\tanggal{<<tanggal>>}{6}{2020}
+\pembimbing{\PAN}{}    
+\penguji{\RCP}{<<penguji 2>>} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -227,14 +227,13 @@
 % - hilangkan tanda << & >>, dan isi sesuai dengan data anda
 % - langsung mulai setelah '{' awal, jangan mulai menulis di baris bawahnya
 %=============================================================================
-\abstrakINA{
-Proses administrasi suatu universitas sebelum menggunakan teknologi memiliki beberapa hambatan. Di Fakultas Teknologi Informasi dan Sains misalnya, mahasiswa kesulitan untuk mengajukan permohonan cetak transkrip apabila berada jauh di daerah Universitas atau dosen tidak bisa merubah jadwal kuliah secara online apabila suatu kelas ditiadakan. Sehingga secara tidak langsung menghambat proses administrasi dalam FTIS selain itu karena harus dilakukan secara manual, kertas akan lebih banyak digunakan untuk proses pencatatan data sehingga tidak ramah lingkungan selain itu proses manual juga memiliki presentase kesalahan yang lebih banyak dibanding dengan menggunakan proses dijital.
-
-Sehingga Fakultas Teknologi Informasi dan Sains di Universitas Katolik Parahyangan mengembangkan aplikasi BlueTape yang dikembangkan dari tahun 2015 dengan FrameWork CodeIgniter dan Zurb Foundation sebagai salah satu cara untuk mengurangi pekerjaan paper-based menjadi paperless. Aplikasi ini dapat digunakan untuk melakukan beberapa proses administrasi seperti manajemen cetak transkrip, manajemen jadwal dosen dan manajemen perubahan kuliah.
-
-Skripsi ini ditunjukan untuk migrasi framework front-end sebelumnya yaitu Zurb Foundation menuju ke Bootstrap.
+\abstrakINA{\par Proses mendesain sebuah website merupakan pekerjaan yang memakan waktu, sehingga untuk mempermudah dan mempercepat proses tersebut para pengembang web memanfaatkan tool seperti CSS Framework. Tool tersebut merupakan library CSS yang dapat langsung digunakan untuk mendesain web dengan cara menggunakan kelas - kelas yang sudah disediakan untuk masing - masing CSS Framework. Saat ini beragam CSS framework dikembangkan dan sudah digunakan untuk kebutuhan desain web seperti Foundation dan Bootstrap. Skripsi dengan judul "Konversi Zurb Zurb Foundation ke Bootstrap 4" menjabarkan proses perubahan CSS Framework dalam website BlueTape. BlueTape merupakan aplikasi yang digunakan FTIS UNPAR untuk melayani layanan yang berbasis paper-based menjadi paperless, saat ini web tersebut menggunakan Foundation 6 untuk CSS Frameworknya. Tujuan skripsi ini adalah merubah penggunaan Foundation 6 pada aplikasi BlueTape menjadi menggunakan Bootstrap 4 untuk CSS frameworknya.\par
+Skripsi ini akan mempelajari keseluruhan framework untuk membangun website BlueTape. Sumber data yang digunakan berasal dari kode yang berada di github untuk proyek BlueTape dan Official Documentation dari framework yang digunakan dan di. Proses perubahan diawali dengan kode website BlueTape dianalisa keseluruhan komponen beserta kelas yang digunakan lalu diubah kode nya menggunakan komponen dan kelas dari Bootstrap 4. \par
+Berdasarkan proses perubahan desain yang dilakukan dengan memperhatikan komponen dan kelas yang digunakan pada masing-masing CSS framework, diperoleh kesimpulan bahwa komponen yang digunakan dalam website BlueTape pada Foundation 6 ada pada Bootstrap 4 sehingga proses konversi dapat dilakukan.
 }
-\abstrakENG{<<Tuliskan abstrak anda di sini, dalam bahasa Inggris>>} 
+\abstrakENG{\par The process of designing a website is a time consuming task, so to simplify and speed up the process, web developers use tools such as CSS Framework. A CSS library that can be used directly to design the web by using classes that have been provided for each CSS Framework. Currently various CSS frameworks have been developed and used for web design needs such as Foundation and Bootstrap. The thesis titled "Convert Zurb Zurb Foundation to Bootstrap 4" describes the process of changing the CSS Framework on the BlueTape website. BlueTape is an application used by UNPAR's FTIS to serve paper-based, paperless-based services, at this time the web uses Foundation 6 for its CSS Framework. The purpose of this thesis is to change the use of Foundation 6 in the BlueTape application to use Bootstrap 4 for the CSS framework. \par
+This thesis will study the entire framework for building a BlueTape website. The data source used comes from uploaded code at github for the BlueTape project and Official Documentation of the framework used therein. The change process begins with the BlueTape website code, analyzes all components and classes used, then changes the code using components and classes from Bootstrap 4. \par
+Based on the design change process that is done by taking into account the components and classes used in each CSS framework, it is concluded that the components used on the BlueTape website on Foundation 6 are on Bootstrap 4 so that the conversion process can be carried out.} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -246,8 +245,8 @@ Skripsi ini ditunjukan untuk migrasi framework front-end sebelumnya yaitu Zurb F
 % - kunciENG: keywords in english
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 %=============================================================================
-\kunciINA{<<paperless, BlueTape, Bootstrap, Foundation, CodeIgniter, mahasiswa, dosen, >>}
-\kunciENG{<<Tuliskan di sini kata-kata kunci yang anda gunakan, dalam bahasa Inggris>>}
+\kunciINA{css framework, Bootstrap, Foundation, BlueTape, konversi}
+\kunciENG{css framework, bootstrap, Foundation, BlueTape, convert}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -257,7 +256,7 @@ Skripsi ini ditunjukan untuk migrasi framework front-end sebelumnya yaitu Zurb F
 % Persembahan : kepada siapa anda mempersembahkan skripsi ini ...
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 %=============================================================================
-\untuk{<<kepada siapa anda mempersembahkan skripsi ini\ldots?>>}
+\untuk{Kepada papa dan adik saya yang selalu mendoakan yang terbaik.}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -268,7 +267,19 @@ Skripsi ini ditunjukan untuk migrasi framework front-end sebelumnya yaitu Zurb F
 % kasih kepada yang telah membantu anda bla bla bla ....  
 % Petunjuk: hilangkan tanda << & >>, dan isi sesuai dengan data anda.
 %=============================================================================
-\prakata{<<Tuliskan kata pengantar dari anda di sini \ldots>>} 
+\prakata{Puji syukur dan terima kasih kepada Tuhan Yang Maha Esa, yang sudah menuntun penulis untuk menyelesaikan Skripsi dengan judul "Konversi Zurb Foundation ke Bootstrap 4". Skripsi ini disusun untuk memenuhi salah satu syarat menyelesaikan program Studi Strata 1 Jurusan Teknik Informatika di Universitas Katolik Parahyangan. \\
+Selama penulisan dan penyelesaian skripsi ini, penulis ingin mengucapkan terima kasih yang sebesar-besarnya kepada:
+\begin{enumerate}
+	\item Bapak Pascal Alfadian M.Comp selaku pembimbing skripsi yang telah memberikan bantuan dan nasehatnya serta mengarahkan penulis dalam penyusunan skripsi dari awal hingga akhir.
+	\item Ibu Mariskha Tri Adithia P.D.Eng sebagai ketua program studi Teknik Informatika FTIS, Universitas Katolik Parahyangan.
+	\item Seluruh dosen Teknik Informatika yang membantu penulis memahami materi selama belajar di Teknik Infomatika.
+	\item Teman-teman Teknik Informatika 2015 terutama Nadya Vio, Aria, Ario, Enrico, Reyner, Adit, Yonathan, Kippi yang telah mendukung dan memberikan semangat selama ini.
+	\item Pihak-pihak yang secara tidak langsung memberikan motivasi kepada penulis untuk menjadi pribadi yang lebih baik.
+\end{enumerate}
+
+Penulis menyadari bahwa skripsi ini masih jauh dari sempurna, sehingga kritik dan saran dari pembaca dapat membantu dalam penyempurnaan skripsi ini.
+
+} 
 %=============================================================================
 
 %_____________________________________________________________________________

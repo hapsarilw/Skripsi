@@ -1,9 +1,8 @@
 %versi 2 (8-10-2016)
 \chapter{Landasan Teori}
 
-
 \section{BlueTape}
-Bluetape merupakan aplikasi berbasis web, berguna sebagai aplikasi yang menunjang proses administrasi dalam lingkungan FTIS UNPAR. Web ini dapat diakses pada \path{http://www.bluetape.azurewebsites.net}. \cite{blueTape}
+Bluetape merupakan aplikasi berbasis web, berguna sebagai aplikasi yang menunjang proses administrasi dalam lingkungan FTIS UNPAR. Web ini dapat diakses pada link: \url{http://www.bluetape.azurewebsites.net}. \cite{blueTape}
 
 \subsection{Login}
 \label{ss:login}
@@ -15,7 +14,7 @@ Halaman utama aplikasi BlueTape akan mengarahkan \textit{user} untuk \textit{log
 \end{itemize}
 User akan melihat beberapa menu sesuai dengan \textit{role} user, sebagai mahasiswa, staf TU, dll.
 
-\subsection{Dosen}
+\subsection{Dosen} 
 \subsubsection{Perubahan Kuliah}
 Modul perubahan kuliah berguna untuk mengirimkan permintaan perubahan mata kuliah yang dikirim oleh dosen kepada staf Tata Usaha. Kolom - kolom yang terdapat dalam modul ini:
 \begin{itemize}
@@ -26,8 +25,8 @@ Modul perubahan kuliah berguna untuk mengirimkan permintaan perubahan mata kulia
 	\item Dari (hari/jam dan ruang) dan ke(hari/jam dan tempat)
 	\item Keterangan
 \end{itemize}
-Apabila ada kolom yang belum dapat diisi(contoh : dosen belum tahu tempat kelas pengganti) maka kolom kelas dapat dikosongkan.
-Dosen juga dapat membuat lebih dari 1 kelas pengganti, dengan mengklik tombol "Tambah Pertemuan Ekstra".
+Apabila ada kolom yang belum dapat diisi(contoh : dosen belum tahu tempat kelas pengganti) maka kolom kelas dapat dikosongkan. \noindent
+Dosen juga dapat membuat lebih dari 1 kelas pengganti, dengan mengklik tombol "Tambah Pertemuan Ekstra". \noindent
 Setelah dosen klik "Kirim Permohonan", maka sistem akan mengirim permohonan ke halaman BlueTape bagian Tata Usaha utnuk diperiksa, disetujui, dan dicetak sebagai pengumuman. Jika staf Tata Usaha telah selesai mengkonfirmasi(atau menolak), maka dosen akan mendapatkan e-mail notifikasi.
 
 \subsection{Dosen Informatika}
@@ -40,7 +39,7 @@ Pada bagian entri jadwal, dosen informatika dapat mengisikan hari, jam mulai, du
 	\item Terjadwal: Kegiatan mingguan dosen informatika yang telah terjadwal. Contoh : rapat jurusan
 	\item Kelas : Kelas kuliah maupun praktikum.
 \end{itemize}
-Lalu dosen dapat klik tombol "Tambah" untuk menambahkan
+Lalu dosen dapat klik tombol "Tambah" untuk menambahkan jadwal baru.
 
 \subsubsection{Ubah/Hapus Jadwal}
 Dosen dapat mengubah atau menghapus jadwal yang tertera pada tabel. Lalu \textit{pop-up} window akan terbuka dengan pilihan-pilihan yang sesuai dengan permintaan dosen.
@@ -63,7 +62,7 @@ Mahasiswa hanya dapat mengirimkan permohonan:
 
 \subsubsection{Mahasiswa Informatika}
 \subsubsection{Lihat Jadwal Dosen}
-Mahasiswa dapat melihat jadwal mingguan seluruh dosen dengan memilih nama dosen pada seleksi tab, dan tabel jadwal dosen akan ditampilkan pada bagian bawah halaman. Selain itu tabel juga berisi informasi tanggal terakhir dosen meng-\textit{update} jadwal sehingga mahasiswa dapat melihat apakah jadwal tersebut merupakan jadwal semester ini atau semester lalu. 
+Mahasiswa dapat melihat jadwal mingguan seluruh dosen dengan memilih nama dosen pada seleksi tab, dan tabel jadwal dosen akan ditampilkan pada bagian bawah halaman. Selain itu tabel juga berisi informasi tanggal terakhir dosen meng-\textit{update} jadwal sehingga mahasiswa dapat melihat apakah jadwal tersebut merupakan jadwal semester ini atau semester lalu. \noindent
 Lalu terdapat tombol "Ekspor ke XLS" pada halaman lihat jadwal dosen, sehingga mahasiswa dapat menyimpan atau mencetak jadwal tersebut. 
 
 \subsection{Staf Tata Usaha}
@@ -80,11 +79,9 @@ Setiap daftar permohonan akan memiliki beberapa tombol :
 \end{itemize}
 
 \subsubsection{Manajemen Cetak Transkrip}
-\indent Staf Tata Usaha dapat melihat daftar perminttan transkrip dalam bentuk tabel. Keterangan mengenai transkrip dapat dilihat menggunakan tombol \includegraphics[height=0.6\baselineskip]{tombol_eye.png} (detail). Selain itu terdapat dua pilihan jawaban dalam setiap daftar permintaan yaitu \includegraphics[height=0.7\baselineskip]{tombol_bad.png} (tolak) dan 
-\includegraphics[height=0.7\baselineskip]{tombol_print.png} (cetak). Masing-masing tombol memerlukan keterangan tambahan mengeai alasan mengapa transkrip dapat dicetak maupun ditolak.\\
-
+Staf Tata Usaha dapat melihat daftar perminttan transkrip dalam bentuk tabel. Keterangan mengenai transkrip dapat dilihat menggunakan tombol \includegraphics[height=0.6\baselineskip]{tombol_eye.png} (detail). Selain itu terdapat dua pilihan jawaban dalam setiap daftar permintaan yaitu \includegraphics[height=0.7\baselineskip]{tombol_bad.png} (tolak) dan 
+\includegraphics[height=0.7\baselineskip]{tombol_print.png} (cetak). Masing-masing tombol memerlukan keterangan tambahan mengeai alasan mengapa transkrip dapat dicetak maupun ditolak.\noindent
 Modul ini berguna untuk manajemen permohonan cetka transkrip. Terdapat sebuah tabel yang menapilkan daftar pemohonan dengan tanggal yang terurut. Staf Tata Usaha dapat mencari daftar permintaan berdasarkan NPM pemohon.
-
 Beberapa tombol yang tersedia untuk setiap permohonan :
 
 \begin{itemize}
@@ -95,32 +92,42 @@ Beberapa tombol yang tersedia untuk setiap permohonan :
 \end{itemize}  
 
 \section{CodeIgniter}
+\label{sec:codeigniter}
+CodeIgniter adalah kerangka pengembangan aplikasi atau \textit{toolkit} yang digunakan programmer untuk membangun web menggunakan PHP. Tujuannya adalah memungkinkan programmer mengembangkan proyek-proyek dengan lebih cepat daripada  menulis kode dari awal, tersedia banyak library untuk tugas-tugas yang biasa diperlukan dalam membangun aplikasi, serta antarmuka dan struktur logis yang sederhana untuk mengakses library tersebut. 
+Pada bagian ini akan dibahas konsep dasar untuk menjalankan \textit{framework} CodeIgniter:
+\begin{itemize}
+	\item \textit{Application Flow Chart} : Penjelasan bagaimana data berjalan dalam sistem.
+	\item URLs : Penjelasan penggunaan\textit{routing} dalam CodeIgniter.
+	\item Konsep Model-View-Controller : Penjelasan pola desain arsitektur pengembangan aplikasi yang digunakan untuk mengatur file sehingga kode mudah dikelola. MVC membuat data, presentasi dan alur dalam aplikasi berjalan secara terpisah.
+\end{itemize}
+Pola Model, View, Controller (MVC) 
 
 \subsection{Application Flow Chart}
-Gambar berikut mengilustrasikan bagaimana alur data pada sistem :
-
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{appflowchart.png}  
 	\caption{Flow Chart Aplikasi CodeIgniter}
 	\label{fig:flowChartCodeIgniter} 
 \end{figure}
-
+\noindent Gambar ~\ref{fig:flowChartCodeIgniter} mengilustrasikan bagaimana alur kerja pembuatan aplikasi berbasis \textit{framework} CodeIgniter:
 \begin{enumerate}
 	\item \texttt{Index.php} : bertindak sebagai \textit{front controller}, menginisiasi \textit{base resources} yang dibutuhkan untuk menjalankan CodeIgniter.
 	\item \texttt{Router} : akan memeriksa permintaan HTTP untuk menetapkan hal apa yang harus dilakukan dengan permintaan tersebut.
 	\item \texttt{Cache} : Apabila terdapat \textit{cache}, maka \textit{cache} tersebut akan dikirimkan langsung ke browser, dengan melewati sistem eksekusi normal.
 	\item \texttt{Security} : Sebelum \textit{controller} dimuat, \textit{HTTP request} dan \textit{user} mana pun yang mengirimkan data diseleksi dahulu untuk keamanan.
 	\item \texttt{Controller} : Terdiri dari \textit{model, core libraries, helpers}, dan \textit{resources} yang dibutuhkan untuk proses \textit{request} tertentu.
-	\item \texttt{View} : Tampilan yang telah selesai dirubah kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.\cite{codeigniter}
+	\item \texttt{View} : Tampilan yang telah selesai dirubah kemudian dikirim ke \textit{web browser} untuk dilihat. Jika \textit{caching} diaktifkan, tampilan di \textit{cache} terlebih dahulu sehingga pada permintaan selanjutnya dapat dilayani.
+	\cite{codeigniter}
 \end{enumerate}
 
 \subsection{CodeIgniter URLs}
-CodeIgniter menggunakan pendekatan berbasis segmen :
-\begin{lstlisting}[frame=single, language=PHP, label={lst:urlCI}, caption=Kode URLs pada CodeIgniter] 
+URL routing (route) adalah salah satu metode untuk memetakan URL ke dalam sumber daya tertentu dengan memberikan nama lain dari sumber daya yang dimaksud.
+Penerapan \textit{route} pada CodeIgniter menggunakan pendekatan berbasis segmen :
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:urlCI}, caption=Kode URLs pada CodeIgniter] 
 example.com/class/function/ID
 \end{lstlisting}
 
+\noindent Segmen URL menggunakan pendekatan Model-View-Controller. Penjelasaan mengenai MVC ada pada bagian ~\ref{s:modelCI}, ~\ref{s:viewCI} dan ~\ref{s:controllerCI}. Berikut ini penjelasan dari kode ~\ref{lst:urlCI}.
 \begin{enumerate}
 	\item Segmen pertama menyatakan kelas \textit{controller} yang harus dipanggil.
 	\item Segmen kedua menyatakan fungsi kelas, atau metode, yang harus dipanggil.
@@ -128,34 +135,73 @@ example.com/class/function/ID
 \end{enumerate}
 
 \subsection{Model}
-\textit{Model} merepresentasikan struktur data. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database.
+\label{s:modelCI}
+\textit{Model} merepresentasikan struktur data. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database. Contohnya pada kode ~\ref{lst:modelCI} menggambarkan sebuah model yang berisi fungsi \textit{insert, update} dan \textit{retrieve}:
+
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:modelCI}, caption=Struktur model pada codeIgniter.]  
+class Model_name extends CI_Model {
+	class Blog_model extends CI_Model {	
+		public $title;
+		public $content;
+		public $date;
+		
+		public function get_last_ten_entries()
+		{
+			$query = $this->db->get('entries', 10);
+			return $query->result();
+		}
+		
+		public function insert_entry()
+		{
+			$this->title    = $_POST['title']; 
+			$this->content  = $_POST['content'];
+			$this->date     = time();
+			
+			$this->db->insert('entries', $this);
+		}
+		
+		public function update_entry()
+		{
+			$this->title    = $_POST['title'];
+			$this->content  = $_POST['content'];
+			$this->date     = time();
+			
+			$this->db->update('entries', $this, array('id' => $_POST['id']));
+		}
+	
+	}
+}
+\end{lstlisting}
+Bagian model akan menjelaskan bagaimana anatomi suatu model , me-\textit{load} model tersebut  dan menghubungkan nya dengan database.
 
 \subsubsection{Anatomi Model}
-Kelas model akan disimpan dalam direktori \texttt{application/models/directory}. Prototipe dasar dari sebuah model kelas :
+\label{ss:anatomiModelCI}
+Kelas model akan disimpan dalam direktori \texttt{application/models/directory}. Kode ~\ref{lst:modelCI} adalah prototipe dasar dari sebuah model kelas :
 
-\begin{lstlisting}[frame=single, language=PHP, label={lst:modelCI}, caption=Struktur model pada codeIgniter.]  
-<?php
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:modelCI}, caption=Struktur model pada codeIgniter.]  
 class Model_name extends CI_Model {
 
 }
 \end{lstlisting}
 
-\begin{lstlisting}[frame=single, language=PHP, label={lst:userCI}, caption=Contoh model codeIgniter.]  
+Dimana \texttt{Model\_name} merupakan nama dari kelas. Kelas harus menggunakan huruf kapital pada huruf pertama dan sisanya menggunakan huruf kecil. Apabila kode ~\ref{lst:modelCI} digunakan maka file akan terlihat seperti kode ~\ref{lst:userCI}
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:userCI}, caption=Contoh model codeIgniter.]  
 application/models/User_model.php
 \end{lstlisting}
 
 \subsubsection{Loading a Model}
+\label{ss:loadModelCI}
+Kemudian model akan dimuat dan dipanggil didalam metode \textit{controller}. Untuk memuat sebuah model dapat menggunakan metode pada kode ~\ref{lst:loadCI}:
 
-Model akan dimuat dan dipanggil didalam metode \textit{controller}. Untuk memuat sebuah model maka dapat digunakan metode berikut:
-
-\begin{lstlisting}[frame=single, language=PHP, label={lst:loadCI}, caption=Contoh pemanggilan model pada codeIgniter.] 
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadCI}, caption=Contoh pemanggilan model pada codeIgniter.] 
 $this->load->model('model_name');
 \end{lstlisting}
 
 \subsubsection{Koneksi ke Database}
-Apabila model sudah dimuat, model tersebut tidak terhubung secara langsung ke database. Dengan cara secara manual mengatur konektivitas database melalui parameter ketiga:
+\label{ss:databaseModelCI}
+Model yang sudah dimuat tidak terhubung secara langsung ke database. Secara manual dapat diatur konektivitas database melalui parameter ketiga yang tertera pada kode ~\ref{lst:databaseCI} :
 
-\begin{lstlisting}[frame=single, language=PHP, label={lst:databaseCI}, caption=Struktur database pada CodeIgniter.]
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:databaseCI}, caption=Struktur database pada CodeIgniter.]
 $config['hostname'] = 'localhost';
 $config['username'] = 'myusername';
 $config['password'] = 'mypassword';
@@ -169,220 +215,219 @@ $this->load->model('model_name', '', $config);
 \end{lstlisting}
 
 \subsection{View}
-\textit{View } adalah informasi yang disajikan kepada pengguna. Tampilan atau \textit{View} biasanya akan menjadi halaman web, tetapi dalam CodeIgniter, tampilan juga bisa berupa fragmen halaman seperti header atau footer. 
-
-\textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu. 
+\label{s:viewCI}
+\par \textit{View } adalah informasi yang disajikan kepada pengguna. Tampilan atau \textit{View} biasanya akan menjadi halaman web, tetapi dalam CodeIgniter tampilan juga bisa berupa fragmen halaman seperti header atau footer. \textit{Views} tidak pernah dipanggil secara langsung, harus dimuat dalam sebuah \textit{controller}. Dalam \textit{MVC framework}, \textit{controller} bertanggung jawab untuk mengambil \textit{view} tertentu. \\ \\
+Berikut ini akan dijelaskan bagaimana membuat sebuah view, menge-\textit{load} view , menyimpan view tersebut di dalam subdirektori dan menambahkan data dinamis ke dalam view.
 
 \subsubsection{Membuat sebuah View}
-CodeIgniter memuat view dengan memanggil sebuah file php, misalkan \verb|blogview.php|, dan \textit{developer} dapat mengisinya dengan kode HTML sebgaai berikut:
-\begin{lstlisting}[frame=single, language=HTML, label={lst:viewCI}, caption=Contoh view pada CodeIgniter.] 
+\label{ss:sebuahViewCI}
+Untuk membuat sebuah view dalam CodeIgniter, pertama dengan membuat file php yang berisi kode HTML. Misalkan file \verb|blogview.php| yang terlihat pada kode ~\ref{lst:viewCI}:
+\begin{lstlisting}[style=customhtml, language=HTML, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:viewCI}, caption=Contoh view pada CodeIgniter.] 
 <html>
-<head>
-<title>My Blog</title>
-</head>
-<body>
-<h1>Welcome to my Blog!</h1>
-</body>
+	<head>
+		<title>My Blog</title>
+	</head>
+	<body>
+		<h1>Welcome to my Blog!</h1>
+	</body>
 </html>
 \end{lstlisting}
 
-File tersebut akan disimpan di direktori \texttt{application/views/}.
+\noindent Kemudian file php tersebut disimpan dalam direktori \texttt{application/views/}.
 
 \subsubsection{Loading sebuah View}
+\label{ss:loadViewCI}
+Untuk memuat sebuah \textit{view}, maka dapat menggunakan sintaks  ~\ref{lst:loadViewCI}.
 
-
-View dapat dimuat dengan membuat file \textit{view} dengan syntax berikut:
-
-\begin{lstlisting}[frame=single, language=PHP, label={lst:loadViewCI}, caption=Contoh load view pada CodeIgniter.] 
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadViewCI}, caption=Sintaks load view pada CodeIgniter.] 
 $this->load->view('name');
 \end{lstlisting}
 
-\noindent Dimana \texttt{name} adalah nama dari file view.
+Apabila terdapat file \texttt{Blog.php} yang berisi objek Blog  dan ingin me-\textit{load} \textit{view}-nya yang terdapat di \texttt{blogview.php} maka dapat dipanggil sesuai dengan kode ~\ref{lst:blogView} pada line ke-6:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:blogView}, caption=Contoh load view pada CodeIgniter.] 
+<?php
+	class Blog extends CI_Controller {
+	
+	public function index()
+	{
+		$this->load->view('blogview');
+	}
+}
+\end{lstlisting}
+
+\noindent Setelah di\textit{load} sebuah view yang dibuat akan menghasilkan URL baru seperti terlihat pada kode ~\ref{lst:urlViewCI}:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:urlViewCI}, caption=Contoh load view pada CodeIgniter.] 
+example.com/index.php/blog/
+\end{lstlisting}
 
 \subsubsection{Memuat Beberapa View}
+\label{ss:beberapaViewCI}
+CodeIgniter mampu menangani beberapa panggilan dari dalam \textit{controller}. Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan.
 
-CodeIgniter dapat menangani beberapa panggilan dari dalam \textit{controller}. Apabila ada lebih dari satu panggilan yang terjadi, maka \textit{views} akan dilampirkan secara bersamaan. Berikut ini kode yang digunakan jika \textit{developer} ingin mempunyai sebuah halaman yang terdiri dari \texttt{header, menu, content} dan \texttt{footer}. 
 
 
-\begin{lstlisting}[frame=single, language=PHP, label={lst:loadSomeViewCI}, caption=Contoh load beberapa view pada CodeIgniter.] 
+\noindentBerikut ini kode ~\ref{lst:loadSomeViewCI} yang digunakan jika \textit{developer} ingin mempunyai sebuah halaman yang terdiri dari \texttt{header, menu, content} dan \texttt{footer}. 
+
+
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadSomeViewCI}, caption=Contoh load beberapa view pada CodeIgniter.] 
 <?php
 
 class Page extends CI_Controller {
 
-public function index()
-{
-$data['page_title'] = 'Your title';
-$this->load->view('header');
-$this->load->view('menu');
-$this->load->view('content', $data);
-$this->load->view('footer');
-}
+	public function index()
+	{
+		$data['page_title'] = 'Your title';
+		$this->load->view('header');
+		$this->load->view('menu');
+		$this->load->view('content', $data);
+		$this->load->view('footer');
+	}
 
 }
+?>
 \end{lstlisting}
 
 \subsubsection{Menyimpan Views didalam Sub Direktori}
-
-Untuk menyimpan didalam sub direktori maka dapat menyertakan nama direktori yang memuat \textit{view}.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:loadSubDirektoriCI}, caption=Struktur penyimpanan views dalam sub direktori.] 
+\label{ss:subdirektoriViewCI}
+Untuk menyimpan didalam sub direktori maka dapat menyertakan nama direktori yang memuat \textit{view}, sintaks yang digunakan tertera pada kode ~\ref{lst:loadSubDirektoriCI}:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadSubDirektoriCI}, caption=Struktur penyimpanan views dalam sub direktori.] 
 $this->load->view('directory_name/file_name');
 \end{lstlisting}
 
 \subsubsection{Menambahkan data dinamis ke View}
+\label{ss:dinamisViewCI}
+Data yang dikirim dari controller menuju view berbentuk array atau objek, sehingga dapat dilampirkan pada parameter kedua dalam view untuk metode loading.\\
 
-Data yang dikirim dari controller menuju view berbentuk array atau objek, sehingga akan dilampirkan dalam parameter kedua dalam metode loading view.
-Kode ~\ref{lst:dynamicDataCI} menjelaskan penggunaan dengan array:
-\begin{lstlisting}[frame=single, language=PHP, label={lst:dynamicDataCI}, caption=Struktur data dinamis.] 
+
+
+\noindent Kode ~\ref{lst:dynamicDataCI} menjelaskan penggunaan dengan array:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:dynamicDataCI}, caption=Struktur data dinamis.] 
 $data = array(
-'title' => 'My Title',
-'heading' => 'My Heading',
-'message' => 'My Message'
+	'title' => 'My Title',
+	'heading' => 'My Heading',
+	'message' => 'My Message'
 );
 
 $this->load->view('blogview', $data);
 \end{lstlisting}
 
-\noindent Kemudian, penggunaan dengan objek:
-\begin{lstlisting}[frame=single, language=PHP, label={lst:dynamicObjectDataCI}, caption=Struktur data dinamis berbentuk objek.] 
+\noindent Kemudian, kode ~\ref{lst:dynamicObjectDataCI} menjelaskan penggunaan dengan objek:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:dynamicObjectDataCI}, caption=Struktur data dinamis berbentuk objek.] 
 $data = new Someclass();
 $this->load->view('blogview', $data);
 \end{lstlisting}
 
-\noindent Sehingga apabila dimasukan ke controller, kode yang ditambahkan adalah:
-\begin{lstlisting}[frame=single, language=PHP, label={lst:dynamicControllerDataCI}, caption=Struktur data dinamis dalam controller.] 
-<?php
+\noindent Sehingga apabila dimasukan ke controller, kode yang ditambahkan seperti terlihat pada kode ~\ref{lst:dynamicControllerDataCI}:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:dynamicControllerDataCI}, caption=Struktur data dinamis dalam controller.] 
 class Blog extends CI_Controller {
 
-public function index()
-{
-$data['title'] = "My Real Title";
-$data['heading'] = "My Real Heading";
-
-$this->load->view('blogview', $data);
-}
+	public function index()
+	{
+		$data['title'] = "My Real Title";
+		$data['heading'] = "My Real Heading";
+		
+		$this->load->view('blogview', $data);
+	}
 }
 \end{lstlisting}
 
-Untuk mengaksesnya dalam file HTML maka \textit{developer} dapat menggunakan syntax php :
-\begin{lstlisting}[frame=single, language=PHP, label={lst:htmlaCI}, caption=Akses data dinamis dalam file HTML.] 
+\noindent Untuk mengakses data dari model Blog, maka dapat dipanggil dengan variabel nya seperti terlihat pada kode ~\ref{lst:htmlCI} :
+\begin{lstlisting}[style=customhtml, language=HTML, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:htmlCI}, caption=Akses data dinamis dalam file HTML.] 
 <html>
-<head>
-<title><?php echo $title;?></title>
-</head>
-<body>
-<h1><?php echo $heading;?></h1>
-</body>
+	<head>
+		<title><?php echo $title;?></title>
+	</head>
+	<body>
+		<h1><?php echo $heading;?></h1>
+	</body>
 </html>
 \end{lstlisting}
 
 \subsection{Controller}
-\textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web. Sebuah \textit{controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
-Misalnya untuk URl ini:
-\begin{lstlisting}[frame=single, language=PHP, label={lst:controllerCI}, caption=Controller pada codeIgniter.] 
+\label{s:controllerCI}
+\par \textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web. \textit{Controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
+
+
+
+Apabila terdapat kelas \texttt{Blog} yang terlihat pada kode ~\ref{lst:contohControllerCI}.
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:contohControllerCI}, caption=Contoh controller pada codeIgniter.] 
 <?php
+	class Blog extends CI_Controller {
+	
+		public function index()
+		{
+			echo 'Hello World'
+		}
+	}
+?>
+\end{lstlisting} 
+
+
+
+Maka controller yang dipanggil akan menjadi tertera berikut:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:controllerCI}, caption=Controller pada codeIgniter.] 
 example.com/index.php/blog/
 \end{lstlisting}
 
-Dalam contoh diatas, \textit{CodeIgniter} berusaha menemukan \textit{controller} bernama Blog.php dan lalu memuatnya. Ketika sebuah nama \textit{controller} sesuai dengan segmen pertama dari sebuah URl, maka URl akan memuatnya. Kode berikut merupakan contoh dari \textit{controller} sederhana.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:contohControllerCI}, caption=Contoh controller pada codeIgniter.] 
-<?php
-class Blog extends CI_Controller {
-
-public function index()
-{
-echo 'Hello World'
-}
-}
-\end{lstlisting} 
+Dalam kode ~\ref{lst:controllerCI}, \textit{CodeIgniter} berusaha menemukan \textit{controller} bernama Blog.php untuk dimuat. Ketika sebuah nama \textit{controller} sesuai dengan segmen pertama dari sebuah URl, maka URl akan memuatnya. 
 
 \subsubsection{Method}
-Dalam sebuah kelas \textit{controller} akan memiliki beberapa method, lalu untuk memanggil fungsi didalamnya maka \textit{developer} dapat mengisi segmen kedua dari sebuah url dengan sebuah method. Misalnya controller dengan dua method yaitu \texttt{index()} dan \texttt{comments()}.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:methodCI}, caption=Method pada codeIgniter.] 
+Dalam sebuah kelas \textit{controller} akan memiliki beberapa method, lalu untuk memanggil fungsi didalamnya maka \textit{programmer} dapat mengisi segmen kedua dari sebuah url dengan sebuah method. 
+
+\\ \noindent
+Misalnya pada kode ~\ref{lst:methodCI} terdapat controller dengan dua method: \texttt{index()} dan \texttt{comments()}.
+
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:methodCI}, caption=Controller pada codeIgniter.] 
 <?php
 class Blog extends CI_Controller {
 
-public function index()
-{
-echo 'Hello World!';
+	public function index()
+	{
+		echo 'Hello World!';
+	}
+	
+	public function comments()
+	{
+		echo 'Look at this!';
+	}
 }
-
-public function comments()
-{
-echo 'Look at this!';
-}
-}
+?>
 \end{lstlisting}
 
-\noindent Pemanggilan method index dapat secara otomatis dilakukan apabila segmen kedua kosong. Namun ada cara lain untuk menamplikan pesan "Hello World" yang dapat dilakukan dengan:
 
-\begin{lstlisting}[frame=single, language=PHP, label={lst:methodCI}, caption=Method pada codeIgniter.] 
+\\ \noindent 
+Pemanggilan method index dapat secara otomatis dilakukan apabila segmen kedua kosong. Namun ada cara lain untuk menamplikan pesan "Hello World" yang dapat dilakukan seperti terlihat pada kode ~\ref{lst:methodLainCI}:
+
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:methodLainCI}, caption=Cara lain pemanggilan method pada codeIgniter.] 
 example.com/index.php/blog/index/
 \end{lstlisting}
 
-\noindent Kemudian untuk memuat method \texttt{comment()} dapat dituliskan sebagai berikut:
-\begin{lstlisting}[frame=single, language=PHP, label={lst:loadMethodCI}, caption=Load method pada codeIgniter.] 
+\noindent Kemudian untuk memuat method \texttt{comment()} dapat dituliskan seperti kode ~\ref{lst:loadMethodCommentsCI}:
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadMethodCommentsCI}, caption=Load metode comments() pada codeIgniter.] 
 example.com/index.php/blog/comments/
 \end{lstlisting}
 
 \section{jQuery}
 
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQuery}, caption=Load method pada codeIgniter.] 
-
-$(document).ready(function () {
-var datepickeroptions = {
-format: 'Y-m-d H:i'
-};
-function removeRow() {
-$(this).closest('.row').remove();
-}
-jQuery('#datetimepicker').datetimepicker();
-$('#fromDateTime').datetimepicker(datepickeroptions);
-$('.toDateTime').datetimepicker(datepickeroptions);
-$('.eraseButton').click(removeRow);
-$('select[name="changeType"]').change(function () {
-$('input.disableable').removeAttr('disabled');
-switch ($(this).val()) {
-case 'T':
-$('input[name="fromDateTime"]').attr('disabled', 'disabled');
-$('input[name="fromRoom"]').attr('disabled', 'disabled');
-break;
-case 'X':
-$('input.toDateTime').attr('disabled', 'disabled');
-$('input.toRoom').attr('disabled', 'disabled');
-break;
-}
-});
-$('select[name="changeType"]').change();
-var toFields = $('.toFields').clone();
-$('.toFields').find('.eraseButton').remove();
-$('#addToButton').click(function(e) {
-e.preventDefault();
-var newFields = toFields.clone();
-newFields.insertBefore($('#sendDiv'));
-newFields.find('.toDateTime').datetimepicker(datepickeroptions);
-newFields.find('.eraseButton').click(removeRow);
-});
-
-});
-\end{lstlisting}
-
-
-jQuery merupakan \textit{library} Javascript dimana setiap kode yang dibuat akan disimpan ke dalam \textit{methods} yang dapat \textit{user} panggil hanya dengan satu baris kode.
+jQuery merupakan \textit{library} Javascript dimana setiap kode yang dibuat akan disimpan ke dalam \textit{methods} yang dapat dipanggil \textit{user} dengan satu baris kode. Bagian ini akan menjelaskan penggunaan dasar pada jQuery. \cite{jquery}
 
 \subsection{Penggunaan Dasar jQuery}
-Syntax dalam jQuery dibuat untuk memilih elemen dalam HTML dan melakukan beberapa aksi dalam elemen.
+\noindent Sintaks dalam jQuery dibuat untuk memilih elemen dalam HTML dan melakukan beberapa aksi dalam elemen. 
 
-Syntax dasar dalam jQuery sebagai berikut :
-\begin{lstlisting}[frame=single, language=PHP, label={lst:dasarjQuery}, caption=Pemanggilan jQuery.]
+Sintaks dasar dalam jQuery tertera pada kode ~\ref{lst:dasarjQuery}:
+\begin{lstlisting}[style=JavaScript, language=JavaScript, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:dasarjQuery}, caption=Pemanggilan jQuery.]
 $(selector).action()
 \end{lstlisting}
+Penjelasan sintaks sebagai berikut:
 \begin{itemize}
 	\item \texttt{\$}: berfungsi untuk mendefinisikan library jQuery.
 	\item \texttt{selector}: berfungsi untuk menjalankan \textit{query} atau menemukan elemen HTML.
 	\item \texttt{action()}: berfungsi untuk menjalankan elemen.
 \end{itemize}
 
-Contoh penggunaan syntax dalam jQuery sebagai berikut:
+
+
+Berikut ini contoh penggunaan sintaks dalam jQuery:
 \begin{itemize}
 	\item \texttt{\$(this).hide()}: menyembunyikan elemen saat ini.
 	\item \texttt{\$("p").hide()}: menyembunyikan elemen \texttt{<p>}.
@@ -390,31 +435,30 @@ Contoh penggunaan syntax dalam jQuery sebagai berikut:
 	\item \texttt{\$("\#test").hide()}: menyembunyikan elemen \texttt{id="test"}.
 \end{itemize}
 \subsection{jQuery Selectors}
-\texttt{jQuery selector} memungkinkan \textit{user} untuk memilih dan memanipulasi elemen dalam HTML berdasarkan nama, id, kelas, tipe, atribut dan \textit{value} dari atribut. Semua \textit{selectors} dalam jQuery dimulai dengan simbol dollar dan tanda kurung: \texttt{\$()}.
-Contoh :
-Perintah user untuk memilih sebuah tombol sehingga semua elemen \texttt{<p>} akan tersembunyi.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQuerySelector}, caption=jQuery Selector pada elemen <p>.]	
-$(document).ready(function(){
-$("button").click(function(){
-$("p").hide();
-});
-});
+\texttt{jQuery selector} memungkinkan \textit{user} untuk memilih dan memanipulasi elemen dalam HTML berdasarkan nama, id, kelas, tipe, atribut dan \textit{value} dari atribut. Semua \textit{selectors} dalam jQuery dimulai dengan simbol dollar dan tanda kurung: \texttt{\$()}.\\
 
+\noindent Kode ~\ref{lst:jQuerySelector} menjelaskan ketika user memilih sebuah tombol maka semua elemen \texttt{<p>} akan tersembunyi.
+\begin{lstlisting}[style=JavaScript, language=JavaScript, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQuerySelector}, caption=jQuery Selector pada elemen <p>.]	
+$(document).ready(function(){
+	$("button").click(function(){
+		$("p").hide();
+	});
+});
 \end{lstlisting}
 
 \subsection{jQuery Event}
 Semua aksi yang dilakukan \textit{user} dalam web dapat direspon oleh sistem yang dinamakan \textit{events}. Events menunjukkan momen apabila suatu kegiatan terjadi seperti: memindahkan mouse ke sebuah elemen, memilih sebuah radio button dan menekan sebuah elemen.
 
 \subsubsection{\texttt{\$(document).ready}}
-Seluruh metode jQuery akan berada didalam sebuah \texttt{document ready event} :
+Seluruh metode jQuery akan berada didalam sebuah \texttt{\$(document).ready()} :
 %.ready()
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQueryReady}, caption=jQuery document ready event.]
+\begin{lstlisting}[style=JavaScript, language=JavaScript, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryReady}, caption=jQuery document ready event.]
 $(document).ready(function(){
-// jQuery methods go here...
+	// jQuery methods go here...
 });
 \end{lstlisting}
 
-Syntax ~\ref{lst:jQueryReady} untuk menghindari kode jQuery berjalan sebelum dokumen siap untuk di-\textit{load}. Contoh aksi yang akan gagal apabila kode berjalan sebelum dokumen siap seperti:
+\noindent Sintaks ~\ref{lst:jQueryReady} untuk menghindari kode jQuery berjalan sebelum dokumen siap untuk di-\textit{load}. Contoh aksi yang akan gagal apabila kode berjalan sebelum dokumen siap seperti:
 \begin{itemize}
 	\item Mencoba untuk menghilangkan elemen yang belum selesai dibuat.
 	\item Mencoba untuk mendapatkan ukuran gambar yang belum di-\textit{load} seluruhnya.
@@ -423,11 +467,12 @@ Syntax ~\ref{lst:jQueryReady} untuk menghindari kode jQuery berjalan sebelum dok
 
 %.click
 \subsubsection{\texttt{click()}}
-Metode \texttt{click()} melampirkan fungsi event handler ke elemen HTML, sehingga fungsi akan dieksekusi ketika \textit{user} mengklik elemen HTML.
-Contoh : Memilih elemen \texttt{<p>} untuk memberikan teks berupa alert
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQueryClick}, caption=jQuery click().]
+Metode \texttt{click()} melampirkan fungsi event handler ke elemen HTML, sehingga fungsi akan dieksekusi ketika \textit{user} mengklik elemen HTML.\\
+
+\noindent Kode ~\ref{lst:jQueryClick} menjelaskan ketika user memilih elemen \texttt{<p>}, maka sistem akan memberikan teks berupa kalimat \textit{alert}.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryClick}, caption=jQuery click().]
 $("p").click(function(){
-alert("The paragraph was clicked.");
+	alert("The paragraph was clicked.");
 });
 
 \end{lstlisting}
@@ -435,15 +480,16 @@ alert("The paragraph was clicked.");
 %.change()
 \subsubsection{\texttt{change()}}
 Metode \texttt{change()} akan memicu perubahan ketika kode dijalankan. Change event hanya bisa merubah elemen \texttt{<input>,<textarea>} dan \texttt{<select>}.
-Ada dua syntax yang dipakai :
+Ada dua sintaks yang dipakai :
 \begin{itemize}
 	\item \texttt{\$(selector).change()}: memicu perubahan event untuk elemen terpilih.
 	\item \texttt{\$(selector).change(function)}: memicu perubahan event dengan menerapkan fungsi tertentu.
 \end{itemize}
-Contoh penggunaan metode ini: Memberikan teks peringatan ketika sebuah field \texttt{<input>} berubah.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQueryChange}, caption=jQuery change().]
+\\ \noindent
+Contoh penggunaan metode ini terlihat pada kode ~\ref{lst:jQueryChange}: sistem memberikan teks peringatan ketika sebuah field \texttt{<input>} berubah.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryChange}, caption=jQuery change().]
 $("input").change(function(){
-alert("The text has been changed.");
+	alert("The text has been changed.");
 });
 \end{lstlisting}
 
@@ -451,24 +497,24 @@ alert("The text has been changed.");
 \subsubsection{\texttt{select()}}
 Event select akan memilih teks terpilih di dalam text area atau text field.
 Metode \texttt{select()} memicu event atau fungsi untuk berjalan ketika sebuah event terpilih dijalankan.
-Ada dua syntax yang dipakai :
+Ada dua sintaks yang dipakai :
 \begin{itemize}
 	\item \texttt{\$(selector).select()}: memicu perubahan event untuk elemen terpilih.
 	\item \texttt{\$(selector).select(function)}: memicu perubahan event dengan menerapkan fungsi tertentu.
 \end{itemize}
-Contoh penggunaan metode : Memberikan sebuah peringatan ketika sebuah teks dipilih didalam sebuah \textit{text field}.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQuerySelect}, caption=jQuery Selector.]
+Contoh penggunaan metode terlihat pada kode ~\ref{lst:jQuerySelect}: siste memberikan sebuah peringatan ketika sebuah teks dipilih didalam sebuah \textit{text field}.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQuerySelect}, caption=jQuery Selector.]
 $("input").select(function(){
-alert("Text marked!");
+	alert("Text marked!");
 });
 \end{lstlisting}
 
 \subsubsection{\texttt{preventDefault()}}
-Metode preventDefault() membatalkan event yang \textit{user} kehendaki. Apabila terdapat sebuah link, maka user tidak bisa menuju link tersebut. Atau apabila ada button "Submit" dalam sebuah form, maka user tidak bisa mengumpulkan form tersebut.
-\begin{lstlisting}[frame=single, language=javascript, label={lst:jQuerypreventDefault}, caption=jQuery preventDefault().]
+Metode preventDefault() membatalkan event yang \textit{user} kehendaki. Pada kode ~\ref{lst:jQuerypreventDefault} terlihat, apabila terdapat sebuah link maka user tidak bisa menuju link tersebut. Atau apabila ada button "Submit" dalam sebuah form, maka user tidak bisa mengumpulkan form tersebut.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQuerypreventDefault}, caption=jQuery preventDefault().]
 document.getElementById("myAnchor").addEventListener("click", 
 function(event){
-event.preventDefault()
+	event.preventDefault()
 });
 \end{lstlisting}
 
@@ -480,14 +526,14 @@ Fungsi \texttt{closest()} akan mengembalikan \textit{ancestor} pertama dari elem
 %.closest()
 \begin{figure} [H]
 	\centering  
-	\includegraphics[scale=1.0]{jQuery_closest.png}  
+	\includegraphics[scale=0.6]{jQuery_closest.png}  
 	\caption{jQuery Closest} 
 	\label{fig:jQueryClosest}
 \end{figure}
 
-\begin{lstlisting}[frame=single, language=jquery, breaklines=true, label={lst:jQueryClosest}, caption=jQuery Closest.]
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryClosest}, caption=jQuery Closest.]
 $(document).ready(function(){
-$("span").closest("ul").css({"color": "red", "border": "2px solid red"});
+	$("span").closest("ul").css({"color": "red", "border": "2px solid red"});
 });
 \end{lstlisting}
 
@@ -498,17 +544,15 @@ Hasil :
 %.find()
 \subsubsection{\texttt{find()}}
 Metode \texttt{find()} mengembalikan elemen turunan/descendant dari elemen yang dipilih oleh \textit{user}.
-Contoh: Mengembalikan semua elemen \texttt{<span>} yang merupakan turunan dari elemen \texttt{<ul>}.
-%.closest()
+Contoh terlihat pada kode ~\ref{lst:jQueryFind}: mengembalikan semua elemen \texttt{<span>} yang merupakan turunan dari elemen \texttt{<ul>}.
 
-
-\begin{lstlisting}[frame=single,language=PHP, breaklines=true, label={lst:jQueryFind}, caption=jQuery find().]
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, breaklines=true, label={lst:jQueryFind}, caption=jQuery find().]
 $(document).ready(function(){
-$("ul").find("span").css({"color": "red", "border": "2px solid red"});
+	$("ul").find("span").css({"color": "red", "border": "2px solid red"});
 });
 \end{lstlisting}
 
-Hasil dari kode  ~\ref{lst:jQueryfind} terlihat pada gambar ~\ref{fig:jQueryfind}: 
+\noindent Hasil dari kode  ~\ref{lst:jQueryFind} terlihat pada gambar ~\ref{fig:jQueryfind}: 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{jQuery_find.png}  
@@ -520,48 +564,47 @@ Hasil dari kode  ~\ref{lst:jQueryfind} terlihat pada gambar ~\ref{fig:jQueryfind
 \subsection{jQuery HTML}
 %.remove()
 \subsubsection{\texttt{remove()}}
-\texttt{remove()} - berfungsi untuk menghapus elemen HTML yang ada. Contoh penggunaan nya seperti:
-Menghapus elemen dengan \texttt{id="div1"}.
-\begin{lstlisting} [frame=single, language=PHP, label={lst:jQueryRemove}, caption=jQuery remove().]
+\texttt{remove()} - berfungsi untuk menghapus elemen HTML yang ada. Contoh penggunaan terlihat pada kode ~\ref{lst:jQueryRemove}: menghapus elemen dengan yang memiliki \texttt{id="div1"}.
+\begin{lstlisting} [style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryRemove}, caption=jQuery remove().]
 $("#div1").remove();
 \end{lstlisting}
 
 %.removeAttr()
 \subsubsection{\texttt{\$removeAttr()}}
 Metode \texttt{removeAttr()} menghapus satu atau banyak atribut dari elemen terpilih.
-Syntax dari metode ini :
-\begin{lstlisting}[frame=single, language=jQuery, , label={lst:jQueryRemoveAttr}, caption=jQuery removeAttr().]
+Sintaks dari metode ini terlihat pada kode ~\ref{lst:jQueryRemoveAttr}:
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryRemoveAttr}, caption=jQuery removeAttr().]
 $(selector).removeAttr(attribute)
 \end{lstlisting}
 
-Contoh pemakaian metode ini: Menghapus atribut style dari semua elemen <p>:
-\begin{lstlisting}[frame=single, language=jquery, label={lst:contohjQueryRemoveAttr}, caption=contoh jQuery removeAttr().]
+\noindent Contoh pemakaian metode ada pada kode ~\ref{lst:contohjQueryRemoveAttr}: menghapus atribut style dari semua elemen \texttt{<p>}.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:contohjQueryRemoveAttr}, caption=contoh jQuery removeAttr().]
 $("button").click(function(){
-$("p").removeAttr("style");
+	$("p").removeAttr("style");
 });
 \end{lstlisting}
 
 %.clone()
 \subsubsection{\texttt{\$clone()}}
-Metode \texttt{clone()} membuat salinan dari elemen terpilih, termasuk child nodes, teks atau atribut.
-Syntax dari metode ini :
-\begin{lstlisting} [frame=single, language=PHP, label={lst:jQueryClone}, caption=jQuery clone().]
+Metode \texttt{clone()} pada kode ~\ref{lst:jQueryClone} membuat salinan dari elemen terpilih, termasuk child nodes, teks atau atribut.
+Sintaks dari metode ini :
+\begin{lstlisting} [style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryClone}, caption=jQuery clone().]
 $(selector).clone(true|false))
 \end{lstlisting}
 
-Contoh pemakaian metode ini: Clone semua elemen \texttt{<p>} dan masukan semua elemen pada akhir elemen \texttt{<body>}.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:contohjQueryClone}, caption=contoh jQuery clone().]
+Contoh pemakaian metode ini terlihat pada kode ~\ref{lst:contohjQueryClone}: Clone semua elemen \texttt{<p>} dan masukan semua elemen pada akhir elemen \texttt{<body>}.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:contohjQueryClone}, caption=contoh jQuery clone().]
 $("button").click(function(){
-$("p").clone().appendTo("body");
+	$("p").clone().appendTo("body");
 });
 \end{lstlisting}
 
 
 %.insertBefore
 \subsubsection{\texttt{insertBefore()}}
-Metode \texttt{insertBefore()} akan memasukan elemen HTML sebelum elemen terpilih.
-Syntax dari metode ini :
-\begin{lstlisting} [frame=single, language=PHP, label={lst:jQueryInsertBefore}, caption=insertBefore().]
+Metode \texttt{insertBefore()} pada kode ~\ref{lst:jQueryInsertBefore} akan memasukan elemen HTML sebelum elemen terpilih.
+Sintaks dari metode ini :
+\begin{lstlisting} [style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryInsertBefore}, caption=insertBefore().]
 $(content).insertBefore(selector)
 \end{lstlisting}
 Dimana :
@@ -570,17 +613,20 @@ Dimana :
 	\item \texttt{selector} : \texttt{Required}. Menjelaskan dimana konten akan dimasukan. 
 \end{itemize}
 
-Contoh pemakaian metode ini: Memasukkan sebuah elemen \texttt{<span>} sebelum \texttt{<p>}.
-\begin{lstlisting}[frame=single, language=PHP, label={lst:jQueryinsertBefore}, caption=jQuery insertBefore().]
+Contoh pemakaian metode ini terlihat pada kode ~\ref{lst:jQueryinsertBefore}: memasukkan sebuah elemen \texttt{<span>} sebelum \texttt{<p>}.
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryinsertBefore}, caption=jQuery insertBefore().]
 $("button").click(function(){
-$("<span>Hello world!</span>").insertBefore("p");
+	$("<span>Hello world!</span>").insertBefore("p");
 });
 \end{lstlisting}
 
 \section{Foundation 6}
+\label{sec:foundation}
+Foundation adalah \textit{front-end framework} yang responsif yang membuatnya mudah untuk merancang situs web, aplikasi, dan email di perangkat apa pun.
+
 \subsection{Struktur File}
-\begin{lstlisting}[basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true, label={lst:fileFoundation}, caption=Struktur File Foundation.]
+Berikut ini isi dari \textit{package} Foundation 6 terlihat pada listing ~\ref{lst:fileFoundation}.
+\begin{lstlisting}[basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:fileFoundation}, caption=Struktur File Foundation.]
 .
 |-- css
 |   |-- css 
@@ -609,47 +655,47 @@ Framework Foundation terdiri dari 3 folder utama:
 \cite{zurbfoundation:17}
 
 \subsection{Sistem Grid}
-Penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu 
+Kode ~\ref{lst:gridFoundation} terlihat penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen dengan sebuah kelas \texttt{.row} sehingga akan membuat blok horizontal yang berisi kolom vertikal. Kemudian kelas \texttt{.column} akan ditambahkan pada baris tersebut, lalu masing-masing kolom ditentunkan kelasnya dengan tiga pilihan yaitu 
 \texttt{.small-\#}, \texttt{.medium-\#} dan \texttt{.large-\#}.
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:gridFoundation}, caption=Struktur Grid Foundation 6.] 
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:gridFoundation}, caption=Struktur Grid Foundation 6.] 
 <div class="row">
-<div class="columns small-2 large-4"><!-- ... --></div>
-<div class="columns small-4 large-4"><!-- ... --></div>
-<div class="columns small-6 large-4"><!-- ... --></div>
+	<div class="columns small-2 large-4"><!-- ... --></div>
+	<div class="columns small-4 large-4"><!-- ... --></div>
+	<div class="columns small-6 large-4"><!-- ... --></div>
 </div>
 <div class="row">
-<div class="columns large-3"><!-- ... --></div>
-<div class="columns large-6"><!-- ... --></div>
-<div class="columns large-3"><!-- ... --></div>
+	<div class="columns large-3"><!-- ... --></div>
+	<div class="columns large-6"><!-- ... --></div>
+	<div class="columns large-3"><!-- ... --></div>
 </div>
 <div class="row">
-<div class="columns small-6 large-2"><!-- ... --></div>
-<div class="columns small-6 large-8"><!-- ... --></div>
-<div class="columns small-12 large-2"><!-- ... --></div>
+	<div class="columns small-6 large-2"><!-- ... --></div>
+	<div class="columns small-6 large-8"><!-- ... --></div>
+	<div class="columns small-12 large-2"><!-- ... --></div>
 </div>
 <div class="row">
-<div class="columns small-3"><!-- ... --></div>
-<div class="columns small-9"><!-- ... --></div>
+	<div class="columns small-3"><!-- ... --></div>
+	<div class="columns small-9"><!-- ... --></div>
 </div>
 <div class="row">
-<div class="columns large-4"><!-- ... --></div>
-<div class="columns large-8"><!-- ... --></div>
+	<div class="columns large-4"><!-- ... --></div>
+	<div class="columns large-8"><!-- ... --></div>
 </div>
 <div class="row">
-<div class="columns small-6 large-5"><!-- ... --></div>
-<div class="columns small-6 large-7"><!-- ... --></div>
+	<div class="columns small-6 large-5"><!-- ... --></div>
+	<div class="columns small-6 large-7"><!-- ... --></div>
 </div>
 <div class="row">
-<div class="columns large-6"><!-- ... --></div>
-<div class="columns large-6"><!-- ... --></div>
+	<div class="columns large-6"><!-- ... --></div>
+	<div class="columns large-6"><!-- ... --></div>
 </div>
 \end{lstlisting}
 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{gridbasic_zurb.png}  
-	\caption{Grid pada Zurb Foundation}
+	\caption{Grid pada Foundation 6}
 	\label{fig:gridFoundation}	 
 \end{figure}
 
@@ -657,17 +703,16 @@ Penggunaan grid pada Foundation dapat dilakukan dengan menambahkan sebuah elemen
 Komponen menu yang fleksibel pada Foundation membuat pembangunan navigasi secara umum lebih mudah karena semua pola memiliki markup yang sama.
 
 \subsubsection{Basic Menu}
-
 Menu terdiri dari sebuah \texttt{<ul>} yang diisi oleh beberapa tag \texttt{<li>}. Secara default, menu akan berorientasi horizontal.
 
-Berikut ini contoh penggunaan kode navigasi pada menu:
+Berikut ini contoh penggunaan kode navigasi pada menu yang terlihat pada kode ~\ref{lst:basicFoundation}):
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:basicFoundation}, caption=Basic Menu Foundation 6.] 
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:basicFoundation}, caption=Basic Menu Foundation 6.] 
 <ul class="menu">
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
-<li><a href="#">Three</a></li>
-<li><a href="#">Four</a></li>
+	<li><a href="#">One</a></li>
+	<li><a href="#">Two</a></li>
+	<li><a href="#">Three</a></li>
+	<li><a href="#">Four</a></li>
 </ul>
 \end{lstlisting}
 
@@ -679,13 +724,13 @@ Berikut ini contoh penggunaan kode navigasi pada menu:
 \end{figure}
 
 \subsubsection{Item Alignment}
-Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \texttt{.align-right} atau kearah tengah dengan menambahkan kelas \texttt{.align-center} didalam kelas \texttt{.menu}.
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:itemAlignmentFoundation}, caption=Item Alignment Foundation 6.] 
+Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat diubah lajurnya ke arah kanan dengan menggunakan kelas \texttt{.align-right} (terlihat pada kode ~\ref{lst:itemAlignmentFoundation}) didalam kelas \texttt{.menu}.
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:itemAlignmentFoundation}, caption=Item Alignment Foundation 6.] 
 <ul class="menu align-right">
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
-<li><a href="#">Three</a></li>
-<li><a href="#">Four</a></li>
+	<li><a href="#">One</a></li>
+	<li><a href="#">Two</a></li>
+	<li><a href="#">Three</a></li>
+	<li><a href="#">Four</a></li>
 </ul>
 \end{lstlisting}
 
@@ -696,33 +741,19 @@ Secara default, setiap item dalam menu akan berlajur ke arah kiri. Menu dapat di
 	\label{fig:alignRightFoundation}
 \end{figure}
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:aligntorightFoundation}, caption=Align to right Foundation 6.] 
-<ul class="menu align-center">
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
-<li><a href="#">Three</a></li>
-<li><a href="#">Four</a></li>
-</ul>
-\end{lstlisting}
-
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.7]{basicmenuCenter_zurb.png}  
-	\caption{Menu \textit{align to center} dalam Foundation}
-	\label{fig:alignCenterFoundation}
-\end{figure}
 
 \subsubsection{Active State}
-Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk membuat menu terpilih yang aktif terlihat saat di klik. 
+Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk membuat menu terpilih yang aktif terlihat saat di klik. \\
+Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:activeStateFoundation}:
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:activeStateFoundation}, caption=Active State Foundation 6.] 
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:activeStateFoundation}, caption=Active State Foundation 6.] 
 <ul class="menu">
-<li class="is-active"><a>Home</a></li>
-<li><a>About</a></li>
-<li><a>Nachos</a></li>
+	<li class="is-active"><a>Home</a></li>
+	<li><a>About</a></li>
+	<li><a>Nachos</a></li>
 </ul>
 \end{lstlisting}
-
+Hasil dari kode diatas terlihat pada gambar ~\ref{fig:activeStateFoundation}.
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{activestatemenu_zurb.png}  
@@ -732,17 +763,18 @@ Kelas \texttt{.is-active} dapat ditambahkan ke dalam tag \texttt{<li>} untuk mem
 
 
 \subsubsection{Text}
-Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.
+Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, maka apabila sebuah item yang hanya berisi teks, maka teks tersebut tidak selaras dengan item menu lainnya. Sehingga untuk menyiasatinya, dapat menggunakan kelas \texttt{.menu-text} yang dituliskan dalam tag \textit{<li>} dengan menyertakan sebuah teks tanpa link.\\
+Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:textFoundation}:
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:textFoundation}, caption=Text Foundation 6.]
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:textFoundation}, caption=Text Foundation 6.]
 <ul class="menu">
-<li class="menu-text">Site Title</li>
-<li><a href="#">One</a></li>
-<li><a href="#">Two</a></li>
-<li><a href="#">Three</a></li>
+	<li class="menu-text">Site Title</li>
+	<li><a href="#">One</a></li>
+	<li><a href="#">Two</a></li>
+	<li><a href="#">Three</a></li>
 </ul>
 \end{lstlisting}
-
+Hasil dari kode diatas terlihat pada gambar ~\ref{fig:menuTextFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{menutext_zurb.png}  
@@ -751,6 +783,7 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 \end{figure}
 
 \subsection{Komponen}
+Selain elemen HTML biasa, Foundation berisi elemen antarmuka lain yang umum digunakan. Ini termasuk tombol dengan fitur canggih (misalnya, pengelompokan tombol atau tombol dengan opsi drop-down, daftar navigasi, tab horizontal dan vertikal, navigasi, label, dan pemformatan untuk pesan seperti peringatan.
 
 \subsubsection{Button}
 \textit{Basic button} dapat digunakan untuk banyak tujuan, sehingga penting untuk \textit{developer} menggunakan tag yang tepat. Berikut ini penjelasan penggunaan \textit{Basic button} dalam Foundation
@@ -758,8 +791,8 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 	\item Penggunaan tag \texttt{<a>} digunakan apabila tombol memiliki \textit{link} ke halaman lain, atau \textit{link} menuju ke halaman itu sendiri. Penggunaan links tidak membutuhkan JavaScript.
 	\item Penggunaan tag \texttt{<button>} jika tombol melakukan tindakan yang mengubah sesuatu pada halaman seperti proses \textit{delete} atau \textit{save}. Elemen \texttt{<button>} akan membutuhkan JavaScript agar proses tersebut berfungsi. 
 \end{itemize}
-
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:buttonFoundation}, caption=Button pada foundation 6.] 
+Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:buttonFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:buttonFoundation}, caption=Button pada foundation 6.] 
 <!-- Anchors (links) -->
 <a href="about.html" class="button">Learn More</a>
 <a href="#features" class="button">View All Features</a>
@@ -768,7 +801,7 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 <button type="button" class="success button">Save</button>
 <button type="button" class="alert button">Delete</button>
 \end{lstlisting}
-
+Hasil dari kode diatas terlihat pada gambar ~\ref{fig:buttonFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{basicbutton_zurb.png}  
@@ -776,8 +809,8 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 	\label{fig:buttonFoundation}
 \end{figure}
 
-\noindent Warna pada button dapat diterapkan untuk memperlihatkan fungsi yang sesuai dengan aksi yang digunakan.
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:basicButtonFoundation}, caption=Basic Button pada foundation 6.] 
+\noindent Warna pada button dapat diterapkan untuk memperlihatkan fungsi yang sesuai dengan aksi yang digunakan. Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:basicButtonFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:basicButtonFoundation}, caption=Basic Button pada foundation 6.] 
 <a class="button primary" href="#">Primary</a>
 <a class="button secondary" href="#">Secondary</a>
 <a class="button success" href="#">Success</a>
@@ -785,6 +818,7 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 <a class="button warning" href="#">Warning</a>
 \end{lstlisting}
 
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:colorButtonFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{coloringbutton_zurb.png}  
@@ -796,40 +830,40 @@ Karena \textit{padding} untuk setiap item menu menggunakan tag \texttt{<a>}, mak
 
 Tabel dalam foundation akan menjadikan proses penampilan data bersifat responsif dan memiliki tata letak yang bisa disesuaikan oleh kebutuhan \textit{developer}.
 
-
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tabelFoundation}, caption=Tabel pada foundation 6.]  
+Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:tabelFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tabelFoundation}, caption=Tabel pada foundation 6.]  
 <table>
-<thead>
-<tr>
-<th width="200">Table Header</th>
-<th>Table Header</th>
-<th width="150">Table Header</th>
-<th width="150">Table Header</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Content Goes Here</td>
-<td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-<td>Content Goes Here</td>
-<td>Content Goes Here</td>
-</tr>
-<tr>
-<td>Content Goes Here</td>
-<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-<td>Content Goes Here</td>
-<td>Content Goes Here</td>
-</tr>
-<tr>
-<td>Content Goes Here</td>
-<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-<td>Content Goes Here</td>
-<td>Content Goes Here</td>
-</tr>
-</tbody>
+	<thead>
+		<tr>
+			<th width="200">Table Header</th>
+			<th>Table Header</th>
+			<th width="150">Table Header</th>
+			<th width="150">Table Header</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Content Goes Here</td>
+			<td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+			<td>Content Goes Here</td>
+			<td>Content Goes Here</td>
+		</tr>
+		<tr>
+			<td>Content Goes Here</td>
+			<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+			<td>Content Goes Here</td>
+			<td>Content Goes Here</td>
+		</tr>
+		<tr>
+			<td>Content Goes Here</td>
+			<td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+			<td>Content Goes Here</td>
+			<td>Content Goes Here</td>
+		</tr>
+	</tbody>
 </table>
 \end{lstlisting}
-
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:tableFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{basictable_zurb.png}  
@@ -837,151 +871,240 @@ Tabel dalam foundation akan menjadikan proses penampilan data bersifat responsif
 	\label{fig:tableFoundation}
 \end{figure}
 
-\subsubsection{Hover State}
-Hover State diaplikasikan menggunakan kelas \texttt{.hover} untuk sedikit membedakan baris terpilih dalam tabel dengan baris-baris lainnya dengan cara menggelapkan baris terpilih.
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:hoverstateFoundation}, caption=Hover State pada foundation 6.] 
-<table class="hover">
-</table>
-\end{lstlisting}
+\subsubsection{Stacked Table}
+\texttt{Stacked Table} diaplikasikan menggunakan kelas \texttt{.stack} untuk membuat tumpukan tabel pada layar kecil.
 
-\subsubsection{Striped}
-Secara default, tabel akan memiliki baris yang bergaris. 
-Ada beberapa pilihan kelas untuk mengubah desain tabelnya.
-\begin{itemize}
-	\item Kelas \texttt{.unstriped} dapat digunakan untuk menghapus garis-garis atau dengan mengubah \verb|$table-is-striped| ke \textit{false} untuk menghapus semua strip pada seluruh tabel.
-	\item Kelas \texttt{.striped} untuk menambahkan strip pada tabel.	
-\end{itemize}
+
+\noindent Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:stackFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:stackFoundation}, caption=Tabel stack pada foundation 6.] 
+<table class="stack"></table>
+\end{lstlisting}
+\noindent Hasil dari penggunaan kelas diatas terlihat pada gambar ~\ref{fig:stackTableFoundation}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{stacktable_zurb.png}  
+	\caption{Basic Table pada Foundation}
+	\label{fig:stackTableFoundation}
+\end{figure}
+
+\subsubsection{Scrolling Table}
+Apabila suatu tabel memiliki banyak data sehingga data yang ditampilkan memenuhi layar secara horizontal, maka dapat menggunakan kelas \texttt{.table-scroll}.
+
+\noindent Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:scrollTableFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:scrollTableFoundation}, caption=Scroll tabel pada foundation 6.] 
+<table class="stack"></table>
+\end{lstlisting}
+\noindent Hasil dari penggunaan kelas diatas terlihat pada gambar ~\ref{fig:scrollTableFoundation}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{tablescrolling_zurb.png}  
+	\caption{Table Scrolling pada Foundation}
+	\label{fig:scrollTableFoundation}
+\end{figure}
+
 
 \subsubsection{Forms}
-\texttt{Forms} pada Foundation dibuat dengan kombinasi standar dari elemen \texttt{form}, serta \textit{grid rows} dan \textit{columns} atau \textit{cells}. 
+\texttt{Forms} pada Foundation dibuat dengan kombinasi standar dari elemen \texttt{<form>}, serta \textit{grid rows} dan \textit{columns} atau \textit{cells}. 
 
-\paragraph{Text Inputs}
-Kode berikut ini akan membuat sebuah \textit{text field} yang bisa diterapkan untuk \textit{field} : \texttt{text, date, datetime, datetime-local, email, month, number, password, search, tel, time, url,} dan \texttt{week}.
+\subsubsection{Text Inputs}
+Kode berikut ini akan membuat sebuah \textit{text field} yang bisa diterapkan untuk \textit{field} : \texttt{text, date, datetime, datetime-local, email, month, number, password, search, tel, time, url,} dan \texttt{week}.\\
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:textinputsFoundation}, caption=Text inputs pada foundation 6.] 
+\noindent Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:textinputsFoundation}:
+
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:textinputsFoundation}, caption=Text inputs pada foundation 6.] 
 <form>
-<div class="grid-container">
-<div class="grid-x grid-padding-x">
-<div class="medium-6 cell">
-<label>Input Label
-<input type="text" placeholder=".medium-6.cell">
-</label>
-</div>
-<div class="medium-6 cell">
-<label>Input Label
-<input type="text" placeholder=".medium-6.cell">
-</label>
-</div>
-</div>
-</div>
+	<div class="grid-container">
+		<div class="grid-x grid-padding-x">
+			<div class="medium-6 cell">
+				<label>Input Label
+					<input type="text" placeholder=".medium-6.cell">
+				</label>
+			</div>
+			<div class="medium-6 cell">
+				<label>Input Label
+					<input type="text" placeholder=".medium-6.cell">
+				</label>
+			</div>
+		</div>
+	</div>
 </form>
 \end{lstlisting}
-
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:textinputZurb}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{input_zurb.png}  
 	\caption{Text Input pada Foundation}
-	\label{fig:gridbasicZurb} 
+	\label{fig:textinputZurb} 
 \end{figure}
 
-\paragraph{Select Menus}
-Penggunaan \texttt{select menus} digunakan apabila \textit{developer} menginginkan banyak pilihan data dalam satu menu.
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:selectMenusFoundation}, caption=Select menus pada foundation 6.] 
+\subsubsection{Select Menus}
+Penggunaan \texttt{select menus} digunakan apabila \textit{programmer} menginginkan banyak pilihan data dalam satu menu.\\
+\noindent Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:selectMenusFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:selectMenusFoundation}, caption=Select menus pada foundation 6.] 
 <label>Select Menu
-<select>
-<option value="husker">Husker</option>
-<option value="starbuck">Starbuck</option>
-<option value="hotdog">Hot Dog</option>
-<option value="apollo">Apollo</option>
-</select>
+	<select>
+		<option value="husker">Husker</option>
+		<option value="starbuck">Starbuck</option>
+		<option value="hotdog">Hot Dog</option>
+		<option value="apollo">Apollo</option>
+	</select>
 </label>
 \end{lstlisting}
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:selectmenuFoundation}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.4]{selectmenu_zurb.png}  
+	\caption{Select Menu pada Foundation}
+	\label{fig:selectmenuFoundation}
+\end{figure}
 
+\subsubsection{Inline Labels and Buttons}
+Untuk melampirkan teks tambahan atau kontrol ke kiri atau kanan bidang input, elemen akan berada didalam \texttt{.input-grup}, kelas-kelas ini akan ditambahkan ke elemen:
+\begin{itemize}
+	\item \texttt{.input-grup-field} pada bidang teks.
+	\item \texttt{.input-grup-label} pada label teks.
+	\item \texttt{.input-grup-button} pada tombol. 
+\end{itemize}
 
-\subsubsection{Tabs}
-Tab semakin banyak digunakan dalam desain web karena \textit{developer} dapat menyajikan konten secara seragam. Ini memungkinkan \textit{developer} untuk menyimpan banyak dokumen dalam satu \textit{window}. \textit{developer} dapat menggunakan tab sebagai widget navigasi untuk beralih antar konten sehingga menghasilkan tata letak yang sistematis dan bersih. Komponen Tab dari Foundation membantu \textit{developer} melakukan hal itu hanya dengan menambahkan beberapa baris kode. 
-
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tabsFoundation}, caption=Tabs pada foundation 6.] 
-<ul class="tabs" data-tabs id="tab_component">
-<li class="tabs-title"><a href="#pub1">Section 1</a></li>
-<li class="tabs-title is-active"><a href="#pub2">Section 2</a></li>
-<li class="tabs-title"><a href="#pub3">Section 3</a></li>
-<li class="tabs-title"><a href="#pub4">Section 4</a></li>
-</ul>
-<div class="tabs-content" data-tabs-content="tab_component">
-<div class="tabs-panel" id="pub1">
-<p>Far far away, behind the word mountains, far from the countries
-Vokalia and Consonantia, there live the blind texts.</p>
-</div>
-<div class="tabs-panel is-active" id="pub2">
-<p> Separated they live in Bookmarksgrove right at the coast of the
-Semantics, a large language ocean. </p>
-</div>
-<div class="tabs-panel" id="pub3">
-<p>A small river named Duden flows by their place and supplies it with
-the necessary regelialia.</p>
-</div>
-<div class="tabs-panel" id="pub4">
-<p>It is a paradisematic country, in which roasted parts of sentences
-fly into your mouth. </p>
-</div>
+\noindent Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:inlineFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:inlineFoundation}, caption=Select menus pada foundation 6.] 
+<div class="input-group">
+	<span class="input-group-label">$</span>
+	<input class="input-group-field" type="number">
+	<div class="input-group-button">
+		<input type="submit" class="button" value="Submit">
+	</div>
 </div>
 \end{lstlisting}
 
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:inlineFoundation}:
 \begin{figure} [H]
 	\centering  
-	\includegraphics[scale=0.7]{tabs_component_zurb.png}  
+	\includegraphics[scale=0.7]{inline_zurb.png}  
+	\caption{Select Menu pada Foundation}
+	\label{fig:inlineFoundation}
+\end{figure}
+
+\subsubsection{Tabs}
+Tab semakin banyak digunakan dalam desain web karena programmer dapat menyajikan konten secara seragam. Ini memungkinkan untuk menyimpan banyak dokumen dalam satu \textit{window}. \textit{Programmer} dapat menggunakan tab sebagai widget navigasi untuk beralih antar konten sehingga menghasilkan tata letak yang sistematis dan bersih.\\
+
+\noindent Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:tabsFoundation}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tabsFoundation}, caption=Tabs pada foundation 6.] 
+<ul class="tabs" data-tabs id="tab_component">
+	<li class="tabs-title"><a href="#pub1">Section 1</a></li>
+	<li class="tabs-title is-active"><a href="#pub2">Section 2</a></li>
+	<li class="tabs-title"><a href="#pub3">Section 3</a></li>
+	<li class="tabs-title"><a href="#pub4">Section 4</a></li>
+</ul>
+<div class="tabs-content" data-tabs-content="tab_component">
+	<div class="tabs-panel" id="pub1">
+		<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+	</div>
+	<div class="tabs-panel is-active" id="pub2">
+		<p> Separated they live in Bookmarksgrove right at the coast of the	Semantics, a large language ocean. </p>
+	</div>
+	<div class="tabs-panel" id="pub3">
+		<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+	</div>
+	<div class="tabs-panel" id="pub4">
+		<p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. </p>
+	</div>
+</div>
+\end{lstlisting}
+
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:tabsFoundation}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.9]{tabs_component_zurb.png}  
 	\caption{Tabs pada Foundation 6}
 	\label{fig:tabsFoundation}
 \end{figure}
 
-\subsubsection{Dropdown Menu}
-Berfungsi untuk mengubah menu dasar menjadi menu dropdown yang dapat di-expand dengan plugin Menu Dropdown.
-Menu dropdown dibangun berdasarkan sintaks komponen \texttt{Menu}. Tambahkan kelas \texttt{.dropdown} dan atribut \texttt{data-dropdown-menu} ke wadah menu untuk mengatur dropdown. 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:dropdownMenuFoundation}, caption=Dropdown menu pada foundation 6.] 
-<ul class="dropdown menu" data-dropdown-menu>
-<li><a href="#">Item 1</a></li>
-<li><a href="#">Item 2</a></li>
-<li><a href="#">Item 3</a></li>
-<li><a href="#">Item 4</a></li>
-</ul>
-\end{lstlisting}
-
 \subsubsection{Reveal}
 Modal hanyalah wadah kosong, sehingga \textit{developer} dapat menaruh segala jenis konten di dalamnya, seperti teks ke formulir hingga video ke seluruh \textit{grid}.
 Untuk membuat modal, tambahkan kelas \texttt{.reveal}, atribut \texttt{data-reveal}, dan ID yang unik ke dalam \textit{container}.
+\\
+\noindent Berikut implementasi modal yang tertera pada kode ~\ref{lst:revealFoundation}:
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:revealFoundation}, caption=Reveal pada foundation 6.]  
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:revealFoundation}, caption=Reveal pada foundation 6.]  
 <div class="reveal" id="exampleModal1" data-reveal>
-<h1>Awesome. I Have It.</h1>
-<p class="lead">Your couch. It is mine.</p>
-<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-<button class="close-button" data-close aria-label="Close modal" type="button">
-<span aria-hidden="true">&times;</span>
-</button>
+	<h1>Awesome. I Have It.</h1>
+	<p class="lead">Your couch. It is mine.</p>
+	<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+	<button class="close-button" data-close aria-label="Close modal" type="button">
+	<span aria-hidden="true">&times;</span>
+	</button>
 </div>
 \end{lstlisting} 
 
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:revealFoundation}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.9]{modal_zurb.png}  
+	\caption{Reveal pada Foundation 6}
+	\label{fig:revealFoundation}
+\end{figure}
+
 \section{Bootstrap 4}
+Bootstrap adalah \textit{open source toolkit} yang dikembangkan dengan HTML, CSS, dan JS. Programmer dapat membangun seluruh aplikasi dengan sistem grid responsif, komponen prebuilt yang luas, dan plugin yang dibangun di jQuery. \cite{bootstrap:19}
+
 \subsection{Struktur File}
+Listing ~\ref{lst:strukturBootstrap} merupakan struktur paling dasar dari Bootstrap:
 \begin{lstlisting}[basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:strukturBootstrap}, caption=Struktur file pada bootstrap 4]
 .bootstrap/
 |-- css/
-|   |-- bootstrap.css 
-|   |-- bootstrap.min.css 
+|   |-- bootstrap-grid.css 
+|   |-- bootstrap-grid.css.map 
+|   |-- bootstrap-grid.min.css
+|   |-- bootstrap-grid.min.css.map
+|   |-- bootstrap-reboot.css
+|   |-- bootstrap-reboot.css.map
+|   |-- bootstrap-reboot.min.css
+|   |-- bootstrap-reboot.min.css.map
+|   |-- bootstrap.css
+|   |-- bootstrap.css.map
+|   |-- bootstrap.min.css
+|   |-- bootstrap.min.css.map
 |-- js/
+|   |-- bootstrap.bundle.js
+|   |-- bootstrap.bundle.js.map
+|   |-- bootstrap.bundle.min.js
+|   |-- bootstrap.bundle.min.js.map
 |   |-- bootstrap.js
+|   |-- bootstrap.js.map
 |   |-- bootstrap.min.js
-|-- img/
-|-- glyphicons-halflings.png
-|-- glyphicons-halflings-white.png
+|   |-- bootstrap.min.js.map
 .
 \end{lstlisting}
-Folder Bootstrap 4 berisi \textit{compiled file}(\texttt{bootstrap.min.*}) dan versi mini (\texttt{bootstrap.min.*}) dalam format \texttt{css} dan \texttt{js}. Kemudian ada folder \texttt{img} untuk simpan gambar.
+
+File yang dikompilasi terdiri dari: 
+\begin{itemize}
+	\item CSS dan JS yang dikompilasi (\texttt{bootstrap.*}).
+	\item CSS dan JS yang dikompilasi dan diperkecil (\texttt{bootstrap.min.*}). \item Peta sumber (\texttt{bootstrap.*. map}) tersedia untuk digunakan dengan alat pengembang browser tertentu. 
+	\item File JS yang dibundel (\texttt{bootstrap.bundle.js} dan \texttt{bootstrap.bundle.min.js} yang diperkecil) termasuk Popper, tetapi bukan jQuery.
+\end{itemize}
 
 \subsection{Sistem Grid}
-Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \cite{bootstrap:19}
+Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \\ \\
+
+\noindent Dalam kode ~\ref{lst:gridBootstrap} akan dibuat tiga kolom yang memiliki lebar yang sama baik dalam \textit{device} \textit{small, medium, large} dan \textit{extra large} menggunakan kelas grid yang sudah ditentukan sebelumnya oleh Bootstrap. Penggunaan \verb|.container| akan membuat kolom berada ditengah halaman.
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:gridBootstrap}, caption=Sistem grid pada bootstrap 4] 
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			One of three columns
+		</div>
+		<div class="col-sm">
+			One of three columns
+		</div>
+		<div class="col-sm">
+			One of three columns
+		</div>
+	</div>
+</div>
+\end{lstlisting}
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:gridBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{gridbasic_bootstrap.png}  
@@ -989,24 +1112,8 @@ Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit
 	\label{fig:gridBootstrap}
 \end{figure}
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:gridBootstrap}, caption=Sistem grid pada bootstrap 4] 
-<div class="container">
-<div class="row">
-<div class="col-sm">
-One of three columns
-</div>
-<div class="col-sm">
-One of three columns
-</div>
-<div class="col-sm">
-One of three columns
-</div>
-</div>
-</div>
-\end{lstlisting}
-Dalam contoh diatas akan dibuat tiga kolom yang memiliki lebar yang sama baik dalam \textit{device} \textit{small, medium, large} dan \textit{extra large} menggunakan kelas grid yang sudah ditentukan sebelumnya oleh Bootstrap. Penggunaan \verb|.container| akan membuat kolom berada ditengah halaman.
-
-Secara detil, bootstrap bekerja dengan cara:
+\subsubsection{Cara Kerja Grid Bootstrap}
+\noindent Secara detil, bootstrap bekerja dengan cara:
 \begin{itemize}
 	\item \textit{Container} disediakan agar konten berada ditengah halaman dan mengisi konten tersebut secara horizontal. Penggunaan \verb|.container| untuk menentukan lebar pixel secara responsif atau \verb|.container-fluid| untuk membuat lebar: 100\%  di semua ukuran \textit{viewport} dan perangkat.
 	\item Sebuah baris akan membungkus kolom - kolom. Setiap kolom akan memiliki \textit{padding} secara horizontal yang disebut \verb|gutter| untuk mengatur jarak antar kolom.
@@ -1016,7 +1123,7 @@ Secara detil, bootstrap bekerja dengan cara:
 \end{itemize}
 \subsubsection{Pilihan Grid}
 Bootstrap menggunakan px untuk grid breakpoint dan lebar container. Ini dikarenakan lebar \textit{viewport} ditentukan denga satuan pixels.
-Berikut ini tabel yang menjelaskan penggunaan kelas grid dalam berbagai perangkat :
+Berikut ini tabel ~\ref{fig:choiceGridBootstrap} yang menjelaskan penggunaan kelas grid dalam berbagai perangkat:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{gridoption_bootstrap.png}  
@@ -1026,8 +1133,10 @@ Berikut ini tabel yang menjelaskan penggunaan kelas grid dalam berbagai perangka
 
 \subsection{Konten}
 \subsubsection{Tabel}
-\paragraph{Tabel Default}
-Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.
+Bagian tabel akan menjelaskan penggunaan kelas tabel dengan menggunakan tiga kelas: kelas tabel secara default (\texttt{.table}), kelas tabel dengan garis batas (\texttt{table-bordered}) dan kelas tabel dengan warna baris berbeda (\texttt{table-striped}).
+\subsubsection{Tabel Default}
+Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \textit{style} pada bootstrap akan diterapkan, sehingga setiap tabel yang \textit{nested} akan diatur sesuai dengan \textit{parent} nya.\\
+Gambar ~\ref{fig:tableBootstrap} merupakan hasil penggunaan tabel secara \textit{default}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{tablebasic_bootstrap.png}  
@@ -1035,42 +1144,43 @@ Dengan penggunaan kelas \verb|.table| pada seluruh tag \texttt{<table>} maka \te
 	\label{fig:tableBootstrap}
 \end{figure}
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tableBootstrap}, caption=Tabel pada bootstrap 4] 
+\noindent Kode dari gambar diatas tertera pada kode ~\ref{lst:tableBootstrap}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tableBootstrap}, caption=Tabel pada bootstrap 4] 
 <table class="table">
-<thead>
-<tr>
-<th scope="col">#</th>
-<th scope="col">First</th>
-<th scope="col">Last</th>
-<th scope="col">Handle</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">1</th>
-<td>Mark</td>
-<td>Otto</td>
-<td>@mdo</td>
-</tr>
-<tr>
-<th scope="row">2</th>
-<td>Jacob</td>
-<td>Thornton</td>
-<td>@fat</td>
-</tr>
-<tr>
-<th scope="row">3</th>
-<td>Larry</td>
-<td>the Bird</td>
-<td>@twitter</td>
-</tr>
-</tbody>
+	<thead>
+		<tr>
+		<th scope="col">#</th>
+		<th scope="col">First</th>
+		<th scope="col">Last</th>
+		<th scope="col">Handle</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">1</th>
+			<td>Mark</td>
+			<td>Otto</td>
+			<td>@mdo</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>Jacob</td>
+			<td>Thornton</td>
+			<td>@fat</td>
+		</tr>
+		<tr>
+			<th scope="row">3</th>
+			<td>Larry</td>
+			<td>the Bird</td>
+			<td>@twitter</td>
+		</tr>
+	</tbody>
 </table>
 \end{lstlisting}
 
-\paragraph{Tabel dengan Garis Batas}
-Penggunaan kelas \texttt{.table-bordered} akan membuat tabel memiliki garis batas untuk semua sisi didalam tabel dan \textit{cells}.
-
+\subsubsection{Tabel dengan Garis Batas}
+Penggunaan kelas \texttt{.table-bordered} akan membuat tabel memiliki garis batas untuk semua sisi didalam tabel dan \textit{cells}.\\
+Gambar ~\ref{fig:tableBorderedBootstrap} merupakan hasil penggunaan tabel:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{tablebordered_bootstrap.png}  
@@ -1078,41 +1188,42 @@ Penggunaan kelas \texttt{.table-bordered} akan membuat tabel memiliki garis bata
 	\label{fig:tableBorderedBootstrap}
 \end{figure}
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tableborderedBootstrap}, caption=Kode tabel dengan garis batas pada bootstrap 4] 
+\noindent Kode dari gambar diatas tertera pada kode ~\ref{lst:tableborderedBootstrap}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tableborderedBootstrap}, caption=Kode tabel dengan garis batas pada bootstrap 4] 
 <table class="table table-bordered">
-<thead>
-<tr>
-<th scope="col">#</th>
-<th scope="col">First</th>
-<th scope="col">Last</th>
-<th scope="col">Handle</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">1</th>
-<td>Mark</td>
-<td>Otto</td>
-<td>@mdo</td>
-</tr>
-<tr>
-<th scope="row">2</th>
-<td>Jacob</td>
-<td>Thornton</td>
-<td>@fat</td>
-</tr>
-<tr>
-<th scope="row">3</th>
-<td colspan="2">Larry the Bird</td>
-<td>@twitter</td>
-</tr>
-</tbody>
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Handle</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">1</th>
+			<td>Mark</td>
+			<td>Otto</td>
+			<td>@mdo</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>Jacob</td>
+			<td>Thornton</td>
+			<td>@fat</td>
+		</tr>
+		<tr>
+			<th scope="row">3</th>
+			<td colspan="2">Larry the Bird</td>
+			<td>@twitter</td>
+		</tr>
+	</tbody>
 </table>
 \end{lstlisting}
 
-\paragraph{Tabel dengan Warna Baris Berbeda}
+\subsubsection{Tabel dengan Warna Baris Berbeda}
 Penggunaan kelas \texttt{.table-striped} akan membuat tabel memiliki warna baris berbeda batas antara baris genap dan ganjil didalam tag \texttt{<tbody>}.
-
+Gambar ~\ref{fig:tableStripedBootstrap} merupakan hasil penggunaan tabel:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{tablestriped_bootstrap.png}  
@@ -1120,35 +1231,35 @@ Penggunaan kelas \texttt{.table-striped} akan membuat tabel memiliki warna baris
 	\label{fig:tableStripedBootstrap}
 \end{figure}
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tablestripedBootstrap}, caption=Kode tabel dengan warna baris berbeda pada bootstrap 4.] 
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:tablestripedBootstrap}, caption=Kode tabel dengan warna baris berbeda pada bootstrap 4.] 
 <table class="table table-striped">
-<thead>
-<tr>
-<th scope="col">#</th>
-<th scope="col">First</th>
-<th scope="col">Last</th>
-<th scope="col">Handle</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">1</th>
-<td>Mark</td>
-<td>Otto</td>
-<td>@mdo</td>
-</tr>
-<tr>
-<th scope="row">2</th>
-<td>Jacob</td>
-<td>Thornton</td>
-<td>@fat</td>
-</tr>
-<tr>
-<th scope="row">3</th>
-<td colspan="2">Larry the Bird</td>
-<td>@twitter</td>
-</tr>
-</tbody>
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Handle</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">1</th>
+			<td>Mark</td>
+			<td>Otto</td>
+			<td>@mdo</td>
+		</tr>
+		<tr>
+			<th scope="row">2</th>
+			<td>Jacob</td>
+			<td>Thornton</td>
+			<td>@fat</td>
+		</tr>
+		<tr>
+			<th scope="row">3</th>
+			<td colspan="2">Larry the Bird</td>
+			<td>@twitter</td>
+		</tr>
+	</tbody>
 </table>
 \end{lstlisting}
 
@@ -1156,14 +1267,16 @@ Penggunaan kelas \texttt{.table-striped} akan membuat tabel memiliki warna baris
 \subsubsection{Gambar}
 Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan kelas \texttt{.img-fluid} serta mengatur lebar gambar dengan properties \texttt{max-width: 100\%} dan \texttt{height: auto}. Sehingga gambar tidak pernah lebih besar dari \textit{parent} nya. 
 
-\textit{Developer} dapat menyelaraskan (align) sebuah gambar ke kiri atau kanan dengan \texttt{helper float classes} atau \texttt{text alignment classes}. 
+Programmer dapat menyelaraskan (align) sebuah gambar ke kiri atau kanan dengan \textit{helper float classes} atau \textit{text alignment classes}. 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{imgalign_bootstrap.PNG}  
 	\caption{Menyelaraskan gambar ke kanan dan kiri pada bootstrap} 
 	\label{fig:imageAlignStripedBootstrap}
 \end{figure}
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:imgalignBootstrap}, caption=Image Align pada bootstrap 4.]
+
+\noindent Kode dari gambar diatas tertera pada kode ~\ref{lst:imgalignBootstrap}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:imgalignBootstrap}, caption=Image Align pada bootstrap 4.]
 <img src="..." class="rounded float-left" alt="...">
 <img src="..." class="rounded float-right" alt="...">
 \end{lstlisting}
@@ -1174,40 +1287,41 @@ Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan
 \subsubsection{Formulir}
 \textit{Form} pada Bootstrap menyediakan beragam tipe input sesuai dengan kebutuhan \textit{user}. Contohnya penggunaan kelas \texttt{email} untuk \textit{input} email atau \texttt{number} untuk input berupa angka.
 \subsubsection{Form Controls}
-\textit{Developer} dapat membuat form menggunakan kelas \texttt{.form-control}. Kelas ini terdiri dari beberapa tag seperti tag \texttt{<input>, <select>} dan \texttt{<textarea>}.
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:formControlsBootstrap}, caption=Form controls pada bootstrap 4.]  
+Programmer dapat membuat form menggunakan kelas \texttt{.form-control}. Kelas ini terdiri dari beberapa tag seperti tag \texttt{<input>, <select>} dan \texttt{<textarea>}.\\
+Kode ~\ref{lst:formControlsBootstrap} menjelaskan implementasi dari \textit{form controls}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:formControlsBootstrap}, caption=Form controls pada bootstrap 4.]  
 <form>
-<div class="form-group">
-<label for="exampleFormControlInput1">Email address</label>
-<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-<div class="form-group">
-<label for="exampleFormControlSelect1">Example select</label>
-<select class="form-control" id="exampleFormControlSelect1">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
-</div>
-<div class="form-group">
-<label for="exampleFormControlSelect2">Example multiple select</label>
-<select multiple class="form-control" id="exampleFormControlSelect2">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>
-</div>
-<div class="form-group">
-<label for="exampleFormControlTextarea1">Example textarea</label>
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
+	<div class="form-group">
+		<label for="exampleFormControlInput1">Email address</label>
+		<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">Example select</label>
+		<select class="form-control" id="exampleFormControlSelect1">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlSelect2">Example multiple select</label>
+		<select multiple class="form-control" id="exampleFormControlSelect2">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="exampleFormControlTextarea1">Example textarea</label>
+		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	</div>
 </form>
 \end{lstlisting}
-
+Hasil dari kode diatas terlihat pada gambar ~\ref{fig:formBootstrap}
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{formsbasic_bootstrap.png}  
@@ -1215,70 +1329,74 @@ Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan
 	\label{fig:formBootstrap}
 \end{figure} 
 \subsubsection{Column Sizing}
-Bootstrap memungkinkan \textit{developer} untuk menempatkan sejumlah \texttt{.col} di dalam baris \texttt{.row} atau \texttt{.form} dengan lebar tertentu. Misalnya ada tiga buah kolom, kolom pertama memiliki lebar 7 dengan menggunakan kelas \texttt{.col-7} maka dua kolom sisanya akan memiliki lebar yang  memenuhi baris tersebut.
+Bootstrap memungkinkan programmer untuk menempatkan sejumlah \texttt{.col} di dalam baris \texttt{.row} atau \texttt{.form} dengan lebar tertentu. Misalnya ada tiga buah kolom, kolom pertama memiliki lebar 7 dengan menggunakan kelas \texttt{.col-7} maka dua kolom sisanya akan memiliki lebar yang  memenuhi baris tersebut.
+ 
+Kode ~\ref{lst:formControlsBootstrap} menjelaskan implementasi dari \textit{column sizing}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:columnsizingBootstrap}, caption=Column sizing pada bootstrap 4.] 
+<form>
+	<div class="form-row">
+		<div class="col-7">
+			<input type="text" class="form-control" placeholder="City">
+		</div>
+		<div class="col">
+			<input type="text" class="form-control" placeholder="State">
+		</div>
+		<div class="col">
+			<input type="text" class="form-control" placeholder="Zip">
+		</div>
+	</div>
+</form>
+\end{lstlisting}
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:columnSizingBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{columnsizing_bootstrap.png}  
-	\caption{\textit{Forms Basi}c pada Bootstrap} 
+	\caption{\textit{Column Sizing} pada Bootstrap} 
 	\label{fig:columnSizingBootstrap}
-\end{figure} 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:columnsizingBootstrap}, caption=Column sizing pada bootstrap 4.] 
-<form>
-<div class="form-row">
-<div class="col-7">
-<input type="text" class="form-control" placeholder="City">
-</div>
-<div class="col">
-<input type="text" class="form-control" placeholder="State">
-</div>
-<div class="col">
-<input type="text" class="form-control" placeholder="Zip">
-</div>
-</div>
-</form>
-\end{lstlisting}
+\end{figure}
 \subsubsection{Disabled Forms}
 Penambahan atribut boolean \texttt{disabled} pada sebuah input membuat \textit{user} tidak bisa mengisi data pada \textit{field} tersebut. Untuk non-aktifkan seluruh \textit{field} pada sebuah kolom dapat menambahkan atribut \texttt{disabled} pada tag \texttt{<fieldset>}.
+
+\noindent Kode ~\ref{lst:disabledFormsBootstrap} menjelaskan implementasi dari \textit{disabled forms}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:disabledFormsBootstrap}, caption=Disabled forms pada bootstrap 4.]  
+<form>
+	<fieldset disabled>
+	<div class="form-group">
+		<label for="disabledTextInput">Disabled input</label>
+		<input type="text" id="disabledTextInput" class="form-control"
+		placeholder="Disabled input">
+	</div>
+	<div class="form-group">
+		<label for="disabledSelect">Disabled select menu</label>
+		<select id="disabledSelect" class="form-control">
+		<option>Disabled select</option>
+		</select>
+	</div>
+	<div class="form-check">
+		<input class="form-check-input" type="checkbox" 
+		id="disabledFieldsetCheck" disabled>
+		<label class="form-check-label" for="disabledFieldsetCheck">
+		Can't check this
+		</label>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+	</fieldset>
+</form>
+\end{lstlisting}
+
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:columnSizingBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{disabledforms_bootstrap.png}  
 	\caption{\textit{Disabled Basic} pada Bootstrap} 
 	\label{fig:disabledFormBootstrap}
 \end{figure}
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:disabledFormsBootstrap}, caption=Disabled forms pada bootstrap 4.]  
-<form>
-<fieldset disabled>
-<div class="form-group">
-<label for="disabledTextInput">Disabled input</label>
-<input type="text" id="disabledTextInput" class="form-control"
-placeholder="Disabled input">
-</div>
-<div class="form-group">
-<label for="disabledSelect">Disabled select menu</label>
-<select id="disabledSelect" class="form-control">
-<option>Disabled select</option>
-</select>
-</div>
-<div class="form-check">
-<input class="form-check-input" type="checkbox" 
-id="disabledFieldsetCheck" disabled>
-<label class="form-check-label" for="disabledFieldsetCheck">
-Can't check this
-</label>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</fieldset>
-</form>
-\end{lstlisting}
+
 \subsubsection{Button}
-Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisikan sebelumnya, membuat setiap button akan memiliki makna nya sendiri.
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.7]{buttons_bootstrap.png}  
-	\caption{\textit{Button} pada Bootstrap} 
-	\label{fig:buttonBootstrap}
-\end{figure}
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:buttonBootstrap}, caption=Button pada bootstrap 4.] 
+Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisikan sebelumnya, membuat setiap button akan memiliki makna nya sendiri.\\
+\noindent Kode ~\ref{lst:buttonBootstrap} menjelaskan implementasi dari \textit{button}:
+
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:buttonBootstrap}, caption=Button pada bootstrap 4.] 
 <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
@@ -1291,40 +1409,49 @@ Bootstrap memasukan beberapa button dengan \textit{style} yang sudah didefinisik
 <button type="button" class="btn btn-link">Link</button>
 \end{lstlisting}
 
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:buttonBootstrap}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{buttons_bootstrap.png}  
+	\caption{\textit{Button} pada Bootstrap} 
+	\label{fig:buttonBootstrap}
+\end{figure}
 
 \subsubsection{Button with Dropdowns}
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:buttonDropdownBootstrap}, caption=Button dropdown pada bootstrap 4.] 
+\noindent Kode ~\ref{lst:buttonDropdownBootstrap} menjelaskan implementasi dari \textit{button with dropdowns}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:buttonDropdownBootstrap}, caption=Button dropdown pada bootstrap 4.] 
 <div class="input-group mb-3">
-<div class="input-group-prepend">
-<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-aria-haspopup="true" aria-expanded="false">Dropdown</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="#">Action</a>
-<a class="dropdown-item" href="#">Another action</a>
-<a class="dropdown-item" href="#">Something else here</a>
-<div role="separator" class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Separated link</a>
-</div>
-</div>
-<input type="text" class="form-control" aria-label="Text input with dropdown button">
+	<div class="input-group-prepend">
+		<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+		aria-haspopup="true" aria-expanded="false">Dropdown</button>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="#">Action</a>
+			<a class="dropdown-item" href="#">Another action</a>
+			<a class="dropdown-item" href="#">Something else here</a>
+			<div role="separator" class="dropdown-divider"></div>
+			<a class="dropdown-item" href="#">Separated link</a>
+		</div>
+	</div>
+	<input type="text" class="form-control" aria-label="Text input with dropdown button">
 </div>
 
 <div class="input-group">
-<input type="text" class="form-control" aria-label="Text input with dropdown button">
-<div class="input-group-append">
-<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-aria-haspopup="true" aria-expanded="false">Dropdown</button>
-<div class="dropdown-menu">
-<a class="dropdown-item" href="#">Action</a>
-<a class="dropdown-item" href="#">Another action</a>
-<a class="dropdown-item" href="#">Something else here</a>
-<div role="separator" class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Separated link</a>
-</div>
-</div>
+	<input type="text" class="form-control" aria-label="Text input with dropdown button">
+	<div class="input-group-append">
+	<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+	aria-haspopup="true" aria-expanded="false">Dropdown</button>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="#">Action</a>
+			<a class="dropdown-item" href="#">Another action</a>
+			<a class="dropdown-item" href="#">Something else here</a>
+			<div role="separator" class="dropdown-divider"></div>
+			<a class="dropdown-item" href="#">Separated link</a>
+		</div>
+	</div>
 </div>
 \end{lstlisting}
 
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:dropdownBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{buttonsdropdown_bootstrap.PNG}  
@@ -1333,8 +1460,8 @@ aria-haspopup="true" aria-expanded="false">Dropdown</button>
 \end{figure}
 
 \subsubsection{Badge}
-Kelas \texttt{badge} dan \texttt{.badge-*} di dalam sebuah \texttt{<a>} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:badgeBootstrap}, caption=Badge pada bootstrap 4.] 
+Kelas \texttt{badge} dan \texttt{.badge-*} di dalam sebuah \texttt{<a>} akan memberikan badge yang dapat diberi atribut \textit{hover} dan \textit{focus}. Kode ~\ref{lst:badgeBootstrap} menjabarkan implementasi dari komponen \textit{badge}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:badgeBootstrap}, caption=Badge pada bootstrap 4.] 
 <a href="#" class="badge badge-primary">Primary</a>
 <a href="#" class="badge badge-secondary">Secondary</a>
 <a href="#" class="badge badge-success">Success</a>
@@ -1344,7 +1471,7 @@ Kelas \texttt{badge} dan \texttt{.badge-*} di dalam sebuah \texttt{<a>} akan mem
 <a href="#" class="badge badge-light">Light</a>
 <a href="#" class="badge badge-dark">Dark</a>
 \end{lstlisting}
-
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:badgeBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{badge_bootstrap.PNG}  
@@ -1353,22 +1480,22 @@ Kelas \texttt{badge} dan \texttt{.badge-*} di dalam sebuah \texttt{<a>} akan mem
 \end{figure}
 
 \subsubsection{Card}
-\texttt{Card} adalah kontainer konten yang fleksibel dan bisa diatur lebarnya. Sebuah card memiliki sebuah \textit{headers} dan \textit{footers}.
-
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:cardBootstrap}, caption=Card pada bootstrap 4.] 
+\texttt{Card} adalah kontainer konten yang fleksibel dan bisa diatur lebarnya. Sebuah card memiliki sebuah \textit{headers} dan \textit{footers}. \\
+Berikut ini implementasi yang terlihat pada kode ~\ref{lst:cardBootstrap}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:cardBootstrap}, caption=Card pada bootstrap 4.] 
 <div class="card">
-<div class="card-header">
-Featured
-</div>
-<div class="card-body">
-<h5 class="card-title">Special title treatment</h5>
-<p class="card-text">With supporting text below as 
-a natural lead-in to additional content.</p>
-<a href="#" class="btn btn-primary"card>Go somewhere</a>
-</div>
+	<div class="card-header">
+		Featured
+	</div>
+	<div class="card-body">
+		<h5 class="card-title">Special title treatment</h5>
+		<p class="card-text">With supporting text below as 
+		a natural lead-in to additional content.</p>
+		<a href="#" class="btn btn-primary"card>Go somewhere</a>
+	</div>
 </div>
 \end{lstlisting}
-
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:cardBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{card_bootstrap.PNG}  
@@ -1386,53 +1513,55 @@ Navbar pada Bootstrap terdiri dari beberapa sub-komponen yang bisa digunakan ses
 	\item \texttt{.collapse.navbar-collapse} : Komponen untuk mengelompokkan dan menyembunyikan \textit{navigation bar} dengan sebuah breakpoint induknya.
 	%breakpoint : titik dimana terjadi perubahan (xs(br:0px), sm.. )
 \end{itemize}
-Berikut ini merupakan semua sub-komponen yang termasuk dalam navigation bar, navbar mengimplementasikan tema \texttt{light-themed} yang secara otomatis menyembunyilan menu pada breakpoint \texttt{lg}
+
+Berikut ini implementasi yang terlihat pada kode ~\ref{lst:navBarBootstrap}, dimana semua sub-komponen yang termasuk dalam navigation bar. Navbar mengimplementasikan tema \texttt{light-themed} yang secara otomatis menyembunyikan menu pada breakpoint \texttt{lg}
+
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:navBarBootstrap}, caption=Navigation bar pada bootstrap 4.]  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">Navbar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+	aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Dropdown
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">Disabled</a>
+			</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		</form>
+	</div>
+</nav>
+\end{lstlisting}
+
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:navBarBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{navbar_bootstrap.PNG}  
 	\caption{Navigation Bar pada Bootstrap} 
 	\label{fig:navBarBootstrap}
 \end{figure}
-
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:navBarBootstrap}, caption=Navigation bar pada bootstrap 4.]  
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">Navbar</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
-aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav mr-auto">
-<li class="nav-item active">
-<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Link</a>
-</li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
-data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Dropdown
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="#">Action</a>
-<a class="dropdown-item" href="#">Another action</a>
-<div class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Something else here</a>
-</div>
-</li>
-<li class="nav-item">
-<a class="nav-link disabled" href="#">Disabled</a>
-</li>
-</ul>
-<form class="form-inline my-2 my-lg-0">
-<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
-</div>
-</nav>
-\end{lstlisting}
 
 \subsubsection{Modal}
 Bagaimana Modal bekerja :
@@ -1442,7 +1571,38 @@ Bagaimana Modal bekerja :
 	\item Bootstrap hanya mendukung satu modal dalam sebuah window pada satu waktu. Penggunaan modal yang bercabang dalam Bootstrap dipercaya memberikan \textit{user experience} yang buruk.
 	\item Modal menggunakann \texttt{position: fixed} yang diletakkan pada posisi teratas dalam kode agar terhindar dari \textit{bug} yang disebabkan elemen lain yang memiliki posisi \textit{fixed}. 
 \end{itemize}
-Komponen modal terdiri dari modal headerm modal body dan modal footer (opsional).
+Komponen modal terdiri dari modal headerm modal body dan modal footer (opsional). Berikut ini implementasi yang terlihat pada kode ~\ref{lst:modalBootstrap}:
+
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:modalBootstrap}, caption=Modal bar pada bootstrap 4.] 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+	Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			</div>
+			<div class="modal-body">
+			...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+\end{lstlisting}
+
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:modalBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.5]{livemodal_bootstrap.png}  
@@ -1450,103 +1610,79 @@ Komponen modal terdiri dari modal headerm modal body dan modal footer (opsional)
 	\label{fig:modalBootstrap}
 \end{figure}
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:modalBootstrap}, caption=Modal bar pada bootstrap 4.] 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" 
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<div class="modal-body">
-...
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="button" class="btn btn-primary">Save changes</button>
-</div>
-</div>
-</div>
-</div>
-\end{lstlisting}
-
 \subsubsection{Ikon}
-Bootstrap tidak memiliki \textit{library} ikon secara \textit{default}, sehingga ikon yang digunakan diambil dari \texttt{Font Awesome}. Penggunaan ikon dengan menggunakan tag \texttt{<i>} yang disertai dengan kelas \texttt{fa} (font-awesome). 
+Bootstrap tidak memiliki \textit{library} ikon secara \textit{default}, sehingga ikon yang digunakan diambil dari \texttt{Font Awesome}. Penggunaan ikon dengan menggunakan tag \texttt{<i>} yang disertai dengan kelas \texttt{fa} (font-awesome). Berikut ini implementasi yang terlihat pada kode ~\ref{lst:ikonBootstrap}:
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:ikonBootstrap}, caption=Ikon pada bootstrap 4.]
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:ikonBootstrap}, caption=Ikon pada bootstrap 4.]
 <i class="fa fa-coffee"></i>
 \end{lstlisting}
 
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:fontAwesomeBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{fa_coffee.PNG}  
 	\caption{Ikon \textit{Coffee} pada Font Awesome} 
 	\label{fig:fontAwesomeBootstrap}
 \end{figure}
+
 \subsubsection{Alert}
-Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringatan yang tersedia. Untuk gaya yang sesuai \textit{developer} dapat menggunakan delapan kelas yang tersedia.
+Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringatan yang tersedia. Untuk gaya yang sesuai \textit{developer} dapat menggunakan delapan kelas yang tersedia. Berikut ini implementasi yang terlihat pada kode ~\ref{lst:alertBootstrap}:
+
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:alertBootstrap}, caption=Alert pada bootstrap 4.] 
+<div class="alert alert-primary" role="alert">
+	This is a primary alert—check it out!
+</div>
+<div class="alert alert-secondary" role="alert">
+	This is a secondary alert—check it out!
+</div>
+<div class="alert alert-success" role="alert">
+	This is a success alert—check it out!
+</div>
+<div class="alert alert-danger" role="alert">
+	This is a danger alert—check it out!
+</div>
+<div class="alert alert-warning" role="alert">
+	This is a warning alert—check it out!
+</div>
+<div class="alert alert-info" role="alert">
+	This is a info alert—check it out!
+</div>
+<div class="alert alert-light" role="alert">
+	This is a light alert—check it out!
+</div>
+<div class="alert alert-dark" role="alert">
+	This is a dark alert—check it out!
+</div>
+\end{lstlisting}
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:alertBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{alert_bootstrap.PNG}  
 	\caption{Alert pada Bootstrap} 
 	\label{fig:alertBootstrap}
 \end{figure}
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:alertBootstrap}, caption=Alert pada bootstrap 4.] 
-<div class="alert alert-primary" role="alert">
-This is a primary alert—check it out!
-</div>
-<div class="alert alert-secondary" role="alert">
-This is a secondary alert—check it out!
-</div>
-<div class="alert alert-success" role="alert">
-This is a success alert—check it out!
-</div>
-<div class="alert alert-danger" role="alert">
-This is a danger alert—check it out!
-</div>
-<div class="alert alert-warning" role="alert">
-This is a warning alert—check it out!
-</div>
-<div class="alert alert-info" role="alert">
-This is a info alert—check it out!
-</div>
-<div class="alert alert-light" role="alert">
-This is a light alert—check it out!
-</div>
-<div class="alert alert-dark" role="alert">
-This is a dark alert—check it out!
-</div>
-\end{lstlisting}
-
 \section{DateTimePicker}
 \texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada bagian forms. 
 \subsubsection{Inline DateTimePicker}
 Penggunaan plugin ini, memungkinkan \textit{users} untuk memilih tanggal dan waktu secara bersamaan.
+
+Penggunaan nya dalam kode HTML tertera pada kode ~\ref{lst:htmlPlugin}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:htmlPlugin}, caption=Kode HTML pada plugin.] 
+<input id="datetimepicker" type="text" >
+\end{lstlisting}
+
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:datetimepickerBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=1.0]{datetimepicker_bootstrap4.PNG}  
 	\caption{Datetimepicker pada Bootstrap} 
 	\label{fig:datetimepickerBootstrap}
 \end{figure}
-\noindent 
-Penggunaan nya dalam kode HTML sebagai berikut :
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:htmlPlugin}, caption=Kode HTML pada plugin.] 
-<input id="datetimepicker" type="text" >
-\end{lstlisting}
 
-Penggunaan dalam kode Javascript sebagai berikut :
+Kemudian penggunaan dalam kode Javascript tertera pada kode ~\ref{lst:jQueryPlugin}:
 
-\begin{lstlisting}[language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryPlugin}, caption=Kode Inline DateTimePicker di jQuery.] 
-%jQuery('#datetimepicker').datetimepicker();
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryPlugin}, caption=Kode Inline DateTimePicker di jQuery.] 
+jQuery('#datetimepicker').datetimepicker();
 \end{lstlisting}
 
 

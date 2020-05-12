@@ -1,5 +1,5 @@
 %% skripsi.tex
-%% Copyright 2011-2017 Lionov W.
+%% Copyright 2011-2019 Lionov W.
 %%
 %% This file is part of the 'Template Skripsi/Tugas Akhir FTIS UNPAR'
 %%
@@ -68,24 +68,204 @@
 \usepackage{xstring}%manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
 \usepackage{pgffor}% untuk foreach
-\usepackage{amssymb}% untuk symbol check
-\usepackage{pifont}% untuk symbol check
-\usepackage{multirow}% untul multirow pada tabel
-\usepackage{verbatim}% comment multi-line
 
-%Setting gambar bersebelahan
-\usepackage{caption}
 \usepackage{subcaption}
-
-%Tabel dengan tab
-\usepackage{tabularx}
-
-%Posisi
-\usepackage{placeins}
+\usepackage[utf8]{inputenc}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
 
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
 \newcommand{\rtext}[1]{{\color{red} \small #1}}%command untuk default text
+
+%%-------------------------------------Package tambahan-------------------------------%%
+\usepackage{tabularx}	%tabel
+
+\definecolor{diffstart}{RGB}{169,169,169} %mendefinisikan warna abu-abu
+\definecolor{diffincl}{RGB}{0,128,0} %mendefinisikan warna hijau
+\definecolor{diffrem}{RGB}{255,0,0} %mendefinisikan warna merah
+
+%% ------- DIFF ---------%%
+
+\newcommand\circled[3]{%
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle, fill=#1, inner sep=0pt, text width=8pt, align=center]
+		(char) {\textcolor{#2}{\sffamily\bfseries\scriptsize #3}};
+	}%
+}
+
+\newcommand\lstnote[1]{%
+	\circled{purple}{pink!50!white}{#1}%
+}
+
+\newcommand\circledstyle[1]{%
+	\circled{gray}{white}{#1}%
+}
+\lstdefinelanguage{diff}{ 
+	morecomment=[f][\color{diffstart}]{@@},
+	morecomment=[f][\color{diffincl}]{>\ },
+	morecomment=[f][\color{diffrem}]{<\ },
+	rulecolor=\color{black},		
+	tabsize = 2,
+	captionpos = t,
+	breaklines = true,
+	breakatwhitespace = true;
+	xleftmargin = \parindent,
+	upquote = true,
+	showstringspaces = false,
+	numbers = left,
+	basicstyle = \footnotesize\ttfamily\color{black},
+	commentstyle = \color{codecomment},
+	numberstyle = \tiny\color{black},
+	escapeinside = {<@}{@>}
+}
+
+%
+% ECMAScript 2015 (ES6) definition by Gary Hammock
+%
+\lstalias[]{ES6}[ECMAScript2015]{JavaScript}
+
+% Requires package: color.
+\definecolor{harvestgold}{rgb}{0.85, 0.57, 0.0}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{mediumgray}{rgb}{0.3, 0.4, 0.4}
+\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{forestgreen(traditional)}{rgb}{0.0, 0.27, 0.13}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\definecolor{royalblue}{rgb}{0.25, 0.41, 0.88}
+\definecolor{crimson}{rgb}{0.86, 0.8, 0.24}
+\definecolor{codecolor}{rgb}{0.14, 0.16, 0.48}
+\definecolor{codebg}{cmyk}{0.02,0.02,0.02,0.02}
+\definecolor{codenumber}{cmyk}{0.2,0.1,0.1,0.2}
+\definecolor{codecomment}{cmyk}{0.6,0,1,0}
+\definecolor{codestring}{rgb}{0.4, 0.0, 0.04}
+
+%% ------- JAVASCRIPT ---------%%
+\lstdefinelanguage{JavaScript}{
+	morekeywords=[1]{break, continue, delete, else, for, function, if, in,
+		new, return, this, typeof, var, void, while, with},
+	% Literals, primitive types, and reference types.
+	morekeywords=[2]{false, null, true, boolean, number, undefined,
+		Array, Boolean, Date, Math, Number, String, Object},
+	% Built-ins.
+	morekeywords=[3]{eval, parseInt, parseFloat, escape, unescape},
+	sensitive,
+	morecomment=[s]{/*}{*/},
+	morecomment=[l]//,
+	morecomment=[s]{/**}{*/}, % JavaDoc style comments
+	morestring=[b]',
+	morestring=[b]"
+}[keywords, comments, strings]
+\lstdefinestyle{JSES6Base}{
+	commentstyle=\color{mediumgray}\upshape,
+	emphstyle=\color{crimson},
+	identifierstyle=\color{black},
+	keywordstyle=\color{mediumblue},
+	keywordstyle={[2]\color{byzantium}},
+	keywordstyle={[3]\color{royalblue}},
+	numberstyle=\tiny\color{black},
+	rulecolor=\color{black},,
+	stringstyle = \color{codestring},
+	tabsize=2,
+	captionpos = t,
+	breaklines = true,
+	breakatwhitespace = true;
+	xleftmargin = \parindent,
+	alsolanguage = JavaScript,
+	upquote = true,
+	showstringspaces = false,
+	numbers = left,
+	%color
+	basicstyle = \footnotesize\ttfamily\color{black},
+	commentstyle = \color{codecomment},
+	keywordstyle = \color{codecolor},
+	numberstyle = \tiny\color{codenumber},
+	stringstyle = \color{codestring},
+	emphstyle = {\color{forestgreen(traditional)}},
+	moredelim=[s][\color{forestgreen(traditional)}]{\$}{\ }
+	frame = single
+}
+\lstdefinestyle{JavaScript}{
+	language=JavaScript,
+	style=JSES6Base
+}
+
+
+%% ------- HTML ---------%%
+
+\lstdefinelanguage{myhtml} {
+	language = HTML,
+	sensitive=true,
+	keywords={%
+		% JavaScript
+		typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break,
+		% HTML
+		html, title, meta, style, head, body, script, canvas,
+		% CSS
+		border:, transform:, -moz-transform:, transition-duration:, transition-property:,
+		transition-timing-function:
+	},
+	% http://texblog.org/tag/otherkeywords/
+	otherkeywords={<, >, \/},   
+	ndkeywords={class, export, boolean, throw, implements, import, this},   
+	comment=[l]{//},
+	% morecomment=[s][keywordstyle]{<}{>},  
+	morecomment=[s]{/*}{*/},
+	morecomment=[s]{<!}{>},
+	morestring=[b]',
+	morestring=[b]",    
+	alsoletter={-},
+	alsodigit={:}
+}
+\lstdefinestyle{customhtml}{
+	tabsize = 2,
+	captionpos = t,
+	breaklines = true,
+	breakatwhitespace = true;
+	xleftmargin = \parindent,
+	language = myhtml,
+	upquote = true,
+	showstringspaces = false,
+	numbers = left,
+	basicstyle = \footnotesize\ttfamily\color{black},
+	commentstyle = \color{codecomment},
+	keywordstyle = \color{codecolor},
+	numberstyle = \tiny\color{codenumber},
+	stringstyle = \color{codestring},
+	tagstyle = \color{codecolor},
+	emphstyle = {\color{forestgreen(traditional)}},
+	moredelim=[s][\color{forestgreen(traditional)}]{\$}{\ }
+}
+
+%% --------- PHP ---------%%
+\lstdefinestyle{customphp}{
+	tabsize = 2,
+	captionpos = t,
+	breaklines = true,
+	breakatwhitespace = true;
+	xleftmargin = \parindent,
+	language = PHP,
+	upquote = true,
+	showstringspaces = false,
+	numbers = left,
+	basicstyle = \footnotesize\ttfamily\color{black},
+	commentstyle = \color{codecomment},
+	numberstyle = \tiny\color{codenumber},
+	stringstyle = \color{codestring},
+	emph            =[1]{php},
+	emphstyle       =[1]\color{black},
+	emph            =[2]{if,and,or,else},
+	emphstyle       =[2]\color{harvestgold},
+	emph			=[3]{class, extends, use, protected, public, namespace, return, function, echo},
+	emphstyle       =[3]\bfseries,
+	emph			=[4]{html, title, meta, style, head, body,h1},
+	emphstyle       =[4]\color{codecolor}
+	moredelim=[s][\color{britishracinggreen}]{\$}{\ }	
+}
+
+
+%%-------------------------------------Package tambahan-------------------------------%%
+
 
 \newcommand{\vmode}{template}  % default mode
 \newtoggle{cekNPM}	 
@@ -96,15 +276,15 @@
 \graphicspath{{./Gambar/}}% folder tempat gambar 
 
 %cek apakah text default
-\newcommand{\vtext}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\rtext{#2}#3}}{\newcommand{#1}{#2}}}
-\newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}
+\newcommand{\vtext}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\xtxt{#2}#3}}{\newcommand{#1}{#2}}}
+\newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{#2}#3}}{\newcommand{#1}{\uppercase{#2}}}}
 
 %default data prodi
-\newcommand{\vprodiINA}{\rtext{<<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}}
-\newcommand{\vprodiENG}{\rtext{<<MATHEMATICS/PHYSICS/INFORMATICS>>}}
-\newcommand{\vstaINA}{\rtext{<<SKRIPSI/TUGAS AKHIR>>}} 
-\newcommand{\vstaENG}{\rtext{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}}
-\newcommand{\vkaprodi}{\rtext{<<Ketua Program Studi>>}}
+\newcommand{\vprodiINA}{<<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}
+\newcommand{\vprodiENG}{<<MATHEMATICS/PHYSICS/INFORMATICS>>}
+\newcommand{\vstaINA}{<<SKRIPSI/TUGAS AKHIR>>} 
+\newcommand{\vstaENG}{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}
+\newcommand{\vkaprodi}{<<Ketua Program Studi>>}
 
 %data kaprodi 
 \newcommand{\kaprodiMAT}{}
@@ -142,9 +322,9 @@
 
 %data tanggal sidang
 \newcommand{\tanggal}[3]{
-	\newcommand{\vtanggal}{\rtext{#1}} \IfInteger{#1}{\renewcommand{\vtanggal}{#1}}{}
-	\newcommand{\vtahun}{\rtext{#3}} \IfInteger{#3}{\renewcommand{\vtahun}{#3}}{}
-	\newcommand{\vbulan}{\rtext{#2}}
+	\newcommand{\vtanggal}{#1} \IfInteger{#1}{\renewcommand{\vtanggal}{#1}}{}
+	\newcommand{\vtahun}{#3} \IfInteger{#3}{\renewcommand{\vtahun}{#3}}{}
+	\newcommand{\vbulan}{#2}
 	\IfStrEqCase{#2}{%ubah angka bulan menjadi kata
 		{1}{\renewcommand{\vbulan}{Januari}}	{2}{\renewcommand{\vbulan}{Februari}}	
 		{3}{\renewcommand{\vbulan}{Maret}}		{4}{\renewcommand{\vbulan}{April}}	
@@ -159,13 +339,13 @@
 \newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{} \hypersetup{pdftitle={#1}}}	
 %\newcommand{\judulINA}[1]{\vtextup{\vjudulINA}{#1}{}}	
 \newcommand{\judulENG}[1]{\vtextup{\vjudulENG}{#1}{}}	
-\newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{\\\dtext{1}}}
-\newcommand{\abstrakENG}[1]{\vtext{\vabstrakENG}{#1}{\\\dtext{2}}} 
+\newcommand{\abstrakINA}[1]{\vtext{\vabstrakINA}{#1}{}} 
+\newcommand{\abstrakENG}[1]{\vtext{\vabstrakENG}{#1}{}} 
 \newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}\hypersetup{pdfkeywords={#1}}}
 %\newcommand{\kunciINA}[1]{\vtext{\vkunciINA}{#1}{}}  
 \newcommand{\kunciENG}[1]{\vtext{\vkunciENG}{#1}{}} 
 \newcommand{\untuk}[1]{\vtext{\vuntuk}{#1}{}}
-\newcommand{\prakata}[1]{\vtext{\vprakata}{#1}{\\\dtext{3-4}}}
+\newcommand{\prakata}[1]{\vtext{\vprakata}{#1}{}}
 
 %data pembimbing dan penguji	
 \newcommand{\vnpemb}{2}
@@ -265,7 +445,7 @@
 		
 		%cover INA 
 		\begin{center}
-			{\Large \textbf{
+			{\Large \textbf{%
 					\vstaINA\\\vspace{1.5cm}
 					\vjudulINA\\\vspace{2.5cm}
 					\includegraphics{Logo-UNPAR}\\\vspace{1cm}
@@ -284,7 +464,7 @@
 			
 			%cover ENG
 			\begin{center}
-				{\Large \textbf{
+				{\Large \textbf{%
 						\vstaENG\\\vspace{1.5cm}
 						\vjudulENG\\\vspace{2.5cm}
 						\includegraphics{Logo-UNPAR}\\\vspace{1cm}
@@ -423,18 +603,6 @@
 	
 	\pagestyle{fancy}%header 
 	
-	\definecolor{diffstart}{RGB}{169,169,169} %mendefinisikan warna abu-abu
-	\definecolor{diffincl}{RGB}{0,128,0} %mendefinisikan warna hijau
-	\definecolor{diffrem}{RGB}{255,0,0} %mendefinisikan warna merah
-	
-	\lstdefinelanguage{diff}{ %mendefinisikan bahasa baru
-		basicstyle=\ttfamily\small,
-		morecomment=[f][\color{diffstart}]{@@},
-		morecomment=[f][\color{diffincl}]{+\ },
-		morecomment=[f][\color{diffrem}]{-\ },
-		rulecolor=\color{black},
-	}
-	
 	%include bab 
 	\foreach \i in \vbab { \edef\vfile{Bab/bab\i} \IfFileExists{\vfile}{\include{\vfile}}} 
 	
@@ -454,11 +622,9 @@
 		commentstyle=\itshape\color{gray}, keywordstyle=\bfseries\color{blue}, 
 		identifierstyle=\color{black}, stringstyle=\color{orange},
 		literate={-}{-}1{-\,-}{--}1
-	} 
+	}  
 
-	
 
-	
 	\appendix%Penomoran lampiran dengan huruf  
 	
 	%include lampiran
