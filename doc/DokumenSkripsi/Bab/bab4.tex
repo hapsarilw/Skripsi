@@ -236,6 +236,8 @@ diff -r a\www\application\views\auth\login.php b\www\application\views\auth\logi
 \noindent Penjelasan kode diatas tertera pada tabel ~\ref{tabelKodeManajemenPerubahanKuliah}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode yang dipakai pada halaman manajemen perubahan kuliah.}
+	\label{tabelKodeManajemenPerubahanKuliah}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
@@ -246,8 +248,6 @@ diff -r a\www\application\views\auth\login.php b\www\application\views\auth\logi
 		19-24 & \textbf{Text} & Teks akan diletakkan ditengah, hanya di Foundation 6 saja perlu menginisiasi kelas \texttt{.text-center} pada Bootstrap 4 tidak perlu.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode yang dipakai pada halaman manajemen perubahan kuliah.}
-	\label{tabelKodeManajemenPerubahanKuliah}
 \end{table}
 
 Implementasi notifikasi user terdapat pada kode ~\ref{lst:flashmessage}.
@@ -275,6 +275,8 @@ diff -r a\www\application\views\templates\flashmessage.php b\www\application\vie
 \noindent Beberapa catatan dari kode diatas berada pada tabel ~\ref{tabelKodeLogin}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode konversi halaman login.}
+	\label{tabelKodeLogin}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
@@ -282,8 +284,6 @@ diff -r a\www\application\views\templates\flashmessage.php b\www\application\vie
 		8-16 & \textbf{Alert} & Labelling menggunakan \texttt{.callout} pada Foundation 6. Boostrap 4 mrnggunakan kelas \texttt{.alert} dan atribut \texttt{role}.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode konversi halaman login.}
-	\label{tabelKodeLogin}
 \end{table}
 
 \subsection{Menu Navigasi}
@@ -334,6 +334,8 @@ diff -r a\www\application\views\templates\topbar_loggedin.php b\www\application\
 \noindent Catatan untuk kode ~\ref{lst:topbarloggedin} dijabarkan dalam tabel ~\ref{tabel:KodeLogin}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode konversi navigasi bar.}
+	\label{tabel:KodeLogin}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
@@ -341,8 +343,6 @@ diff -r a\www\application\views\templates\topbar_loggedin.php b\www\application\
 		3-39 & \textbf{Navbar} & Pada foundation 6 ikon dropdown belum berfungsi, sehingga pada Bootstrap 4 menu dibuat \textit{responsive} sehingga terdapat ikon yang menyimpan daftar menu.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode konversi navigasi bar.}
-	\label{tabel:KodeLogin}
 \end{table}
 
 \subsection{Halaman Permintaan Cetak Transkrip }
@@ -516,6 +516,8 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 \noindent Catatan untuk kode ~\ref{lst:mainTranskripRequest} dijabarkan dalam tabel ~\ref{table:kodePermintaanCetakTranskrip}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode permintaan cetak transkrip.}
+	\label{table:kodePermintaanCetakTranskrip}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		Implementasi     & Penjelasan \\
@@ -524,8 +526,6 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 		82-162 & \textbf{Modal} & Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode permintaan cetak transkrip.}
-	\label{table:kodePermintaanCetakTranskrip}
 \end{table}
 
 \subsubsection{Controller Permintaan Cetak Transkrip}
@@ -769,6 +769,8 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 \noindent Catatan untuk kode ~\ref{lst:topbarloggedin} dijabarkan dalam tabel ~\ref{tabel:KodeManajemenCetakTranskrip}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode konversi manajemen cetak transkrip.}
+	\label{tabel:KodeManajemenCetakTranskrip}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -778,8 +780,6 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 		56-218 & \textbf{Modal}  & Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode konversi manajemen cetak transkrip.}
-	\label{tabel:KodeManajemenCetakTranskrip}
 \end{table}
 
 \subsubsection{Controller Manajemen Cetak Transkrip}
@@ -1043,6 +1043,8 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode permintaan perubahan kuliah.}
+	\label{tabel:permintaanPerubahanKuliah}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1053,8 +1055,6 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 		173-183 &\textbf{Tabel} & Pada foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode permintaan perubahan kuliah.}
-	\label{tabel:permintaanPerubahanKuliah}
 \end{table}
 
 \subsubsection{Controller Permintaan Perubahan Kuliah}
@@ -1273,6 +1273,8 @@ diff -r a\www\application\views\PerubahanKuliahManage\main.php b\www\application
 Keterangan darikode diatas tertera pada tabel ~\ref{tabel:lst:manajemenPerubahanKuliah}
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode manajemen perubahan kuliah.}
+	\label{tabel:lst:manajemenPerubahanKuliah}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1283,8 +1285,6 @@ Keterangan darikode diatas tertera pada tabel ~\ref{tabel:lst:manajemenPerubahan
 		173-183 &\textbf{Tabel} & Pada foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode manajemen perubahan kuliah.}
-	\label{tabel:lst:manajemenPerubahanKuliah}
 \end{table}  
 
 \subsection{Halaman Entri Jadwal Dosen}
@@ -1460,6 +1460,8 @@ diff -r a\www\application\views\EntriJadwalDosen\main.php b\www\application\view
 Beberapa catatan dari kode diatas tertera pada tabel ~\ref{tabel:lst:entriJadwalDosen}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode permintaan perubahan kuliah.}
+	\label{tabel:lst:entriJadwalDosen}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1468,8 +1470,6 @@ Beberapa catatan dari kode diatas tertera pada tabel ~\ref{tabel:lst:entriJadwal
 		96-99 & \textbf{Modal}  & Memanggil jQuery saat jadwal yang terisi dipilih user.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode permintaan perubahan kuliah.}
-	\label{tabel:lst:entriJadwalDosen}
 \end{table}
 
 \subsection{Halaman	Lihat Jadwal Dosen}
@@ -1536,6 +1536,8 @@ diff -r a\www\application\views\LihatJadwalDosen\main.php b\www\application\view
 Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lst:lihatJadwalDosen}:
 \begin{table}[H]
 	\centering
+	\caption{Penjelasan kode permintaan perubahan kuliah.}
+	\label{tabel:lst:lihatJadwalDosen}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1544,6 +1546,245 @@ Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lst:lihatJadwalDosen}
 		31-44 & \textbf{Edit background tabel}  & Pada Bootstrap 4 diatur lebar tabel dan garis yang mengelilingi \textit{cell} yang berisi jadwal kuliah.\\
 		\bottomrule
 	\end{tabularx}%
-	\caption{Penjelasan kode permintaan perubahan kuliah.}
-	\label{tabel:lst:lihatJadwalDosen}
+
 \end{table}
+\section{Pengujian}
+Bagian pengujian akan menjelaskan dua bagian: skenario pengujian dan hasil pengujian. Pengujian ini akan dijalankan pada server lokal dengan aplikasi XAMPP dan browser web Chrome untuk melihat hasil desain serta menguji fitur yang ada dalam website BlueTape. Pengujian bertujuan memastikan tampilan sudah sesuai dengan tampilan sebelumnya dan semua fitur berjalan dengan baik.
+\subsection{Skenario Pengujian}
+Skenario pengujian berisi alur yang dilakukan penguji untuk memeriksa setiap fitur dan tampilan dari website. 
+\subsubsection{Tampilan Login}
+Skenario yang dilakukan penguji untuk \textit{login} pada website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Penguji mengakses \path{127.0.0.1} pada komputer lokal.
+	\item Penguji memeriksa link "Petunjuk Penggunaan".
+	\item Penguji memeriksa tombol "Login dengan Google".
+	\item Penguji melakukan proses login dengan email admin.
+	\item Penguji memeriksa notifikasi user pada proses \textit{login} dan \textit{logout}.	
+\end{enumerate}
+\subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
+Skenario yang dilakukan penguji untuk membuat permohonan baru pada halaman cetak transkrip sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Permohonan Baru".
+	\item Penguji memeriksa label yang memiliki tag \texttt{<label>}. 
+	\item Penguji memeriksa input yang memiliki tag \texttt{<input>}.
+	\item Penguji memeriksa lebar dari \textit{label} dan \textit{input field}.
+	\item Penguji memeriksa tombol "Kirim Permohonan".	
+\end{enumerate}
+
+\subsubsection{Konten Histori Permohonan pada Halaman Cetak Transkrip}
+Skenario yang dilakukan penguji untuk melihat histori permohonan pada halaman cetak transkrip sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Histori Permohonan".
+	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa data pada kolom "ID" menggunakan format teks \textit{bold}.
+	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".		
+	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Detail Permohonan pada Halaman Cetak Transkrip}
+Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
+	\item Penguji memeriksa penggunaan tabel.	
+\end{enumerate}
+
+\subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
+Skenario yang dilakukan penguji untuk \textit{form} pencarian npm pada halaman manajemen cetak transkrip sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Permintaan Transkrip".
+	\item Penguji memeriksa \textit{group label} dari "Cari NPM" pada \textit{form}.	
+	\item Penguji memeriksa \textit{group field} pada \textit{form}.	
+	\item Penguji memeriksa \textit{group button} dari "Cari" pada \textit{form}.
+\end{enumerate}
+
+\subsubsection{Tabel Daftar Permintaan Transkrip pada Halaman Manajemen Cetak Transkrip}
+Skenario yang dilakukan penguji untuk tabel daftar permintaan pada halaman manajemen cetak transkrip sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa tabel yang digunakan pada konten "Permintaan Transkrip".
+	\item Penguji memeriksa penggunaan teks \textit{bold} untuk kolom "ID" pada \textit{form}.
+	\item Penguji memeriksa penggunaan \textit{label} pada kolom "Status" pada \textit{form}.
+	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi" pada \textit{form}.
+\end{enumerate}
+
+\subsubsection{Popup Pesan Detail Permohonan pada Konten Permintaan Transkrip}
+Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
+	\item Penguji memeriksa penggunaan tabel.	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Tolak Permohonan pada Konten Permintaan Transkrip}
+Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Tolak" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi tolak permohonan.
+	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa tombol "Tolak" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Cetak Permohonan pada Konten Permintaan Transkrip}
+Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Cetak" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi cetak permohonan.
+	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa tombol "Sudah dicetak" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Hapus Permohonan pada Konten Permintaan Transkrip}
+Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Hapus" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
+	\item Penguji memeriksa tombol "Hapus" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Konten Permohonan Baru pada Halaman Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk konten permohonan baru pada halaman perubahan kuliah sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Permohonan Baru".
+	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa \textit{input field} dan label pada \textit{form}.
+	\item Penguji memeriksa lebar dari \textit{label} dan \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa tombol "Kirim Permohonan".
+	\item Penguji memeriksa tombol "Tambah Pertemuan Ekstra".
+\end{enumerate}
+
+\subsubsection{Konten Histori Permohonan pada Halaman Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk konten histori permohonan pada halaman perubahan kuliah sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Histori Permohonan".
+	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa data pada kolom "ID" memiliki format teks \textit{bold}.
+	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".			
+	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".
+\end{enumerate}
+
+\subsubsection{Popup Pesan Detail Permohonan pada Konten Histori Permohonan}
+Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
+	\item Penguji memeriksa penggunaan tabel.	
+\end{enumerate}
+
+\subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman Manajemen Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk konten permohonan perubahan kuliah pada halaman permohonan perubahan kuliah sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Permohonan Perubahan Kuliah".
+	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa data pada kolom "ID" memiliki format teks \textit{bold}.
+	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".			
+	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".
+\end{enumerate}
+
+\subsubsection{Popup Pesan Detail Permohonan pada Konten Permohonan Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.	
+	\item Penguji memeriksa penggunaan tabel.	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Konfirmasi Permohonan pada Konten Permohonan Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk konfirmasi permohonan untuk aksi "Konfirmasi" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi permohonan.
+	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa tombol "Konfirmasi" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Tolak Permohonan pada Konten Permohonan Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk modal tolak permohonan untuk aksi "Tolak" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi tolak permohonan.
+	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa tombol "Tolak" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Popup Pesan Hapus Permohonan pada Konten Permohonan Perubahan Kuliah}
+Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Tolak" sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
+	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa tombol "Hapus" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
+Skenario yang dilakukan penguji pada konten tambah jadwal dosen di halaman entri jadwal dosen sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Tambah Jadwal".	
+	\item Penguji memeriksa label pada \textit{form}. 
+	\item Penguji memeriksa \textit{input field} pada \textit{form}.
+	\item Penguji memeriksa lebar dari \textit{label} dan \textit{input field} pada \textit{form}.
+	\item Peguji memeriksa \textit{plugin} yang digunakan pada \textit{form field} "Jam Mulai".
+	\item Penguji memeriksa tombol "Tambah".
+\end{enumerate}
+
+\subsubsection{Konten Daftar Jadwal pada Halaman Entri Jadwal Dosen}
+Skenario yang dilakukan penguji pada konten daftar jadwal di halaman entri jadwal dosen sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari konten "Daftar Jadwal".
+	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa data pada kolom daftar hari dan baris daftar jam.
+	\item Penguji memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.			
+	\item Penguji memeriksa tombol "Delete All".
+	\item Penguji memeriksa tombol "Ekspor ke XLS".
+\end{enumerate}
+
+\subsubsection{Popup Pesan Edit Jadwal pada Konten Daftar Jadwal}
+Skenario yang dilakukan penguji pada modal edit jadwal sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa penggunaan \textit{popup} untuk melakukan edit jadwal.
+	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}. 
+	\item Penguji memeriksa tombol "Save" pada \textit{form}.
+	\item Penguji memeriksa tombol "Delete" pada \textit{form}.
+\end{enumerate}
+
+\subsubsection{Halaman Entri Jadwal Dosen}
+Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa \textit{container} dari halaman entri jadwal dosen.
+	\item Penguji memeriksa \textit{labelling} untuk setiap jadwal dosen.
+	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa data pada kolom daftar hari dan daftar jam  memiliki huruf tebal.
+	\item Penguji memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.
+	\item Penguji memeriksa tombol "Ekspor ke XLS".
+\end{enumerate}
+
+\section{Hasil Pengujian}
+\subsubsection{Tampilan Login}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian }
+	\label{table:hasil}
+	\begin{tabular}{c c p{0.50\textwidth}}
+		\toprule
+		\textbf{Langkah Ke} & \textbf{Hasil (Sukses / Tidak)} & \textbf{Tindakan}\\
+		
+		\midrule
+		1&Sukses&
+		2&Sukses&
+		3&Sukses&
+		4&Sukses&
+		5&Sukses&
+				
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+\subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
+\subsubsection{Konten Histori Permohonan pada Halaman Cetak Transkrip}
+\subsubsection{Popup Pesan Detail Permohonan pada Halaman Cetak Transkrip}
+\subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
+\subsubsection{Tabel Daftar Permintaan Transkrip pada Halaman Manajemen Cetak Transkrip}
+\subsubsection{Popup Pesan Detail Permohonan pada Konten Permintaan Transkrip}
+\subsubsection{Popup Pesan Tolak Permohonan pada Konten Permintaan Transkrip}
+\subsubsection{Popup Pesan Cetak Permohonan pada Konten Permintaan Transkrip}
+\subsubsection{Popup Pesan Hapus Permohonan pada Konten Permintaan Transkrip}
+\subsubsection{Konten Permohonan Baru pada Halaman Perubahan Kuliah}
+\subsubsection{Konten Histori Permohonan pada Halaman Perubahan Kuliah}
+\subsubsection{Popup Pesan Detail Permohonan pada Konten Histori Permohonan}
+\subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman 
+\subsubsection{Popup Pesan Detail Permohonan pada Konten Permohonan Perubahan Kuliah}
+\subsubsection{Popup Pesan Konfirmasi Permohonan pada Konten Permohonan Perubahan Kuliah}
+\subsubsection{Popup Pesan Tolak Permohonan pada Konten Permohonan Perubahan Kuliah}
+\subsubsection{Popup Pesan Hapus Permohonan pada Konten Permohonan Perubahan Kuliah}
+\subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
+\subsubsection{Konten Daftar Jadwal pada Halaman Entri Jadwal Dosen}
+\subsubsection{Popup Pesan Edit Jadwal pada Konten Daftar Jadwal}
+\subsubsection{Halaman Entri Jadwal Dosen}
