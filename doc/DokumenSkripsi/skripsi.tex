@@ -81,7 +81,22 @@
 %%-------------------------------------Package tambahan-------------------------------%%
 \usepackage{tabularx}	%tabel
 \captionsetup[table]{aboveskip=0pt}
-\captionsetup[table]{belowskip=10pt}
+\captionsetup[table]{belowskip=0pt}
+
+% Requires package: color.
+\definecolor{harvestgold}{rgb}{0.85, 0.57, 0.0}
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{mediumgray}{rgb}{0.3, 0.4, 0.4}
+\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{forestgreen(traditional)}{rgb}{0.0, 0.27, 0.13}
+\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
+\definecolor{royalblue}{rgb}{0.25, 0.41, 0.88}
+\definecolor{crimson}{rgb}{0.86, 0.8, 0.24}
+\definecolor{codecolor}{rgb}{0.14, 0.16, 0.48}
+\definecolor{codebg}{cmyk}{0.02,0.02,0.02,0.02}
+\definecolor{codenumber}{cmyk}{0.2,0.1,0.1,0.2}
+\definecolor{codecomment}{cmyk}{0.6,0,1,0}
+\definecolor{codestring}{rgb}{0.4, 0.0, 0.04}
 
 \definecolor{diffstart}{RGB}{169,169,169} %mendefinisikan warna abu-abu
 \definecolor{diffincl}{RGB}{0,128,0} %mendefinisikan warna hijau
@@ -119,6 +134,7 @@
 	basicstyle = \footnotesize\ttfamily\color{black},
 	commentstyle = \color{codecomment},
 	numberstyle = \tiny\color{black},
+	xleftmargin=20pt,
 	escapeinside = {<@}{@>}
 }
 
@@ -127,20 +143,7 @@
 %
 \lstalias[]{ES6}[ECMAScript2015]{JavaScript}
 
-% Requires package: color.
-\definecolor{harvestgold}{rgb}{0.85, 0.57, 0.0}
-\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
-\definecolor{mediumgray}{rgb}{0.3, 0.4, 0.4}
-\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
-\definecolor{forestgreen(traditional)}{rgb}{0.0, 0.27, 0.13}
-\definecolor{byzantium}{rgb}{0.44, 0.16, 0.39}
-\definecolor{royalblue}{rgb}{0.25, 0.41, 0.88}
-\definecolor{crimson}{rgb}{0.86, 0.8, 0.24}
-\definecolor{codecolor}{rgb}{0.14, 0.16, 0.48}
-\definecolor{codebg}{cmyk}{0.02,0.02,0.02,0.02}
-\definecolor{codenumber}{cmyk}{0.2,0.1,0.1,0.2}
-\definecolor{codecomment}{cmyk}{0.6,0,1,0}
-\definecolor{codestring}{rgb}{0.4, 0.0, 0.04}
+
 
 %% ------- JAVASCRIPT ---------%%
 \lstdefinelanguage{JavaScript}{
@@ -185,6 +188,7 @@
 	stringstyle = \color{codestring},
 	emphstyle = {\color{forestgreen(traditional)}},
 	moredelim=[s][\color{forestgreen(traditional)}]{\$}{\ }
+	xleftmargin=20pt,
 	frame = single
 }
 \lstdefinestyle{JavaScript}{
@@ -236,12 +240,14 @@
 	stringstyle = \color{codestring},
 	tagstyle = \color{codecolor},
 	emphstyle = {\color{forestgreen(traditional)}},
+	xleftmargin=20pt,
 	moredelim=[s][\color{forestgreen(traditional)}]{\$}{\ }
 }
 
 %% --------- PHP ---------%%
 \lstdefinestyle{customphp}{
 	tabsize = 2,
+	xleftmargin=20pt,
 	captionpos = t,
 	breaklines = true,
 	breakatwhitespace = true;

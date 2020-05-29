@@ -159,7 +159,7 @@ diff -r a\www\application\config\modules.php 	b\www\application\config\modules.p
 \section{Perubahan Kode pada Tampilan}
 
 Bagian ini akan menjelaskan hasil implementasi dalam bentuk \textit{diff}. Diff membedakan kode berdasarkan warna dimana bagian berwarna merah merupakan kode lampau(implementasi dengan Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (implementasi dengan Bootstrap 4).
-   
+
 \subsection{Penggunaan \textit{library} Bootstrap 4 pada Website}
 
 Library Bootstrap 4 yang sudah dimasukan pada CodeIgniter akan diintegrasikan pada file www/application/config/modules.php dalam bentuk file \texttt{.js} dan \texttt{head\_loggedin.php} dalam bentuk file \texttt{.css}. File ini nantinya akan dipakai keseluruh halaman website kecuali halaman login.\\
@@ -187,7 +187,7 @@ Kedua file css akan dipanggil, ada tiga macam file yang dipanggil:
 	\item \textit{library} Font Awesome.
 \end{itemize}
 File yang berisi kode ~\ref{lst:headloggedin} akan digunakan pada seluruh halaman website kecuali halaman login.
- 
+
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\templates\head_loggedin.php},  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:headloggedin}]
 diff -r a\www\application\views\templates\head_loggedin.php b\www\application\views\templates\head_loggedin.php
@@ -233,11 +233,10 @@ diff -r a\www\application\views\auth\login.php b\www\application\views\auth\logi
 > <a href="https://github.com/ftisunpar/BlueTape/wiki/UserGuide" target="_blank">Petunjuk Penggunaan</a>
 \end{lstlisting}
 
-\noindent Penjelasan kode diatas tertera pada tabel ~\ref{tabelKodeManajemenPerubahanKuliah}:
+\noindent Penjelasan kode diatas tertera pada tabel ~\ref{table:KodeManajemenPerubahanKuliah}:
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode yang dipakai pada halaman manajemen perubahan kuliah.}
-	\label{tabelKodeManajemenPerubahanKuliah}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
@@ -248,6 +247,7 @@ diff -r a\www\application\views\auth\login.php b\www\application\views\auth\logi
 		19-24 & \textbf{Text} & Teks akan diletakkan ditengah, hanya di Foundation 6 saja perlu menginisiasi kelas \texttt{.text-center} pada Bootstrap 4 tidak perlu.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{table:KodeManajemenPerubahanKuliah}
 \end{table}
 
 Implementasi notifikasi user terdapat pada kode ~\ref{lst:flashmessage}.
@@ -273,10 +273,10 @@ diff -r a\www\application\views\templates\flashmessage.php b\www\application\vie
 \end{lstlisting}
 
 \noindent Beberapa catatan dari kode diatas berada pada tabel ~\ref{tabelKodeLogin}:
+
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode konversi halaman login.}
-	\label{tabelKodeLogin}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
@@ -284,6 +284,7 @@ diff -r a\www\application\views\templates\flashmessage.php b\www\application\vie
 		8-16 & \textbf{Alert} & Labelling menggunakan \texttt{.callout} pada Foundation 6. Boostrap 4 mrnggunakan kelas \texttt{.alert} dan atribut \texttt{role}.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{tabelKodeLogin}
 \end{table}
 
 \subsection{Menu Navigasi}
@@ -335,7 +336,6 @@ diff -r a\www\application\views\templates\topbar_loggedin.php b\www\application\
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode konversi navigasi bar.}
-	\label{tabel:KodeLogin}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
@@ -343,6 +343,7 @@ diff -r a\www\application\views\templates\topbar_loggedin.php b\www\application\
 		3-39 & \textbf{Navbar} & Pada foundation 6 ikon dropdown belum berfungsi, sehingga pada Bootstrap 4 menu dibuat \textit{responsive} sehingga terdapat ikon yang menyimpan daftar menu.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{tabel:KodeLogin}
 \end{table}
 
 \subsection{Halaman Permintaan Cetak Transkrip }
@@ -517,15 +518,15 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode permintaan cetak transkrip.}
-	\label{table:kodePermintaanCetakTranskrip}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
-		Implementasi     & Penjelasan \\
+		No Line & Implementasi     & Penjelasan\\
 		\midrule
 		3-16 & \textbf{Konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
 		82-162 & \textbf{Modal} & Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{table:kodePermintaanCetakTranskrip}
 \end{table}
 
 \subsubsection{Controller Permintaan Cetak Transkrip}
@@ -766,11 +767,11 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 >         </a>
 
 \end{lstlisting}
+
 \noindent Catatan untuk kode ~\ref{lst:topbarloggedin} dijabarkan dalam tabel ~\ref{tabel:KodeManajemenCetakTranskrip}:
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode konversi manajemen cetak transkrip.}
-	\label{tabel:KodeManajemenCetakTranskrip}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -780,6 +781,7 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 		56-218 & \textbf{Modal}  & Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}\\
 		\bottomrule
 	\end{tabularx}%
+	\label{tabel:KodeManajemenCetakTranskrip}
 \end{table}
 
 \subsubsection{Controller Manajemen Cetak Transkrip}
@@ -797,7 +799,6 @@ a\www\application\controllers\TranskripManage.php b\www\application\controllers\
 \end{lstlisting}
 
 \subsection{Halaman Permintaan Perubahan Kuliah}
-\end{lstlisting}
 \noindent Catatan untuk kode ~\ref{lst:mainPerubahanKuliahRequest} dijabarkan dalam tabel ~\ref{tabel:permintaanPerubahanKuliah}:
 
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\PerubahanKuliahRequest\main.php} ,  basicstyle=\ttfamily, frame=single,
@@ -1044,17 +1045,17 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode permintaan perubahan kuliah.}
-	\label{tabel:permintaanPerubahanKuliah}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
 		\midrule
 		3-17 & \textbf{Card} & Pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. .\\
-		51-54 & \textbf{Form}  & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}.\\
+		51-54 & \textbf{Form}  & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas\texttt{.input-group-prepend}.\\
 		56-218 & \textbf{Modal}  & Pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
 		173-183 &\textbf{Tabel} & Pada foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{tabel:permintaanPerubahanKuliah}
 \end{table}
 
 \subsubsection{Controller Permintaan Perubahan Kuliah}
@@ -1270,11 +1271,10 @@ diff -r a\www\application\views\PerubahanKuliahManage\main.php b\www\application
 >         </div>
 \end{lstlisting}
 
-Keterangan darikode diatas tertera pada tabel ~\ref{tabel:lst:manajemenPerubahanKuliah}
+Keterangan darikode diatas tertera pada tabel ~\ref{tabel:manajemenPerubahanKuliah}
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode manajemen perubahan kuliah.}
-	\label{tabel:lst:manajemenPerubahanKuliah}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1285,6 +1285,7 @@ Keterangan darikode diatas tertera pada tabel ~\ref{tabel:lst:manajemenPerubahan
 		173-183 &\textbf{Tabel} & Pada foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{tabel:manajemenPerubahanKuliah}
 \end{table}  
 
 \subsection{Halaman Entri Jadwal Dosen}
@@ -1292,176 +1293,179 @@ Kode ~\ref{lst:mainEntriJadwalDosen} menjabarkan perubahan halaman entri jadwal 
 \begin{lstlisting}[language=diff, caption=Kode untuk Halaman Entri Jadwal Dosen,  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainEntriJadwalDosen}]
 diff -r a\www\application\views\EntriJadwalDosen\main.php b\www\application\views\EntriJadwalDosen\main.php
-
-11a12,17
+11,16c11,16
+< 
+< <div class="row">
+< 
+<     <div class="large-12 column callout">
+<         <h5>Tambah Jadwal</h5>
+<         <div class="large-4 columns">
+---
+> <br>
 > <div class="container">
 >     <div class="card">
->         <div class="card-header">
->             Tambah Jadwal
->         </div>
->         <div class="card-body">
-
-14,16c19
-< <div class="large-12 column callout">
-< 	<h5>Tambah Jadwal</h5>
-< <div class="large-4 columns">
----
-> <div class="col-lg-4">
-
-20c23
+>         <div class="card-header">Tambah Jadwal</div>
+>         <div class="card-body row">
+>             <div class="col-lg-4">
+20c20
 < <select name="hari"> 
 ---
 > <select class="form-control" name="hari">
-
-33c36
+33c33
 < <select name="jam_mulai"> 
 ---
 > <select class="form-control" name="jam_mulai">
-
-39c42
+39c39
 < <div class=" large-4 columns">
 ---
 > <div class="col-lg-4">
-
-41c44
+41c41
 <     <select name="durasi"> 
 ---
 > <select class="form-control" name="durasi">
-
-47c50
-< <select name="jenis_jadwal"> 
+47c47
+<     <select name="jenis_jadwal"> 
 ---
 > <select class="form-control" name="jenis_jadwal">
-
-51c54
-<     </select>
----
-> </select><br>
-
-53,56c56,59
+53,55c53,55
 < <div class="large-4 columns">
 <     Label <input type="text" name="label_jadwal"><br>
 <     <input type="submit" class="button" value="Tambah">
-<     </form>
 ---
 > <div class="col-lg-4">
-> 	Label <input class="form-control" type="text" name="label_jadwal"><br><br>
-> 	<input class="btn btn-primary" type="submit" value="Tambah">
-> 	</form><br>
-
-60,64c65,72
+>      Label <input class="form-control" type="text" name="label_jadwal"><br><br>
+>      <input class="btn btn-primary" type="submit" class="button" value="Tambah" class="btn btn-primary">
+60,64c60,69
 < 
 < <div class="large-12 column callout">
-<     <h5>Daftar Jadwal</h5>
-<     <div class="table-scroll" id="jadwal_table">
-<         <table border=1 style="border-color:black ; border-collapse:separate">
+< 	<h5>Daftar Jadwal</h5>
+< 	<div class="table-scroll" id="jadwal_table">
+< 	 <table border=1 style="border-color:black ; border-collapse:separate">
 ---
+> </div>
 > <br>
 > <div class="card">
-> <div class="card-header">
->     Daftar Jadwal
-> </div>
-> <div class="card-body">
->     <div id="jadwal_table">
->         <table class="table table-bordered table-striped">
-
-66c74
+> 	<div class="card-header">
+> 	    Daftar Jadwal
+> 	</div>
+> 	<div class="card-body">
+> 	    <div id="jadwal_table">
+> 	        <div class="table-responsive">
+>             <table class="table table-bordered table-striped">
+66c71
 < <td style='width:10%'></td>
 ---
 > <th></th>
-
-69c77
+69c74
 < echo "<td style='width:18%'> $namaHari[$i] </td>"; //Membuat Header Tabel yang berisi daftar hari
 ---
 > echo "<th> $namaHari[$i] </th>"; //Membuat Header Tabel yang berisi daftar hari
-
-77c85
+77c82
 < echo "<tr><td>" . $i . "-" . ($i + 1);
 ---
 > echo "<tr><th>" . $i . "-" . ($i + 1);
-
-91a100
+91a97
 > $border = "border border-secondary align-middle";
-
-106a116
+106a113
 > $($cellLocation).addClass('<?php echo $border; ?>');
-
-117c127
+117c124
 < $($menuName).foundation('open');
 ---
 > $($menuName).modal();
-
-149,150c159,160
+125a133
+> </div>
+149,150c158,159
 < <a href="/EntriJadwalDosen/deleteAll/export/" class="alert button" onClick="return konfirmasi();">Delete All</a>
 < <a href="/EntriJadwalDosen/export/" class="button">Ekspor ke XLS</a>
 ---
 > <a href="/EntriJadwalDosen/deleteAll/export/" class="btn btn-danger" onClick="return konfirmasi();">Delete All</a>
 > <a href="/EntriJadwalDosen/export/" class="btn btn-primary">Ekspor ke XLS</a>
-
-169,170c179,184
+168,169c176,181
 < <div id="edit_menu<?php echo $dataHariIni->id ?>" class="reveal"  data-reveal >
-< 		<button class="close-button" data-close aria-label="Close modal" type="button">
+<      <button class="close-button" data-close aria-label="Close modal" type="button">
 ---
-> <div class="modal fade" id="edit_menu<?php echo $dataHariIni->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-> 	<div class="modal-dialog modal-dialog-centered" role="document">
-> 	   <div class="modal-content">
-> 	       <div class="modal-header">
-> 	           <h5 class="modal-title" id="exampleModalLongTitle">Edit Jadwal #<?= $dataHariIni->id ?></h5>
-> 	           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-179c193
+> <div class="modal fade" id="edit_menu<?php echo $dataHariIni->id ?>" tabindex="-1" role="dialog" aria-labelledby="edit_menu<?php echo $dataHariIni->id ?>" aria-hidden="true">
+>  <div class="modal-dialog" role="document">
+>     <div class="modal-content">
+>         <div class="modal-header">
+>             <h5 class="modal-title" id="edit_menu<?php echo $dataHariIni->id ?>">Edit Jadwal</h5>
+>             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+172c184,185
+< <h5> Edit Jadwal </h5>
+---
+> </div>
+> <div class="modal-body">
+175,177c188,191
+< <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>"> </a> <br>
+< Hari 
 < <select name="hari"> 
 ---
-> <select class="form-control" name="hari">
-
-197c211
+> <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>">
+> <div class="form-group">
+>     <label>Hari</label>
+>     <select class="form-control" name="hari">
+193,195c207,211
+< </select><br>
+< Jam Mulai
 < <select name="jam_mulai"> 
 ---
-> <select class="form-control" name="jam_mulai">
-
-213c227
+>     </select>
+> </div>
+> <div class="form-group">
+>     <label>Jam Mulai</label>
+>     <select class="form-control" name="jam_mulai">
+209,211c225,229
+< </select><br>
+< Durasi
 < <select name="durasi"> 
 ---
-> <select class="form-control" name="durasi">
-
-229c243
+>     </select>
+> </div>
+> <div class="form-group">
+>     <label>Durasi</label>
+>     <select class="form-control" name="durasi">
+225,227c243,247
+< </select><br>
+< Jenis  
 < <select name="jenis_jadwal"> 
 ---
-> <select class="form-control" name="jenis_jadwal">
-
-233,238c247,252
-< </select>
+>     </select>
+> </div>
+> <div class="form-group">
+>     <label>Jenis</label>
+>     <select class="form-control" name="jenis_jadwal">
+232c252,256
 < Label <input type="text" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>"><br> 
-< <div class="row large-4 column">
-< 	<div class="large-2 column">
-< 	<input type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="button" value="Save  ">
-< 	</form>
 ---
-> </select><br>
-> Label
-> <input class="form-control" type="text" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>"><br>
-> <div class="row">
->    <div class="col-lg-2">
->        <input class="btn btn-primary" type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="button" value="Save  ">
-
-240c254
+> </div>
+> <div class="form-group">
+>     <label for="">Label</label>
+>     <input class="form-control" type="text" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>">
+> </div>
+233,235c258,260
+< <div class="row large-4 column">
+<  <div class="large-2 column">
+<    <input type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="button" value="Save  ">
+---
+> <div class="form-group row">
+>     <div class="col-lg-2">
+>         <input type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="btn btn-primary" value="Save  ">
+238c263
 < <div class="large-2 column ">
 ---
 > <div class="col-lg-2">
-
-243,244c257,258
+241,242c266,267
 <     <input type="submit" id="deletebtn<?php echo $dataHariIni->id ?>" name="deletebtn<?php echo $dataHariIni->id ?>" class="alert button" value="Delete">
 < </form><div>
 ---
->    <input class="btn btn-danger" type="submit" id="deletebtn<?php echo $dataHariIni->id ?>" name="deletebtn<?php echo $dataHariIni->id ?>" value="Delete">
+>     <input type="submit" id="deletebtn<?php echo $dataHariIni->id ?>" name="deletebtn<?php echo $dataHariIni->id ?>" class="btn btn-danger" value="Delete">
 > </form>
 \end{lstlisting}
 
-Beberapa catatan dari kode diatas tertera pada tabel ~\ref{tabel:lst:entriJadwalDosen}:
+Beberapa catatan dari kode diatas tertera pada tabel ~\ref{tabel:entriJadwalDosen}:
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode permintaan perubahan kuliah.}
-	\label{tabel:lst:entriJadwalDosen}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1470,12 +1474,13 @@ Beberapa catatan dari kode diatas tertera pada tabel ~\ref{tabel:lst:entriJadwal
 		96-99 & \textbf{Modal}  & Memanggil jQuery saat jadwal yang terisi dipilih user.\\
 		\bottomrule
 	\end{tabularx}%
+	\label{tabel:entriJadwalDosen}
 \end{table}
 
 \subsection{Halaman	Lihat Jadwal Dosen}
-Kode ~\ref{lst:mainEntriJadwalDosen} menjabarkan perubahan halaman lihat jadwal dosen:
+Kode ~\ref{lst:mainLihatJadwalDosen} menjabarkan perubahan halaman lihat jadwal dosen:
 \begin{lstlisting}[language=diff, caption=Kode untuk Halaman Lihat Jadwal Dosen,  basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainEntriJadwalDosen}]
+columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainLihatJadwalDosen}]
 diff -r a\www\application\views\LihatJadwalDosen\main.php b\www\application\views\LihatJadwalDosen\main.php
 
 12c12,13
@@ -1533,11 +1538,10 @@ diff -r a\www\application\views\LihatJadwalDosen\main.php b\www\application\view
 > <a class="btn btn-primary" href="/LihatJadwalDosen/export/" class="button">Ekspor ke XLS</a>
 \end{lstlisting}
 
-Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lst:lihatJadwalDosen}:
+Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lihatJadwalDosen}:
 \begin{table}[H]
 	\centering
-	\caption{Penjelasan kode permintaan perubahan kuliah.}
-	\label{tabel:lst:lihatJadwalDosen}
+	\caption{Penjelasan kode lihat jadwal dosen}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
@@ -1546,8 +1550,9 @@ Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lst:lihatJadwalDosen}
 		31-44 & \textbf{Edit background tabel}  & Pada Bootstrap 4 diatur lebar tabel dan garis yang mengelilingi \textit{cell} yang berisi jadwal kuliah.\\
 		\bottomrule
 	\end{tabularx}%
-
+	\label{tabel:lihatJadwalDosen}
 \end{table}
+
 \section{Pengujian}
 Bagian pengujian akan menjelaskan dua bagian: skenario pengujian dan hasil pengujian. Pengujian ini akan dijalankan pada server lokal dengan aplikasi XAMPP dan browser web Chrome untuk melihat hasil desain serta menguji fitur yang ada dalam website BlueTape. Pengujian bertujuan memastikan tampilan sudah sesuai dengan tampilan sebelumnya dan semua fitur berjalan dengan baik.
 \subsection{Skenario Pengujian}
@@ -1555,20 +1560,28 @@ Skenario pengujian berisi alur yang dilakukan penguji untuk memeriksa setiap fit
 \subsubsection{Tampilan Login}
 Skenario yang dilakukan penguji untuk \textit{login} pada website BlueTape sebagai berikut:
 \begin{enumerate}
-	\item Penguji mengakses \path{127.0.0.1} pada komputer lokal.
+	\item Penguji mengakses \url{127.0.0.1} pada komputer lokal.
 	\item Penguji memeriksa link "Petunjuk Penggunaan".
 	\item Penguji memeriksa tombol "Login dengan Google".
 	\item Penguji melakukan proses login dengan email admin.
 	\item Penguji memeriksa notifikasi user pada proses \textit{login} dan \textit{logout}.	
 \end{enumerate}
+
+\subsubsection{Menu Navigasi}
+Skenario yang dilakukan penguji pada bagian menu navigasi pada website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Penguji memeriksa letak logo BlueTape dan submenu pada layar \textit{large devices} .
+	\item Penguji memeriksa letak logo BlueTape dan submenu pada layar \textit{medium} dan \textit{small devices}.	
+	\item Penguji memeriksa tampilan submenu.
+\end{enumerate}
+
 \subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
 Skenario yang dilakukan penguji untuk membuat permohonan baru pada halaman cetak transkrip sebagai berikut:
 \begin{enumerate}
 	\item Penguji memeriksa \textit{container} dari konten "Permohonan Baru".
-	\item Penguji memeriksa label yang memiliki tag \texttt{<label>}. 
-	\item Penguji memeriksa input yang memiliki tag \texttt{<input>}.
-	\item Penguji memeriksa lebar dari \textit{label} dan \textit{input field}.
+	\item Penguji memeriksa label dan input.
 	\item Penguji memeriksa tombol "Kirim Permohonan".	
+	\item Penguji memeriksa notifikasi \textit{user}.
 \end{enumerate}
 
 \subsubsection{Konten Histori Permohonan pada Halaman Cetak Transkrip}
@@ -1576,7 +1589,7 @@ Skenario yang dilakukan penguji untuk melihat histori permohonan pada halaman ce
 \begin{enumerate}
 	\item Penguji memeriksa \textit{container} dari konten "Histori Permohonan".
 	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa data pada kolom "ID" menggunakan format teks \textit{bold}.
+	\item Penguji memeriksa data yang dikirim dari \textit{form} permohonan baru.
 	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".		
 	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".	
 \end{enumerate}
@@ -1585,7 +1598,8 @@ Skenario yang dilakukan penguji untuk melihat histori permohonan pada halaman ce
 Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
 \begin{enumerate}
 	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
-	\item Penguji memeriksa penggunaan tabel.	
+	\item Penguji memeriksa desain pada tabel.
+	\item Penguji memeriksa data pada tabel.
 \end{enumerate}
 
 \subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
@@ -1600,8 +1614,8 @@ Skenario yang dilakukan penguji untuk \textit{form} pencarian npm pada halaman m
 \subsubsection{Tabel Daftar Permintaan Transkrip pada Halaman Manajemen Cetak Transkrip}
 Skenario yang dilakukan penguji untuk tabel daftar permintaan pada halaman manajemen cetak transkrip sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa tabel yang digunakan pada konten "Permintaan Transkrip".
-	\item Penguji memeriksa penggunaan teks \textit{bold} untuk kolom "ID" pada \textit{form}.
+	\item Penguji memeriksa desain tabel yang digunakan pada konten "Permintaan Transkrip".
+	\item Penguji memeriksa data yang ditampilkan dalam tabel.
 	\item Penguji memeriksa penggunaan \textit{label} pada kolom "Status" pada \textit{form}.
 	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi" pada \textit{form}.
 \end{enumerate}
@@ -1610,7 +1624,8 @@ Skenario yang dilakukan penguji untuk tabel daftar permintaan pada halaman manaj
 Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
 \begin{enumerate}
 	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
-	\item Penguji memeriksa penggunaan tabel.	
+	\item Penguji memeriksa desain tabel.	
+	\item Penguji memeriksa isi dari tabel.
 \end{enumerate}
 
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permintaan Transkrip}
@@ -1640,11 +1655,11 @@ Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Hapus" seba
 Skenario yang dilakukan penguji untuk konten permohonan baru pada halaman perubahan kuliah sebagai berikut:
 \begin{enumerate}
 	\item Penguji memeriksa \textit{container} dari konten "Permohonan Baru".
-	\item Penguji memeriksa \textit{styling} dari tabel.	
+	\item Penguji memeriksa penggunaan plugin \textit{DateTimePicker}.
 	\item Penguji memeriksa \textit{input field} dan label pada \textit{form}.
-	\item Penguji memeriksa lebar dari \textit{label} dan \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa tombol "Kirim Permohonan".
+	\item Penguji memeriksa tombol "Kirim Permohonan".	
 	\item Penguji memeriksa tombol "Tambah Pertemuan Ekstra".
+	\item Penguji memeriksa adanya notifikasi \textit{user} ketika melakukan kirim permohonan perubahan kuliah.
 \end{enumerate}
 
 \subsubsection{Konten Histori Permohonan pada Halaman Perubahan Kuliah}
@@ -1711,8 +1726,7 @@ Skenario yang dilakukan penguji pada konten tambah jadwal dosen di halaman entri
 	\item Penguji memeriksa \textit{container} dari konten "Tambah Jadwal".	
 	\item Penguji memeriksa label pada \textit{form}. 
 	\item Penguji memeriksa \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa lebar dari \textit{label} dan \textit{input field} pada \textit{form}.
-	\item Peguji memeriksa \textit{plugin} yang digunakan pada \textit{form field} "Jam Mulai".
+	\item Penguji memeriksa \textit{plugin} yang digunakan pada \textit{form field} "Jam Mulai".
 	\item Penguji memeriksa tombol "Tambah".
 \end{enumerate}
 
@@ -1721,7 +1735,6 @@ Skenario yang dilakukan penguji pada konten daftar jadwal di halaman entri jadwa
 \begin{enumerate}
 	\item Penguji memeriksa \textit{container} dari konten "Daftar Jadwal".
 	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa data pada kolom daftar hari dan baris daftar jam.
 	\item Penguji memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.			
 	\item Penguji memeriksa tombol "Delete All".
 	\item Penguji memeriksa tombol "Ekspor ke XLS".
@@ -1736,55 +1749,632 @@ Skenario yang dilakukan penguji pada modal edit jadwal sebagai berikut:
 	\item Penguji memeriksa tombol "Delete" pada \textit{form}.
 \end{enumerate}
 
-\subsubsection{Halaman Entri Jadwal Dosen}
+\subsubsection{Halaman Lihat Jadwal Dosen}
 Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \begin{enumerate}
 	\item Penguji memeriksa \textit{container} dari halaman entri jadwal dosen.
-	\item Penguji memeriksa \textit{labelling} untuk setiap jadwal dosen.
+	\item Penguji memeriksa \textit{tabs} untuk setiap jadwal dosen.
 	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa data pada kolom daftar hari dan daftar jam  memiliki huruf tebal.
 	\item Penguji memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.
 	\item Penguji memeriksa tombol "Ekspor ke XLS".
 \end{enumerate}
 
 \section{Hasil Pengujian}
-\subsubsection{Tampilan Login}
+\subsubsection{Login}
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian }
-	\label{table:hasil}
-	\begin{tabular}{c c p{0.50\textwidth}}
+	\caption{Hasil pengujian halaman login.}
+	\label{hasil:Login}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
 		\toprule
-		\textbf{Langkah Ke} & \textbf{Hasil (Sukses / Tidak)} & \textbf{Tindakan}\\
-		
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
 		\midrule
-		1&Sukses&
-		2&Sukses&
-		3&Sukses&
-		4&Sukses&
-		5&Sukses&
-				
+		1 & Sukses & Mengakses website menggunakan \url{http://127.0.0.1} pada komputer lokal.\\
+		\hline
+		2 & Sukses & Link "Petunjuk Penggunaan" mengarahkan ke halaman dokumentasi BlueTape.\\
+		\hline
+		3 & Sukses & \textit{User} diarahkan ke halaman autentikasi email dengan Google.\\
+		\hline
+		4 & Sukses & - Login dengan email \textit{student} yaitu 7315037@student.unpar.ac.id.\\
+		&& - Login dengan email \textit{admin} yaitu amihapsahapsa@gmail.com.\\
+		&& - Mengakses halaman website BlueTape.\\									
+		\hline
+		5 & Sukses & - Melihat notifikasi berwarna biru saat proses \textit{logout} berhasil.\\
+		&& - Melihat notifikasi berwarna merah saat mengakses halaman \url{http://127.0.0.1/CetakTranskripRequest} dengan kondisi tidak \textit{login}.\\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
+
+\subsubsection{Menu Navigasi}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:MenuNavigasi}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah Ke} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule.
+		1&Sukses& - Posisi logo BlueTape terletak disebelah kiri. \\
+		&& - Posisi submenu keseluruhan halaman website terletak secara horizontal disebelah kiri logo BlueTape. \\
+		&& - Posisi submenu "Log Out" berada disebelah kanan menu navigasi. \\
+		\hline
+		2 & Sukses & - Posisi logo BlueTape terletak disebelah kiri menu navigasi. \\
+		&& - Terdapat sebuah ikon menu disebelah kanan menu navigasi. \\
+		&& - Submenu berada pada mode \textit{hide} dan dapat ditampilkan setelah \textit{user} memilih ikon menu. \\
+		&& - Memeriksa teks setiap sub-menu aktif memiliki warna yang berbeda dengan sub-menu yang tidak aktif. \\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:PermohonanBaru}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses& - Memeriksa kolom "Yang memohon", "NPM" dan "Nama" memiliki lebar 4 grid dilayar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+		&& - Memeriksa kolom "Yang memohon", "NPM" dan "Nama" tidak bisa diisi oleh \textit{user} karena dalam mode \textit{readonly}.\\
+		&& - Memeriksa kolom "Tipe Transkrip" memiliki lebar 6 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+		&& - Memeriksa \textit{form field} "Tipe Transkrip" dapat menampilkan opsi dan \textit{user} dapat memilih opsi "DPS (Seluruh Semester, Bilingual)".\\
+		&& - Memeriksa kolom "Keperluan" memiliki lebar 6 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+		&& - Memeriksa \textit{form field} "Keperluan" dapat diisi \textit{user} dengan "Beasiswa Semester Genap 2019/2020".\\
+		\hline
+		3&Sukses&Memeriksa tombol "Kirim Permohonan" memiliki warna biru.\\
+		&&Memeriksa tombol "Kirim Permohonan" dapat mengirimkan \textit{form} "Permohonan Baru" ke tabel Histori Permohonan.\\
+		\hline
+		4&Sukses& - Memeriksa adanya notifikasi berwarna merah berisi "Maaf, gagal mengirim email notifikasi.".\\
+		&& - Memeriksa adanya notifikasi berwarna biru  berisi "Permintaan cetak transkrip sudah terkirim. Silahkan cek statusnya secara berkala disitus ini.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+
 \subsubsection{Konten Histori Permohonan pada Halaman Cetak Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:HistoriPermohonan}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah Ke} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Memeriksa konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&&- Memeriksa baris judul tabel dan kolom "ID" menampilkan data dengan teks \textit{bold}.\\
+		\hline
+		3&Sukses& - Memeriksa kolom "ID" berisi "[nomor]".\\
+		&& - Kolom "Status" berisi "Tunggu" \\
+		&& - Kolom "Tanggal Permohonan" berisi format"[nama hari], [tanggal][nama bulan][tahun]" seperti "Senin, 28 Mei 2020" \\
+		&& - Kolom "Tipe Transkrip" berisi "DPS".\\
+		\hline
+		4&Sukses& - Adanya label "TUNGGU" berwarna abu-abu.\\
+		&& - Adanya label "DITOLAK" berwarna merah.\\
+		&& - Adanya label "DICETAK" berwarna hijau.\\
+		\hline
+		5&Sukses& Adanya ikon mata pada kolom "Aksi".\\
+		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+
 \subsubsection{Popup Pesan Detail Permohonan pada Halaman Cetak Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian detail permohonan cetak transkrip.}
+	\label{hasil:DetailCetakTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Detail Permohonan [ID]" dan isi pesan menampilkan sebuah tabel.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
+		\hline
+		3&Sukses&- "Email Pemohon" berisi "7315037@gmail.com".\\
+		&&- "Nama Pemohon" berisi "Hapsari Laksmi Wijayanti".\\
+		&&- "Tanggal Permohonan" berisi format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- "Tipe Transkrip" berisi "DPS".\\
+		&&- "Keperluan" berisi "Beasiswa Semester Genap 2019/2020."\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian fitur pencarian NPM.}
+	\label{hasil:PencarianNPMCetakTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Memeriksa konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses&Memeriksa terdapat label bertuliskan "Cari NPM" dan label tersebut merupakan satu grup dengan pencarian NPM. \\
+		\hline
+		3&Sukses&Memeriksa \textit{group field} dapat diisi \textit{user} dengan email mahasiswa seperti "7315037@student.unpar.ac.id"\\
+		\hline
+		4&Sukses&Memeriksa tombol "Cari" memiliki garis \textit{outline} berwarna biru.\\
+		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+
 \subsubsection{Tabel Daftar Permintaan Transkrip pada Halaman Manajemen Cetak Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:DaftarPermintaanTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa baris judul dan kolom "ID" ditampilkan dengan teks berformat \textit{bold}.	\\	
+		\hline
+		2&Sukses&- "ID" menampilkan "[nomor]" seperti "1".\\
+		&&- "Status" menampilkan "MENUNGGU".\\
+		&&- "Tanggal Permohonan" menampilkan format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- "Tipe Transkrip" menampilkan "DPS".\\
+		&&- "NPM" menampilkan "2015730037"\\
+		\hline
+		3&Sukses& - Adanya label "MENUNGGU" berwarna kuning.\\
+		&& - Adanya label "DITOLAK" berwarna merah.\\
+		&& - Adanya label "DICETAK" berwarna hijau.\\
+		\hline
+		4&Sukses&- "Aksi" menampilkan empat jenis ikon: lihat, setuju, print dan hapus.\\
+		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Permintaan Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\label{hasil:DetailPermintaanTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Detail Permohonan [ID]" dan isi pesan menampilkan sebuah tabel.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
+		\hline
+		3&Sukses&- "Email Pemohon" berisi "7315037@gmail.com".\\
+		&&- "Nama Pemohon" berisi "Hapsari Laksmi Wijayanti".\\
+		&&- "Tanggal Permohonan" berisi format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- "Tipe Transkrip" berisi "DPS".\\
+		&&- "Keperluan" berisi "Beasiswa Semester Genap 2019/2020."\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permintaan Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian tolak permintaan transkrip.}
+	\label{hasil:TolakPermintaanTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Email penjawab menampilkan "7315037@student.unpar.ac.id"\\
+		&& - Kolom "Alasan Penolakan" dapat diisi oleh user dengan "Data masih diproses."\\
+		\hline
+		3&Sukses&- Tombol "Tolak" berwarna merah.\\
+		&& - Kolom status yang awalnya "MENUNGGU" berubah status menjadi "DITOLAK" setelah tombol dipilih.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Cetak Permohonan pada Konten Permintaan Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian tolak permintaan transkrip.}
+	\label{hasil:CetakPermintaanTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Cetak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Email penjawab menampilkan "7315037@student.unpar.ac.id"\\
+		&& - Kolom "Keterangan Tambahan" dapat diisi oleh user dengan "Transkrip dapat diambil lusa."\\
+		\hline
+		3&Sukses&- Tombol "Sudah dicetak" berwarna biru.\\
+		&& - Kolom status berubah menjadi "DICETAK" setelah tombol dipilih.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Hapus Permohonan pada Konten Permintaan Transkrip}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian hapus permintaan transkrip.}
+	\label{hasil:HapusPermintaanTranskrip}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Cetak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Keterangan "Yakin ingin menghapus?" memiliki teks berformat \textit{bold}. \\
+		&& - Keterangan "Data akan hilang selamanya dari catatan." terletak ditengah.\\
+		\hline
+		3&Sukses&- Tombol "Hapus" berwarna merah.\\
+		&& - Kolom status akan hilang dari tabel permintaan trankrip.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Konten Permohonan Baru pada Halaman Perubahan Kuliah}
+\begin{table}	
+	\centering
+	\caption{Hasil pengujian konten perubahan kuliah.}
+	\label{hasil:PermohonanPerubahanKuliah}
+		\begin{tabular}{|c| c| p{0.60\textwidth}|}				
+			\toprule
+			\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+			\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+			\midrule
+			1&Sukses&Konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+			\hline
+			2&Sukses&- Memeriksa \textit{plugin} bekerja dengan menampilkan kalendar bulan.\\
+			&&- \textit{User} dapat memilih tanggal dan jam yang sesuai.\\
+			\hline
+			3&Sukses& - Memeriksa kolom "Pemohon" dan "Nama" memiliki lebar 6 grid dilayar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+			&& - Memeriksa kolom "Pemohon" dan "Nama" tidak bisa diisi oleh \textit{user} karena dalam mode \textit{readonly}.\\
+			
+			&& - Memeriksa kolom "Kode MK", "Nama MK", "Kelas" dan "Jenis Perubahan" memiliki lebar 2, 5, 1 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+			&& - Memeriksa \textit{form field} "Kode MK", "Nama MK", dan "Kelas" dapat diisi \textit{user} dengan "AIF102", "PBWL", "A".\\
+			
+			&& - Memeriksa kolom "Jenis Perubahan" memiliki lebar 4 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+			&& - Memeriksa \textit{form field} "Jenis Perubahan" dapat menampilkan opsi dan \textit{user} dapat memilih opsi "Ditiadakan".\\
+			
+			&& - Memeriksa kolom "Dari Hari \& Jam:" lebar 3 grid pada layar \textit{large}. Lalu 12 grid pada layar \textit{medium} dan \textit{small}.\\
+			&& - Memeriksa kolom "Dari Hari \& Jam:"dapat diisi \textit{user} dengan "[Tahun]/[Bulan]/[Tanggal] [Jam]:[Menit]" seperti "2020/05/28 19:00".\\
+			
+			&& - Memeriksa kolom "Dari Ruang:" dan "Keterangan Tambahan" memiliki lebar 3 dan 6 grid pada layar \textit{large}. Lalu 12 grid pada layar \textit{medium} dan \textit{small}.\\
+			&& - Memeriksa kolom "Dari Ruang:" dan "Keterangan Tambahan" dapat diisi \textit{user} dengan "9012" dan "Dosen berhalangan hadir".\\
+			\hline
+			4 & Sukses & - Memeriksa tombol "Kirim Permohonan" berwarna biru.\\
+			&& - Memeriksa data dari \textit{form} "Permohonan Baru" terlihat pada tabel histori permohonan.\\
+			\hline
+			5 & Sukses & - Memeriksa tombol "Tambah Pertemuan Ekstra" berwarna abu - abu.\\
+			&& - Ketika tombol "Tambah Pertemuan Ekstra" dipilih maka baris baru dari kolom "Menjadi Hari \& Jam" dan "Menjadi Ruang" terbentuk.\\
+			&& - Baris baru akan memiliki tombol "Hapus" yang berwarna abu-abu dan ketika dipilih baris baru akan hilang.\\
+			\hline
+			6 & Sukses & - Terdapat notifikasi user berwarna biru yang menandakan permohonan berhasil dibuat.\\
+			&&- Terdapat notifikasi \textit{user} berwarna merah yang menandakan tidak dapat mengirim notifikasi user.\\		
+			
+			\bottomrule		
+		\end{tabular} 
+\end{table}
+
 \subsubsection{Konten Histori Permohonan pada Halaman Perubahan Kuliah}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\label{hasil:HistoriPermohonanPerubahanKuliah}
+		\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah Ke} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Memeriksa konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&&- Memeriksa baris judul tabel dan kolom "ID" menampilkan data dengan teks \textit{bold}.\\
+		\hline
+		3&Sukses& - Memeriksa kolom "ID" berisi "(nomor)".\\
+		&& - Kolom "Status" berisi "Tunggu" \\
+		&& - Kolom "Kode MK" berisi format"[XYZ][123]" seperti "AIF102" \\
+		&& - Kolom "Perubahan" berisi "Diganti".\\
+		\hline
+		4&Sukses& - Adanya label "TUNGGU" berwarna abu-abu.\\
+		&& - Adanya label "DITOLAK" berwarna merah.\\
+		&& - Adanya label "DICETAK" berwarna hijau.\\
+		\hline
+		5&Sukses& Adanya ikon mata pada kolom "Aksi".\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Histori Permohonan}
-\subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman 
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\label{hasil:DetailHistoriPermohonan}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Detail Permohonan [ID]" dan isi pesan menampilkan sebuah tabel.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
+		\hline
+		3&Sukses&- "Email Pemohon" menampilkan data "7315037@gmail.com".\\
+		&&- "Nama Pemohon" menampilkan data "Hapsari Laksmi Wijayanti".\\
+		&&- "Tanggal Permohonan" menampilkan data format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- "Kode Mata Kuliah" menampilkan data "AIF102".\\
+		&&- "Nama Mata Kuliah" menampilkan data "PBWL".\\
+		&&- "Kelas" menampilkan data "A".\\
+		&&- "Jenis Perubahan" menampilkan data "Diganti".\\
+		&&- "Dari Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
+		&& -"Dari Ruang" menampilkan data "9018".\\
+		&&- "Menjadi Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
+		&&- "Menjadi ruang" menampilkan data "9017".\\
+		&&- "Keterangan" menampilkan data "Dosen berhalangan hadir."\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman Manajemen Perubahan Kuliah}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:ManajemenPermohonanPerubahanKuliah}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa baris judul dan kolom "ID" ditampilkan dengan teks berformat \textit{bold}.	\\	
+		\hline
+		2&Sukses&- "ID" menampilkan "[nomor]" seperti "1".\\
+		&&- "Status" menampilkan "MENUNGGU".\\
+		&&- "Tanggal Permohonan" menampilkan format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- "Tipe Transkrip" menampilkan "DPS".\\
+		&&- "NPM" menampilkan "2015730037"\\
+		\hline
+		3&Sukses& - Adanya label "MENUNGGU" berwarna kuning  pada kolom "Status" ketika permohonan perubahan kuliah dilakukan oleh dosen.\\
+		&& - Adanya label "DITOLAK" berwarna merah pada kolom "Status" ketika aksi "Tolak" dilakukan oleh staf TU.\\
+		&& - Adanya label "DICETAK" berwarna hijau pada kolom "Status" ketika aksi "Setuju" dilakukan oleh staf TU.\\
+		\hline
+		4&Sukses&- Kolom "Aksi" menampilkan lima jenis ikon: lihat, setuju, tolak, print dan hapus untuk setiap permohonan perubahan kuliah.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Permohonan Perubahan Kuliah}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\label{hasil:DetailPermohonanPerubahanKuliah}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Detail Permohonan [ID]" dan isi pesan menampilkan sebuah tabel.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
+		\hline
+		3&Sukses&- "Email Pemohon" menampilkan data "7315037@gmail.com".\\
+		&&- "Nama Pemohon" menampilkan data "Hapsari Laksmi Wijayanti".\\
+		&&- "Tanggal Permohonan" menampilkan data format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- "Kode Mata Kuliah" menampilkan data "AIF102".\\
+		&&- "Nama Mata Kuliah" menampilkan data "PBWL".\\
+		&&- "Kelas" menampilkan data "A".\\
+		&&- "Jenis Perubahan" menampilkan data "Diganti".\\
+		&&- "Dari Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
+		&& -"Dari Ruang" menampilkan data "9018".\\
+		&&- "Menjadi Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
+		&&- "Menjadi ruang" menampilkan data "9017".\\
+		&&- "Keterangan" menampilkan data "Dosen berhalangan hadir."\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+
 \subsubsection{Popup Pesan Konfirmasi Permohonan pada Konten Permohonan Perubahan Kuliah}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konfirmasi permohonan perubahan kuliah.}
+	\label{hasil:KonfirmasiPerubahanKuliah}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Email penjawab menampilkan "amihapsahapsa@gmail.com"\\
+		&& - Kolom "Keterangan" dapat diisi oleh user dengan "Konfirmasi sudah disetujui."\\
+		\hline
+		3&Sukses&- Tombol "Konfirmasi" berwarna hijau.\\
+		&& - Kolom status yang awalnya "MENUNGGU" berubah status menjadi "TERKONFIRMASI" setelah tombol dipilih.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permohonan Perubahan Kuliah}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian tolak permintaan transkrip.}
+	\label{hasil:TolakPerubahanKuliah}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Email penjawab menampilkan "amihapsahapsa@gmail.com"\\
+		&& - Kolom "Alasan Penolakan" dapat diisi oleh user dengan "Data masih diproses."\\
+		\hline
+		3&Sukses&- Tombol "Tolak" berwarna merah.\\
+		&& - Kolom status yang awalnya "MENUNGGU" berubah status menjadi "DITOLAK" setelah tombol dipilih.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Hapus Permohonan pada Konten Permohonan Perubahan Kuliah}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian hapus permintaan transkrip.}
+	\label{hasil:HapusPerubahanKuliah}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Cetak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Keterangan "Yakin ingin menghapus?" memiliki teks berformat \textit{bold}. \\
+		&& - Keterangan "Data akan hilang selamanya dari catatan." terletak ditengah.\\
+		\hline
+		3&Sukses&- Tombol "Hapus" berwarna merah.\\
+		&& - Kolom status akan hilang dari tabel permintaan trankrip.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:TambahJadwal}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses& - Memeriksa kolom "Hari", "Durasi" dan "Label" memiliki lebar 4 grid dilayar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
+		&& - Memeriksa kolom "Hari" dapat menampilkan opsi hari.\\
+		&& - Memeriksa kolom "Durasi" dapat menampilkan opsi durasi jam antara 1-9 jam.\\
+		&& - Memeriksa kolom "Label" dapat diisi oleh dosen dengan judul label.\\
+		&& - Memeriksa \textit{form field} "Jam Mulai" dapat menampilkan opsi dan dosen dapat memilih opsi dari jam 07:00-16:00.\\
+		&& - Memeriksa \textit{form field} "Jenis" dapat menampilkan opsi dan dosen dapat memilih opsi jenis jadwal.\\
+		\hline
+		3&Sukses&Memeriksa tombol "Tambah" memiliki warna biru.\\
+		&&Memeriksa tombol "Tambah" dapat mengirimkan \textit{form} "Tambah Jadwal" ke tabel daftar jadwal.\\
+		\hline
+		4&Sukses& - Memeriksa adanya notifikasi berwarna merah berisi Jadwal gagal dimasukan karena sudah ada jadwal pada waktu tersebut, silahkan pilih waktu lain" apabila gagal memasukan jadwal.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Konten Daftar Jadwal pada Halaman Entri Jadwal Dosen}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konten permohonan baru}
+	\label{hasil:DaftarJadwalEntri}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa baris hari dan kolom jam ditampilkan dengan teks berformat \textit{bold}.	\\	
+		\hline
+		3&Sukses&- Memeriksa \textit{cell} yang terisi memiliki border berwarna hitam.
+		&& - \textit{Cell} memiliki \textit{background color} kuning untuk jenis "Konsultasi". \\
+		&& - \textit{Cell} memiliki \textit{background color} hijau untuk jenis "Terjadwal". \\
+		&& - \textit{Cell} memiliki \textit{background color} putih untuk jenis "Kelas". \\
+		\hline
+		4&Sukses&- Memeriksa tombol berwarna merah.\\
+		&& - Memeriksa setelah tombol dipilih keseluruhan jadwal akan terhapus dari tabel entri jadwal dosen.\\
+		5& Sukses & - Memeriksa tombol berwarna biru.\\
+		&& - Memeriksa setelah tombol dipilih maka akan menghasilkan file bertipe .xls. \\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Popup Pesan Edit Jadwal pada Konten Daftar Jadwal}
-\subsubsection{Halaman Entri Jadwal Dosen}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konfirmasi permohonan perubahan kuliah.}
+	\label{hasil:EditJadwal}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [No ID]" dan isi pesan menampilkan sebuah form.\\
+		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
+		\hline
+		2&Sukses& - Memeriksa kolom "Hari" dapat menampilkan opsi saat ini dan merubah isi opsi hari.\\
+		&& - Memeriksa kolom "Durasi" dapat menampilkan opsi saat ini dan merubah isi  opsi durasi jam antara 1-9 jam.\\
+		&& - Memeriksa kolom "Jam Mulai" dapat menampilkan opsi saat ini dan merubah isi opsi dari rentang jam 07:00-16:00.\\
+		&& - Memeriksa kolom "Jenis" dapat menampilkan opsi dan dosen dapat merubah opsi jenis jadwal.\\
+		&& - Memeriksa kolom "Label" dapat menampilkan label saat ini dan merubah isi dari label.\\
+		\hline
+		3&Sukses&- Tombol "Save" berwarna biru.\\
+		&& - Kolom jadwal akan berubah setelah tombol tersebut dipilih.\\
+		\hline
+		4&Sukses&- Tombol "Delete" berwarna merah.\\
+		&& - Kolom jadwal akan hilang dari tabel daftar jadwal.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+
+\subsubsection{Halaman Lihat Jadwal Dosen}
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian konfirmasi permohonan perubahan kuliah.}
+	\label{hasil:LihatJadwal}
+	\begin{tabular}{|c| c| p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} &\\
+		\midrule
+		1&Sukses&Konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
+		\hline
+		2&Sukses& Nama dosen terlihat dalam sebuah tab yang terletak diatas tabel.\\
+		\hline
+		3&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
+		&& - Memeriksa baris hari dan kolom jam ditampilkan dengan teks berformat \textit{bold}.	\\	
+		\hline
+		4&Sukses&- Memeriksa \textit{cell} yang terisi memiliki border berwarna hitam.\\		
+		\hline
+		5&Sukses&- Memeriksa tombol berwarna merah.\\
+		&& - Memeriksa setelah tombol dipilih keseluruhan jadwal akan terhapus dari tabel entri jadwal dosen.\\
+		6& Sukses & - Memeriksa tombol berwarna biru.\\
+		&& - Memeriksa setelah tombol dipilih maka akan menghasilkan file bertipe .xls. \\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
