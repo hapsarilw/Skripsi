@@ -442,7 +442,7 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 > 	<div class="card-header">
 > 	    Histori Permohonan
 > 	</div>
-> 	<div class="card-body">
+> 	<div class="card-body table-responsive">
 > 	    <table class="table table-striped">
 
 65,71c76,82
@@ -522,8 +522,10 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 		\toprule
 		No Line & Implementasi     & Penjelasan\\
 		\midrule
-		3-16 & \textbf{Konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
-		82-162 & \textbf{Modal} & Untuk modal pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
+		3-16 & \textbf{Konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. \\
+		19-80 & \textbf{Form} & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
+		82-162 & \textbf{Modal} & Untuk modal pada Foundation 6 hanya menggunakan satu kelas yaitu \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan beberapa kelas \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
+		
 		\bottomrule
 	\end{tabularx}%
 	\label{table:kodePermintaanCetakTranskrip}
@@ -777,6 +779,7 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 		No & Implementasi     & Penjelasan \\
 		\midrule
 		3-13 & \textbf{Border untuk konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
+		15-29 & \textbf{\textit{Input Group}} & Bootstrap 4 menandakan posisi input di group dengan \texttt{input-group-prepend} untuk sisi kanan dan \texttt{input-group-append} untuk sisi kiri dari \textit{form field}.\\
 		51-54 & \textbf{Label}  & Pemanggilan label untuk jenis aksi yang dilakukan menggunakan controller dari manajemen cetak transkrip (Penjelasan ada pada kode ~\ref{lst:transkripManage}).\\
 		56-218 & \textbf{Modal}  & Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}\\
 		\bottomrule
@@ -805,21 +808,21 @@ a\www\application\controllers\TranskripManage.php b\www\application\controllers\
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainPerubahanKuliahRequest}]
 diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\application\views\PerubahanKuliahRequest\main.php
 
-10,15c11,17
+9,14c10,16
+< 
 < <div class="row">
 <     <div class="large-12 column">
 <         <div class="callout">
 <             <h5>Permohonan Baru</h5>
 <             <div class="callout alert">Untuk perubahan jadwal kuliah, silakan berkoordinasi langsung dengan peserta kuliah.</div>                    
-<             <form method="POST" action="/PerubahanKuliahRequest/add">
 ---
+> <br>
 > <div class="container">
 >     <div class="card">
 >         <div class="card-header">
 >             Permohonan Baru
 >         </div>
 >         <div class="card-body">
->             <form class="p-3" method="POST" action="/PerubahanKuliahRequest/add">
 
 17,21c19,22
 < <div class="row">
@@ -829,7 +832,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <         </label>
 ---
 > <div class="form-group row">
->     <div class="col-sm-6">
+>     <div class="col-lg-6">
 >         <label class="col-form-label">Pemohon:</label>
 >         <input class="form-control" type="email" name="requestByEmail" value="<?= $requestByEmail ?>" readonly/>
 
@@ -839,7 +842,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input type="text" name="requestByName" value="<?= $requestByName ?>" readonly="readonly"/>
 <         </label>
 ---
->     <div class="col-sm-6">
+>     <div class="col-lg-6">
 >         <label class="col-form-label">Nama:</label>
 >         <input class="form-control" type="text" name="requestByName" value="<?= $requestByName ?>" readonly="readonly"/>
 
@@ -851,7 +854,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <         </label>
 ---
 > <div class="form-group row">
->     <div class="col-sm-2">
+>     <div class="col-lg-2">
 >         <label class="col-form-label">Kode MK:</label>
 >         <input class="form-control" type="text" name="mataKuliahCode" required maxlength="9" pattern="[A-Z]{3}[0-9]{3}([0-9]{3})?" title="Kode MK dalam format XYZ123"/>
 
@@ -861,7 +864,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input type="text" name="mataKuliahName" required/>
 <         </label>
 ---
->     <div class="col-sm-5">
+>     <div class="col-lg-5">
 >         <label class="col-form-label">Nama Mata Kuliah:</label>
 >         <input class="form-control" type="text" name="mataKuliahName" required/>
 
@@ -871,7 +874,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input type="text" name="class" maxlength="1"/>
 <         </label>
 ---
->     <div class="col-sm-1">
+>     <div class="col-lg-1">
 >         <label class="col-form-label">Kelas:</label>
 >         <input class="form-control" type="text" name="class" maxlength="1"/>
 
@@ -880,7 +883,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <         <label>Jenis Perubahan:
 <             <select name="changeType">
 ---
->     <div class="col-sm-4">
+>     <div class="col-lg-4">
 >         <label class="col-form-label">Jenis Perubahan:</label>
 >         <select name="changeType" class="form-control">
 
@@ -895,7 +898,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <         </label>
 ---
 > <div class="form-group row">
->     <div class="col-sm-3">
+>     <div class="col-lg-3">
 >         <label class="col-form-label">Dari Hari &amp; Jam:</label>
 >         <input id="datetimepicker" class="form-control disableable" type="text" name="fromDateTime">
 
@@ -905,7 +908,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input class="disableable" type="text" name="fromRoom"/>
 <         </label>
 ---
->     <div class="col-sm-3">
+>     <div class="col-lg-3">
 >         <label class="col-form-label">Dari Ruang:</label>
 >         <input class="form-control disableable" type="text" name="fromRoom"/>
 
@@ -915,7 +918,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input class="disableable" type="text" name="remarks"/>
 <         </label>
 ---
->     <div class="col-sm-6">
+>     <div class="col-lg-6">
 >         <label class="col-form-label">Keterangan Tambahan:</label>
 >         <input class="form-control disableable" type="text" name="remarks"/>
 
@@ -926,8 +929,8 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input class="disableable toDateTime" type="text" name="toDateTime[]"/>
 <         </label>
 ---
-> <div class="form-group row toFields">
->     <div class="col-sm-3">
+> <div class="form-group row toFields align-items-end">
+>     <div class="col-lg-3">
 >         <label class="col-form-label">Menjadi Hari &amp; Jam:</label>
 >         <input id="datetimepicker" class="form-control disableable toDateTime" type="text" name="toDateTime[]"/>
 
@@ -937,7 +940,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <             <input class="disableable toRoom" type="text" name="toRoom[]"/>
 <         </label>
 ---
->     <div class="col-sm-3">
+>     <div class="col-lg-3">
 >         <label class="col-form-label">Menjadi Ruang:</label>
 >         <input class="form-control disableable toRoom" type="text" name="toRoom[]"/>
 
@@ -946,8 +949,8 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <         <br/>
 <         <a href="#" class="eraseButton button secondary">Hapus</a>
 ---
->     <div class="col-sm-2">
->         <br/><br>
+>     <div class="col-lg-3">
+>         <br><br>
 >         <a href="#" class="eraseButton btn btn-secondary">Hapus</a>
 
 88,91c80,83
@@ -957,7 +960,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 <         <a href="#" id="addToButton" class="button secondary">Tambah Pertemuan Ekstra</a>
 ---
 > <div class="form-group row" id="sendDiv">
->     <div class="col-sm-12">
+>     <div class="col-lg-12">
 >         <input type="submit" class="btn btn-primary" value="Kirim Permohonan">
 >         <a href="#" id="addToButton" class="btn btn-secondary">Tambah Pertemuan Ekstra</a>
 
@@ -969,11 +972,11 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 > </div>
 > <br>
 > <div class="card">
-> 	<div class="card-header">
-> 	    Histori Permohonan
-> 	</div>
-> 	<div class="card-body">
-> 	    <table class="table table-striped table-responsive">
+>   <div class="card-header">
+>       Histori Permohonan
+>   </div>
+>   <div class="card-body">
+>     <table class="table table-striped table-responsive">
 
 101,108c98,105
 < <th>ID</th>
@@ -994,22 +997,24 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 > <th scope="col">Keterangan</th>
 > <th scope="col">Aksi</th>
 
-115c112
+114,115c111,112
+< <td>#<?= $request->id ?></td>
 < <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
 ---
+> <th>#<?= $request->id ?></th>
 > <td><span class=" badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
 
 122c119,123
 < <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
 ---
 > <a data-toggle="modal" data-target="#detail<?= $request->id ?>" id="detailIkon<?= $request->id ?>">
-> <span style="font-size: 18px; color: Dodgerblue;">
-> 	<i class="fas fa-eye"></i>
-> </span>
+>   <span style="font-size: 18px; color: Dodgerblue;">
+>       <i class="fas fa-eye"></i>
+>   </span>
 > </a>
 
 128a130
-> <h5></h5>
+>                 <h5></h5>
 
 132,135c135,145
 < 
@@ -1018,7 +1023,7 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 < <table class="stack">
 ---
 > <div class="modal fade" id="detail<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-> <div class="modal-dialog modal-dialog-centered" role="document">
+>  <div class="modal-dialog modal-dialog-centered" role="document">
 >     <div class="modal-content">
 >         <div class="modal-header">
 >             <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
@@ -1037,7 +1042,6 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 >         </div>
 >     </div>
 > </div>
-
 214a225
 > jQuery('#datetimepicker').datetimepicker();
 \end{lstlisting}
@@ -1090,7 +1094,7 @@ diff -r a\www\application\views\PerubahanKuliahManage\main.php b\www\application
 >             Permohonan Perubahan Kuliah
 >         </div>
 >         <br>
->         <div class="card-body">
+>         <div class="card-body table-responsive">
 >             <table class="table table-striped">
 
 16,21c20,25
@@ -1759,7 +1763,7 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 	\item Penguji memeriksa tombol "Ekspor ke XLS".
 \end{enumerate}
 
-\section{Hasil Pengujian}
+\subsection{Hasil Pengujian}
 \subsubsection{Login}
 \begin{table}[H]
 	\centering 
