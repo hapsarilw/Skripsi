@@ -4,19 +4,18 @@
    
 \section{Latar Belakang}
 \label{sec:label}
-
-\par BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu CodeIgniter(bagian ~\ref{sec:codeigniter}) dan Foundation(bagian ~\ref{sec:foundation}).  \par
-Foundation adalah kerangka kerja atau \textit{Framework } untuk semua perangkat, media, dan semua aksesibilitas. Foundation adalah bagian dari \textit{front-end framework}  yang responsif dan memiliki kemudah untuk merancang situs web, aplikasi, dan email. Sehingga akan terlihat lebih menarik saat dilihat dari perangkat mana pun. Foundation bersifat semantik, mudah dibaca, fleksibel, dan sepenuhnya \textit{customizable}.
-\cite{zurbfoundation:17}.\par
-Sejak Bootstrap diluncurkan pada Agustus 2011, \textit{framework} ini mulai populer. Bootstrap telah berkembang sepenuhnya menjadi proyek yang digerakkan oleh CSS untuk menggunakan sejumlah plugin JavaScript dan ikon yang sejalan dengan \textit{forms} dan \textit{buttons}. Pada dasarnya, ini memungkinkan untuk mendesain web yang responsif. Bootstrap memiliki fitur grid 12-kolom dan \textit{container} selebar 940px yang kuat. Salah satu yang menarik adalah \textit{build tool} di situs web Bootstrap, di mana \textit{developer} dapat menyesuaikan pembangunan sesuai dengan kebutuhan, seperti memilih fitur CSS dan JavaScript yang ingin disertakan dalam situs. \cite{bootstrap:19}\par
-Pada skripsi ini akan dirubah keseluruhan  antarmuka untuk setiap modul yang ada di dalam aplikasi BlueTape menggunakan \textit{framework} Bootstrap 4. Saat ini, setiap view menggunakan template yang menampilkan nama \textit{module}, menu navigasi, dan \textit{flash message}.
+\par Foundation merupakan kerangka kerja atau \textit{framework} yang responsive untuk mempercepat pembangunan \textit{front-end} atau antarmuka situs dan aplikasi. \textit{Framework} ini dapat bekerja pada perangkat apa pun(\textit{smartphone} dan desktop) dengan menggunakan komponen yang sudah diuji. Foundation dijalankan pertama kali dalam sebuah proyek pada tahun 2008. Kemudian tahun 2011, untuk mendorong pertumbuhan desain website yang responsive maka \textit{framework} ini bersifat \textit{open-source} dan dapat digunakan oleh publik.
+\cite{zurbfoundation:17}.
+\par Sejak Bootstrap diluncurkan pada Agustus 2011, \textit{framework} ini mulai populer. Bootstrap telah berkembang sepenuhnya menjadi proyek yang digerakkan oleh CSS untuk menggunakan sejumlah plugin JavaScript dan ikon yang sejalan dengan \textit{forms} dan \textit{buttons}. Pada dasarnya, ini memungkinkan untuk mendesain web yang responsif. Bootstrap memiliki fitur grid 12-kolom dan \textit{container} selebar 940px yang kuat. Salah satu yang menarik adalah \textit{build tool} di situs web Bootstrap, di mana \textit{developer} dapat menyesuaikan pembangunan sesuai dengan kebutuhan, seperti memilih fitur CSS dan JavaScript yang ingin disertakan dalam situs. \cite{bootstrap:19}
+\par BlueTape merupakan aplikasi berbasis \textit{web} yang berfungsi mengolah beberapa kebutuhan administrasi fakultas secara \textit{paperless} yang digunakan dalam lingkungan FTIS UNPAR.  Aplikasi ini mempunyai fitur untuk manajemen transkrip nilai, perubahan kuliah dan jadwal dosen. \textit{Framework} yang digunakan dalam aplikasi BlueTape ada dua yaitu CodeIgniter(bagian ~\ref{sec:codeigniter}) dan Foundation(bagian ~\ref{sec:foundation}).
+\par Pada skripsi ini akan dirubah keseluruhan  antarmuka untuk setiap modul yang ada di dalam aplikasi BlueTape menggunakan \textit{framework} Bootstrap 4. Saat ini, setiap view menggunakan template yang menampilkan nama \textit{module}, menu navigasi, dan \textit{flash message}.
 
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang akan dibahas dalam penelitian ini:
 \begin{enumerate}
-	\item Bagaimana merubah \textit{template} manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen dari framework \textbf{Foundation 6} ke \textbf{Bootstrap 4}
+	\item Bagaimana mengubah \textit{template} manajemen cetak transkrip, manajemen perubahan kuliah dan manajemen jadwal dosen dari framework Foundation 6 ke Bootstrap 4.
 	\item Bagaimana \textit{plugin} yang ada di BlueTape saat ini dapat berjalan pada \textit{Bootstrap 4}.
 \end{enumerate}
 
@@ -25,7 +24,7 @@ Rumusan masalah yang akan dibahas dalam penelitian ini:
 Tujuan yang ingin dicapai dalam penelitian ini :
 
 	\begin{enumerate}	
-	\item Merubah \textit{template} cetak transkrip nilai, \textit{template} manajemen cetak transkrip, \textit{template} perubahan kuliah, \textit{module} manajemen perubahan kuliah, \textit{template} entri jadwal dosen dan \textit{template} lihat jadwal dosen dengan \textit{framework Bootstrap 4}.
+	\item Mengubah \textit{template} cetak transkrip nilai, \textit{template} manajemen cetak transkrip, \textit{template} perubahan kuliah, \textit{module} manajemen perubahan kuliah, \textit{template} entri jadwal dosen dan \textit{template} lihat jadwal dosen dengan \textit{framework Bootstrap 4}.
 	\item Memastikan \textit{plugin} yang ada di BlueTape saat ini dapat berjalan dengan baik pada \textit{Bootstrap 4}.
 	\end{enumerate}
 
@@ -33,10 +32,9 @@ Tujuan yang ingin dicapai dalam penelitian ini :
 \label{sec:batasan}
 Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut.
 \begin{enumerate}	
-	\item Aplikasi ini tidak merubah struktur database dan file yang berisi fungsi-fungsi CRUD.
-	\item Aplikasi ini tidak menambah tampilan baru, hanya merubah penggunaan framework \textit{ Foundation 6} sesuai dengan tampilan yang sudah ada menggunakan \textit{Bootstrap 4}.
-	\item Versi BlueTape yang digunakan versi tertanggal 16 Agustus 2019.
-	
+	\item Kegiatan migrasi tidak mengubah struktur database dan file yang berisi fungsi-fungsi \textit{create, read, update, delete} (CRUD).
+	\item Kegiatan migrasi tidak menambah fitur baru, hanya mengubah penggunaan framework \textit{ Foundation 6} sesuai dengan fitur yang sudah ada menggunakan \textit{Bootstrap 4}.
+	\item Proses pengembangan masih berjalan ketika pengerjaan skripsi dilakukan sehingga untuk mempermudah maka penulis menggunakan kode yang diunggah pada tanggal 16 Agustus 2019 untuk proses migrasi.	
 	\end{enumerate}		
 
 
@@ -44,24 +42,25 @@ Dalam penelitian ini ditetapkan batasan-batasan masalah sebagai berikut.
 \label{sec:metlit}
 Metode penelitian yang digunakan dalam skripsi ini adalah :
 \begin{enumerate}
-	\item Studi literatur memahami mengenai :
+	\item Studi literatur memahami mengenai:
 	\begin{enumerate}
 		\item \textit{framework} CodeIgniter
 		\item \textit{framework} Bootstrap 4
 		\item \textit{framework} Foundation 6 dan \textit{plugin} - \textit{plugin} nya.
 	\end{enumerate}
-	\item  Membangun antarmuka sesuai tampilan website BlueTape. Proses pembuatan antarmuka dibagi menjadi 3 tahap :
+	\item  Membangun antarmuka sesuai tampilan website BlueTape. Proses pembuatan antarmuka dibagi menjadi 3 tahap:
 	\begin{enumerate}
 		\item Analisis elemen dan kelas yang digunakan dalam antarmuka dengan Foundation 6.
 		\item Penjabaran elemen beserta kelas-kelas pada Foundation 6 dan Bootstrap 4.
 		\item Implementasi kode dengan kelas-kelas pada Bootstrap 4 berdasarkan penjabaran .
 	\end{enumerate}
+	\item Menyusun dokumen skripsi. Detil pengerjaan dijelaskan pada bagian ~\ref{sec:sispem}.
 \end{enumerate}
 
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Untuk penulisan skripsi ini akan dibagikan dalam 6 bab sebagai berikut :
+Untuk penulisan skripsi ini dibagikan dalam 5 bab sebagai berikut :
 \doublespacing
 \begin{singlespace}
 \noindent Bab Pendahuluan \\
@@ -75,12 +74,12 @@ Bab 2 berisi dasar-dasar teori pembuatan antarmuka BlueTape. Dasar-dasar teori y
 
 \begin{singlespace}
 \noindent Bab Analisis \\
-Bab 3 berisi analisis antarmuka yang sudah ada dan detil kelas yang akan digunakan pada tahap implememtasi.
+Bab 3 berisi analisis komponen yang digunakan dalam website dan perbedaan antara \textit{framework} Foundation 6 dan Bootstrap 4.
 \end{singlespace}
 
 \begin{singlespace}
 \noindent Bab Implementasi \\
-Bab 4 berisi mengenai isi program yang sudah diimplementasi.
+Bab 4 berisi mengenai tampilan sebelum dan sesudah implementasi komponen dengan menggunakan Bootstrap 4.
 \end{singlespace}
 
 \begin{singlespace}

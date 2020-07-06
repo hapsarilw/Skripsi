@@ -1,4 +1,4 @@
-\chapter{Implemetasi Website BlueTape dengan Bootstrap 4}
+\chapter{Implemetasi}
 Bab 4 menjelaskan implementasi website BlueTape dengan Framework Bootstrap 4. Pertama akan dijelaskan file apa saja yang dirubah. Kedua perubahan akses apa saja yang diubah oleh programmer untuk menjalankan website. Terakhir akan disajikan detail perubahan kode yang dijelaskan dalam kode \texttt{normal diff}.
 
 \section{Daftar File yang Diubah dan Diganti pada Folder}
@@ -125,7 +125,7 @@ columns=fullflexible, keepspaces=true, breaklines=true, label={lst:daftarfile}]
 \end{lstlisting}
 
 \section{Pengaturan Akses bagi \textit{admin}}
-Sebelumm menjalankan website, \textit{admin} akan menyunting email admin dan database agar lebih mudah unutk diakses. Hasil perubahan kode ditampilkan dalam berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4).
+Sebelumm menjalankan website, \textit{admin} akan menyunting email admin dan database agar lebih mudah untuk diakses. Hasil perubahan kode ditampilkan dalam berbentuk diff, dimana bagian berwarna merah merupakan kode lampau(Foundation 6) dan bagian berwarna hijau merupakan kode terkini  (Bootstrap 4).
 
 \subsection{Perubahan Akses URL}
 Saat admin pertama kali menjalankan aplikasi CodeIgniter maka diperlukan konfigurasi \texttt{base\_url}. Sehingga URL baru terbentuk dan dapat mengakses \textit{resource} yang ada pada direktori \texttt{root}. Penggunaan \texttt{base\_url} dalam website dijelaskan pada kode ~\ref{lst:config}\\
@@ -204,7 +204,23 @@ diff -r a\www\application\views\templates\head_loggedin.php b\www\application\vi
 \end{lstlisting}
 
 \subsection{Halaman Login}
-Pemanggilan file css dilakukan kembali pada file \texttt{login.php} untuk digunakan pada halaman login website BlueTape. Selain itu file HTML berada di file ini, penjelasan tertera pada kode ~\ref{lst:login}
+\noindent Gambar ~\ref{fig:analisisLogin} adalah halaman pertama yang diakses \textit{user}, penjelasan untuk setiap tombol yang ada direferensikan pada ~\ref{ss:login}.
+
+\begin{figure} [H]
+	\centering  	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_login.png} 
+	\caption{Halaman login dengan Foundation 6.} 
+	\label{fig:analisisLogin}
+\end{figure}
+
+\noindent Gambar ~\ref{fig:konversiLogin} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman login.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_login.png}  
+	\caption{Halaman login dengan Bootstrap 4.} 
+	\label{fig:konversiLogin}
+\end{figure} \noindent \\
+
+Pemanggilan file css untuk \textit{framework} dilakukan pada file \texttt{login.php} yang terlihat pada kode ~\ref{lst:login}. Kemudian terdapat kode HTML untuk halaman login.
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\auth\login.php},  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:login}]
 diff -r a\www\application\views\auth\login.php b\www\application\views\auth\login.php
@@ -232,19 +248,20 @@ diff -r a\www\application\views\auth\login.php b\www\application\views\auth\logi
 > <a href="<?= $authURL; ?>" class="btn btn-primary btn-lg">Login dengan Google</a><br/><br/>
 > <a href="https://github.com/ftisunpar/BlueTape/wiki/UserGuide" target="_blank">Petunjuk Penggunaan</a>
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:reslogin}.
 
 \noindent Penjelasan kode diatas tertera pada tabel ~\ref{table:KodeManajemenPerubahanKuliah}:
 \begin{table}[H]
 	\centering
-	\caption{Penjelasan kode yang dipakai pada halaman manajemen perubahan kuliah.}
+	\caption{Penjelasan kode konversi halaman manajemen perubahan kuliah.}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
 		\midrule
-		2-9 & \textbf{Pemanggilan file} & File css dari Foundation akan diganti dnegan file css dari Bootstrap 4.\\
-		11-17 & \textbf{Grid konten} & Dalam Foundation 6 untuk membuat satu baris konten hanya menggunakan kelas \texttt{.row}, namun di Bootstrap 4 perlu ditambahakan kelas \texttt{.container}.\\
+		2 & \textbf{Pemanggilan file} & File css dari Foundation akan diganti dengan file css dari Bootstrap 4.\\
+		12, 15 & \textbf{Grid konten} & Dalam Foundation 6 untuk membuat satu baris konten hanya menggunakan kelas \texttt{.row}, namun di Bootstrap 4 perlu ditambahakan kelas \texttt{.container}.\\
 		& & Untuk size sama - sama menggunakan lebar 6 grid yang posisi nya diletakkan ditengah website.\\
-		19-24 & \textbf{Text} & Teks akan diletakkan ditengah, hanya di Foundation 6 saja perlu menginisiasi kelas \texttt{.text-center} pada Bootstrap 4 tidak perlu.\\
+		21, 24 & \textbf{Text} & Teks akan diletakkan ditengah, hanya di Foundation 6 saja perlu menginisiasi kelas \texttt{.text-center} pada Bootstrap 4 tidak perlu.\\
 		\bottomrule
 	\end{tabularx}%
 	\label{table:KodeManajemenPerubahanKuliah}
@@ -255,11 +272,6 @@ Implementasi notifikasi user terdapat pada kode ~\ref{lst:flashmessage}.
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\templates\flashmessage.php},  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:flashmessage}]
 diff -r a\www\application\views\templates\flashmessage.php b\www\application\views\templates\flashmessage.php
-
-3c3
-< ?><div class="row">
----
-> ?>
 
 5c5
 < <div class="callout alert"><?= $_SESSION['error'] ?></div>
@@ -281,13 +293,47 @@ diff -r a\www\application\views\templates\flashmessage.php b\www\application\vie
 		\toprule
 		No Line & Implementasi     & Penjelasan \\
 		\midrule
-		8-16 & \textbf{Alert} & Labelling menggunakan \texttt{.callout} pada Foundation 6. Boostrap 4 mrnggunakan kelas \texttt{.alert} dan atribut \texttt{role}.\\
+		9, 11 & \textbf{Alert} & Labelling menggunakan \texttt{.callout} pada Foundation 6. Boostrap 4 mrnggunakan kelas \texttt{.alert} dan atribut \texttt{role}.\\
 		\bottomrule
 	\end{tabularx}%
 	\label{tabelKodeLogin}
 \end{table}
 
 \subsection{Menu Navigasi}
+Komponen menu navigasi digunakan pada keseluruhan tampilan website, bentuk menu akan menyesuaikan sesuai dengan layar dimana website diakses. \\
+Berikut ini gambar ~\ref{fig:navigasiLarge} merupakan hasil penggunaan dari implementasi menu navigasi:
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_top_bar.png}  
+	\caption{Analisis menu navigasi di layar \textit{large}.} 
+	\label{fig:navigasiLarge}
+\end{figure}
+
+\noindent Gambar ~\ref{fig:konversiNavigasi} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada menu navigasi.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_navbar.png}  
+	\caption{Konversi menu navigasi di layar \textit{large}.} 
+	\label{fig:konversiNavigasi}
+\end{figure}
+
+\noindent Lalu untuk layar \textit{medium} dan \textit{small} menggunakan komponen \texttt{Advanced Layout} pada gambar ~\ref{fig:navigasiMedium} dimana  daftar halaman website yang ada pada menu berada di mode \textit{hide} dan digantian oleh ikon menu. 
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_top_bar_small.png} 
+	\caption{Analisis menu navigasi di layar \textit{medium} dan \textit{small}.} 
+	\label{fig:navFoundation}
+\end{figure} \noindent
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_small_navbar.png} 
+	\caption{Konversi menu navigasi di layar \textit{medium} dan \textit{small}.} 
+	\label{fig:navBootstrap}
+\end{figure} \noindent
+
+
 Kode ~\ref{lst:topbarloggedin} menjelaskan menu navigasi secara umum terdiri dari kelas untuk judul website, letak menu dan menu yang sedang aktif.
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\templates\topbar_loggedin.php} ,  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:topbarloggedin}]
@@ -347,16 +393,36 @@ diff -r a\www\application\views\templates\topbar_loggedin.php b\www\application\
 \end{table}
 
 \subsection{Halaman Permintaan Cetak Transkrip }
+Berikut ini gambar ~\ref{fig:analisisCetakTranskrip} merupakan hasil implementasi permintaan cetak transkrip:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_mahasiswa_cetak_transkrip.png}
+	\caption{Analisis halaman cetak transkrip.} 
+	\label{fig:analisisCetakTranskrip}
+\end{figure} 
+
+\noindent Gambar ~\ref{fig:konversiPermintaanCetakTranskrip} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman permintaan cetak transkrip.\\
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_cetak_transkrip.png}
+	\caption{Konversi halaman cetak transkrip.} 
+	\label{fig:konversiPermintaanCetakTranskrip}
+\end{figure}
+
 Perubahan halaman permintaan cetak transkrip dilampirkan dalam Kode ~\ref{lst:mainTranskripRequest}.
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\TranskripRequest\main.php} ,  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainTranskripRequest}]
 diff -r a\www\application\views\TranskripRequest\main.php b\www\application\views\TranskripRequest\main.php
-
-9a10
+9c9,10
+< 
+---
+> <br>
 > <div class="container">
+
 11,14c12,18
 < <div class="medium-12 column">
-<  <div class="callout">
+< <div class="callout">
 <     <h5>Permohonan Baru</h5>
 <     <div class="callout alert">Transkrip akademik sementara dapat diakses via student portal masing-masing.</div>
 ---
@@ -374,62 +440,9 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 <         <input type="email" name="requestByEmail" value="<?= $requestByEmail ?>" readonly="readonly"/>
 <     </label>
 ---
-> <div class="col-lg-4">
+> <div class="col-lg-4 form-group">
 >     <label class="col-form-label">Yang memohon:</label>
 >     <input class="form-control" type="email" name="requestByEmail" value="<?= $requestByEmail ?>" readonly/>
-
-24,27c27,29
-< <div class="large-4 column">
-<     <label>NPM:
-<         <input type="text" value="<?= $requestByNPM ?>" readonly="readonly"/>
-<     </label>
----
-> <div class="col-lg-4">
->     <label class="col-form-label">NPM:</label>
->     <input class="form-control" type="text" value="<?= $requestByNPM ?>" readonly/>
-
-29,32c31,34
-< <div class="large-4 column">
-<     <label>Nama:
-<         <input type="text" name="requestByName" value="<?= $requestByName ?>" readonly="readonly"/>
-<     </label>
----
-> <div class="col-lg-4">
->     <label class="col-form-label">Nama:</label>
->     <input class="form-control" type="text" name="requestByName" value="<?= $requestByName ?>" readonly/>
-> 
-
-36,38c38,40
-< <div class="large-4 column">
-<     <label>Tipe Transkrip:
-<         <select name="requestType">
----
-> <div class="col-lg-4">
->     <label class="col-form-label">Tipe Transkrip:</label>
->     <select class="form-control" name="requestType">
-
-45d46
-<     </label>
-
-47,50c48,50
-< <div class="large-8 column">
-<     <label>Keperluan:
-<         <input type="text" name="requestUsage" required/>
-<     </label>
----
-> <div class="col-lg-8">
->     <label class="col-form-label">Keperluan:</label>
->     <input class="form-control" type="text" name="requestUsage" required/>
-
-53c53,58
-<             <button type="button" class="button primary" disabled>Kirim Permohonan</button>
----
-> <br>
-> <div class="row">
-> 	<div class="col-lg-12">
-> 	    <input class="btn btn-primary" type="submit" class="button" value="Kirim Permohonan">
-> 	</div>
-> </div>
 
 60,62c66,73
 < <div class="callout">
@@ -439,28 +452,16 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 > </div>
 > <br>
 > <div class="card">
-> 	<div class="card-header">
-> 	    Histori Permohonan
-> 	</div>
-> 	<div class="card-body table-responsive">
-> 	    <table class="table table-striped">
+>  <div class="card-header">
+>     Histori Permohonan
+>  </div>
+>  <div class="card-body table-responsive">
+>     <table class="table table-striped">
 
-65,71c76,82
+65c76
 < <th>ID</th>
-< <th>Status</th>
-< <th>Tanggal Permohonan</th>
-< <th>Tipe Transkrip</th>
-< <th>Tanggal Jawab/Cetak</th>
-< <th>Keterangan</th>
-< <th>Aksi</th>
 ---
 > <th scope="col">ID</th>
-> <th scope="col">Status</th>
-> <th scope="col">Tanggal Permohonan</th>
-> <th scope="col">Tipe Transkrip</th>
-> <th scope="col">Tanggal Jawab/Cetak</th>
-> <th scope="col">Keterangan</th>
-> <th scope="col">Aksi</th>
 
 77,78c88,89
 < <td>#<?= $request->id ?></td>
@@ -468,52 +469,9 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 ---
 > <th>#<?= $request->id ?></th>
 > <td><span class="badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
-
-84c95,98
-< <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
----
-> <!-- Button trigger modal -->
-> <a data-toggle="modal" data-target="#lihatModal<?= $request->id ?>" id="detail<?= $request->id ?>">
-> <i class="fas fa-eye"></i>
-> </a>
-
-85,86c100,111
-< 	    <h5>Detail Permohonan #<?= $request->id ?></h5>
-< 	    <table class="stack">
----
-> <!-- Modal -->
-> <div class="modal fade" id="lihatModal<?= $request->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-> 	<div class="modal-dialog modal-dialog-centered" role="document">
-> 	    <div class="modal-content">
-> 	        <div class="modal-header">
-> 	            <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
-> 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-> 	                <span aria-hidden="true">&times;</span>
-> 	            </button>
-> 	        </div>
-> 	        <div class="modal-body">
->                     <table class="table ">
-
-109c134
-< <th>Jawaban</th>
----
-> <th scope="col">Jawaban</th>
-
-126,128c151,153
-< <button class="close-button" data-close aria-label="Tutup" type="button">
-< 	<span aria-hidden="true">&times;</span>
-< </button>
----
->         </div>
-> 
->     </div>
-
-130c155
-< <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
----
->             </div>
-
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:restranskripRequest}.
+
 \noindent Catatan untuk kode ~\ref{lst:mainTranskripRequest} dijabarkan dalam tabel ~\ref{table:kodePermintaanCetakTranskrip}:
 \begin{table}[H]
 	\centering
@@ -522,46 +480,40 @@ diff -r a\www\application\views\TranskripRequest\main.php b\www\application\view
 		\toprule
 		No Line & Implementasi     & Penjelasan\\
 		\midrule
-		3-16 & \textbf{Konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. \\
-		19-80 & \textbf{Form} & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
-		82-162 & \textbf{Modal} & Untuk modal pada Foundation 6 hanya menggunakan satu kelas yaitu \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan beberapa kelas \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
+		6 & \textbf{Container} & kelas \texttt{.container} dipakai pada Bootstrap untuk mengaktifkan sistem grid.\\
+		10, 15 & \textbf{Konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. \\
+		24, 29 & \textbf{Form Label} & Field pada Foundation 6 hanya menggunakan tag \texttt{<label>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.col-form-label}.\\
+		24, 29 & \textbf{Form input} & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
+		47, 49 & \textbf{Thread} & Pada Foundation 6 hanya menggunakan tag html \texttt{<th>} sedangkan pada Bootstrap 4 menggunakan memerlukan \texttt{scope="col"}.\\
+		53, 56 & \textbf{Label} & Pada Foundation 6 menggunakan komponen label dengan memanfaatkan kelas \texttt{label}, sedangkan di Bootstrap 4 menggunakan komponen \textit{badges} dengan memanfaatkan kelas \texttt{.badge}.\\
 		
 		\bottomrule
 	\end{tabularx}%
 	\label{table:kodePermintaanCetakTranskrip}
 \end{table}
 
-\subsubsection{Controller Permintaan Cetak Transkrip}
-Pemberian label pada kolom 'status' menggunakan logika sederhana yang terletak pada controller, hasil dilampirkan dalam kode ~\ref{lst:transkriprequest}.
-%Kode
-\begin{lstlisting}[language=diff, caption=Perubahan file \www\application\controllers\TranskripRequest.php,  basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true, label={lst:transkriprequest}]
-diff -r a\www\application\controllers\TranskripRequest.php b\www\application\controllers\TranskripRequest.php
-35c35
-<   $request->labelClass = 'alert';
----
->   $request->labelClass = 'danger';
-\end{lstlisting}
-
 \subsection{Halaman Manajemen Cetak Transkrip} 
+Halaman ini terdiri dari satu konten yaitu "Permintaan Transkrip" tertera pada gambar ~\ref{fig:analisisManajemenCetakTranskrip}. Bagian form pencarian NPM menggunakan \textit{group field}, dimana nama form , isi form dan tombol merupakan satu kesatuan. Lalu dibawah form terdapat tabel yang menampilkan data permintaan cetak transkrip. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_manajemen_cetak_transkrip.png}
+	\caption{Analisis manajemen cetak transkrip.} 
+	\label{fig:analisisManajemenCetakTranskrip}
+\end{figure} 
+
+\noindent Gambar ~\ref{fig:konversiManajemenCetakTranskrip} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman manajemen cetak transkrip.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_manajemen_cetak_transkrip.png}
+	\caption{Konversi manajemen cetak transkrip.} 
+	\label{fig:konversiManajemenCetakTranskrip}
+\end{figure}
+
 Pada kode ~\ref{lst:mainTranskripManage} menjelaskan perubahan kode pada halaman manajemen permintaan transkrip.
 
-\subsubsection{Halaman Utama}
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\TranskripManage\main.php},  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainTranskripManage}]
 diff -r a\www\application\views\TranskripManage\main.php b\www\application\views\TranskripManage\main.php
-
-10,12c10,15 
-< <div class="row">
-<     <div class="callout">
-<         <h5>Permintaan Transkrip</h5>
----
->  <div class="container">
->         <div class="card">
->             <div class="card-header">
->                 Permintaan Transkrip
->             </div>
->             <div class="card-body">
 
 15c18,20
 < 	<span class="input-group-label">Cari NPM:</span>
@@ -579,90 +531,20 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 > <div class="input-group-append">
 >     <input class="btn btn-primary" type="submit" value="Cari"/>
 
-22c28,29
+22c29
 <  <table class="stack">
 ---
-> <br>
 > <table class="table table-striped">
-25,30c32,37
-< <th>ID</th>
-< <th>Status</th>
-< <th>Tanggal Permohonan</th>
-< <th>Tipe Transkrip</th>
-< <th>NPM</th>
-< <th>Aksi</th>
----
-> <th scope="col">ID</th>
-> <th scope="col">Status</th>
-> <th scope="col">Tanggal Permohonan</th>
-> <th scope="col">Tipe Transkrip</th>
-> <th scope="col">NPM</th>
-> <th scope="col">Aksi</th>
 
-37c44
-< <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
----
-> <td><span class="badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
 
-42,44c50,60
-<     <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-<         <h5>Detail Permohonan #<?= $request->id ?></h5>
-<         <table class="stack">
----
-> <div class="modal fade" id="detail<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
->     <div class="modal-dialog modal-dialog-centered" role="document">
->         <div class="modal-content">
->             <div class="modal-header">
->                 <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
->                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
->                     <span aria-hidden="true">&times;</span>
->                 </button>
->             </div>
->             <div class="modal-body">
->                 <table class="table table-striped">
-
-83a100,106
->             </div>
->         </div>
->     </div>
-> </div>
+87c87,88
 > <a data-toggle="modal" data-target="#detail<?= $request->id ?>" id="detailIkon<?= $request->id ?>">
 >     <i class="fas fa-eye"></i>
 > </a>
 
-84c108,113
-<         <button class="close-button" data-close aria-label="Tutup" type="button">
----
-> <div class="modal fade" id="tolak<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
->     <div class="modal-dialog modal-dialog-centered" role="document">
->         <div class="modal-content">
->             <div class="modal-header">
->                 <h5 class="modal-title" id="exampleModalLongTitle">Tolak Permohonan #<?= $request->id ?></h5>
->                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-88,90c117
+88c88
 <     <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
-<     <div class="reveal" id="tolak<?= $request->id ?>" data-reveal>
-<         <h5>Tolak Permohonan</h5>
----
->     	<div class="modal-body">
 
-95,100c122,129
-<     <label>Email penjawab:
-<         <input type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
-<     </label>
-<     <label>Alasan penolakan:
-<         <input name="answeredMessage" class="input-group-field" type="text" required/>
-<     </label>
----
->     <div class="form-group">
->         <label>Email penjawab:</label>
->         <input class="form-control" type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
->     </div>
->     <div class="form-group">
->         <label>Alasan penolakan:</label>
->         <input class="form-control" name="answeredMessage" type="text" required/>
->     </div>
 
 102c131,133
 <     <input type="submit" class="alert button" value="Tolak"/>
@@ -671,106 +553,10 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 >         <input type="submit" class="btn btn-danger" value="Tolak"/>
 >     </div>
 
-103a135,141
->             </div>
->         </div>
->     </div>
-> </div>
-> <a data-toggle="modal" data-target="#tolak<?= $request->id ?>" id="detailIkon<?= $request->id ?>">
->     <i class="fas fa-thumbs-down"></i>
-> </a>
-
-104c143,148
-<         <button class="close-button" data-close aria-label="Tutup" type="button">
----
-> <div class="modal fade" id="cetak<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
->     <div class="modal-dialog modal-dialog-centered" role="document">
->         <div class="modal-content">
->             <div class="modal-header">
->                 <h5 class="modal-title" id="exampleModalLongTitle">Cetak Permohonan #<?= $request->id ?></h5>
->                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-108,110c152
-<     <a data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
-<     <div class="reveal" id="cetak<?= $request->id ?>" data-reveal>
-<         <h5>Cetak Permohonan</h5>
----
->             <div class="modal-body">
-
-121,126c163,170
-<     <label>Email penjawab:
-<         <input type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
-<     </label>
-<     <label>Keterangan tambahan:
-<         <input name="answeredMessage" class="input-group-field" type="text" required/>
-<     </label>
----
->     <div class="form-group">
->         <label class="col-form-label">Email penjawab:</label>
->         <input class="form-control" type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
->     </div>
->     <div class="form-group">
->         <label class="col-form-label">Keterangan tambahan:</label>
->         <input class="form-control" name="answeredMessage" type="text" required/>
->     </div>
-
-128c172,174
-<             <input type="submit" class="button" value="Sudah dicetak"/>
----
->     <div class="form-group">
->         <input class="btn btn-primary" type="submit" class="button" value="Sudah dicetak"/>
->     </div>
-
-129a176,182
->                     </div>
->                 </div>
->             </div>
->         </div>
->         <a data-toggle="modal" data-target="#cetak<?= $request->id ?>" id="detailIkon<?= $request->id ?>">
->             <i class="fas fa-print"></i>
->         </a>
-
-130c184,189
-<         <button class="close-button" data-close aria-label="Tutup" type="button">
----
-> <div class="modal fade" id="hapus<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
->     <div class="modal-dialog modal-dialog-centered" role="document">
->         <div class="modal-content">
->             <div class="modal-header">
->                 <h5 class="modal-title" id="exampleModalLongTitle">Hapus Permohonan #<?= $request->id ?></h5>
->                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-134,136c193
-<     <a data-open="cetak<?= $request->id ?>"><i class="fi-print"></i></a>
-<     <div class="reveal" id="hapus<?= $request->id ?>" data-reveal>
-<         <h5>Hapus Permohonan</h5>
----
->     	    <div class="modal-body">
-
-143c200
-<     <input type="submit" class="alert button" value="Hapus"/>
----
->     <input class="btn btn-danger" type="submit" value="Hapus"/>
-
-145,147c202,204
-< <button class="close-button" data-close aria-label="Tutup" type="button">
-<     <span aria-hidden="true">&times;</span>
-< </button>
----
->     		</div>
-> 	</div>
-> </div>
-
-149c206,208
-<     <a data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
----
->         <a data-toggle="modal" data-target="#hapus<?= $request->id ?>" id="detailIkon<?= $request->id ?>">
->             <i class="fas fa-trash"></i>
->         </a>
-
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:restranskripManage}.
 
-\noindent Catatan untuk kode ~\ref{lst:topbarloggedin} dijabarkan dalam tabel ~\ref{tabel:KodeManajemenCetakTranskrip}:
+\noindent Catatan untuk kode ~\ref{lst:mainTranskripManage} dijabarkan dalam tabel ~\ref{tabel:KodeManajemenCetakTranskrip}:
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode konversi manajemen cetak transkrip.}
@@ -778,191 +564,40 @@ diff -r a\www\application\views\TranskripManage\main.php b\www\application\views
 		\toprule
 		No & Implementasi     & Penjelasan \\
 		\midrule
-		3-13 & \textbf{Border untuk konten} & Dalam Bootstrap 4 pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. Lalu untuk form, field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}.\\
-		15-29 & \textbf{\textit{Input Group}} & Bootstrap 4 menandakan posisi input di group dengan \texttt{input-group-prepend} untuk sisi kanan dan \texttt{input-group-append} untuk sisi kiri dari \textit{form field}.\\
-		51-54 & \textbf{Label}  & Pemanggilan label untuk jenis aksi yang dilakukan menggunakan controller dari manajemen cetak transkrip (Penjelasan ada pada kode ~\ref{lst:transkripManage}).\\
-		56-218 & \textbf{Modal}  & Lalu terdapat \textit{input group field}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}\\
+		4, 7 & \textbf{Input group label} & Foundation 6 menggunakan kelas \texttt{input-group-label} sedangkan Bootstrap 4 menggunakan  \texttt{input-group-text} untuk menandakaan elemen tersebut adalah label dari input group.\\
+		11, 15 & \textbf{Input group field} & Foundation 6 menggunakan kelas \texttt{input-group-label} sedangkan Bootstrap 4 menggunakan  \texttt{.form-control} untuk menandakaan elemen tersebut adalah field dari input group.\\
+		13, 17 & \textbf{Input group button} & Foundation 6 menggunakan kelas \texttt{input-group-button} sedangkan Bootstrap 4 menggunakan  \texttt{.btn} untuk menandakaan elemen tersebut adalah button dari input group.\\
+		6 & \textbf{Prepend} & Pada Bootstrap 4 harus didefinisikan letak elemen, dengan  menggunakan  \texttt{input-group-prepend} maka elemen terletak didepan input.\\
+		16 & \textbf{Append} & Pada Bootstrap 4 harus didefinisikan letak elemen, dengan  menggunakan  \texttt{input-group-prepend} maka elemen terletak dibelakang input.\\
 		\bottomrule
 	\end{tabularx}%
 	\label{tabel:KodeManajemenCetakTranskrip}
 \end{table}
 
-\subsubsection{Controller Manajemen Cetak Transkrip}
-%Kode
-Pemberian label pada kolom 'status' menggunakan logika sederhana yang terletak pada controller, hasil dilampirkan dalam kode ~\ref{lst:transkripManage}.
-\begin{lstlisting}[language=diff, caption=Controller Manajemen Cetak Transkrip,  basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true, label={lst:transkripManage}]
-diff -r 
-a\www\application\controllers\TranskripManage.php b\www\application\controllers\TranskripManage.php
-49c49
-< $request->labelClass = 'alert';
----
-> $request->labelClass = 'danger';
-
-\end{lstlisting}
-
 \subsection{Halaman Permintaan Perubahan Kuliah}
+Halaman permintaan perubahan kuliah terdiri dari dua konten: "Permohonan Baru" dan "Histori Permohonan" tertera pada gambar ~\ref{fig:analisisPermintaanPerubahanKuliah}. 
+
+Setiap konten dipisahkan oleh border dalam Foundation disebut \texttt{callout}. Pada "Permohonan Baru" terdapat sebuah form yang berisi field-fiel dengan lebar yang berbeda - beda dan dikelompokan pada beberapa baris. Terdapat tiga tombol yaitu tombol biru "Kirim Permohonan" dan tombol abu-abu "Tambah pertemuan Ektra" .
+Konten "Histori Permohonan" berisi tabel bergaris yang menampilkan data histori permohonan. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_perubahan_kuliah_request.png}
+	\caption{Analisis halaman permintaan perubahan kuliah.}
+	\label{fig:analisisPermintaanPerubahanKuliah}
+\end{figure}
+
+\noindent Gambar ~\ref{fig:konversiPermintaanPerubahanKuliah} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman permintaan perubahan kuliah.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_perubahan_kuliah.png}
+	\caption{Konversi halaman permintaan perubahan kuliah.}
+	\label{fig:konversiPermintaanPerubahanKuliah}
+\end{figure}
 \noindent Catatan untuk kode ~\ref{lst:mainPerubahanKuliahRequest} dijabarkan dalam tabel ~\ref{tabel:permintaanPerubahanKuliah}:
 
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\PerubahanKuliahRequest\main.php} ,  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainPerubahanKuliahRequest}]
 diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\application\views\PerubahanKuliahRequest\main.php
-
-9,14c10,16
-< 
-< <div class="row">
-<     <div class="large-12 column">
-<         <div class="callout">
-<             <h5>Permohonan Baru</h5>
-<             <div class="callout alert">Untuk perubahan jadwal kuliah, silakan berkoordinasi langsung dengan peserta kuliah.</div>                    
----
-> <br>
-> <div class="container">
->     <div class="card">
->         <div class="card-header">
->             Permohonan Baru
->         </div>
->         <div class="card-body">
-
-17,21c19,22
-< <div class="row">
-<     <div class="large-4 column">
-<         <label>Pemohon:
-<             <input type="email" name="requestByEmail" value="<?= $requestByEmail ?>" readonly="readonly"/>
-<         </label>
----
-> <div class="form-group row">
->     <div class="col-lg-6">
->         <label class="col-form-label">Pemohon:</label>
->         <input class="form-control" type="email" name="requestByEmail" value="<?= $requestByEmail ?>" readonly/>
-
-23,26c24,26
-<     <div class="large-8 column">
-<         <label>Nama:
-<             <input type="text" name="requestByName" value="<?= $requestByName ?>" readonly="readonly"/>
-<         </label>
----
->     <div class="col-lg-6">
->         <label class="col-form-label">Nama:</label>
->         <input class="form-control" type="text" name="requestByName" value="<?= $requestByName ?>" readonly="readonly"/>
-
-29,33c30,33
-< <div class="row">
-<     <div class="large-2 column">
-<         <label>Kode MK:
-<             <input type="text" name="mataKuliahCode" required maxlength="9" pattern="[A-Z]{3}[0-9]{3}([0-9]{3})?" title="Kode MK dalam format XYZ123"/>
-<         </label>
----
-> <div class="form-group row">
->     <div class="col-lg-2">
->         <label class="col-form-label">Kode MK:</label>
->         <input class="form-control" type="text" name="mataKuliahCode" required maxlength="9" pattern="[A-Z]{3}[0-9]{3}([0-9]{3})?" title="Kode MK dalam format XYZ123"/>
-
-35,38c35,37
-<     <div class="large-5 column">
-<         <label>Nama Mata Kuliah:
-<             <input type="text" name="mataKuliahName" required/>
-<         </label>
----
->     <div class="col-lg-5">
->         <label class="col-form-label">Nama Mata Kuliah:</label>
->         <input class="form-control" type="text" name="mataKuliahName" required/>
-
-40,43c39,41
-<     <div class="large-1 column">
-<         <label>Kelas:
-<             <input type="text" name="class" maxlength="1"/>
-<         </label>
----
->     <div class="col-lg-1">
->         <label class="col-form-label">Kelas:</label>
->         <input class="form-control" type="text" name="class" maxlength="1"/>
-
-45,47c43,45
-<     <div class="large-4 column">
-<         <label>Jenis Perubahan:
-<             <select name="changeType">
----
->     <div class="col-lg-4">
->         <label class="col-form-label">Jenis Perubahan:</label>
->         <select name="changeType" class="form-control">
-
-52d49
-<         </label>
-
-55,59c52,55
-< <div class="row">
-<     <div class="large-3 column">
-<         <label>Dari Hari &amp; Jam:
-<             <input class="disableable" type="text" name="fromDateTime" id="fromDateTime"/>
-<         </label>
----
-> <div class="form-group row">
->     <div class="col-lg-3">
->         <label class="col-form-label">Dari Hari &amp; Jam:</label>
->         <input id="datetimepicker" class="form-control disableable" type="text" name="fromDateTime">
-
-61,64c57,59
-<     <div class="large-3 column">
-<         <label>Dari Ruang:
-<             <input class="disableable" type="text" name="fromRoom"/>
-<         </label>
----
->     <div class="col-lg-3">
->         <label class="col-form-label">Dari Ruang:</label>
->         <input class="form-control disableable" type="text" name="fromRoom"/>
-
-66,69c61,63
-<     <div class="large-6 column">
-<         <label>Keterangan Tambahan:
-<             <input class="disableable" type="text" name="remarks"/>
-<         </label>
----
->     <div class="col-lg-6">
->         <label class="col-form-label">Keterangan Tambahan:</label>
->         <input class="form-control disableable" type="text" name="remarks"/>
-
-72,76c66,69
-< <div class="row toFields">
-<     <div class="large-3 column">
-<         <label>Menjadi Hari &amp; Jam:
-<             <input class="disableable toDateTime" type="text" name="toDateTime[]"/>
-<         </label>
----
-> <div class="form-group row toFields align-items-end">
->     <div class="col-lg-3">
->         <label class="col-form-label">Menjadi Hari &amp; Jam:</label>
->         <input id="datetimepicker" class="form-control disableable toDateTime" type="text" name="toDateTime[]"/>
-
-78,81c71,73
-<     <div class="large-3 column">
-<         <label>Menjadi Ruang:
-<             <input class="disableable toRoom" type="text" name="toRoom[]"/>
-<         </label>
----
->     <div class="col-lg-3">
->         <label class="col-form-label">Menjadi Ruang:</label>
->         <input class="form-control disableable toRoom" type="text" name="toRoom[]"/>
-
-83,85c75,77
-<     <div class="large-6 column">
-<         <br/>
-<         <a href="#" class="eraseButton button secondary">Hapus</a>
----
->     <div class="col-lg-3">
->         <br><br>
->         <a href="#" class="eraseButton btn btn-secondary">Hapus</a>
-
-88,91c80,83
-< <div class="row" id="sendDiv">
-<     <div class="large-12 column">
-<         <button type="button" class="button primary" disabled>Kirim Permohonan</button>
-<         <a href="#" id="addToButton" class="button secondary">Tambah Pertemuan Ekstra</a>
----
-> <div class="form-group row" id="sendDiv">
->     <div class="col-lg-12">
->         <input type="submit" class="btn btn-primary" value="Kirim Permohonan">
->         <a href="#" id="addToButton" class="btn btn-secondary">Tambah Pertemuan Ekstra</a>
 
 96,98c88,95
 < <div class="callout">
@@ -972,79 +607,15 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 > </div>
 > <br>
 > <div class="card">
->   <div class="card-header">
->       Histori Permohonan
->   </div>
->   <div class="card-body">
->     <table class="table table-striped table-responsive">
-
-101,108c98,105
-< <th>ID</th>
-< <th>Status</th>
-< <th>Tanggal Permohonan</th>
-< <th>Kode MK</th>
-< <th>Perubahan</th>
-< <th>Tanggal Jawab</th>
-< <th>Keterangan</th>
-< <th>Aksi</th>
----
-> <th scope="col">ID</th>
-> <th scope="col">Status</th>
-> <th scope="col">Tanggal Permohonan</th>
-> <th scope="col">Kode MK</th>
-> <th scope="col">Perubahan</th>
-> <th scope="col">Tanggal Jawab</th>
-> <th scope="col">Keterangan</th>
-> <th scope="col">Aksi</th>
-
-114,115c111,112
-< <td>#<?= $request->id ?></td>
-< <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
----
-> <th>#<?= $request->id ?></th>
-> <td><span class=" badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
-
-122c119,123
-< <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
----
-> <a data-toggle="modal" data-target="#detail<?= $request->id ?>" id="detailIkon<?= $request->id ?>">
->   <span style="font-size: 18px; color: Dodgerblue;">
->       <i class="fas fa-eye"></i>
->   </span>
-> </a>
-
-128a130
->                 <h5></h5>
-
-132,135c135,145
-< 
-< <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-< 	<h5>Detail Permohonan #<?= $request->id ?></h5>
-< <table class="stack">
----
-> <div class="modal fade" id="detail<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
->  <div class="modal-dialog modal-dialog-centered" role="document">
->     <div class="modal-content">
->         <div class="modal-header">
->             <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
->             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
->                 <span aria-hidden="true">&times;</span>
->             </button>
->         </div>
->         <div class="modal-body">
->             <table class="table table-striped">
-
-201,203c211,213
-< <button class="close-button" data-close aria-label="Tutup" type="button">
-<     <span aria-hidden="true">&times;</span>
-< </button>
----
->         </div>
->     </div>
-> </div>
-214a225
+>  <div class="card-header">
+>     Histori Permohonan
+>  </div>
+>  <div class="card-body table-responsive">
+>     <table class="table table-striped">
+214a224
 > jQuery('#datetimepicker').datetimepicker();
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:resperubahanKuliahRequest}.
 
 \begin{table}[H]
 	\centering
@@ -1052,230 +623,51 @@ diff -r a\www\application\views\PerubahanKuliahRequest\main.php b\www\applicatio
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
-		\midrule
-		3-17 & \textbf{Card} & Pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. .\\
-		51-54 & \textbf{Form}  & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas\texttt{.input-group-prepend}.\\
-		56-218 & \textbf{Modal}  & Pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
-		173-183 &\textbf{Tabel} & Pada foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.\\
+		\midrule	
+		6, 14 &\textbf{Tabel} & Pada foundation 6 tabel menggunakan kelas \texttt{.stack} yang memungkinkan data tersusun secara vertikal. Pada bootstrap 4 fungsi tersebut tidak ada sehingga menggunakan alternatif kelas \texttt{table-responsive} yang memungkinkan tabel dapat bergerak secara horizontal pada \textit{device} atau \textit{tab}. \\
+		17 &\textbf{Plugin} & Pada Bootstrap 4 perlu ditambahkan kode jQuery untuk menjalankan plugin \texttt{datetimepicker}. \\
 		\bottomrule
 	\end{tabularx}%
 	\label{tabel:permintaanPerubahanKuliah}
 \end{table}
 
-\subsubsection{Controller Permintaan Perubahan Kuliah}
-%Kode
-Pemberian label pada kolom 'status' menggunakan logika sederhana yang terletak pada controller, hasil dilampirkan dalam kode ~\ref{lst:perubahanKuliahRequest}.
-\begin{lstlisting}[language=diff, caption=Controller Request Perubahan Kuliah,  basicstyle=\ttfamily, frame=single,
-columns=fullflexible, keepspaces=true, breaklines=true, label={lst:perubahanKuliahRequest}]
-diff -r a\www\application\controllers\PerubahanKuliahRequest.php b\www\application\controllers\PerubahanKuliahRequest.php
-
-34c34
-< $request->labelClass = 'alert';
----
-> $request->labelClass = 'danger';
-\end{lstlisting}
-
 \subsection{Halaman Manajemen Perubahan Kuliah}
+Halaman pada gambar ~\ref{fig:analisisManajemenPerubahanKuliah} menampilkan data permohonan perubahan kuliah berisi sebuah tabel dimana pada kolom 'Status' menggunakan kelas \texttt{.callout} untuk \textit{highlight} status dan pada kolom 'Aksi' menampilkan lima jenis ikon dari \textit{Library} Font Awesome. Setiap ikon merupakan link menuju modal.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_manajemen_perubahan_kuliah.png}
+	\caption{Analisis halaman manajemen perubahan kuliah.}
+	\label{fig:analisisManajemenPerubahanKuliah}
+\end{figure}
+\noindent Gambar ~\ref{fig:konversiManajemenPerubahanKuliah} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman manajemen perubahan kuliah.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_manajemen_perubahan_kuliah.png}
+	\caption{Konversi halaman manajemen perubahan kuliah.}
+	\label{fig:konversiManajemenPerubahanKuliah}
+\end{figure}
 Kode ~\ref{lst:mainPerubahanKuliahManage} menjabarkan perubahan halaman manajemen perubahan kuliah:
 
 \begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\PerubahanKuliahManage\main.php},  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainPerubahanKuliahManage}]
 diff -r a\www\application\views\PerubahanKuliahManage\main.php b\www\application\views\PerubahanKuliahManage\main.php
 
-10,13c10,17
-< <div class="row">
-<     <div class="callout">
-<         <h5>Permohonan Perubahan Kuliah</h5>
-<         <table class="stack">
----
-> <div class="container">
->     <div class="card">
->         <div class="card-header">
->             Permohonan Perubahan Kuliah
->         </div>
->         <br>
->         <div class="card-body table-responsive">
->             <table class="table table-striped">
-
-16,21c20,25
-< <th>ID</th>
-< <th>Status</th>
-< <th>Tanggal Permohonan</th>
-< <th>Kode MK</th>
-< <th>Perubahan</th>
-< <th>Aksi</th>
----
-> <th scope="col">ID</th>
-> <th scope="col">Status</th>
-> <th scope="col">Tanggal Permohonan</th>
-> <th scope="col">Kode MK</th>
-> <th scope="col">Perubahan</th>
-> <th scope="col">Aksi</th>
-
-28c32
+27,28c31,32
+< <td>#<?= $request->id ?></td>
 < <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
 ---
+> <th>#<?= $request->id ?></th>
 > <td><span class="badge badge-<?= $request->labelClass ?>"><?= $request->status ?></span></td>
 
-33,37c37,41
-< <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
-< <a target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fi-print"></i></a>
-< <a data-open="konfirmasi<?= $request->id ?>"><i class="fi-like"></i></a>                                    
-< <a data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
+37c41
 < <a data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
 ---
-> <a data-toggle="modal" data-target="#detail<?= $request->id ?>" id="detailIkon<?= $request->id ?>"><i class="fas fa-eye blueiconcolor"></i></a>
-> <a target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fas fa-print"></i></a>
-> <a data-toggle="modal" data-target="#konfirmasi<?= $request->id ?>"><i class="fas fa-thumbs-up"></i></a>
-> <a data-toggle="modal" data-target="#tolak<?= $request->id ?>"><i class="fas fa-thumbs-down"></i></a>
 > <a data-toggle="modal" data-target="#hapus<?= $request->id ?>"><i class="fas fa-trash"></i></a>
 
-57,60c61,71
-< 
-<     <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-<         <h5>Detail Permohonan #<?= $request->id ?></h5>
-<         <table class="stack">
----
-> <div class="modal fade" id="detail<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-> 	<div class="modal-dialog modal-dialog-centered" role="document">
-> 	    <div class="modal-content">
-> 	        <div class="modal-header">
-> 	            <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
-> 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-> 	                <span aria-hidden="true">&times;</span>
-> 	            </button>
-> 	        </div>
-> 	        <div class="modal-body">
-> 	            <table class="table table-striped">
-
-126c137,146
-<         <button class="close-button" data-close aria-label="Tutup" type="button">
----
->         </div>
->     </div>
-> </div>
-> </div>
-> <div class="modal fade" id="konfirmasi<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-> 	<div class="modal-dialog modal-dialog-centered" role="document">
-> 	    <div class="modal-content">
-> 	        <div class="modal-header">
-> 	            <h5 class="modal-title" id="exampleModalLongTitle">Konfirmasi Permohonan #<?= $request->id ?></h5>
-> 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-130,131c150
-<     <div class="reveal" id="konfirmasi<?= $request->id ?>" data-reveal>
-<         <h5>Konfirmasi Permohonan</h5>
----
->         <div class="modal-body">
-
-136,141c155,162
-<     <label>Email penjawab:
-<         <input type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
-<     </label>
-<     <label>Keterangan:
-<         <input name="answeredMessage" class="input-group-field" type="text"/>
-<     </label>
----
-> <div class="form-group">
->     <label>Email penjawab:</label>
->     <input class="form-control" type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
-> </div>
-> <div class="form-group">
->     <label>Keterangan:</label>
->     <input class="form-control" name="answeredMessage" class="input-group-field" type="text"/>
-> </div>
-
-143c164,166
-<     <input type="submit" class="success button" value="Konfirmasi"/>
----
-> <div class="form-group">
->     <input type="submit" class="btn btn-success" value="Konfirmasi"/>
-> </div>
-
-145c168,177
-<         <button class="close-button" data-close aria-label="Tutup" type="button">
----
->         </div>
->     </div>
-> </div>
-> </div>
-> <div class="modal fade" id="tolak<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-> <div class="modal-dialog modal-dialog-centered" role="document">
->     <div class="modal-content">
->         <div class="modal-header">
->             <h5 class="modal-title" id="exampleModalLongTitle">Tolak Permohonan #<?= $request->id ?></h5>
->             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-149,150c181
-<     <div class="reveal" id="tolak<?= $request->id ?>" data-reveal>
-<         <h5>Tolak Permohonan</h5>
----
->         <div class="modal-body">
-
-155,160c186,193
-< <label>Email penjawab:
-< 	<input type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
-< </label>
-< <label>Alasan penolakan:
-< 	<input name="answeredMessage" class="input-group-field" type="text" required/>
-< </label>
----
-> <div class="form-group">
->     <label>Email penjawab:</label>
->     <input class="form-control" type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
-> </div>
-> <div class="form-group">
->     <label>Alasan penolakan:</label>
->     <input class="form-control" name="answeredMessage" class="input-group-field" type="text" required/>
-> </div>
-
-162c195,197
-<             <input type="submit" class="alert button" value="Tolak"/>
----
-> <div class="form-group">
->     <input type="submit" class="btn btn-danger" value="Tolak"/>
-> </div>
-
-164c200,209
-<         <button class="close-button" data-close aria-label="Tutup" type="button">
----
-> </div>
->     </div>
-> </div>
-> </div>
-> <div class="modal fade" id="hapus<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-> <div class="modal-dialog modal-dialog-centered" role="document">
->     <div class="modal-content">
->         <div class="modal-header">
->             <h5 class="modal-title" id="exampleModalLongTitle">Hapus Permohonan #<?= $request->id ?></h5>
->             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-
-168,169c213
-< <div class="reveal" id="hapus<?= $request->id ?>" data-reveal>
-< <h5>Hapus Permohonan</h5>
----
->         <div class="modal-body">
-
-176c220
-<     <input type="submit" class="alert button" value="Hapus"/>
----
->                 <input type="submit" class="btn btn-danger" value="Hapus"/>
-
-178,180c222,224
-< <button class="close-button" data-close aria-label="Tutup" type="button">
-<     <span aria-hidden="true">&times;</span>
-< </button>
----
->         </div>
->     </div>
-> </div>
-
-183a228,229
-> </div>
->         </div>
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:resperubahanKuliahManage}.
 
-Keterangan darikode diatas tertera pada tabel ~\ref{tabel:manajemenPerubahanKuliah}
+Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:manajemenPerubahanKuliah}
 \begin{table}[H]
 	\centering
 	\caption{Penjelasan kode manajemen perubahan kuliah.}
@@ -1283,222 +675,90 @@ Keterangan darikode diatas tertera pada tabel ~\ref{tabel:manajemenPerubahanKuli
 		\toprule
 		No & Implementasi     & Penjelasan \\
 		\midrule
-		3-17 & \textbf{Card} & Pembagian konten menggunakan \texttt{.card} yang terdiri dari \texttt{.card-header} dan \texttt{card-body} sedangkan di Foundation 6 hanya menggunakan kelas \texttt{.callout}. .\\
-		51-54 & \textbf{Form}  & Field pada Foundation 6 hanya menggunakan tag \texttt{<input>} sedangkan pada Bootstrap 4 menggunakan kelas \texttt{.form-control}, dimana pada Bootstrap 4 setiap tag \texttt{span} diikuti kelas \texttt{.input-group-prepend}.\\
-		56-218 & \textbf{Modal}  & Pada Foundation 6 hanya memiliki satu bagian modal yaitu kelas \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
-		173-183 &\textbf{Tabel} & Pada foundation 6 pada tag \texttt{<th>} tidak diikuti kelas, namun pada Bootstrap 4 perlu menggunakan atribut \texttt{scope=col}.\\
+		3, 5 & \textbf{Border tabel} & \textit{Styling} manual untuk border pada Bootstrap 4 dihapus.\\
+		8, 10 & \textbf{Kolom} & Terdapat perbaikan pada penggunaan tag tabel.\\		
+		11, 13 & \textbf{Link modal} & Foundation 6 menggunakan atribut \texttt{data-open} dan menggunakan tag \texttt{<i>} untuk memanggil sebuah ikon \texttt{fi-trash}. Pada Bootstrap 4 menggunakan dua atribut yaitu \texttt{data-toggle} dan \texttt{data-target} lalu memanggil ikon Font Awesoe menggunakan tag \texttt{<i>}.\\
 		\bottomrule
 	\end{tabularx}%
 	\label{tabel:manajemenPerubahanKuliah}
 \end{table}  
 
 \subsection{Halaman Entri Jadwal Dosen}
+Entri Jadwal Dosen berisi dua konten: "Tambah Jadwal" dan "Daftar Jadwal". Konten "Tambah Jadwal" tertera pada gambar ~\ref{fig:analisisEntriJadwalDosen}. \textit{Form} yang terdiri dari label, \textit{field} dari form tersebut dan tombol biru "Tambah". Konten "Daftar Jadwal" terdiri dari sebuah tabel dimana untuk \textit{cell} yang terisi mereferensikan ke modal edit jadwal dosen. Selain itu terdapat dua tombol pada bawah tabel: tombol merah "Delete" dan tombol biru "Ekspor ke XLS".
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_tampilan_entri_jadwal_dosen.png}
+	\caption{Analisis halaman entri jadwal dosen.}
+	\label{fig:analisisEntriJadwalDosen}
+\end{figure}
+
+\noindent Gambar ~\ref{fig:konversiEntriJadwalDosen} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman entri jadwal dosen.\\
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_tampilan_entri_jadwal_dosen.png}
+	\caption{Konversi halaman entri jadwal dosen.}
+	\label{fig:konversiEntriJadwalDosen}
+\end{figure}
+
 Kode ~\ref{lst:mainEntriJadwalDosen} menjabarkan perubahan halaman entri jadwal dosen:
 \begin{lstlisting}[language=diff, caption=Kode untuk Halaman Entri Jadwal Dosen,  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainEntriJadwalDosen}]
 diff -r a\www\application\views\EntriJadwalDosen\main.php b\www\application\views\EntriJadwalDosen\main.php
-11,16c11,16
-< 
-< <div class="row">
-< 
-<     <div class="large-12 column callout">
-<         <h5>Tambah Jadwal</h5>
-<         <div class="large-4 columns">
----
-> <br>
-> <div class="container">
->     <div class="card">
->         <div class="card-header">Tambah Jadwal</div>
->         <div class="card-body row">
->             <div class="col-lg-4">
-20c20
-< <select name="hari"> 
----
-> <select class="form-control" name="hari">
-33c33
-< <select name="jam_mulai"> 
----
-> <select class="form-control" name="jam_mulai">
-39c39
-< <div class=" large-4 columns">
----
-> <div class="col-lg-4">
-41c41
-<     <select name="durasi"> 
----
-> <select class="form-control" name="durasi">
-47c47
-<     <select name="jenis_jadwal"> 
----
-> <select class="form-control" name="jenis_jadwal">
-53,55c53,55
-< <div class="large-4 columns">
-<     Label <input type="text" name="label_jadwal"><br>
-<     <input type="submit" class="button" value="Tambah">
----
-> <div class="col-lg-4">
->      Label <input class="form-control" type="text" name="label_jadwal"><br><br>
->      <input class="btn btn-primary" type="submit" class="button" value="Tambah" class="btn btn-primary">
-60,64c60,69
-< 
-< <div class="large-12 column callout">
-< 	<h5>Daftar Jadwal</h5>
-< 	<div class="table-scroll" id="jadwal_table">
-< 	 <table border=1 style="border-color:black ; border-collapse:separate">
----
-> </div>
-> <br>
-> <div class="card">
-> 	<div class="card-header">
-> 	    Daftar Jadwal
-> 	</div>
-> 	<div class="card-body">
-> 	    <div id="jadwal_table">
-> 	        <div class="table-responsive">
->             <table class="table table-bordered table-striped">
-66c71
+66c72
 < <td style='width:10%'></td>
 ---
 > <th></th>
-69c74
+
+69c75
 < echo "<td style='width:18%'> $namaHari[$i] </td>"; //Membuat Header Tabel yang berisi daftar hari
 ---
 > echo "<th> $namaHari[$i] </th>"; //Membuat Header Tabel yang berisi daftar hari
-77c82
-< echo "<tr><td>" . $i . "-" . ($i + 1);
----
-> echo "<tr><th>" . $i . "-" . ($i + 1);
-91a97
+
+91a98
 > $border = "border border-secondary align-middle";
-106a113
+
+106a114
 > $($cellLocation).addClass('<?php echo $border; ?>');
-117c124
-< $($menuName).foundation('open');
----
-> $($menuName).modal();
-125a133
-> </div>
-149,150c158,159
-< <a href="/EntriJadwalDosen/deleteAll/export/" class="alert button" onClick="return konfirmasi();">Delete All</a>
-< <a href="/EntriJadwalDosen/export/" class="button">Ekspor ke XLS</a>
----
-> <a href="/EntriJadwalDosen/deleteAll/export/" class="btn btn-danger" onClick="return konfirmasi();">Delete All</a>
-> <a href="/EntriJadwalDosen/export/" class="btn btn-primary">Ekspor ke XLS</a>
-168,169c176,181
-< <div id="edit_menu<?php echo $dataHariIni->id ?>" class="reveal"  data-reveal >
-<      <button class="close-button" data-close aria-label="Close modal" type="button">
----
-> <div class="modal fade" id="edit_menu<?php echo $dataHariIni->id ?>" tabindex="-1" role="dialog" aria-labelledby="edit_menu<?php echo $dataHariIni->id ?>" aria-hidden="true">
->  <div class="modal-dialog" role="document">
->     <div class="modal-content">
->         <div class="modal-header">
->             <h5 class="modal-title" id="edit_menu<?php echo $dataHariIni->id ?>">Edit Jadwal</h5>
->             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-172c184,185
-< <h5> Edit Jadwal </h5>
----
-> </div>
-> <div class="modal-body">
-175,177c188,191
-< <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>"> </a> <br>
-< Hari 
-< <select name="hari"> 
----
-> <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>">
-> <div class="form-group">
->     <label>Hari</label>
->     <select class="form-control" name="hari">
-193,195c207,211
-< </select><br>
-< Jam Mulai
-< <select name="jam_mulai"> 
----
->     </select>
-> </div>
-> <div class="form-group">
->     <label>Jam Mulai</label>
->     <select class="form-control" name="jam_mulai">
-209,211c225,229
-< </select><br>
-< Durasi
-< <select name="durasi"> 
----
->     </select>
-> </div>
-> <div class="form-group">
->     <label>Durasi</label>
->     <select class="form-control" name="durasi">
-225,227c243,247
-< </select><br>
-< Jenis  
-< <select name="jenis_jadwal"> 
----
->     </select>
-> </div>
-> <div class="form-group">
->     <label>Jenis</label>
->     <select class="form-control" name="jenis_jadwal">
-232c252,256
-< Label <input type="text" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>"><br> 
----
-> </div>
-> <div class="form-group">
->     <label for="">Label</label>
->     <input class="form-control" type="text" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>">
-> </div>
-233,235c258,260
-< <div class="row large-4 column">
-<  <div class="large-2 column">
-<    <input type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="button" value="Save  ">
----
-> <div class="form-group row">
->     <div class="col-lg-2">
->         <input type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="btn btn-primary" value="Save  ">
-238c263
-< <div class="large-2 column ">
----
-> <div class="col-lg-2">
-241,242c266,267
-<     <input type="submit" id="deletebtn<?php echo $dataHariIni->id ?>" name="deletebtn<?php echo $dataHariIni->id ?>" class="alert button" value="Delete">
-< </form><div>
----
->     <input type="submit" id="deletebtn<?php echo $dataHariIni->id ?>" name="deletebtn<?php echo $dataHariIni->id ?>" class="btn btn-danger" value="Delete">
-> </form>
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:resentriJadwalDosen}.
 
 Beberapa catatan dari kode diatas tertera pada tabel ~\ref{tabel:entriJadwalDosen}:
 \begin{table}[H]
 	\centering
-	\caption{Penjelasan kode permintaan perubahan kuliah.}
+	\caption{Penjelasan kode entri jadwal dosen.}
 	\begin{tabularx}{\textwidth}{llX}
 		\toprule
 		No & Implementasi     & Penjelasan \\
 		\midrule
-		80-94 & \textbf{Edit background tabel}  & Pada Bootstrap 4 diatur lebar tabel dan garis yang mengelilingi \textit{cell} yang berisi jadwal kuliah.\\
-		96-99 & \textbf{Modal}  & Memanggil jQuery saat jadwal yang terisi dipilih user.\\
+		8, 10 & Perbaikan tabel & Tag \texttt{<td>} diubah menjadi \texttt{<th>} agar \textit{cell} yang terisi dapat memiliki border.\\
+		13 & Kelas border & Pada Bootstrap 4 border terbentuk dengan memanfaatkan kelas \texttt{border border-secondary align-middle}.\\
+		16 & Pemanggilan kelas border & Kelas border disimpan dalam variabel dan dipanggil ketika \textit{cell} terisi.\\
 		\bottomrule
 	\end{tabularx}%
 	\label{tabel:entriJadwalDosen}
 \end{table}
 
 \subsection{Halaman	Lihat Jadwal Dosen}
+\noindent Gambar ~\ref{fig:analisisLihatJadwalDosen} merupakan halaman lihat jadwal dosen berisi sebuah tabs, dimana setiap judul tabs yang berada diatas tabel mereferensikan ke \texttt{tabs-content} atau halaman jadwal setiap dosen. Kemudian pada bagian bawah tabel terdapat tombol biru "Ekspor ke XLS".
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_tampilan_lihat_jadwal_dosen.png}
+	\caption{Analisis halaman lihat jadwal dosen.}
+	\label{fig:analisisLihatJadwalDosen}
+\end{figure}
+
+\noindent Gambar ~\ref{fig:konversiLihatJadwalDosen} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman lihat jadwal dosen.\\
+
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_lihat_jadwal_dosen.png}
+	\caption{Konversi modal lihat jadwal dosen.}
+	\label{fig:konversiLihatJadwalDosen}
+\end{figure}
 Kode ~\ref{lst:mainLihatJadwalDosen} menjabarkan perubahan halaman lihat jadwal dosen:
 \begin{lstlisting}[language=diff, caption=Kode untuk Halaman Lihat Jadwal Dosen,  basicstyle=\ttfamily, frame=single,
 columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainLihatJadwalDosen}]
 diff -r a\www\application\views\LihatJadwalDosen\main.php b\www\application\views\LihatJadwalDosen\main.php
-
-12c12,13
-< 
----
-> <div class="container">
->     <div class="card card-body">
-
-15,16c15,16
-< <div class="large-12 column">
-< <ul class="tabs" data-tabs id="tab_jadwal">
----
-> <div class="col-lg-12">
-> <ul class="nav nav-tabs" data-tabs id="tab_jadwal">
 
 22c22
 < <li class="tabs-title is-active"><a href="#hal<?php echo $idx; ?>" aria-selected="true"><?php foreach ($currRow as $data) {
@@ -1509,38 +769,8 @@ diff -r a\www\application\views\LihatJadwalDosen\main.php b\www\application\view
 < <li class="tabs-title"><a a href="#hal<?php echo $idx; ?>"><?php foreach ($currRow as $data) {
 ---
 > <li class="nav-item"><a class="nav-link" href="#hal<?php echo $idx; ?>"><?php foreach ($currRow as $data) {
-
-47c47
-< <div class="table-scroll" id="jadwal_table<?php echo $idx; ?>">
----
-> <div id="jadwal_table<?php echo $idx; ?>">
-
-59c59
-< <table id="tabel<?php echo $idx; ?>" border=1 style="border-color:black ; border-collapse:separate">
----
-> <table class="table table-bordered table-striped" id="tabel<?php echo $idx; ?>" >
-
-66c66
-< echo "<td style='width:18%'>" . $namaHari[$i] . "</td>";
----
-> echo "<th>" . $namaHari[$i] . "</th>";
-
-73c73
-< echo "<tr><td>" . $i . "-" . ($i + 1);
----
-> echo "<tr><th>" . $i . "-" . ($i + 1);
-
-89a90
-> $border = "border border-secondary align-middle";
-
-104a106
-> $($cellLocation).addClass('<?php echo $border; ?>');
-
-140c141
-< <a href="/LihatJadwalDosen/export/" class="button">Ekspor ke XLS</a>
----
-> <a class="btn btn-primary" href="/LihatJadwalDosen/export/" class="button">Ekspor ke XLS</a>
 \end{lstlisting}
+Kode lengkap dari file ini dapat dilihat dalam lampiran ~\ref{lst:reslihatJadwalDosen}.
 
 Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lihatJadwalDosen}:
 \begin{table}[H]
@@ -1550,12 +780,133 @@ Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lihatJadwalDosen}:
 		\toprule
 		No & Implementasi     & Penjelasan \\
 		\midrule
-		9-24 & \textbf{Tabs}  & Tabs pada Foundation 6 dan Bootstrap 4 hanya berbeda penamaan nya saja.\\
-		31-44 & \textbf{Edit background tabel}  & Pada Bootstrap 4 diatur lebar tabel dan garis yang mengelilingi \textit{cell} yang berisi jadwal kuliah.\\
+		3-11 & \textbf{Tabs}  & Tabs pada Foundation 6 dan Bootstrap 4 hanya berbeda penamaan nya saja.\\
 		\bottomrule
 	\end{tabularx}%
 	\label{tabel:lihatJadwalDosen}
 \end{table}
+
+\subsection{Kotak Dialog/Modal}
+\subsubsection{Modal}
+Apabila user memilih salah satu ikon dari kolom 'Aksi' maka modal akan muncul. Terdapat lima macam modal yaitu: modal lihat, modal setuju, modal tolak, modal print dan modal hapus perubahan kuliah. 
+Berikut ini gambar ~\ref{fig:analisisModalManajemenPerubahanKuliah} modal yang ada pada halaman manajemen perubahan kuliah dengan menggunakan Foundation 6.
+\begin{figure} [H]	
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth} 
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_eye_manajemen_perubahan_kuliah.png}
+		\caption{Modal lihat.}  
+	\end{subfigure}	
+	\begin{subfigure}[b]{0.3\linewidth}   
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_like_manajemen_perubahan_kuliah.png}
+		\caption{Modal setuju.}
+	\end{subfigure}
+\end{figure}
+
+\begin{figure} [H] 
+	\centering
+	\ContinuedFloat
+	\begin{subfigure}[b]{0.6\linewidth}
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_dislike_manajemen_perubahan_kuliah.png}
+		\caption{Modal tolak.}  
+	\end{subfigure}
+\end{figure}
+
+\begin{figure} [H] 
+	\centering
+	\ContinuedFloat
+	\begin{subfigure}[b]{0.35\linewidth} 
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_trash_manajemen_perubahan_kuliah.png}
+		\caption{Modal hapus.}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.55\linewidth}
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_modal_print_manajemen_cetak_transkrip.png}
+		\caption{Modal print.}  
+	\end{subfigure}	 
+	\caption{Analisis modal pada halaman manajemen perubahan kuliah.}
+	\label{fig:analisisModalManajemenPerubahanKuliah}
+\end{figure}
+
+\noindent Gambar ~\ref{fig:konversiModalManajemenPerubahanKuliah} menjelaskan komponen dalam website beserta penamaan kelas untuk Bootstrap 4 pada halaman modal manajemen perubahan kuliah.\\
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth} 
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_lihat_manajemen_perubahan_kuliah.png}
+		\caption{Modal lihat.}
+	\end{subfigure}	
+	\begin{subfigure}[b]{0.45\linewidth} 
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_like_manajemen_perubahan_kuliah.png}
+		\caption{Modal setuju.}
+	\end{subfigure}
+\end{figure}
+\begin{figure}[H]	
+	\centering
+	\ContinuedFloat
+	\begin{subfigure}[b]{0.45\linewidth}  
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_dislike_manajemen_perubahan_kuliah.png}
+		\caption{Modal tolak.}
+	\end{subfigure}
+\end{figure}
+
+\begin{figure}[H] 
+	\centering
+	\ContinuedFloat
+	\begin{subfigure}[b]{0.45\linewidth}  
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_print_manajemen_cetak_transkrip.png}
+		\caption{Modal print}
+	\end{subfigure}	
+	\begin{subfigure}[b]{0.45\linewidth}   
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_modal_trash_manajemen_perubahan_kuliah.png}
+		\caption{Modal hapus.}
+	\end{subfigure}
+	\caption{Konversi modal pada halaman manajemen perubahan kuliah.}
+	\label{fig:konversiModalManajemenPerubahanKuliah}
+\end{figure}
+
+\begin{lstlisting}[language=diff, caption=Perubahan file \path{\views\PerubahanKuliahManage\main.php},  basicstyle=\ttfamily, frame=single,
+columns=fullflexible, keepspaces=true, breaklines=true, label={lst:mainPerubahanKuliahManage}]
+diff -r a\www\application\views\PerubahanKuliahManage\main.php b\www\application\views\PerubahanKuliahManage\main.php
+
+57,60c61,71
+< 
+< <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
+<    <h5>Detail Permohonan #<?= $request->id ?></h5>
+<      <table class="stack">
+---
+> <div class="modal fade" id="detail<?= $request->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
+> <div class="modal-dialog modal-dialog-centered" role="document">
+>     <div class="modal-content">
+>         <div class="modal-header">
+>             <h5 class="modal-title" id="exampleModalLongTitle">Detail Permohonan #<?= $request->id ?></h5>
+>             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+>                 <span aria-hidden="true">&times;</span>
+>             </button>
+>         </div>
+>         <div class="modal-body">
+>             <table class="table table-striped">
+
+117c125
+< $($menuName).foundation('open');
+---
+> $($menuName).modal();
+\end{lstlisting}
+
+\noindent Catatan untuk kode ~\ref{lst:mainTranskripRequest} dijabarkan dalam tabel ~\ref{table:kodePermintaanCetakTranskrip}:
+\begin{table}[H]
+	\centering
+	\caption{Penjelasan kode permintaan cetak transkrip.}
+	\begin{tabularx}{\textwidth}{llX}
+		\toprule
+		No Line & Implementasi     & Penjelasan\\
+		\midrule
+		5, 9-13 & \textbf{Modal} & Untuk modal pada Foundation 6 hanya menggunakan satu kelas yaitu \texttt{.reveal} sedangkan pada Bootstrap 4 menggunakan beberapa kelas \texttt{.modal} yang terdiri dari \texttt{.modal-fade, modal-content, modal-header}.\\
+		22, 24 & \textbf{kode jQuery modal}  & Memanggil jQuery saat jadwal yang terisi dipilih user.\\		
+		\bottomrule
+	\end{tabularx}%
+	\label{table:modal}
+\end{table}
+
+
+
 
 \section{Pengujian}
 Bagian pengujian akan menjelaskan dua bagian: skenario pengujian dan hasil pengujian. Pengujian ini akan dijalankan pada server lokal dengan aplikasi XAMPP dan browser web Chrome untuk melihat hasil desain serta menguji fitur yang ada dalam website BlueTape. Pengujian bertujuan memastikan tampilan sudah sesuai dengan tampilan sebelumnya dan semua fitur berjalan dengan baik.
@@ -1564,207 +915,209 @@ Skenario pengujian berisi alur yang dilakukan penguji untuk memeriksa setiap fit
 \subsubsection{Tampilan Login}
 Skenario yang dilakukan penguji untuk \textit{login} pada website BlueTape sebagai berikut:
 \begin{enumerate}
-	\item Penguji mengakses \url{127.0.0.1} pada komputer lokal.
-	\item Penguji memeriksa link "Petunjuk Penggunaan".
-	\item Penguji memeriksa tombol "Login dengan Google".
-	\item Penguji melakukan proses login dengan email admin.
-	\item Penguji memeriksa notifikasi user pada proses \textit{login} dan \textit{logout}.	
+	\item \textit{User} mengakses \url{127.0.0.1} pada komputer lokal.
+	\item \textit{User} memeriksa link "Petunjuk Penggunaan".
+	\item \textit{User} memeriksa tombol "Login dengan Google".
+	\item \textit{User} melakukan proses login dengan email admin.
+	\item \textit{User} memeriksa notifikasi user pada proses \textit{login} dan \textit{logout}.	
 \end{enumerate}
 
 \subsubsection{Menu Navigasi}
 Skenario yang dilakukan penguji pada bagian menu navigasi pada website BlueTape sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa letak logo BlueTape dan submenu pada layar \textit{large devices} .
-	\item Penguji memeriksa letak logo BlueTape dan submenu pada layar \textit{medium} dan \textit{small devices}.	
-	\item Penguji memeriksa tampilan submenu.
+	\item \textit{User} memeriksa letak logo BlueTape dan submenu pada layar \textit{large devices} .
+	\item \textit{User} memeriksa letak logo BlueTape dan submenu pada layar \textit{medium} dan \textit{small devices}.	
+	\item \textit{User} memeriksa tampilan submenu.
 \end{enumerate}
 
 \subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
 Skenario yang dilakukan penguji untuk membuat permohonan baru pada halaman cetak transkrip sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Permohonan Baru".
-	\item Penguji memeriksa label dan input.
-	\item Penguji memeriksa tombol "Kirim Permohonan".	
-	\item Penguji memeriksa notifikasi \textit{user}.
+	\item Mahasiswa memeriksa \textit{container} dari konten "Permohonan Baru".
+	\item Mahasiswa memeriksa label dan input.
+	\item Mahasiswa memeriksa tombol "Kirim Permohonan".	
+	\item Mahasiswa memeriksa notifikasi \textit{user}.
 \end{enumerate}
 
 \subsubsection{Konten Histori Permohonan pada Halaman Cetak Transkrip}
 Skenario yang dilakukan penguji untuk melihat histori permohonan pada halaman cetak transkrip sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Histori Permohonan".
-	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa data yang dikirim dari \textit{form} permohonan baru.
-	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".		
-	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".	
+	\item Mahasiswa memeriksa \textit{container} dari konten "Histori Permohonan".
+	\item Mahasiswa memeriksa \textit{styling} dari tabel.	
+	\item Mahasiswa memeriksa data yang dikirim dari \textit{form} permohonan baru.
+	\item Mahasiswa memeriksa penggunaan label berwarna pada kolom "Status".		
+	\item Mahasiswa memeriksa penggunaan ikon pada kolom "Aksi".	
 \end{enumerate}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Halaman Cetak Transkrip}
 Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
-	\item Penguji memeriksa desain pada tabel.
-	\item Penguji memeriksa data pada tabel.
+	\item Mahasiswa memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
+	\item Mahasiswa memeriksa desain pada tabel.
+	\item Mahasiswa memeriksa data pada tabel.
 \end{enumerate}
 
 \subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
 Skenario yang dilakukan penguji untuk \textit{form} pencarian npm pada halaman manajemen cetak transkrip sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Permintaan Transkrip".
-	\item Penguji memeriksa \textit{group label} dari "Cari NPM" pada \textit{form}.	
-	\item Penguji memeriksa \textit{group field} pada \textit{form}.	
-	\item Penguji memeriksa \textit{group button} dari "Cari" pada \textit{form}.
+	\item Staf tata usaha memeriksa \textit{container} dari konten "Permintaan Transkrip".
+	\item Staf tata usaha memeriksa \textit{group label} dari "Cari NPM" pada \textit{form}.	
+	\item Staf tata usaha memeriksa \textit{group field} pada \textit{form}.	
+	\item Staf tata usaha memeriksa \textit{group button} dari "Cari" pada \textit{form}.
 \end{enumerate}
 
 \subsubsection{Tabel Daftar Permintaan Transkrip pada Halaman Manajemen Cetak Transkrip}
 Skenario yang dilakukan penguji untuk tabel daftar permintaan pada halaman manajemen cetak transkrip sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa desain tabel yang digunakan pada konten "Permintaan Transkrip".
-	\item Penguji memeriksa data yang ditampilkan dalam tabel.
-	\item Penguji memeriksa penggunaan \textit{label} pada kolom "Status" pada \textit{form}.
-	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi" pada \textit{form}.
+	\item Staf tata usaha memeriksa desain tabel yang digunakan pada konten "Permintaan Transkrip".
+	\item Staf tata usaha memeriksa data yang ditampilkan dalam tabel.
+	\item Staf tata usaha memeriksa penggunaan \textit{label} pada kolom "Status" pada \textit{form}.
+	\item Staf tata usaha memeriksa penggunaan ikon pada kolom "Aksi" pada \textit{form}.
 \end{enumerate}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Permintaan Transkrip}
 Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
-	\item Penguji memeriksa desain tabel.	
-	\item Penguji memeriksa isi dari tabel.
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
+	\item Staf tata usaha memeriksa desain tabel.	
+	\item Staf tata usaha memeriksa isi dari tabel.
 \end{enumerate}
 
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permintaan Transkrip}
 Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Tolak" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi tolak permohonan.
-	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa tombol "Tolak" pada \textit{form}.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi tolak permohonan.
+	\item Staf tata usaha memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Staf tata usaha memeriksa tombol "Tolak" pada \textit{form}.	
 \end{enumerate}
 
 \subsubsection{Popup Pesan Cetak Permohonan pada Konten Permintaan Transkrip}
 Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Cetak" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi cetak permohonan.
-	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa tombol "Sudah dicetak" pada \textit{form}.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi cetak permohonan.
+	\item Staf tata usaha memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Staf tata usaha memeriksa tombol "Sudah dicetak" pada \textit{form}.	
 \end{enumerate}
 
 \subsubsection{Popup Pesan Hapus Permohonan pada Konten Permintaan Transkrip}
 Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Hapus" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
-	\item Penguji memeriksa tombol "Hapus" pada \textit{form}.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
+	\item Staf tata usaha memeriksa tombol "Hapus" pada \textit{form}.	
 \end{enumerate}
 
 \subsubsection{Konten Permohonan Baru pada Halaman Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk konten permohonan baru pada halaman perubahan kuliah sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Permohonan Baru".
-	\item Penguji memeriksa penggunaan plugin \textit{DateTimePicker}.
-	\item Penguji memeriksa \textit{input field} dan label pada \textit{form}.
-	\item Penguji memeriksa tombol "Kirim Permohonan".	
-	\item Penguji memeriksa tombol "Tambah Pertemuan Ekstra".
-	\item Penguji memeriksa adanya notifikasi \textit{user} ketika melakukan kirim permohonan perubahan kuliah.
+	\item Dosen memeriksa \textit{container} dari konten "Permohonan Baru".
+	\item Dosen memeriksa penggunaan plugin \textit{DateTimePicker}.
+	\item Dosen memeriksa \textit{input field} dan label pada \textit{form}.
+	\item Dosen memeriksa tombol "Kirim Permohonan".	
+	\item Dosen memeriksa tombol "Tambah Pertemuan Ekstra".
+	\item Dosen memeriksa adanya notifikasi \textit{user} ketika melakukan kirim permohonan perubahan kuliah.
 \end{enumerate}
 
 \subsubsection{Konten Histori Permohonan pada Halaman Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk konten histori permohonan pada halaman perubahan kuliah sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Histori Permohonan".
-	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa data pada kolom "ID" memiliki format teks \textit{bold}.
-	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".			
-	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".
+	\item Dosen memeriksa \textit{container} dari konten "Histori Permohonan".
+	\item Dosen memeriksa \textit{styling} dari tabel.	
+	\item Dosen memeriksa data pada kolom "ID" memiliki format teks \textit{bold}.
+	\item Dosen memeriksa penggunaan label berwarna pada kolom "Status".			
+	\item Dosen memeriksa penggunaan ikon pada kolom "Aksi".
 \end{enumerate}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Histori Permohonan}
 Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
-	\item Penguji memeriksa penggunaan tabel.	
+	\item Dosen memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
+	\item Dosen memeriksa penggunaan tabel.	
 \end{enumerate}
 
 \subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman Manajemen Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk konten permohonan perubahan kuliah pada halaman permohonan perubahan kuliah sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Permohonan Perubahan Kuliah".
-	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa data pada kolom "ID" memiliki format teks \textit{bold}.
-	\item Penguji memeriksa penggunaan label berwarna pada kolom "Status".			
-	\item Penguji memeriksa penggunaan ikon pada kolom "Aksi".
+	\item Staf tata usaha memeriksa \textit{container} dari konten "Permohonan Perubahan Kuliah".
+	\item Staf tata usaha memeriksa \textit{styling} dari tabel.	
+	\item Staf tata usaha memeriksa data pada kolom "ID" memiliki format teks \textit{bold}.
+	\item Staf tata usaha memeriksa penggunaan label berwarna pada kolom "Status".			
+	\item Staf tata usaha memeriksa penggunaan ikon pada kolom "Aksi".
 \end{enumerate}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Permohonan Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Lihat" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.	
-	\item Penguji memeriksa penggunaan tabel.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.	
+	\item Staf tata usaha memeriksa penggunaan tabel.	
 \end{enumerate}
 
 \subsubsection{Popup Pesan Konfirmasi Permohonan pada Konten Permohonan Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk konfirmasi permohonan untuk aksi "Konfirmasi" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi permohonan.
-	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa tombol "Konfirmasi" pada \textit{form}.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi permohonan.
+	\item Staf tata usaha memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Staf tata usaha memeriksa tombol "Konfirmasi" pada \textit{form}.	
 \end{enumerate}
 
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permohonan Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk modal tolak permohonan untuk aksi "Tolak" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi tolak permohonan.
-	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa tombol "Tolak" pada \textit{form}.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi tolak permohonan.
+	\item Staf tata usaha memeriksa label dan \textit{input field} pada \textit{form}.
+	\item Staf tata usaha memeriksa tombol "Tolak" pada \textit{form}.	
 \end{enumerate}
 
 \subsubsection{Popup Pesan Hapus Permohonan pada Konten Permohonan Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Tolak" sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
-	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa tombol "Hapus" pada \textit{form}.	
+	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
+	\item Staf tata usahamemeriksa label dan \textit{input field} pada \textit{form}.
+	\item Staf tata usaha memeriksa tombol "Hapus" pada \textit{form}.	
 \end{enumerate}
 
 \subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
 Skenario yang dilakukan penguji pada konten tambah jadwal dosen di halaman entri jadwal dosen sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Tambah Jadwal".	
-	\item Penguji memeriksa label pada \textit{form}. 
-	\item Penguji memeriksa \textit{input field} pada \textit{form}.
-	\item Penguji memeriksa \textit{plugin} yang digunakan pada \textit{form field} "Jam Mulai".
-	\item Penguji memeriksa tombol "Tambah".
+	\item Dosen memeriksa \textit{container} dari konten "Tambah Jadwal".	
+	\item Dosen memeriksa label pada \textit{form}. 
+	\item Dosen memeriksa \textit{input field} pada \textit{form}.
+	\item Dosen memeriksa \textit{plugin} yang digunakan pada \textit{form field} "Jam Mulai".
+	\item Dosen memeriksa tombol "Tambah".
 \end{enumerate}
 
 \subsubsection{Konten Daftar Jadwal pada Halaman Entri Jadwal Dosen}
 Skenario yang dilakukan penguji pada konten daftar jadwal di halaman entri jadwal dosen sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari konten "Daftar Jadwal".
-	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.			
-	\item Penguji memeriksa tombol "Delete All".
-	\item Penguji memeriksa tombol "Ekspor ke XLS".
+	\item Dosen memeriksa \textit{container} dari konten "Daftar Jadwal".
+	\item Dosen memeriksa \textit{styling} dari tabel.	
+	\item Dosen memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.			
+	\item Dosen memeriksa tombol "Delete All".
+	\item Dosen memeriksa tombol "Ekspor ke XLS".
 \end{enumerate}
 
 \subsubsection{Popup Pesan Edit Jadwal pada Konten Daftar Jadwal}
 Skenario yang dilakukan penguji pada modal edit jadwal sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa penggunaan \textit{popup} untuk melakukan edit jadwal.
-	\item Penguji memeriksa label dan \textit{input field} pada \textit{form}. 
-	\item Penguji memeriksa tombol "Save" pada \textit{form}.
-	\item Penguji memeriksa tombol "Delete" pada \textit{form}.
+	\item Dosen memeriksa penggunaan \textit{popup} untuk melakukan edit jadwal.
+	\item Dosen memeriksa label dan \textit{input field} pada \textit{form}. 
+	\item Dosen memeriksa tombol "Save" pada \textit{form}.
+	\item Dosen memeriksa tombol "Delete" pada \textit{form}.
 \end{enumerate}
 
 \subsubsection{Halaman Lihat Jadwal Dosen}
 Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \begin{enumerate}
-	\item Penguji memeriksa \textit{container} dari halaman entri jadwal dosen.
-	\item Penguji memeriksa \textit{tabs} untuk setiap jadwal dosen.
-	\item Penguji memeriksa \textit{styling} dari tabel.	
-	\item Penguji memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.
-	\item Penguji memeriksa tombol "Ekspor ke XLS".
+	\item Mahasiswa memeriksa \textit{container} dari halaman entri jadwal dosen.
+	\item Mahasiswa memeriksa \textit{tabs} untuk setiap jadwal dosen.
+	\item Mahasiswa memeriksa \textit{styling} dari tabel.	
+	\item Mahasiswa memeriksa \textit{stylig} untuk \textit{cell} yang memiliki nama jadwal.
+	\item Mahasiswa memeriksa tombol "Ekspor ke XLS".
 \end{enumerate}
 
 \subsection{Hasil Pengujian}
+Pada bagian ini akan dijabarkan hasil pengujian dari skenario yang sudah dirancang sebelumnya. Setiap skenario akan diuji berdasarkan tindakan yang sudah dibuat, kemudian akan ditentukan pengujian berhasil atau tidak.
 \subsubsection{Login}
+Berikut ini hasil pengujian dari halaman login yang terlihat pada tabel ~\ref{hasil:Login}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian halaman login.}
@@ -1776,13 +1129,11 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		\midrule
 		1 & Sukses & Mengakses website menggunakan \url{http://127.0.0.1} pada komputer lokal.\\
 		\hline
-		2 & Sukses & Link "Petunjuk Penggunaan" mengarahkan ke halaman dokumentasi BlueTape.\\
+		2 & Sukses & "Petunjuk Penggunaan" berbentuk link.\\
 		\hline
-		3 & Sukses & \textit{User} diarahkan ke halaman autentikasi email dengan Google.\\
+		3 & Sukses & -.\\
 		\hline
-		4 & Sukses & - Login dengan email \textit{student} yaitu 7315037@student.unpar.ac.id.\\
-		&& - Login dengan email \textit{admin} yaitu amihapsahapsa@gmail.com.\\
-		&& - Mengakses halaman website BlueTape.\\									
+		4 & Sukses & - \textit{Field} dapat diisi oleh teks.\\									
 		\hline
 		5 & Sukses & - Melihat notifikasi berwarna biru saat proses \textit{logout} berhasil.\\
 		&& - Melihat notifikasi berwarna merah saat mengakses halaman \url{http://127.0.0.1/CetakTranskripRequest} dengan kondisi tidak \textit{login}.\\
@@ -1791,9 +1142,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \end{table}
 
 \subsubsection{Menu Navigasi}
+Berikut ini hasil pengujian dari menu navigasi yang terlihat pada tabel ~\ref{hasil:MenuNavigasi}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian menu navigasi}
 	\label{hasil:MenuNavigasi}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -1813,9 +1165,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \end{table}
 
 \subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
+Berikut ini hasil pengujian dari konten permohonan baru pada halaman cetak transkrip yang terlihat pada tabel ~\ref{hasil:PermohonanBaru}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian konten permohonan baru cetak transkrip}
 	\label{hasil:PermohonanBaru}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -1824,15 +1177,12 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		\midrule
 		1&Sukses&Konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
 		\hline
-		2&Sukses& - Memeriksa kolom "Yang memohon", "NPM" dan "Nama" memiliki lebar 4 grid dilayar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
-		&& - Memeriksa kolom "Yang memohon", "NPM" dan "Nama" tidak bisa diisi oleh \textit{user} karena dalam mode \textit{readonly}.\\
+		2&Sukses& - Memeriksa kolom "Yang memohon", "NPM" dan "Nama" memiliki lebar 4 grid dilayar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\		
 		&& - Memeriksa kolom "Tipe Transkrip" memiliki lebar 6 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
-		&& - Memeriksa \textit{form field} "Tipe Transkrip" dapat menampilkan opsi dan \textit{user} dapat memilih opsi "DPS (Seluruh Semester, Bilingual)".\\
 		&& - Memeriksa kolom "Keperluan" memiliki lebar 6 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
-		&& - Memeriksa \textit{form field} "Keperluan" dapat diisi \textit{user} dengan "Beasiswa Semester Genap 2019/2020".\\
+		&& - Memeriksa \textit{form field} "Keperluan" menggunakan input \textit{select}.\\
 		\hline
 		3&Sukses&Memeriksa tombol "Kirim Permohonan" memiliki warna biru.\\
-		&&Memeriksa tombol "Kirim Permohonan" dapat mengirimkan \textit{form} "Permohonan Baru" ke tabel Histori Permohonan.\\
 		\hline
 		4&Sukses& - Memeriksa adanya notifikasi berwarna merah berisi "Maaf, gagal mengirim email notifikasi.".\\
 		&& - Memeriksa adanya notifikasi berwarna biru  berisi "Permintaan cetak transkrip sudah terkirim. Silahkan cek statusnya secara berkala disitus ini.\\		
@@ -1842,9 +1192,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 
 
 \subsubsection{Konten Histori Permohonan pada Halaman Cetak Transkrip}
+Berikut ini hasil pengujian dari konten permohonan baru pada halaman cetak transkrip yang terlihat pada tabel ~\ref{hasil:HistoriPermohonan}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian konten histori permohonan cetak transkrip}
 	\label{hasil:HistoriPermohonan}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -1856,10 +1207,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&&- Memeriksa baris judul tabel dan kolom "ID" menampilkan data dengan teks \textit{bold}.\\
 		\hline
-		3&Sukses& - Memeriksa kolom "ID" berisi "[nomor]".\\
-		&& - Kolom "Status" berisi "Tunggu" \\
-		&& - Kolom "Tanggal Permohonan" berisi format"[nama hari], [tanggal][nama bulan][tahun]" seperti "Senin, 28 Mei 2020" \\
-		&& - Kolom "Tipe Transkrip" berisi "DPS".\\
+		3&Sukses& - Memeriksa kolom "ID" berisi nomor dengan format \textit{bold}.\\
+		&& - Kolom "Status" berisi sebuah label berisi teks. \\
+		&& - Kolom "Tanggal Permohonan" berisi teks yang memiliki format"[nama hari], [tanggal][nama bulan][tahun]" seperti "Senin, 28 Mei 2020" \\
+		&& - Kolom "Tipe Transkrip" teks.\\
 		\hline
 		4&Sukses& - Adanya label "TUNGGU" berwarna abu-abu.\\
 		&& - Adanya label "DITOLAK" berwarna merah.\\
@@ -1873,6 +1224,7 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 
 
 \subsubsection{Popup Pesan Detail Permohonan pada Halaman Cetak Transkrip}
+Berikut ini hasil pengujian dari popup pesan detail permohonan pada halaman cetak transkrip yang terlihat pada tabel ~\ref{hasil:DetailCetakTranskrip}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian detail permohonan cetak transkrip.}
@@ -1888,16 +1240,17 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
 		\hline
-		3&Sukses&- "Email Pemohon" berisi "7315037@gmail.com".\\
-		&&- "Nama Pemohon" berisi "Hapsari Laksmi Wijayanti".\\
-		&&- "Tanggal Permohonan" berisi format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
-		&&- "Tipe Transkrip" berisi "DPS".\\
-		&&- "Keperluan" berisi "Beasiswa Semester Genap 2019/2020."\\
+		3&Sukses&- Kolom "Email Pemohon" berisi teks dengan mode \textit{read-only}.\\
+		&&- Kolom "Nama Pemohon" berisi teks dengan mode \textit{read-only}.\\
+		&&- Kolom "Tanggal Permohonan" berisi format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- Kolom "Tipe Transkrip" berisi teks.\\
+		&&- Kolom "Keperluan" berisi teks.\\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
+Berikut ini hasil pengujian dari fitur pencarian NPM pada halaman manajemen cetak transkrip yang terlihat pada tabel ~\ref{hasil:PencarianNPMCetakTranskrip}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian fitur pencarian NPM.}
@@ -1909,21 +1262,21 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		\midrule
 		1&Sukses&Memeriksa konten dikelilingi oleh \textit{border} yang memisahkan antara judul dan isi konten.\\
 		\hline
-		2&Sukses&Memeriksa terdapat label bertuliskan "Cari NPM" dan label tersebut merupakan satu grup dengan pencarian NPM. \\
+		2&Sukses&Memeriksa terdapat label bertuliskan "Cari NPM" dan label terletak didepan input. \\
 		\hline
-		3&Sukses&Memeriksa \textit{group field} dapat diisi \textit{user} dengan email mahasiswa seperti "7315037@student.unpar.ac.id"\\
+		3&Sukses&Memeriksa \textit{group field} dapat diisi \textit{user} dengan teks.\\
 		\hline
-		4&Sukses&Memeriksa tombol "Cari" memiliki garis \textit{outline} berwarna biru.\\
-		
+		4&Sukses&Memeriksa tombol "Cari" memiliki garis \textit{outline} berwarna biru dan terletak dibelakang input.\\		
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 
 \subsubsection{Tabel Daftar Permintaan Transkrip pada Halaman Manajemen Cetak Transkrip}
+Berikut ini hasil pengujian dari tabel daftar permintaan transkrip pada halaman manajemen cetak transkrip yang terlihat pada tabel ~\ref{hasil:DaftarPermintaanTranskrip}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian daftar permintaan transkrip}
 	\label{hasil:DaftarPermintaanTranskrip}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -1933,11 +1286,11 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		1&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&& - Memeriksa baris judul dan kolom "ID" ditampilkan dengan teks berformat \textit{bold}.	\\	
 		\hline
-		2&Sukses&- "ID" menampilkan "[nomor]" seperti "1".\\
-		&&- "Status" menampilkan "MENUNGGU".\\
-		&&- "Tanggal Permohonan" menampilkan format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
-		&&- "Tipe Transkrip" menampilkan "DPS".\\
-		&&- "NPM" menampilkan "2015730037"\\
+		2&Sukses&- Kolom "ID" menampilkan "[nomor]" seperti "1" dengan format \textit{bold}.\\
+		&&- Kolom "Status" menampilkan label dengan teks.\\
+		&&- Kolom "Tanggal Permohonan" menampilkan teks dengan format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- Kolom "Tipe Transkrip" menampilkan teks.\\
+		&&- Kolom "NPM" menampilkan teks.\\
 		\hline
 		3&Sukses& - Adanya label "MENUNGGU" berwarna kuning.\\
 		&& - Adanya label "DITOLAK" berwarna merah.\\
@@ -1950,6 +1303,7 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \end{table}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Permintaan Transkrip}
+Berikut ini hasil pengujian dari popup pesan detail permohonan pada konten permintaan transkrip yang terlihat pada tabel ~\ref{hasil:DetailPermintaanTranskrip}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
@@ -1965,16 +1319,17 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
 		\hline
-		3&Sukses&- "Email Pemohon" berisi "7315037@gmail.com".\\
-		&&- "Nama Pemohon" berisi "Hapsari Laksmi Wijayanti".\\
-		&&- "Tanggal Permohonan" berisi format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
-		&&- "Tipe Transkrip" berisi "DPS".\\
-		&&- "Keperluan" berisi "Beasiswa Semester Genap 2019/2020."\\
+		3&Sukses&- Kolom "Email Pemohon" berisi sebuah teks.\\
+		&&- Kolom "Nama Pemohon" berisi sebuah teks.\\
+		&&- Kolom "Tanggal Permohonan" berisi format tanggal "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
+		&&- Kolom "Tipe Transkrip" berisi sebuah teks.\\
+		&&- Kolom "Keperluan" berisi sebuah teks.\\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permintaan Transkrip}
+Berikut ini hasil pengujian dari popup pesan tolak permohonan pada konten permintaan transkrip yang terlihat pada tabel ~\ref{hasil:TolakPermintaanTranskrip}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian tolak permintaan transkrip.}
@@ -1987,19 +1342,19 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
 		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
 		\hline
-		2&Sukses& - Email penjawab menampilkan "7315037@student.unpar.ac.id"\\
-		&& - Kolom "Alasan Penolakan" dapat diisi oleh user dengan "Data masih diproses."\\
+		2&Sukses& - Kolom "Email penjawab" menampilkan sebuah teks dengan mode \textit{read-only}.\\
+		&& - Kolom "Alasan Penolakan" dapat diisi oleh user dengan sebuah teks."\\
 		\hline
-		3&Sukses&- Tombol "Tolak" berwarna merah.\\
-		&& - Kolom status yang awalnya "MENUNGGU" berubah status menjadi "DITOLAK" setelah tombol dipilih.\\		
+		3&Sukses&- Tombol "Tolak" berwarna merah.\\		
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Popup Pesan Cetak Permohonan pada Konten Permintaan Transkrip}
+Berikut ini hasil pengujian dari popup pesan cetak permohonan pada konten permintaan transkrip yang terlihat pada tabel ~\ref{hasil:CetakPermintaanTranskrip}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian tolak permintaan transkrip.}
+	\caption{Hasil pengujian cetak permintaan transkrip.}
 	\label{hasil:CetakPermintaanTranskrip}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2009,16 +1364,16 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		1&Sukses& - Memeriksa popup pesan menampilkan judul "Cetak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
 		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
 		\hline
-		2&Sukses& - Email penjawab menampilkan "7315037@student.unpar.ac.id"\\
-		&& - Kolom "Keterangan Tambahan" dapat diisi oleh user dengan "Transkrip dapat diambil lusa."\\
+		2&Sukses& - Email penjawab menampilkan sebuah teks dengan mode \textit{read-only}.\\
+		&& - Kolom "Keterangan Tambahan" dapat diisi oleh user dengan teks."\\
 		\hline
-		3&Sukses&- Tombol "Sudah dicetak" berwarna biru.\\
-		&& - Kolom status berubah menjadi "DICETAK" setelah tombol dipilih.\\		
+		3&Sukses&- Tombol "Sudah dicetak" berwarna biru.\\		
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Popup Pesan Hapus Permohonan pada Konten Permintaan Transkrip}
+Berikut ini hasil pengujian dari popup pesan hapus permohonan pada konten permintaan transkrip yang terlihat pada tabel ~\ref{hasil:HapusPermintaanTranskrip}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian hapus permintaan transkrip.}
@@ -2034,14 +1389,14 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses& - Keterangan "Yakin ingin menghapus?" memiliki teks berformat \textit{bold}. \\
 		&& - Keterangan "Data akan hilang selamanya dari catatan." terletak ditengah.\\
 		\hline
-		3&Sukses&- Tombol "Hapus" berwarna merah.\\
-		&& - Kolom status akan hilang dari tabel permintaan trankrip.\\		
+		3&Sukses&- Tombol "Hapus" berwarna merah.\\	
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Konten Permohonan Baru pada Halaman Perubahan Kuliah}
-\begin{table}	
+Berikut ini hasil pengujian dari konten permohonan baru pada halaman perubahan kuliah yang terlihat pada tabel ~\ref{hasil:PermohonanPerubahanKuliah}.
+\begin{table}[H]	
 	\centering
 	\caption{Hasil pengujian konten perubahan kuliah.}
 	\label{hasil:PermohonanPerubahanKuliah}
@@ -2059,35 +1414,34 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 			&& - Memeriksa kolom "Pemohon" dan "Nama" tidak bisa diisi oleh \textit{user} karena dalam mode \textit{readonly}.\\
 			
 			&& - Memeriksa kolom "Kode MK", "Nama MK", "Kelas" dan "Jenis Perubahan" memiliki lebar 2, 5, 1 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
-			&& - Memeriksa \textit{form field} "Kode MK", "Nama MK", dan "Kelas" dapat diisi \textit{user} dengan "AIF102", "PBWL", "A".\\
+			&& - Memeriksa \textit{form field} "Kode MK", "Nama MK", dan "Kelas" dapat diisi \textit{user} dengan teks.\\
 			
 			&& - Memeriksa kolom "Jenis Perubahan" memiliki lebar 4 grid pada layar \textit{large} dan 12 grid pada layar \textit{medium} dan \textit{small}.\\
-			&& - Memeriksa \textit{form field} "Jenis Perubahan" dapat menampilkan opsi dan \textit{user} dapat memilih opsi "Ditiadakan".\\
+			&& - Memeriksa \textit{form field} "Jenis Perubahan" dapat menampilkan opsi dan \textit{user} dapat memilih opsi yang tersedia.\\
 			
 			&& - Memeriksa kolom "Dari Hari \& Jam:" lebar 3 grid pada layar \textit{large}. Lalu 12 grid pada layar \textit{medium} dan \textit{small}.\\
-			&& - Memeriksa kolom "Dari Hari \& Jam:"dapat diisi \textit{user} dengan "[Tahun]/[Bulan]/[Tanggal] [Jam]:[Menit]" seperti "2020/05/28 19:00".\\
+			&& - Memeriksa kolom "Dari Hari \& Jam:"dapat diisi \textit{user} dengan format "[Tahun]/[Bulan]/[Tanggal] [Jam]:[Menit]" seperti "2020/05/28 19:00".\\
 			
 			&& - Memeriksa kolom "Dari Ruang:" dan "Keterangan Tambahan" memiliki lebar 3 dan 6 grid pada layar \textit{large}. Lalu 12 grid pada layar \textit{medium} dan \textit{small}.\\
-			&& - Memeriksa kolom "Dari Ruang:" dan "Keterangan Tambahan" dapat diisi \textit{user} dengan "9012" dan "Dosen berhalangan hadir".\\
+			&& - Memeriksa kolom "Dari Ruang:" dan "Keterangan Tambahan" dapat diisi \textit{user} dengan teks.\\
 			\hline
-			4 & Sukses & - Memeriksa tombol "Kirim Permohonan" berwarna biru.\\
-			&& - Memeriksa data dari \textit{form} "Permohonan Baru" terlihat pada tabel histori permohonan.\\
+			4 & Sukses & - Memeriksa tombol "Kirim Permohonan" berwarna biru.\\			
 			\hline
 			5 & Sukses & - Memeriksa tombol "Tambah Pertemuan Ekstra" berwarna abu - abu.\\
 			&& - Ketika tombol "Tambah Pertemuan Ekstra" dipilih maka baris baru dari kolom "Menjadi Hari \& Jam" dan "Menjadi Ruang" terbentuk.\\
 			&& - Baris baru akan memiliki tombol "Hapus" yang berwarna abu-abu dan ketika dipilih baris baru akan hilang.\\
 			\hline
-			6 & Sukses & - Terdapat notifikasi user berwarna biru yang menandakan permohonan berhasil dibuat.\\
-			&&- Terdapat notifikasi \textit{user} berwarna merah yang menandakan tidak dapat mengirim notifikasi user.\\		
-			
+			6 & Sukses & - Terdapat notifikasi user berwarna biru "Permohonan berhasil dibuat".\\
+			&&- Terdapat notifikasi \textit{user} berwarna merah "Tidak dapat mengirim notifikasi user".\\				
 			\bottomrule		
 		\end{tabular} 
 \end{table}
 
 \subsubsection{Konten Histori Permohonan pada Halaman Perubahan Kuliah}
+Berikut ini hasil pengujian dari konten histori permohonan pada halaman perubahan kuliah yang terlihat pada tabel ~\ref{hasil:HistoriPermohonanPerubahanKuliah}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\caption{Hasil pengujian detail permohonan perubahan kuliah.}
 	\label{hasil:HistoriPermohonanPerubahanKuliah}
 		\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2099,10 +1453,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&&- Memeriksa baris judul tabel dan kolom "ID" menampilkan data dengan teks \textit{bold}.\\
 		\hline
-		3&Sukses& - Memeriksa kolom "ID" berisi "(nomor)".\\
-		&& - Kolom "Status" berisi "Tunggu" \\
-		&& - Kolom "Kode MK" berisi format"[XYZ][123]" seperti "AIF102" \\
-		&& - Kolom "Perubahan" berisi "Diganti".\\
+		3&Sukses& - Memeriksa kolom "ID" berisi nomor dengan format \textit{bold}.\\
+		&& - Kolom "Status" berisi label dengan teks. \\
+		&& - Kolom "Kode MK" berisi teks. \\
+		&& - Kolom "Perubahan" berisi teks.\\
 		\hline
 		4&Sukses& - Adanya label "TUNGGU" berwarna abu-abu.\\
 		&& - Adanya label "DITOLAK" berwarna merah.\\
@@ -2114,9 +1468,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \end{table}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Histori Permohonan}
+Berikut ini hasil pengujian dari popup pesan detail permohonan pada konten histori permohonan yang terlihat pada tabel ~\ref{hasil:DetailHistoriPermohonan}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\caption{Hasil pengujian detail permohonan histori permohonan.}
 	\label{hasil:DetailHistoriPermohonan}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2129,26 +1484,27 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
 		\hline
-		3&Sukses&- "Email Pemohon" menampilkan data "7315037@gmail.com".\\
-		&&- "Nama Pemohon" menampilkan data "Hapsari Laksmi Wijayanti".\\
+		3&Sukses&- "Email Pemohon" menampilkan sebuah teks dengan mode \textit{readonly}.\\
+		&&- "Nama Pemohon" menampilkan sebuah teks dengan mode \textit{readonly}.\\
 		&&- "Tanggal Permohonan" menampilkan data format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
-		&&- "Kode Mata Kuliah" menampilkan data "AIF102".\\
-		&&- "Nama Mata Kuliah" menampilkan data "PBWL".\\
-		&&- "Kelas" menampilkan data "A".\\
-		&&- "Jenis Perubahan" menampilkan data "Diganti".\\
-		&&- "Dari Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
-		&& -"Dari Ruang" menampilkan data "9018".\\
-		&&- "Menjadi Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
-		&&- "Menjadi ruang" menampilkan data "9017".\\
-		&&- "Keterangan" menampilkan data "Dosen berhalangan hadir."\\
+		&&- "Kode Mata Kuliah" menampilkan data berbentuk teks.\\
+		&&- "Nama Mata Kuliah" menampilkan data berbentuk teks.\\
+		&&- "Kelas" menampilkan data teks.\\
+		&&- "Jenis Perubahan" menampilkan data berbentuk teks.\\
+		&&- "Dari Hari/Jam" menampilkan data berbentuk teks.\\
+		&& -"Dari Ruang" menampilkan data berbentuk teks.\\
+		&&- "Menjadi Hari/Jam" menampilkan data berbentuk teks.\\
+		&&- "Menjadi ruang" menampilkan data berbentuk teks.\\
+		&&- "Keterangan" menampilkan data data berbentuk teks.\\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman Manajemen Perubahan Kuliah}
+Berikut ini hasil pengujian dari konten permohonan perubahan kuliah pada halaman manajemen perubahan kuliah yang terlihat pada tabel ~\ref{hasil:ManajemenPermohonanPerubahanKuliah}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian konten permohonan perubahan kuliah}
 	\label{hasil:ManajemenPermohonanPerubahanKuliah}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2159,10 +1515,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		&& - Memeriksa baris judul dan kolom "ID" ditampilkan dengan teks berformat \textit{bold}.	\\	
 		\hline
 		2&Sukses&- "ID" menampilkan "[nomor]" seperti "1".\\
-		&&- "Status" menampilkan "MENUNGGU".\\
-		&&- "Tanggal Permohonan" menampilkan format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
-		&&- "Tipe Transkrip" menampilkan "DPS".\\
-		&&- "NPM" menampilkan "2015730037"\\
+		&&- "Status" menampilkan label dengan teks.\\
+		&&- "Tanggal Permohonan" menampilkan format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]".\\
+		&&- "Tipe Transkrip" menampilkan data berupa teks.\\
+		&&- "NPM" menampilkan data berupa teks.\\
 		\hline
 		3&Sukses& - Adanya label "MENUNGGU" berwarna kuning  pada kolom "Status" ketika permohonan perubahan kuliah dilakukan oleh dosen.\\
 		&& - Adanya label "DITOLAK" berwarna merah pada kolom "Status" ketika aksi "Tolak" dilakukan oleh staf TU.\\
@@ -2174,9 +1530,10 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \end{table}
 
 \subsubsection{Popup Pesan Detail Permohonan pada Konten Permohonan Perubahan Kuliah}
+Berikut ini hasil pengujian dari popup pesan detail permohonan pada konten permohonan perubahan kuliah yang terlihat pada tabel ~\ref{hasil:DetailPermohonanPerubahanKuliah}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian detail permohonan permintaan transkrip.}
+	\caption{Hasil pengujian detail permohonan perubahan kuliah.}
 	\label{hasil:DetailPermohonanPerubahanKuliah}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2189,24 +1546,25 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&& - Memeriksa data judul kolom ditampilkan dengan teks \textit{bold}.	\\	
 		\hline
-		3&Sukses&- "Email Pemohon" menampilkan data "7315037@gmail.com".\\
-		&&- "Nama Pemohon" menampilkan data "Hapsari Laksmi Wijayanti".\\
+		3&Sukses&- "Email Pemohon" menampilkan data berupa teks.\\
+		&&- "Nama Pemohon" menampilkan data berupa teks.\\
 		&&- "Tanggal Permohonan" menampilkan data format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
-		&&- "Kode Mata Kuliah" menampilkan data "AIF102".\\
-		&&- "Nama Mata Kuliah" menampilkan data "PBWL".\\
-		&&- "Kelas" menampilkan data "A".\\
-		&&- "Jenis Perubahan" menampilkan data "Diganti".\\
-		&&- "Dari Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
-		&& -"Dari Ruang" menampilkan data "9018".\\
-		&&- "Menjadi Hari/Jam" menampilkan data "2020-05-12 23:57:00".\\
-		&&- "Menjadi ruang" menampilkan data "9017".\\
-		&&- "Keterangan" menampilkan data "Dosen berhalangan hadir."\\
+		&&- "Kode Mata Kuliah" menampilkan data berupa teks.\\
+		&&- "Nama Mata Kuliah" menampilkan data berupa teks.\\
+		&&- "Kelas" menampilkan menampilkan data berupa teks.\\
+		&&- "Jenis Perubahan" menampilkan data berupa teks.\\
+		&&- "Dari Hari/Jam" menampilkan menampilkan data berupa teks.\\
+		&& -"Dari Ruang" menampilkan data berupa teks.\\
+		&&- "Menjadi Hari/Jam" menampilkan data berupa teks.\\
+		&&- "Menjadi ruang" menampilkan data berupa teks.\\
+		&&- "Keterangan" menampilkan data berupa teks.\\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 
 \subsubsection{Popup Pesan Konfirmasi Permohonan pada Konten Permohonan Perubahan Kuliah}
+Berikut ini hasil pengujian dari popup pesan konfirmasi permohonan pada konten permohonan perubahan kuliah yang terlihat pada tabel ~\ref{hasil:KonfirmasiPerubahanKuliah}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian konfirmasi permohonan perubahan kuliah.}
@@ -2219,19 +1577,19 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
 		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
 		\hline
-		2&Sukses& - Email penjawab menampilkan "amihapsahapsa@gmail.com"\\
-		&& - Kolom "Keterangan" dapat diisi oleh user dengan "Konfirmasi sudah disetujui."\\
+		2&Sukses& - Email penjawab menampilkan menampilkan data berupa teks dengan mode \textit{readonly}.\\
+		&& - Kolom "Keterangan" dapat diisi oleh user dengan teks.\\
 		\hline
-		3&Sukses&- Tombol "Konfirmasi" berwarna hijau.\\
-		&& - Kolom status yang awalnya "MENUNGGU" berubah status menjadi "TERKONFIRMASI" setelah tombol dipilih.\\		
+		3&Sukses&- Tombol "Konfirmasi" berwarna hijau.\\			
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Popup Pesan Tolak Permohonan pada Konten Permohonan Perubahan Kuliah}
+Berikut ini hasil pengujian dari popup pesan tolak permohonan pada konten permohonan perubahan kuliah yang terlihat pada tabel ~\ref{hasil:TolakPerubahanKuliah}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian tolak permintaan transkrip.}
+	\caption{Hasil pengujian tolak permintaan perubahan kuliah.}
 	\label{hasil:TolakPerubahanKuliah}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2241,16 +1599,16 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		1&Sukses& - Memeriksa popup pesan menampilkan judul "Tolak Permohonan [ID]" dan isi pesan menampilkan sebuah form.\\
 		&& - Memeriksa mode popup dapat ditutup oleh \textit{user}.\\
 		\hline
-		2&Sukses& - Email penjawab menampilkan "amihapsahapsa@gmail.com"\\
-		&& - Kolom "Alasan Penolakan" dapat diisi oleh user dengan "Data masih diproses."\\
+		2&Sukses& - Email penjawab menampilkan berupa teks.\\
+		&& - Kolom "Alasan Penolakan" berbentuk input field dan dapat diisi oleh user dengan teks.\\
 		\hline
-		3&Sukses&- Tombol "Tolak" berwarna merah.\\
-		&& - Kolom status yang awalnya "MENUNGGU" berubah status menjadi "DITOLAK" setelah tombol dipilih.\\		
+		3&Sukses&- Tombol "Tolak" berwarna merah.\\		
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Popup Pesan Hapus Permohonan pada Konten Permohonan Perubahan Kuliah}
+Berikut ini hasil pengujian dari popup pesan hapus permohonan pada konten permohonan perubahan kuliah yang terlihat pada tabel ~\ref{hasil:HapusPerubahanKuliah}.
 \begin{table}[H]
 	\centering 
 	\caption{Hasil pengujian hapus permintaan transkrip.}
@@ -2266,16 +1624,16 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses& - Keterangan "Yakin ingin menghapus?" memiliki teks berformat \textit{bold}. \\
 		&& - Keterangan "Data akan hilang selamanya dari catatan." terletak ditengah.\\
 		\hline
-		3&Sukses&- Tombol "Hapus" berwarna merah.\\
-		&& - Kolom status akan hilang dari tabel permintaan trankrip.\\		
+		3&Sukses&- Tombol "Hapus" berwarna merah.\\	
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
+Berikut ini hasil pengujian dari konten tambah jadwal pada halaman entri jadwal dosen yang terlihat pada tabel ~\ref{hasil:TambahJadwal}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian konten tambah jadwal}
 	\label{hasil:TambahJadwal}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2292,17 +1650,17 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		&& - Memeriksa \textit{form field} "Jenis" dapat menampilkan opsi dan dosen dapat memilih opsi jenis jadwal.\\
 		\hline
 		3&Sukses&Memeriksa tombol "Tambah" memiliki warna biru.\\
-		&&Memeriksa tombol "Tambah" dapat mengirimkan \textit{form} "Tambah Jadwal" ke tabel daftar jadwal.\\
 		\hline
-		4&Sukses& - Memeriksa adanya notifikasi berwarna merah berisi Jadwal gagal dimasukan karena sudah ada jadwal pada waktu tersebut, silahkan pilih waktu lain" apabila gagal memasukan jadwal.\\		
+		4&Sukses& - Memeriksa adanya notifikasi berwarna merah berisi "Jadwal gagal dimasukan karena sudah ada jadwal pada waktu tersebut, silahkan pilih waktu lain" apabila gagal memasukan jadwal".\\		
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Konten Daftar Jadwal pada Halaman Entri Jadwal Dosen}
+Berikut ini hasil pengujian dari konten daftar jadwal pada halaman entri jadwal dosen yang terlihat pada tabel ~\ref{hasil:DaftarJadwalEntri}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konten permohonan baru}
+	\caption{Hasil pengujian konten daftar jadwal}
 	\label{hasil:DaftarJadwalEntri}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2314,7 +1672,7 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		2&Sukses&- Memeriksa tabel memiliki kolom bergaris berwarna putih dan abu-abu.\\
 		&& - Memeriksa baris hari dan kolom jam ditampilkan dengan teks berformat \textit{bold}.	\\	
 		\hline
-		3&Sukses&- Memeriksa \textit{cell} yang terisi memiliki border berwarna hitam.
+		3&Sukses&- Memeriksa \textit{cell} yang terisi memiliki border berwarna hitam.\\
 		&& - \textit{Cell} memiliki \textit{background color} kuning untuk jenis "Konsultasi". \\
 		&& - \textit{Cell} memiliki \textit{background color} hijau untuk jenis "Terjadwal". \\
 		&& - \textit{Cell} memiliki \textit{background color} putih untuk jenis "Kelas". \\
@@ -2322,15 +1680,15 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		4&Sukses&- Memeriksa tombol berwarna merah.\\
 		&& - Memeriksa setelah tombol dipilih keseluruhan jadwal akan terhapus dari tabel entri jadwal dosen.\\
 		5& Sukses & - Memeriksa tombol berwarna biru.\\
-		&& - Memeriksa setelah tombol dipilih maka akan menghasilkan file bertipe .xls. \\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 \subsubsection{Popup Pesan Edit Jadwal pada Konten Daftar Jadwal}
+Berikut ini hasil pengujian dari popup pesan edit jadwal pada konten daftar jadwal yang terlihat pada tabel ~\ref{hasil:EditJadwal}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konfirmasi permohonan perubahan kuliah.}
+	\caption{Hasil pengujian edit jadwal.}
 	\label{hasil:EditJadwal}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2347,19 +1705,18 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		&& - Memeriksa kolom "Label" dapat menampilkan label saat ini dan merubah isi dari label.\\
 		\hline
 		3&Sukses&- Tombol "Save" berwarna biru.\\
-		&& - Kolom jadwal akan berubah setelah tombol tersebut dipilih.\\
 		\hline
-		4&Sukses&- Tombol "Delete" berwarna merah.\\
-		&& - Kolom jadwal akan hilang dari tabel daftar jadwal.\\		
+		4&Sukses&- Tombol "Delete" berwarna merah.\\	
 		\bottomrule		
 	\end{tabular} 
 \end{table}
 
 
 \subsubsection{Halaman Lihat Jadwal Dosen}
+Berikut ini hasil pengujian dari halaman lihat jadwal dosen yang terlihat pada tabel ~\ref{hasil:LihatJadwal}.
 \begin{table}[H]
 	\centering 
-	\caption{Hasil pengujian konfirmasi permohonan perubahan kuliah.}
+	\caption{Hasil pengujian halaman lihat jadwal dosen.}
 	\label{hasil:LihatJadwal}
 	\begin{tabular}{|c| c| p{0.60\textwidth}|}
 		\toprule
@@ -2376,9 +1733,9 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 		4&Sukses&- Memeriksa \textit{cell} yang terisi memiliki border berwarna hitam.\\		
 		\hline
 		5&Sukses&- Memeriksa tombol berwarna merah.\\
-		&& - Memeriksa setelah tombol dipilih keseluruhan jadwal akan terhapus dari tabel entri jadwal dosen.\\
+		\hline
 		6& Sukses & - Memeriksa tombol berwarna biru.\\
-		&& - Memeriksa setelah tombol dipilih maka akan menghasilkan file bertipe .xls. \\
 		\bottomrule		
 	\end{tabular} 
 \end{table}
+

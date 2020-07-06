@@ -3,19 +3,37 @@
 
 \section{BlueTape}
 Bluetape merupakan aplikasi berbasis web, berguna sebagai aplikasi yang menunjang proses administrasi dalam lingkungan FTIS UNPAR. Web ini dapat diakses pada link: \url{http://www.bluetape.azurewebsites.net}. \cite{blueTape}
+Setiap subbab menampilkan antarmuka halaman dan penjelesan fitur yang tersedia serta siapa yang dapat mengakses halaman tersebut (dosen, staf TU atau mahasiswa).
 
 \subsection{Login}
 \label{ss:login}
+\noindent Gambar ~\ref{fig:tampilan_login} adalah halaman pertama yang diakses \textit{user}.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_login.png} 
+	\caption{Antarmuka halaman login.} 
+	\label{fig:tampilan_login}
+\end{figure}
 Halaman utama aplikasi BlueTape akan mengarahkan \textit{user} untuk \textit{login} dengan menggunakan Google, user akan login dengan melihat beberapa kondisi ini:
 \begin{itemize}
 	\item Apabila \textit{user} belum pernah login menggunakan akun UNPAR(xxx@student.unpar.ac.id atau yyy@unpar.ac.id) maka  \textit{user} akan diminta untuk memasukan email UNPAR dan password
 	\item Apabila user sudah pernah login menggunakan akun UNPAR, maka \textit{user} akan diminta untuk memilih akun beserta password.
 	\item User akan terhubung otomatis dengan akun @gmail.com. Apabila BlueTape menolak autentikasi user maka: User akan diminta untuk buka halaman Gmail lalu klik avatar di kanan atas dan memilih akun UNPAR yang tepat pada tombol "Add Account"
 \end{itemize}
-User akan melihat beberapa menu sesuai dengan \textit{role} user, sebagai mahasiswa, staf TU, dll.
+User akan melihat beberapa menu sesuai dengan \textit{role} user, sebagai mahasiswa, staf TU, dll.\\
+\noindent Pada bagian atas halaman login terdapat notifikasi bagi user saat proses login dan logout. 
 
 \subsection{Dosen} 
+Apabila dosen masuk ke website BlueTape maka dapat mengakses dua halaman yaitu halaman perubahan kuliah dan halaman entri jadwal dosen.
+
 \subsubsection{Perubahan Kuliah}
+Halaman permintaan perubahan kuliah terdiri dari dua konten: "Permohonan Baru" dan "Histori Permohonan" tertera pada gambar ~\ref{fig:tampilanPerubahanKuliah}. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_perubahan_kuliah.png} 
+	\caption{Antarmuka halaman perubahan kuliah.} 
+	\label{fig:tampilanPerubahanKuliah}
+\end{figure}
 Modul perubahan kuliah berguna untuk mengirimkan permintaan perubahan mata kuliah yang dikirim oleh dosen kepada staf Tata Usaha. Kolom - kolom yang terdapat dalam modul ini:
 \begin{itemize}
 	\item Kode MK (Mata Kuliah)
@@ -25,48 +43,68 @@ Modul perubahan kuliah berguna untuk mengirimkan permintaan perubahan mata kulia
 	\item Dari (hari/jam dan ruang) dan ke(hari/jam dan tempat)
 	\item Keterangan
 \end{itemize}
-Apabila ada kolom yang belum dapat diisi(contoh : dosen belum tahu tempat kelas pengganti) maka kolom kelas dapat dikosongkan. \noindent
-Dosen juga dapat membuat lebih dari 1 kelas pengganti, dengan mengklik tombol "Tambah Pertemuan Ekstra". \noindent
-Setelah dosen klik "Kirim Permohonan", maka sistem akan mengirim permohonan ke halaman BlueTape bagian Tata Usaha utnuk diperiksa, disetujui, dan dicetak sebagai pengumuman. Jika staf Tata Usaha telah selesai mengkonfirmasi(atau menolak), maka dosen akan mendapatkan e-mail notifikasi.
-
-\subsection{Dosen Informatika}
+Setiap konten dipisahkan oleh border. Pada "Permohonan Baru" terdapat sebuah form yang berisi field-fiel dengan lebar yang berbeda - beda dan dikelompokan pada beberapa baris. Terdapat tiga tombol yaitu tombol biru "Kirim Permohonan" dan tombol abu-abu "Tambah pertemuan Ektra" .
+Konten "Histori Permohonan" berisi tabel bergaris yang menampilkan data histori permohonan. \noindent
+Dosen juga dapat membuat lebih dari 1 kelas pengganti, dengan mengklik tombol "Tambah Pertemuan Ekstra", nantinya baris baru akan terbentuk. 
 \subsubsection{Entri Jadwal Dosen}
-Dosen informatika dapat menggunakan menu ini untuk mengisikan jadwal mingguan. Hasil dari pengisian jadwal dapat diekspor ke XLS, atau dapat dilihat oleh mahasiswa informatika melalui portal BlueTape.
+Entri Jadwal Dosen berisi dua konten: "Tambah Jadwal" dan "Daftar Jadwal". Konten "Tambah Jadwal" tertera pada gambar ~\ref{fig:tampilanEntriJadwalDosen}. \textit{Form} yang terdiri dari label, \textit{field} dari form tersebut dan tombol biru "Tambah". Konten "Daftar Jadwal" terdiri dari sebuah tabel dimana untuk \textit{cell} yang terisi mereferensikan ke modal edit jadwal dosen. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_entri_jadwal_dosen.png} 
+	\caption{Antarmuka halaman entri jadwal dosen.} 
+	\label{fig:tampilanEntriJadwalDosen}
+\end{figure}
+Selain itu terdapat dua tombol pada bawah tabel: tombol merah "Delete" dan tombol biru "Ekspor ke XLS".
 \subsubsection{Tambah Jadwal}
 Pada bagian entri jadwal, dosen informatika dapat mengisikan hari, jam mulai, durasi, label, dan sejenisnya. Berikut ini jenis yang dapat dipilih:
 \begin{itemize}
-	\item Konsultasi : Waktu yang dosen siapkan untuk konsultasi mahasiswa. Pada tabel akan diberi \textit{background} berwaena kuning.
-	\item Terjadwal: Kegiatan mingguan dosen informatika yang telah terjadwal. Contoh : rapat jurusan
-	\item Kelas : Kelas kuliah maupun praktikum.
+	\item Konsultasi: \textit{Cell} memiliki background kuning.
+	\item Terjadwal: \textit{Cell} memiliki background hijau.
+	\item Kelas: \textit{Cell} memiliki background putih.
 \end{itemize}
-Lalu dosen dapat klik tombol "Tambah" untuk menambahkan jadwal baru.
 
 \subsubsection{Ubah/Hapus Jadwal}
 Dosen dapat mengubah atau menghapus jadwal yang tertera pada tabel. Lalu \textit{pop-up} window akan terbuka dengan pilihan-pilihan yang sesuai dengan permintaan dosen.
 
 \subsubsection{Hapus Semua}
-Tombol "Delete All" dapat digunakan untuk menghapus secara cepat seluruh jadwal yang telah dosen buat sebelumnya. Penggunaan tombol ini biasa nya digunakan pada awal semester, dimana jadwal yang dosen miliki berubah seluruhnya.
+Tombol "Delete All" memiliki \textit{button} berwarna merah dapat digunakan untuk menghapus secara cepat seluruh jadwal yang telah dosen buat sebelumnya.
 
 \subsubsection{Ekspor ke XLS}
-Tombol "Ekspor ke XLS" berfungsi untuk membuat file excel (.xls) untuk jadwal dosen.
+Tombol "Ekspor ke XLS" memiliki \textit{button} berwarna hijau berfungsi untuk membuat file excel (.xls) untuk jadwal dosen.
 
 \subsection{Mahasiswa}
+Apabila mahasiswa masuk ke website BlueTape maka dapat mengakses dua halaman yaitu halaman cetak transkrip dan halaman lihat jadwal dosen.
 \subsubsection{Cetak Transkrip}
-Mahasiswa dapat menggunakan menu ini untuk mengirimkan permohonan cetak transkrip
-Mahasiswa mengirimkan permohonan pencetakan transkrip dengan mengisi kolom-kolom pada formulir "Permohonan Baru".
-Mahasiswa hanya dapat mengirimkan permohonan:
-\begin{itemize}
-	\item Maksimal 1x dalam satu semester (kecuali permohonan ditolak)
-	\item Jika ada permohonan yang belum dijawab.
-\end{itemize}
+\noindent Gambar ~\ref{fig:tampilanCetakTranskrip} adalah halaman permintaan cetak transkrip yang dapat diakses oleh mahasiswa.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_cetak_transkrip.png} 
+	\caption{Antarmuka halaman permintaan cetak transkrip.} 
+	\label{fig:tampilanCetakTranskrip}
+\end{figure}
+\par Halaman permintaan cetak transkrip terdiri dari dua konten yaitu: "Permohonan Baru" dan "Histori Permohonan". Setiap konten akan dipisahkan dengan border. Pada konten "Permohonan Baru" terdiri dari sebuah form yang berisi \textit{field} yang terdiri dari 2 \textit{rows} dan sebuah tombol "Kirim Permohonan". Lalu konten "Histori Permohonan" terdiri dari sebuah tabel dimana data akan dipanggil dari \textit{database}.  dan kolom 'Aksi' menngarahkan \textit{user} ke sebuah modal lihat permintaan transkrip yang direpresentasikan dengan ikon mata.\\ \\
 
-\subsubsection{Mahasiswa Informatika}
 \subsubsection{Lihat Jadwal Dosen}
-Mahasiswa dapat melihat jadwal mingguan seluruh dosen dengan memilih nama dosen pada seleksi tab, dan tabel jadwal dosen akan ditampilkan pada bagian bawah halaman. Selain itu tabel juga berisi informasi tanggal terakhir dosen meng-\textit{update} jadwal sehingga mahasiswa dapat melihat apakah jadwal tersebut merupakan jadwal semester ini atau semester lalu. \noindent
-Lalu terdapat tombol "Ekspor ke XLS" pada halaman lihat jadwal dosen, sehingga mahasiswa dapat menyimpan atau mencetak jadwal tersebut. 
+\noindent Gambar ~\ref{fig:tampilanLihatJadwalDosen} adalah halaman permintaan cetak transkrip yang dapat diakses oleh mahasiswa.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_lihat_jadwal_dosen.png} 
+	\caption{Antarmuka halaman lihat jadwal dosen.} 
+	\label{fig:tampilanLihatJadwalDosen}
+\end{figure}
+Mahasiswa dapat melihat jadwal mingguan berbentuk tabel dan diatas tabel memiliki tabs yang menyimpan seluruh nama dosen dan ketika tabs dipilih maka tabel jadwal dosen akan ditampilkan pada bagian bawah halaman. 
+Lalu terdapat tombol "Ekspor ke XLS" berupa \textit{button} berwara hijau pada halaman lihat jadwal dosen. 
 
 \subsection{Staf Tata Usaha}
+Apabila staf tata usaha masuk ke website BlueTape maka dapat mengakses dua halaman yaitu halaman manajemen perubahan kuliah dan halaman manajemen cetak transkrip.
 \subsubsection{Manajemen Perubahan Kuliah}
+\noindent Gambar ~\ref{fig:tampilanManajemenPerubahanKuliah} adalah halaman permintaan cetak transkrip yang dapat diakses oleh staf tata usaha.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_manajemen_perubahan_kuliah.png} 
+	\caption{Antarmuka halaman manajemen perubahan kuliah.} 
+	\label{fig:tampilanManajemenPerubahanKuliah}
+\end{figure}
 Staf Tata Usaha dapat melakukan manajemen permintaan perubahan kuliah. Sebuah tabel akan menampilkan daftar permohonan dengan menampilkan tanggal kapan permohonan dibuat.
 Setiap daftar permohonan akan memiliki beberapa tombol :
 
@@ -79,6 +117,13 @@ Setiap daftar permohonan akan memiliki beberapa tombol :
 \end{itemize}
 
 \subsubsection{Manajemen Cetak Transkrip}
+\noindent Gambar ~\ref{fig:tampilanManajemenCetakTranskrip} adalah halaman permintaan cetak transkrip yang dapat diakses oleh staf tata usaha.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{tampilan_manajemen_cetak_transkrip.png} 
+	\caption{Antarmuka halaman manajemen cetak transkrip.} 
+	\label{fig:tampilanManajemenCetakTranskrip}
+\end{figure}
 Staf Tata Usaha dapat melihat daftar perminttan transkrip dalam bentuk tabel. Keterangan mengenai transkrip dapat dilihat menggunakan tombol \includegraphics[height=0.6\baselineskip]{tombol_eye.png} (detail). Selain itu terdapat dua pilihan jawaban dalam setiap daftar permintaan yaitu \includegraphics[height=0.7\baselineskip]{tombol_bad.png} (tolak) dan 
 \includegraphics[height=0.7\baselineskip]{tombol_print.png} (cetak). Masing-masing tombol memerlukan keterangan tambahan mengeai alasan mengapa transkrip dapat dicetak maupun ditolak.\noindent
 Modul ini berguna untuk manajemen permohonan cetka transkrip. Terdapat sebuah tabel yang menapilkan daftar pemohonan dengan tanggal yang terurut. Staf Tata Usaha dapat mencari daftar permintaan berdasarkan NPM pemohon.
@@ -93,11 +138,11 @@ Beberapa tombol yang tersedia untuk setiap permohonan :
 
 \section{CodeIgniter}
 \label{sec:codeigniter}
-CodeIgniter adalah kerangka pengembangan aplikasi atau \textit{toolkit} yang digunakan programmer untuk membangun web menggunakan PHP. Tujuannya adalah memungkinkan programmer mengembangkan proyek-proyek dengan lebih cepat daripada  menulis kode dari awal, tersedia banyak library untuk tugas-tugas yang biasa diperlukan dalam membangun aplikasi, serta antarmuka dan struktur logis yang sederhana untuk mengakses library tersebut. 
+CodeIgniter adalah kerangka pengembangan aplikasi yang digunakan programmer untuk membangun web menggunakan PHP. Tujuannya adalah memungkinkan programmer mengembangkan proyek-proyek dengan lebih cepat daripada  menulis kode dari awal, tersedia banyak library untuk tugas-tugas yang biasa diperlukan dalam membangun aplikasi, serta antarmuka dan struktur logis yang sederhana untuk mengakses library tersebut. 
 Pada bagian ini akan dibahas konsep dasar untuk menjalankan \textit{framework} CodeIgniter:
 \begin{itemize}
 	\item \textit{Application Flow Chart} : Penjelasan bagaimana data berjalan dalam sistem.
-	\item URLs : Penjelasan penggunaan\textit{routing} dalam CodeIgniter.
+	\item URLs : Penjelasan penggunaan \textit{routing} dalam CodeIgniter.
 	\item Konsep Model-View-Controller : Penjelasan pola desain arsitektur pengembangan aplikasi yang digunakan untuk mengatur file sehingga kode mudah dikelola. MVC membuat data, presentasi dan alur dalam aplikasi berjalan secara terpisah.
 \end{itemize}
 Pola Model, View, Controller (MVC) 
@@ -136,9 +181,9 @@ example.com/class/function/ID
 
 \subsection{Model}
 \label{s:modelCI}
-\textit{Model} merepresentasikan struktur data. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database. Contohnya pada kode ~\ref{lst:modelCI} menggambarkan sebuah model yang berisi fungsi \textit{insert, update} dan \textit{retrieve}:
+\textit{Model} merepresentasikan struktur data. Biasanya kelas \textit {model} akan berisi fungsi yang membantu untuk \textit{retrieve, insert}, dan \textit{update} informasi di database. Contohnya pada kode ~\ref{lst:modelCII} menggambarkan sebuah model yang berisi fungsi \textit{insert, update} dan \textit{retrieve}:
 
-\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:modelCI}, caption=Struktur model pada codeIgniter.]  
+\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:modelCII}, caption=Struktur model pada codeIgniter.]  
 class Model_name extends CI_Model {
 	class Blog_model extends CI_Model {	
 		public $title;
@@ -186,7 +231,7 @@ class Model_name extends CI_Model {
 
 Dimana \texttt{Model\_name} merupakan nama dari kelas. Kelas harus menggunakan huruf kapital pada huruf pertama dan sisanya menggunakan huruf kecil. Apabila kode ~\ref{lst:modelCI} digunakan maka file akan terlihat seperti kode ~\ref{lst:userCI}
 \begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:userCI}, caption=Contoh model codeIgniter.]  
-application/models/User_model.php
+application/models/Blog_model.php
 \end{lstlisting}
 
 \subsubsection{Loading a Model}
@@ -266,7 +311,7 @@ CodeIgniter mampu menangani beberapa panggilan dari dalam \textit{controller}. A
 
 
 
-\noindentBerikut ini kode ~\ref{lst:loadSomeViewCI} yang digunakan jika \textit{developer} ingin mempunyai sebuah halaman yang terdiri dari \texttt{header, menu, content} dan \texttt{footer}. 
+\noindent Berikut ini kode ~\ref{lst:loadSomeViewCI} yang digunakan jika \textit{developer} ingin mempunyai sebuah halaman yang terdiri dari \texttt{header, menu, content} dan \texttt{footer}. 
 
 
 \begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadSomeViewCI}, caption=Contoh load beberapa view pada CodeIgniter.] 
@@ -347,8 +392,6 @@ class Blog extends CI_Controller {
 \label{s:controllerCI}
 \par \textit{Controller} bertindak sebagai penengah antara Model, View dan \textit{resources} lain yang dibutuhkan untuk proses \textit{HTTP requests} dan untuk menghasilkan sebuah halaman web. \textit{Controller} secara sederhana merupakan sebuah file yang dinamakan dengan aturan tertentu sehingga dapat dihubungkan dengan sebuah URl.
 
-
-
 Apabila terdapat kelas \texttt{Blog} yang terlihat pada kode ~\ref{lst:contohControllerCI}.
 \begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:contohControllerCI}, caption=Contoh controller pada codeIgniter.] 
 <?php
@@ -369,43 +412,8 @@ Maka controller yang dipanggil akan menjadi tertera berikut:
 example.com/index.php/blog/
 \end{lstlisting}
 
-Dalam kode ~\ref{lst:controllerCI}, \textit{CodeIgniter} berusaha menemukan \textit{controller} bernama Blog.php untuk dimuat. Ketika sebuah nama \textit{controller} sesuai dengan segmen pertama dari sebuah URl, maka URl akan memuatnya. 
+Dalam kode ~\ref{lst:controllerCI}, \textit{CodeIgniter} berusaha menemukan \textit{controller} bernama \texttt{Blog.php} untuk dimuat. Ketika sebuah nama \textit{controller} sesuai dengan segmen pertama dari sebuah URl, maka URl akan memuatnya. 
 
-\subsubsection{Method}
-Dalam sebuah kelas \textit{controller} akan memiliki beberapa method, lalu untuk memanggil fungsi didalamnya maka \textit{programmer} dapat mengisi segmen kedua dari sebuah url dengan sebuah method. 
-
-\\ \noindent
-Misalnya pada kode ~\ref{lst:methodCI} terdapat controller dengan dua method: \texttt{index()} dan \texttt{comments()}.
-
-\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:methodCI}, caption=Controller pada codeIgniter.] 
-<?php
-class Blog extends CI_Controller {
-
-	public function index()
-	{
-		echo 'Hello World!';
-	}
-	
-	public function comments()
-	{
-		echo 'Look at this!';
-	}
-}
-?>
-\end{lstlisting}
-
-
-\\ \noindent 
-Pemanggilan method index dapat secara otomatis dilakukan apabila segmen kedua kosong. Namun ada cara lain untuk menamplikan pesan "Hello World" yang dapat dilakukan seperti terlihat pada kode ~\ref{lst:methodLainCI}:
-
-\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:methodLainCI}, caption=Cara lain pemanggilan method pada codeIgniter.] 
-example.com/index.php/blog/index/
-\end{lstlisting}
-
-\noindent Kemudian untuk memuat method \texttt{comment()} dapat dituliskan seperti kode ~\ref{lst:loadMethodCommentsCI}:
-\begin{lstlisting}[style=customphp, language=PHP, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:loadMethodCommentsCI}, caption=Load metode comments() pada codeIgniter.] 
-example.com/index.php/blog/comments/
-\end{lstlisting}
 
 \section{jQuery}
 
@@ -434,191 +442,25 @@ Berikut ini contoh penggunaan sintaks dalam jQuery:
 	\item \texttt{\$(".test").hide()}: menyembunyikan elemen \texttt{class="test"}.
 	\item \texttt{\$("\#test").hide()}: menyembunyikan elemen \texttt{id="test"}.
 \end{itemize}
-\subsection{jQuery Selectors}
-\texttt{jQuery selector} memungkinkan \textit{user} untuk memilih dan memanipulasi elemen dalam HTML berdasarkan nama, id, kelas, tipe, atribut dan \textit{value} dari atribut. Semua \textit{selectors} dalam jQuery dimulai dengan simbol dollar dan tanda kurung: \texttt{\$()}.\\
 
-\noindent Kode ~\ref{lst:jQuerySelector} menjelaskan ketika user memilih sebuah tombol maka semua elemen \texttt{<p>} akan tersembunyi.
-\begin{lstlisting}[style=JavaScript, language=JavaScript, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQuerySelector}, caption=jQuery Selector pada elemen <p>.]	
-$(document).ready(function(){
-	$("button").click(function(){
-		$("p").hide();
-	});
-});
+\subsection{Metode \texttt{addClass()}}
+jQuery mempunyai metode untuk memanipulasi \textit{style} dari sebuah elemen dengan menggunakan metode \texttt{addClass()}. Metode ini menambahkan atribut kelas ke elemen yang berbeda. 
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label=stylejQuery]
+.important {
+font-weight: bold;
+font-size: xx-large;
+}
+
+.blue {
+color: blue;
+}
 \end{lstlisting}
-
-\subsection{jQuery Event}
-Semua aksi yang dilakukan \textit{user} dalam web dapat direspon oleh sistem yang dinamakan \textit{events}. Events menunjukkan momen apabila suatu kegiatan terjadi seperti: memindahkan mouse ke sebuah elemen, memilih sebuah radio button dan menekan sebuah elemen.
-
-\subsubsection{\texttt{\$(document).ready}}
-Seluruh metode jQuery akan berada didalam sebuah \texttt{\$(document).ready()} :
-%.ready()
-\begin{lstlisting}[style=JavaScript, language=JavaScript, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryReady}, caption=jQuery document ready event.]
-$(document).ready(function(){
-	// jQuery methods go here...
-});
-\end{lstlisting}
-
-\noindent Sintaks ~\ref{lst:jQueryReady} untuk menghindari kode jQuery berjalan sebelum dokumen siap untuk di-\textit{load}. Contoh aksi yang akan gagal apabila kode berjalan sebelum dokumen siap seperti:
-\begin{itemize}
-	\item Mencoba untuk menghilangkan elemen yang belum selesai dibuat.
-	\item Mencoba untuk mendapatkan ukuran gambar yang belum di-\textit{load} seluruhnya.
-\end{itemize}
-
-
-%.click
-\subsubsection{\texttt{click()}}
-Metode \texttt{click()} melampirkan fungsi event handler ke elemen HTML, sehingga fungsi akan dieksekusi ketika \textit{user} mengklik elemen HTML.\\
-
-\noindent Kode ~\ref{lst:jQueryClick} menjelaskan ketika user memilih elemen \texttt{<p>}, maka sistem akan memberikan teks berupa kalimat \textit{alert}.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryClick}, caption=jQuery click().]
-$("p").click(function(){
-	alert("The paragraph was clicked.");
-});
-
-\end{lstlisting}
-
-%.change()
-\subsubsection{\texttt{change()}}
-Metode \texttt{change()} akan memicu perubahan ketika kode dijalankan. Change event hanya bisa merubah elemen \texttt{<input>,<textarea>} dan \texttt{<select>}.
-Ada dua sintaks yang dipakai :
-\begin{itemize}
-	\item \texttt{\$(selector).change()}: memicu perubahan event untuk elemen terpilih.
-	\item \texttt{\$(selector).change(function)}: memicu perubahan event dengan menerapkan fungsi tertentu.
-\end{itemize}
-\\ \noindent
-Contoh penggunaan metode ini terlihat pada kode ~\ref{lst:jQueryChange}: sistem memberikan teks peringatan ketika sebuah field \texttt{<input>} berubah.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryChange}, caption=jQuery change().]
-$("input").change(function(){
-	alert("The text has been changed.");
-});
-\end{lstlisting}
-
-%.select()
-\subsubsection{\texttt{select()}}
-Event select akan memilih teks terpilih di dalam text area atau text field.
-Metode \texttt{select()} memicu event atau fungsi untuk berjalan ketika sebuah event terpilih dijalankan.
-Ada dua sintaks yang dipakai :
-\begin{itemize}
-	\item \texttt{\$(selector).select()}: memicu perubahan event untuk elemen terpilih.
-	\item \texttt{\$(selector).select(function)}: memicu perubahan event dengan menerapkan fungsi tertentu.
-\end{itemize}
-Contoh penggunaan metode terlihat pada kode ~\ref{lst:jQuerySelect}: siste memberikan sebuah peringatan ketika sebuah teks dipilih didalam sebuah \textit{text field}.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQuerySelect}, caption=jQuery Selector.]
-$("input").select(function(){
-	alert("Text marked!");
-});
-\end{lstlisting}
-
-\subsubsection{\texttt{preventDefault()}}
-Metode preventDefault() membatalkan event yang \textit{user} kehendaki. Pada kode ~\ref{lst:jQuerypreventDefault} terlihat, apabila terdapat sebuah link maka user tidak bisa menuju link tersebut. Atau apabila ada button "Submit" dalam sebuah form, maka user tidak bisa mengumpulkan form tersebut.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQuerypreventDefault}, caption=jQuery preventDefault().]
-document.getElementById("myAnchor").addEventListener("click", 
-function(event){
-	event.preventDefault()
-});
-\end{lstlisting}
-
-
-\subsection{jQuery Traversing}
-Berfungsi untuk menemukan elemen HTML berdasarkan relasinya dengan elemen lain. Metode yang dipakai untuk fungsi ~\ref{fig:jQueryClosest} adalah:
-\subsubsection{\texttt{closest()}}
-Fungsi \texttt{closest()} akan mengembalikan \textit{ancestor} pertama dari elemen terpilih.
-%.closest()
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.6]{jQuery_closest.png}  
-	\caption{jQuery Closest} 
-	\label{fig:jQueryClosest}
-\end{figure}
-
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryClosest}, caption=jQuery Closest.]
-$(document).ready(function(){
-	$("span").closest("ul").css({"color": "red", "border": "2px solid red"});
-});
-\end{lstlisting}
-
-Kode ~\ref{lst:jQueryClosest} akan mengembalikan \textit{ancestor} dari \texttt{<span>}, yaitu sebuah elemen \texttt{<ul>}.
-Hasil :
-%Gambar jQuery_closest
-
-%.find()
-\subsubsection{\texttt{find()}}
-Metode \texttt{find()} mengembalikan elemen turunan/descendant dari elemen yang dipilih oleh \textit{user}.
-Contoh terlihat pada kode ~\ref{lst:jQueryFind}: mengembalikan semua elemen \texttt{<span>} yang merupakan turunan dari elemen \texttt{<ul>}.
-
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, breaklines=true, label={lst:jQueryFind}, caption=jQuery find().]
-$(document).ready(function(){
-	$("ul").find("span").css({"color": "red", "border": "2px solid red"});
-});
-\end{lstlisting}
-
-\noindent Hasil dari kode  ~\ref{lst:jQueryFind} terlihat pada gambar ~\ref{fig:jQueryfind}: 
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=1.0]{jQuery_find.png}  
-	\caption{jQuery Find} 
-	\label{fig:jQueryfind}
-\end{figure}
-
-
-\subsection{jQuery HTML}
-%.remove()
-\subsubsection{\texttt{remove()}}
-\texttt{remove()} - berfungsi untuk menghapus elemen HTML yang ada. Contoh penggunaan terlihat pada kode ~\ref{lst:jQueryRemove}: menghapus elemen dengan yang memiliki \texttt{id="div1"}.
-\begin{lstlisting} [style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryRemove}, caption=jQuery remove().]
-$("#div1").remove();
-\end{lstlisting}
-
-%.removeAttr()
-\subsubsection{\texttt{\$removeAttr()}}
-Metode \texttt{removeAttr()} menghapus satu atau banyak atribut dari elemen terpilih.
-Sintaks dari metode ini terlihat pada kode ~\ref{lst:jQueryRemoveAttr}:
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryRemoveAttr}, caption=jQuery removeAttr().]
-$(selector).removeAttr(attribute)
-\end{lstlisting}
-
-\noindent Contoh pemakaian metode ada pada kode ~\ref{lst:contohjQueryRemoveAttr}: menghapus atribut style dari semua elemen \texttt{<p>}.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:contohjQueryRemoveAttr}, caption=contoh jQuery removeAttr().]
+\begin{lstlisting}[style=JavaScript, language=JavaScript, basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:addClass}, caption=Metode addClass().]
 $("button").click(function(){
-	$("p").removeAttr("style");
+$("#div1").addClass("important blue");
 });
 \end{lstlisting}
 
-%.clone()
-\subsubsection{\texttt{\$clone()}}
-Metode \texttt{clone()} pada kode ~\ref{lst:jQueryClone} membuat salinan dari elemen terpilih, termasuk child nodes, teks atau atribut.
-Sintaks dari metode ini :
-\begin{lstlisting} [style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryClone}, caption=jQuery clone().]
-$(selector).clone(true|false))
-\end{lstlisting}
-
-Contoh pemakaian metode ini terlihat pada kode ~\ref{lst:contohjQueryClone}: Clone semua elemen \texttt{<p>} dan masukan semua elemen pada akhir elemen \texttt{<body>}.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:contohjQueryClone}, caption=contoh jQuery clone().]
-$("button").click(function(){
-	$("p").clone().appendTo("body");
-});
-\end{lstlisting}
-
-
-%.insertBefore
-\subsubsection{\texttt{insertBefore()}}
-Metode \texttt{insertBefore()} pada kode ~\ref{lst:jQueryInsertBefore} akan memasukan elemen HTML sebelum elemen terpilih.
-Sintaks dari metode ini :
-\begin{lstlisting} [style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryInsertBefore}, caption=insertBefore().]
-$(content).insertBefore(selector)
-\end{lstlisting}
-Dimana :
-\begin{itemize}
-	\item \texttt{content} : \texttt{Required}. Detail konten yang harus dimasukan (harus berisi tags HTML).
-	\item \texttt{selector} : \texttt{Required}. Menjelaskan dimana konten akan dimasukan. 
-\end{itemize}
-
-Contoh pemakaian metode ini terlihat pada kode ~\ref{lst:jQueryinsertBefore}: memasukkan sebuah elemen \texttt{<span>} sebelum \texttt{<p>}.
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryinsertBefore}, caption=jQuery insertBefore().]
-$("button").click(function(){
-	$("<span>Hello world!</span>").insertBefore("p");
-});
-\end{lstlisting}
 
 \section{Foundation 6}
 \label{sec:foundation}
@@ -883,7 +725,7 @@ Berikut penggunaan kelas yang dicantumkan pada kode ~\ref{lst:tabelFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{stacktable_zurb.png}  
-	\caption{Basic Table pada Foundation}
+	\caption{Table Stack pada Foundation}
 	\label{fig:stackTableFoundation}
 \end{figure}
 
@@ -981,7 +823,7 @@ Untuk melampirkan teks tambahan atau kontrol ke kiri atau kanan bidang input, el
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{inline_zurb.png}  
-	\caption{Select Menu pada Foundation}
+	\caption{Inline Label dan Button pada Foundation}
 	\label{fig:inlineFoundation}
 \end{figure}
 
@@ -1081,12 +923,12 @@ columns=fullflexible, keepspaces=true, breaklines=true, label={lst:strukturBoots
 File yang dikompilasi terdiri dari: 
 \begin{itemize}
 	\item CSS dan JS yang dikompilasi (\texttt{bootstrap.*}).
-	\item CSS dan JS yang dikompilasi dan diperkecil (\texttt{bootstrap.min.*}). \item Peta sumber (\texttt{bootstrap.*. map}) tersedia untuk digunakan dengan alat pengembang browser tertentu. 
+	\item CSS dan JS yang dikompilasi dan diperkecil (\texttt{bootstrap.min.*}). \item Peta sumber (\texttt{bootstrap.*.map}) tersedia untuk digunakan dengan alat pengembang browser tertentu. 
 	\item File JS yang dibundel (\texttt{bootstrap.bundle.js} dan \texttt{bootstrap.bundle.min.js} yang diperkecil) termasuk Popper, tetapi bukan jQuery.
 \end{itemize}
 
 \subsection{Sistem Grid}
-Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \\ \\
+Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit{columns} untuk tata letak dan penyelarasan konten. Selain itu sistem ini dibangun dengan \textit{flexbox} dan seluruhnya \textit{responsive}. \\
 
 \noindent Dalam kode ~\ref{lst:gridBootstrap} akan dibuat tiga kolom yang memiliki lebar yang sama baik dalam \textit{device} \textit{small, medium, large} dan \textit{extra large} menggunakan kelas grid yang sudah ditentukan sebelumnya oleh Bootstrap. Penggunaan \verb|.container| akan membuat kolom berada ditengah halaman.
 \begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:gridBootstrap}, caption=Sistem grid pada bootstrap 4] 
@@ -1117,7 +959,7 @@ Sistem grid Bootstrap menggunakan \textit{container}, \textit{rows}, dan \textit
 \begin{itemize}
 	\item \textit{Container} disediakan agar konten berada ditengah halaman dan mengisi konten tersebut secara horizontal. Penggunaan \verb|.container| untuk menentukan lebar pixel secara responsif atau \verb|.container-fluid| untuk membuat lebar: 100\%  di semua ukuran \textit{viewport} dan perangkat.
 	\item Sebuah baris akan membungkus kolom - kolom. Setiap kolom akan memiliki \textit{padding} secara horizontal yang disebut \verb|gutter| untuk mengatur jarak antar kolom.
-	\item Penggunaan flexbox akan membuat lebar pada kolom tidak perlu dispesifikasikan. Misalnya empat variabel dari \verb|.com-sm| akan secara otomatis membuat lebar kolom sebesar 25\%.
+	\item Penggunaan flexbox akan membuat lebar pada kolom tidak perlu dispesifikasikan. Misalnya empat variabel dari \texttt{.col-sm} akan secara otomatis membuat lebar kolom sebesar 25\%.
 	\item Kelas kolom menunjukkan jumlah kolom yang ingin digunakan, dengan maksimal 12 kolom per baris. Apabila \textit{developer} menginginkan tiga kolom yang memiliki lebar yang sama maka dapat menggunakan \texttt{.col-4}.
 	\item Lebar kolom diatur dalam persentase, sehingga kolom akan memiliki lebar yang berubah-ubah dan ukuran bergantung dengan elemen \textit{parent} nya.
 \end{itemize}
@@ -1184,7 +1026,7 @@ Gambar ~\ref{fig:tableBorderedBootstrap} merupakan hasil penggunaan tabel:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{tablebordered_bootstrap.png}  
-	\caption{Tabel default pada Bootstrap} 
+	\caption{Tabel dengan Garis Batas pada Bootstrap} 
 	\label{fig:tableBorderedBootstrap}
 \end{figure}
 
@@ -1227,7 +1069,7 @@ Gambar ~\ref{fig:tableStripedBootstrap} merupakan hasil penggunaan tabel:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{tablestriped_bootstrap.png}  
-	\caption{Tabel default pada Bootstrap} 
+	\caption{Tabel dengan Warna Baris Berbeda pada Bootstrap} 
 	\label{fig:tableStripedBootstrap}
 \end{figure}
 
@@ -1261,24 +1103,6 @@ Gambar ~\ref{fig:tableStripedBootstrap} merupakan hasil penggunaan tabel:
 		</tr>
 	</tbody>
 </table>
-\end{lstlisting}
-
-
-\subsubsection{Gambar}
-Gambar dalam Bootstrap akan memiliki sifat \textit{responsive} dengan menerapkan kelas \texttt{.img-fluid} serta mengatur lebar gambar dengan properties \texttt{max-width: 100\%} dan \texttt{height: auto}. Sehingga gambar tidak pernah lebih besar dari \textit{parent} nya. 
-
-Programmer dapat menyelaraskan (align) sebuah gambar ke kiri atau kanan dengan \textit{helper float classes} atau \textit{text alignment classes}. 
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=0.7]{imgalign_bootstrap.PNG}  
-	\caption{Menyelaraskan gambar ke kanan dan kiri pada bootstrap} 
-	\label{fig:imageAlignStripedBootstrap}
-\end{figure}
-
-\noindent Kode dari gambar diatas tertera pada kode ~\ref{lst:imgalignBootstrap}:
-\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:imgalignBootstrap}, caption=Image Align pada bootstrap 4.]
-<img src="..." class="rounded float-left" alt="...">
-<img src="..." class="rounded float-right" alt="...">
 \end{lstlisting}
 
 
@@ -1661,30 +1485,3 @@ Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringa
 	\caption{Alert pada Bootstrap} 
 	\label{fig:alertBootstrap}
 \end{figure}
-\section{DateTimePicker}
-\texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada bagian forms. 
-\subsubsection{Inline DateTimePicker}
-Penggunaan plugin ini, memungkinkan \textit{users} untuk memilih tanggal dan waktu secara bersamaan.
-
-Penggunaan nya dalam kode HTML tertera pada kode ~\ref{lst:htmlPlugin}:
-\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:htmlPlugin}, caption=Kode HTML pada plugin.] 
-<input id="datetimepicker" type="text" >
-\end{lstlisting}
-
-\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:datetimepickerBootstrap}:
-\begin{figure} [H]
-	\centering  
-	\includegraphics[scale=1.0]{datetimepicker_bootstrap4.PNG}  
-	\caption{Datetimepicker pada Bootstrap} 
-	\label{fig:datetimepickerBootstrap}
-\end{figure}
-
-Kemudian penggunaan dalam kode Javascript tertera pada kode ~\ref{lst:jQueryPlugin}:
-
-\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryPlugin}, caption=Kode Inline DateTimePicker di jQuery.] 
-jQuery('#datetimepicker').datetimepicker();
-\end{lstlisting}
-
-
-
-
