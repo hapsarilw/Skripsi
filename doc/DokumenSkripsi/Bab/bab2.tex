@@ -1485,3 +1485,89 @@ Alert menyediakan pesan umpan balik untuk user untuk berbagai tipe pesan peringa
 	\caption{Alert pada Bootstrap} 
 	\label{fig:alertBootstrap}
 \end{figure}
+
+\section{DateTimePicker}
+\texttt{DateTimePicker} dengan menggunakan jQuery untuk memilih tanggal dan waktu pada bagian forms. \cite{datetimepicker}
+\subsubsection{Inline DateTimePicker}
+Penggunaan plugin ini, memungkinkan \textit{users} untuk memilih tanggal dan waktu secara bersamaan.
+
+Penggunaan nya dalam kode HTML tertera pada kode ~\ref{lst:htmlPlugin}:
+\begin{lstlisting}[style=customhtml, language=HTML,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:htmlPlugin}, caption=Kode HTML pada plugin.] 
+<input id="datetimepicker" type="text" >
+\end{lstlisting}
+
+\noindent Hasil dari kode diatas terlihat pada gambar ~\ref{fig:datetimepickerBootstrap}:
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.8]{datetimepicker_bootstrap4.PNG}  
+	\caption{Datetimepicker pada Bootstrap} 
+	\label{fig:datetimepickerBootstrap}
+\end{figure}
+
+Kemudian penggunaan dalam kode Javascript tertera pada kode ~\ref{lst:jQueryPlugin}:
+
+\begin{lstlisting}[style=JavaScript, language=JavaScript,  basicstyle=\ttfamily, frame=single, columns=fullflexible, keepspaces=true, breaklines=true, showstringspaces=false, label={lst:jQueryPlugin}, caption=Kode Inline DateTimePicker di jQuery.] 
+jQuery('#datetimepicker').datetimepicker();
+\end{lstlisting}
+
+\section{Prinsip Desain Grafik pada Website}
+Pembangunan antarmuka desain perlu memperhatikan prinsip desain grafik untuk menunjang kenyamanan pengguna ketika mengakses sebuah website. Desain Grafik adalah kombinasi antara gambar, angka, grafik foto dan ilustrasi yang membutuhkan analisis seseorang, sehingga mampu menginformasikan pesan secara efektif. \cite{graphicdesign}  \\
+\noindent Berikut ini enam prinsip desain grafik yang dapat digunakan untuk merancang sebuah website:
+\subsection{Metaphor (Metafora)}
+Metafora berarti mampu menampilkan dan menggambarkan elemen-elemen(titik, garis, warna dan ruang) yang \textit{relevant} dan dapat dikenali. Pada gambar ~\ref{fig:metaphor} adalah contoh hasil antarmuka untuk aplikasi penjualan di supermarket dengan meniru bagaiamana konsumen berjalan mengelilingi toko dengan membawa kereta dorong. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.4]{website/metaphor.png}  
+	\caption{Implementasi prinsip metafora pada tampilan aplikasi penjualan di supermarket.}
+	\label{fig:metaphor}	 
+\end{figure}
+
+\subsection{Clarity (Kejelasan)}
+Setiap elemen dalam antarmuka harus memiliki alasan yang masuk akal mengapa digunakan. Selain itu website dapat memanfaatkan \textit{white space} atau ruang kosong antar elemen sehingga mata tidak terlalu lelah melihat desain yang terlalu padat. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.4]{website/clarity.png}  
+	\caption{Implementasi prinsip kejelasan pada sebuah website.}
+	\label{fig:clarity}	 
+\end{figure}
+\noindent Gambar ~\ref{fig:clarity} menampilkan contoh website yang memanfaatkan \textit{white space} sehingga menampilkan website yang minimalis.
+
+\subsection{Consistency (Ketetapan)}
+Konsistensi dalam tampilan, pewarnaan, gambar, ikon, dan typography seperti \textit{form} yang digunakan dalam website atau keseragaman antara \textit{home page} dan \textit{content page} dalam website.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.8]{website/consistency.png}  
+	\caption{Implementasi prinsip \textit{consistency} pada sebuah website.}
+	\label{fig:consistency}	 
+\end{figure}
+\noindent Gambar ~\ref{fig:consistency} menampilkan contoh website yang konsisten meletakkan judul, gambar dan isi konten di tempat yang sama baik pada \textit{home page} dan \textit{content page}.
+
+\subsection{Alignment (Perataan)}
+\textit{Alignment} adalah penempatan elemen-elemen visual sehingga dapat berbaris dalam suatu komposisi. Dalam desain digunakan perataan dengan memanfaatkan \textit{grid} untuk mengatur elemen dan mengelompokkan elemen dalam kelompok sehingga menciptakan keseimbangan dan adanya koneksi antar elemen. Gambar ~\ref{fig:alignment} menampilkan pemanfaatan grid dalam sebuah windows.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{website/alignment.png}  
+	\caption{Implementasi prinsip \textit{alignment} pada sebuah website.}
+	\label{fig:alignment}	 
+\end{figure}
+\noindent Penggunaan grid pada gambar tersebut dapat meratakan konteks yang berkaitan seperti kolom "File Name" dan "Save as type" yang memiliki ukuran yang sama. 
+
+\subsection{Proximity}
+Item-item yang berkaitan ditampilkan secara berkelompok sedangkan yang tidak berkaitan ditampilkan dengan diberi jarak yang lebih jauh. Gambar ~\ref{fig:proximity} merupakan contoh penerapan prinsip \textit{proximity} dalam sebuah formulir.
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.7]{website/proximity.png}  
+	\caption{Implementasi prinsip \textit{proximity} pada sebuah website.}
+	\label{fig:proximity}	 
+\end{figure}
+\noindent Formulir yang berada ditengah meunjukkan penggunaan prinsip \textit{proximity} yang baik dengan mengelompokkan elemen yang berkaitan dalam sebuah \textit{border}.
+
+\subsection{Contrast (Kontras)}
+Prinsip desain ini memungkinkan untuk menempatkan dua unsur desain paling bertentangan antara satu dengan lainnya. Contohnya seperti gelap dan terang atau hitam dan putih. Penggunaan jenis ini akan memudahkan seseorang untuk melihat sebuah desain untuk langsung tertuju arah pandangannya ke bagian paling penting dari desain tersebut. 
+\begin{figure} [H]
+	\centering  
+	\includegraphics[scale=0.4]{website/contrast.png}  
+	\caption{Implementasi prinsip \textit{contrast} pada sebuah website.}
+	\label{fig:contrast}	 
+\end{figure}
+\noindent Gambar ~\ref{fig:contrast} menunjukkan pemanfaatan kontras pada form utama website dengan memberi warna kuning pada \textit{background} formulirnya, sehingga mata akan tertuju langsung ke elemen tersebut.

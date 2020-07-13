@@ -318,14 +318,14 @@ Berikut ini gambar ~\ref{fig:navigasiLarge} merupakan hasil penggunaan dari impl
 	\label{fig:konversiNavigasi}
 \end{figure}
 
-\noindent Lalu untuk layar \textit{medium} dan \textit{small} menggunakan komponen \texttt{Advanced Layout} pada gambar ~\ref{fig:navigasiMedium} dimana  daftar halaman website yang ada pada menu berada di mode \textit{hide} dan digantian oleh ikon menu. 
-
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{foundation/analisis_top_bar_small.png} 
 	\caption{Analisis menu navigasi di layar \textit{medium} dan \textit{small}.} 
 	\label{fig:navFoundation}
 \end{figure} \noindent
+
+\noindent Lalu untuk layar \textit{medium} dan \textit{small} menggunakan komponen \texttt{Advanced Layout} pada gambar ~\ref{fig:navBootstrap} dimana  daftar halaman website yang ada pada menu berada di mode \textit{hide} dan digantian oleh ikon menu. 
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{bootstrap/konversi_small_navbar.png} 
@@ -787,7 +787,6 @@ Keterangan dari kode diatas tertera pada tabel ~\ref{tabel:lihatJadwalDosen}:
 \end{table}
 
 \subsection{Kotak Dialog/Modal}
-\subsubsection{Modal}
 Apabila user memilih salah satu ikon dari kolom 'Aksi' maka modal akan muncul. Terdapat lima macam modal yaitu: modal lihat, modal setuju, modal tolak, modal print dan modal hapus perubahan kuliah. 
 Berikut ini gambar ~\ref{fig:analisisModalManajemenPerubahanKuliah} modal yang ada pada halaman manajemen perubahan kuliah dengan menggunakan Foundation 6.
 \begin{figure} [H]	
@@ -918,8 +917,15 @@ Skenario yang dilakukan penguji untuk \textit{login} pada website BlueTape sebag
 	\item \textit{User} mengakses \url{127.0.0.1} pada komputer lokal.
 	\item \textit{User} memeriksa link "Petunjuk Penggunaan".
 	\item \textit{User} memeriksa tombol "Login dengan Google".
-	\item \textit{User} melakukan proses login dengan email admin.
 	\item \textit{User} memeriksa notifikasi user pada proses \textit{login} dan \textit{logout}.	
+\end{enumerate}
+
+\subsubsection{Tampilan Login pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji untuk \textit{login} pada website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item \textit{User} memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item \textit{User} memeriksa tampilan pada layar \textit{tab}.
+	\item \textit{User} memeriksa tampilan pada layar \textit{desktop}.
 \end{enumerate}
 
 \subsubsection{Menu Navigasi}
@@ -928,6 +934,14 @@ Skenario yang dilakukan penguji pada bagian menu navigasi pada website BlueTape 
 	\item \textit{User} memeriksa letak logo BlueTape dan submenu pada layar \textit{large devices} .
 	\item \textit{User} memeriksa letak logo BlueTape dan submenu pada layar \textit{medium} dan \textit{small devices}.	
 	\item \textit{User} memeriksa tampilan submenu.
+\end{enumerate}
+
+\subsubsection{Tampilan Menu Navigasi pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji untuk menu navigasi pada website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item \textit{User} memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item \textit{User} memeriksa tampilan pada layar \textit{tab}.
+	\item \textit{User} memeriksa tampilan pada layar \textit{desktop}.
 \end{enumerate}
 
 \subsubsection{Konten Permohonan Baru pada Halaman Cetak Transkrip}
@@ -955,6 +969,14 @@ Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Liha
 	\item Mahasiswa memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
 	\item Mahasiswa memeriksa desain pada tabel.
 	\item Mahasiswa memeriksa data pada tabel.
+\end{enumerate}
+
+\subsubsection{Tampilan Cetak Transkrip pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji pada halaman cetak transkrip website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Mahasiswa memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item Mahasiswa memeriksa tampilan pada layar \textit{tab}.
+	\item Mahasiswa memeriksa tampilan pada layar \textit{desktop}.
 \end{enumerate}
 
 \subsubsection{Fitur Pencarian NPM pada Halaman Manajemen Cetak Transkrip}
@@ -1006,6 +1028,14 @@ Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Hapus" seba
 	\item Staf tata usaha memeriksa tombol "Hapus" pada \textit{form}.	
 \end{enumerate}
 
+\subsubsection{Tampilan Manajemen Cetak Transkrip pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji pada halaman manajemen cetak transkrip website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Staf tata usaha memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item Staf tata usaha memeriksa tampilan pada layar \textit{tab}.
+	\item Staf tata usaha memeriksa tampilan pada layar \textit{desktop}.
+\end{enumerate}
+
 \subsubsection{Konten Permohonan Baru pada Halaman Perubahan Kuliah}
 Skenario yang dilakukan penguji untuk konten permohonan baru pada halaman perubahan kuliah sebagai berikut:
 \begin{enumerate}
@@ -1032,6 +1062,14 @@ Skenario yang dilakukan penguji untuk melihat detail permohonan untuk aksi "Liha
 \begin{enumerate}
 	\item Dosen memeriksa penggunaan \textit{popup} untuk menampilkan detail permohonan.
 	\item Dosen memeriksa penggunaan tabel.	
+\end{enumerate}
+
+\subsubsection{Tampilan Perubahan Kuliah pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji pada halaman perubahan kuliah website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Dosen memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item Dosen memeriksa tampilan pada layar \textit{tab}.
+	\item Dosen memeriksa tampilan pada layar \textit{desktop}.
 \end{enumerate}
 
 \subsubsection{Konten Permohonan Perubahan Kuliah pada Halaman Manajemen Perubahan Kuliah}
@@ -1071,8 +1109,16 @@ Skenario yang dilakukan penguji untuk modal tolak permohonan untuk aksi "Tolak" 
 Skenario yang dilakukan penguji untuk menolak permohonan untuk aksi "Tolak" sebagai berikut:
 \begin{enumerate}
 	\item Staf tata usaha memeriksa penggunaan \textit{popup} untuk konfirmasi hapus permohonan.
-	\item Staf tata usahamemeriksa label dan \textit{input field} pada \textit{form}.
+	\item Staf tata usaha memeriksa label dan \textit{input field} pada \textit{form}.
 	\item Staf tata usaha memeriksa tombol "Hapus" pada \textit{form}.	
+\end{enumerate}
+
+\subsubsection{Tampilan Manajemen Perubahan Kuliah pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji pada halaman manajemen perubahan kuliah website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Staf tata usaha memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item Staf tata usaha memeriksa tampilan pada layar \textit{tab}.
+	\item Staf tata usaha memeriksa tampilan pada layar \textit{desktop}.
 \end{enumerate}
 
 \subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
@@ -1104,6 +1150,14 @@ Skenario yang dilakukan penguji pada modal edit jadwal sebagai berikut:
 	\item Dosen memeriksa tombol "Delete" pada \textit{form}.
 \end{enumerate}
 
+\subsubsection{Tampilan Entri Jadwal Dosen pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji pada halaman entri jadwal dosen website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Dosen memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item Dosen memeriksa tampilan pada layar \textit{tab}.
+	\item Dosen memeriksa tampilan pada layar \textit{desktop}.
+\end{enumerate}
+
 \subsubsection{Halaman Lihat Jadwal Dosen}
 Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 \begin{enumerate}
@@ -1114,9 +1168,17 @@ Skenario yang dilakukan penguji pada halaman entri jadwal dosen sebagai berikut:
 	\item Mahasiswa memeriksa tombol "Ekspor ke XLS".
 \end{enumerate}
 
+\subsubsection{Tampilan Lihat Jadwal Dosen pada Perangkat yang Berbeda}
+Skenario yang dilakukan penguji pada halaman entri jadwal dosen  website BlueTape sebagai berikut:
+\begin{enumerate}
+	\item Mahasiswa memeriksa tampilan pada layar \textit{smartphone}. 	
+	\item Mahasiswa memeriksa tampilan pada layar \textit{tab}.
+	\item Mahasiswa memeriksa tampilan pada layar \textit{desktop}.
+\end{enumerate}
+
 \subsection{Hasil Pengujian}
 Pada bagian ini akan dijabarkan hasil pengujian dari skenario yang sudah dirancang sebelumnya. Setiap skenario akan diuji berdasarkan tindakan yang sudah dibuat, kemudian akan ditentukan pengujian berhasil atau tidak.
-\subsubsection{Login}
+\subsubsection{Tampilan Login}
 Berikut ini hasil pengujian dari halaman login yang terlihat pada tabel ~\ref{hasil:Login}.
 \begin{table}[H]
 	\centering 
@@ -1131,12 +1193,32 @@ Berikut ini hasil pengujian dari halaman login yang terlihat pada tabel ~\ref{ha
 		\hline
 		2 & Sukses & "Petunjuk Penggunaan" berbentuk link.\\
 		\hline
-		3 & Sukses & -.\\
+		3 & Sukses & Tombol berwarna biru.\\
+		\hline									
 		\hline
-		4 & Sukses & - \textit{Field} dapat diisi oleh teks.\\									
-		\hline
-		5 & Sukses & - Melihat notifikasi berwarna biru saat proses \textit{logout} berhasil.\\
+		4 & Sukses & - Melihat notifikasi berwarna biru saat proses \textit{logout} berhasil.\\
 		&& - Melihat notifikasi berwarna merah saat mengakses halaman \url{http://127.0.0.1/CetakTranskripRequest} dengan kondisi tidak \textit{login}.\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Tampilan Login pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman login pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:LoginDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman login pada perangkat yang berbeda.}
+	\label{hasil:LoginDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
 		\bottomrule		
 	\end{tabular} 
 \end{table}
@@ -1160,6 +1242,32 @@ Berikut ini hasil pengujian dari menu navigasi yang terlihat pada tabel ~\ref{ha
 		&& - Terdapat sebuah ikon menu disebelah kanan menu navigasi. \\
 		&& - Submenu berada pada mode \textit{hide} dan dapat ditampilkan setelah \textit{user} memilih ikon menu. \\
 		&& - Memeriksa teks setiap sub-menu aktif memiliki warna yang berbeda dengan sub-menu yang tidak aktif. \\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Tampilan Menu Navigasi pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari menu navigasi pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:MenuNavigasiDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman menu navigasi pada perangkat yang berbeda.}
+	\label{hasil:MenuNavigasiDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		&& Daftar menu dalam metode \textit{hide}.\\
+		&& Terdapat ikon menu pada sisi kanan dan logo BlueTape pada sisi kiri.\\
+		\hline
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		&& Daftar menu dalam metode \textit{hide}.\\
+		&& Terdapat ikon menu pada sisi kanan dan logo BlueTape pada sisi kiri.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
 		\bottomrule		
 	\end{tabular} 
 \end{table}
@@ -1245,6 +1353,27 @@ Berikut ini hasil pengujian dari popup pesan detail permohonan pada halaman ceta
 		&&- Kolom "Tanggal Permohonan" berisi format "[Tahun]-[Bulan]-[Tanggal] [Jam]:[Menit]:[Detik]" seperti "2020-05-28 14:34:15".\\
 		&&- Kolom "Tipe Transkrip" berisi teks.\\
 		&&- Kolom "Keperluan" berisi teks.\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Tampilan Cetak Transkrip pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman cetak transkrip pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:CetakTranskripDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman cetak transkrip pada perangkat yang berbeda.}
+	\label{hasil:CetakTranskripDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
 		\bottomrule		
 	\end{tabular} 
 \end{table}
@@ -1368,6 +1497,27 @@ Berikut ini hasil pengujian dari popup pesan cetak permohonan pada konten permin
 		&& - Kolom "Keterangan Tambahan" dapat diisi oleh user dengan teks."\\
 		\hline
 		3&Sukses&- Tombol "Sudah dicetak" berwarna biru.\\		
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Tampilan Manajemen Cetak Transkrip pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman manajemen cetak transkrip pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:ManajemenCetakTranskripDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman manajemen transkrip pada perangkat yang berbeda.}
+	\label{hasil:ManajemenCetakTranskripDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
 		\bottomrule		
 	\end{tabular} 
 \end{table}
@@ -1496,6 +1646,27 @@ Berikut ini hasil pengujian dari popup pesan detail permohonan pada konten histo
 		&&- "Menjadi Hari/Jam" menampilkan data berbentuk teks.\\
 		&&- "Menjadi ruang" menampilkan data berbentuk teks.\\
 		&&- "Keterangan" menampilkan data data berbentuk teks.\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Tampilan Perubahan Kuliah pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman perubahan kuliah pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:PerubahanKuliahDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman perubahan kuliah pada perangkat yang berbeda.}
+	\label{hasil:PerubahanKuliahDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
 		\bottomrule		
 	\end{tabular} 
 \end{table}
@@ -1629,6 +1800,27 @@ Berikut ini hasil pengujian dari popup pesan hapus permohonan pada konten permoh
 	\end{tabular} 
 \end{table}
 
+\subsubsection{Tampilan Manajemen Perubahan Kuliah pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman manajemen perubahan kuliah pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:ManajemenPerubahanKuliahDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman perubahan kuliah pada perangkat yang berbeda.}
+	\label{hasil:ManajemenPerubahanKuliahDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 \subsubsection{Konten Tambah Jadwal pada Halaman Entri Jadwal Dosen}
 Berikut ini hasil pengujian dari konten tambah jadwal pada halaman entri jadwal dosen yang terlihat pada tabel ~\ref{hasil:TambahJadwal}.
 \begin{table}[H]
@@ -1711,6 +1903,27 @@ Berikut ini hasil pengujian dari popup pesan edit jadwal pada konten daftar jadw
 	\end{tabular} 
 \end{table}
 
+\subsubsection{Tampilan Entri Jadwal Dosen pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman entri jadwal dosen pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:EntriJadwalDosenDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman entri jadwal dosen pada perangkat yang berbeda.}
+	\label{hasil:EntriJadwalDosenDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
 
 \subsubsection{Halaman Lihat Jadwal Dosen}
 Berikut ini hasil pengujian dari halaman lihat jadwal dosen yang terlihat pada tabel ~\ref{hasil:LihatJadwal}.
@@ -1735,6 +1948,27 @@ Berikut ini hasil pengujian dari halaman lihat jadwal dosen yang terlihat pada t
 		5&Sukses&- Memeriksa tombol berwarna merah.\\
 		\hline
 		6& Sukses & - Memeriksa tombol berwarna biru.\\
+		\bottomrule		
+	\end{tabular} 
+\end{table}
+
+\subsubsection{Tampilan Lihat Jadwal Dosen pada Perangkat yang Berbeda}
+Berikut ini hasil pengujian dari halaman lihat jadwal dosen pada perangkat yang berbeda, terlihat pada tabel ~\ref{hasil:LihatJadwalDosenDevices}.
+\begin{table}[H]
+	\centering 
+	\caption{Hasil pengujian halaman lihat jadwal dosen pada perangkat yang berbeda.}
+	\label{hasil:LihatJadwalDosenDevices}
+	\begin{tabular}{|c|c|p{0.60\textwidth}|}
+		\toprule
+		\textbf{Langkah} & \textbf{Hasil} & \textbf{Tindakan}\\
+		\textbf{Ke} & \textbf{(Sukses / Tidak)} & \\		
+		\midrule
+		1 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{smartphone}.\\
+		\hline
+		2 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{tab}.\\
+		\hline
+		3 & Sukses & Tampilan semua elemen sudah sesuai komposisinya pada layar \textit{desktop}.\\
+		\hline
 		\bottomrule		
 	\end{tabular} 
 \end{table}

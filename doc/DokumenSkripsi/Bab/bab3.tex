@@ -1,6 +1,6 @@
 \chapter{Analisis}
 Bagian ini akan menganalisis perbedaan penggunaan \textit{framework} \textit{front-end} Foundation 6 dan Bootstrap 4. Dua hal yang dibahas adalah penggunaan sistem grid dan komponen - komponen untuk kedua \textit{framework} tersebut.
-\subsection{Sistem Grid}
+\section{Sistem Grid}
 Sistem grid bertujuan untuk menentukan tata letak dalam situs web yang setiap grid dipisahkan oleh garis yang tak terlihat dimana elemen ditempatkan.  Sehingga struktur grid yang terbentuk menciptakan perataan yang efektif dan konsisten dalam desain. Sebuah grid tersusun dari kolom dan baris serta jarak antar baris dan kolom yang disebut gutter. \\
 \noindent Kedua \textit{framework} menggunakan Flexbox yaitu metode layout untuk penataan item dalam suatu halaman dengan mengatur posisi dan keteraturan dalam suatu \textit{container}.\noindent Berikut ini gambar ~\ref{fig:nonflexbox} apabila tidak menggunakan flexbox:
 \begin{figure} [H]
@@ -54,9 +54,8 @@ Pada gambar ~\ref{fig:grid1b} \textit{variable width content} memungkinkan untuk
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/grid2_b.png}
-	\caption{Grid 2 pada Bootstarp 4.}
-	\label{fig:grid2b}
-\end{figure}
+	\caption{\textit{variable width content} pada Bootstarp 4.}
+	\label{fig:grid2b}V\end{figure}
 Pada gambar ~\ref{fig:grid2b} \textit{Equal width multi row } memungkinkan kelas tanpa lebar grid pada setiap kolom akan memiliki lebar yang sama. Sedangkan \textit{mix and match} memungkinkan untuk menggabugkan lebih dari satu kelas dalam satu cell.
 \begin{figure} [H]
 	\centering  
@@ -66,9 +65,9 @@ Pada gambar ~\ref{fig:grid2b} \textit{Equal width multi row } memungkinkan kelas
 \end{figure}
 Pada gambar ~\ref{fig:grid3b} memungkinkan penggunaan flexbox untuk meluruskan kolom secara vertikal dan horizontal.
 
-\subsection{Komponen}
-Pada bagian ini akan dijelaskan perbedaan implementasi komponen dalam kedua \textit{framework}. Setiap subbagian akan menampilkan gambar komponen beserta kode dari kedua \textit{framework}.
-\subsubsection{Navigation}
+\section{Navigation}
+\subsubsection{Foundation 6: Navigation}
+Berikut ini visualisasi komponen menu navigasi di Foundation 6 terlihat pada gambar ~\ref{fig:menuFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{analisis/menu_foundation.png}  
@@ -76,12 +75,16 @@ Pada bagian ini akan dijelaskan perbedaan implementasi komponen dalam kedua \tex
 	\label{fig:menuFoundation}	 
 \end{figure}
 
+\subsubsection{Bootstrap 4: Navbar}
+Berikut ini visualisasi komponen menu navigasi di Bootstrap 4 terlihat pada gambar ~\ref{fig:menuBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[scale=0.7]{analisis/menu_bootstrap.png}  
 	\caption{Menu pada Bootstrap 4.}
 	\label{fig:menuBootstrap}	 
 \end{figure}
+
+\subsubsection{Perbedaan penggunaan kelas}
 \noindent Perbandingan penggunaan kelas pada Foundation 6 (Gambar ~\ref{fig:menuFoundation}) dan Bootstrap 4 (Gambar ~\ref{fig:menuBootstrap}) pada menu navigasi tertera pada tabel ~\ref{table:konversiNavigasi}.\\
 \begin{table}[H]
 	\caption{Tabel menu navigasi pada Foundation 6 dan Bootstrap 4.}
@@ -104,7 +107,9 @@ Pada bagian ini akan dijelaskan perbedaan implementasi komponen dalam kedua \tex
 \end{table}
 Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, hanya menggunakan kode HTML \texttt{<li>} dan \texttt{<a>}.
 
-\subsubsection{Form}
+\section{Form}
+\subsubsection{Foundation 6: Forms}
+Berikut ini visualisasi komponen forms di Foundation 6 terlihat pada gambar ~\ref{fig:formFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/form_foundation.png}  
@@ -113,7 +118,8 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 \end{figure}
 
 
-
+\subsubsection{Bootstrap 4: Forms}
+Berikut ini visualisasi komponen forms di Bootstrap 4 terlihat pada gambar ~\ref{fig:formBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/form_bootstrap.png}  
@@ -121,6 +127,7 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{fig:formBootstrap}	 
 \end{figure}
 
+\subsubsection{Perbedaan penggunaan kelas}
 \noindent Perbandingan penggunaan kelas pada Foundation 6 (Gambar ~\ref{fig:formFoundation}) dan Bootstrap 4 (Gambar ~\ref{fig:formBootstrap}) pada menu navigasi tertera pada tabel ~\ref{table:form}.\\
 
 \begin{table}[H] 
@@ -141,7 +148,9 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:form}
 \end{table}
 
-\subsubsection{Inline Labels and Buttons}
+\section{Inline Labels and Buttons}
+\subsubsection{Foundation 6: Inline Labels and Buttons}
+Berikut ini visualisasi komponen \textit{inline labels} dan \textit{buttons} di Foundation 6 terlihat pada gambar ~\ref{fig:inlineFoundation}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/inline_foundation.png}  
@@ -149,6 +158,8 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{fig:inlineFoundation}	 
 \end{figure}
 
+\subsubsection{Bootstrap 4: Input Groups}
+Berikut ini visualisasi komponen \textit{input groups} di Bootstrap 4 terlihat pada gambar ~\ref{fig:inlineBootstrap}:
 \begin{figure} [H]
 	\centering  
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/inline_bootstrap.png}  
@@ -156,6 +167,7 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{fig:inlineBootstrap}	 
 \end{figure}
 
+\subsubsection{Perbedaan penggunaan kelas}
 \noindent Perbandingan penggunaan kelas pada Foundation 6 (Gambar ~\ref{fig:inlineFoundation}) dan Bootstrap 4 (Gambar ~\ref{fig:inlineBootstrap}) pada menu navigasi tertera pada tabel ~\ref{table:inlineForm}.\\
 
 \begin{table}[H] 
@@ -182,22 +194,27 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:inlineForm}
 \end{table}
 
-\subsubsection{Button}
+\section{Button}
+\subsubsection{Foundation 6: Button}
+Berikut ini visualisasi komponen \textit{button}di Foundation 6 terlihat pada gambar ~\ref{fig:buttonFoundation}:
 \begin{figure} [H]	
 	\centering
-	\begin{subfigure}[b]{0.35\linewidth}   
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/button_foundation.png}
-		\caption{Foundation 6.} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.35\linewidth} 
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/button_bootstrap.png}
-		\caption{Bootstrap 4.} 
-	\end{subfigure}
-	\caption{Komponen button.}
-	\label{fig:button}
+	\includegraphics[scale=0.7]{analisis/button_foundation.png}
+	\caption{Komponen button Foundation 6.}
+	\label{fig:buttonFoundation}
 \end{figure}
 
-\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 di gambar ~\ref{fig:button} pada komponen button tertera pada tabel ~\ref{table:button}.\\
+\subsubsection{Bootstrap 4: Button}
+Berikut ini visualisasi komponen \textit{button} di Bootstrap 4 terlihat pada gambar ~\ref{fig:buttonBootstrap}:
+\begin{figure} [H]	
+	\centering
+	\includegraphics[scale=0.7]{analisis/button_bootstrap.png}
+	\caption{Komponen button Bootstrap 4.}
+	\label{fig:buttonBootstrap}
+\end{figure}
+
+\subsubsection{Perbedaan penggunaan kelas}
+\noindent Perbandingan penggunaan kelas pada Foundation 6 (gambar ~\ref{fig:buttonFoundation}) dan Bootstrap 4 (gambar ~\ref{fig:buttonBootstrap}) pada komponen button tertera pada tabel ~\ref{table:button}.\\
 
 \begin{table}[H] 
 	\caption{Kelas \textit{button} pada Foundation 6 dan Bootstrap 4.}
@@ -213,22 +230,27 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:button}
 \end{table}
 
-\subsubsection{Label}
-\begin{figure} [H]	
-	\centering
-	\begin{subfigure}[b]{0.45\linewidth}   
+\section{Label}	
+\subsubsection{Foundation 6: Label}
+Berikut ini visualisasi komponen label di Foundation 6 terlihat pada gambar ~\ref{fig:labelFoundation}:
+	\begin{figure}[H]
+		\centering  
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/label_foundation.png}
 		\caption{Foundation 6.} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\linewidth} 
+		\label{fig:labelFoundation}
+	\end{figure}
+\subsubsection{Bootstrap 4: Badges}
+Berikut ini visualisasi komponen \textit{badges} di Bootstrap 4 terlihat pada gambar ~\ref{fig:labelBootstrap}:
+	\begin{figure}[H] 
+		\centering
 		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/label_bootstrap.png}
 		\caption{Bootstrap 4.} 
-	\end{subfigure}
-	\caption{Komponen label.}
-	\label{fig:label}
-\end{figure}
+		\label{fig:labelBootstrap}
+	\end{figure}
+	
 
-\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 di gambar ~\ref{fig:label} pada komponen label tertera pada tabel ~\ref{table:label}.\\
+\subsubsection{Perbedaan penggunaan kelas}
+\noindent Perbandingan penggunaan kelas pada Foundation 6 (gambar ~\ref{fig:labelFoundation}) dan Bootstrap 4 (gambar ~\ref{fig:labelBootstrap}) pada komponen label tertera pada tabel ~\ref{table:label}.\\
 
 \begin{table}[H] 
 	\caption{Kelas label pada Foundation 6 dan Bootstrap 4.}
@@ -248,23 +270,28 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:label}
 \end{table}
 
-\subsubsection{Card}
+\section{Card}
+
+\subsubsection{Foundation 6: Card}
+Berikut ini visualisasi komponen \textit{card} di Foundation 6 terlihat pada gambar ~\ref{fig:cardFoundation}:
 \begin{figure} [H]	
 	\centering
-	\begin{subfigure}[b]{0.45\linewidth}   
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/card_foundation.png}
-		\caption{Foundation 6.} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\linewidth} 
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/card_bootstrap.png}
-		\caption{Bootstrap 4.} 
-	\end{subfigure}
-	\caption{Komponen card.}
-	\label{fig:card}
+	\includegraphics[scale=0.7]{analisis/card_foundation.png}
+	\caption{Komponen card pada Foundation 6.}
+	\label{fig:cardFoundation}	
 \end{figure}
 
-\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 di gambar ~\ref{fig:card} pada komponen card tertera pada tabel ~\ref{table:card}.\\
+\subsubsection{Bootstrap 4: Card}
+Berikut ini visualisasi komponen \textit{card} di Bootstrap 4 terlihat pada gambar ~\ref{fig:cardBootstrap}:
+\begin{figure} [H]
+	\centering
+	\includegraphics[scale=0.7]{analisis/card_bootstrap.png}
+	\caption{Komponen card pada Bootstrap 4.}
+	\label{fig:cardBootstrap}
+\end{figure}
 
+\subsubsection{Perbedaan penggunaan kelas}
+\noindent Perbandingan penggunaan kelas pada Foundation 6 (gambar ~\ref{fig:cardFoundation}) dan Bootstrap 4(gambar ~\ref{fig:cardBootstrap}) pada komponen card tertera pada tabel ~\ref{table:label}.\\
 
 \begin{table}[H] 
 	\caption{Kelas label pada Foundation 6 dan Bootstrap 4.}
@@ -282,22 +309,27 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:card}
 \end{table}
 
-\subsubsection{Modal}
+\section{Modal}
+\subsubsection{Foundation 6: Modal}
+Berikut ini visualisasi komponen \textit{modal} di Foundation 6 terlihat pada gambar ~\ref{fig:modalFoundation}:
 \begin{figure} [H]	
 	\centering
-	\begin{subfigure}[b]{0.45\linewidth}   
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/modal_foundation.png}
-		\caption{Foundation 6.} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\linewidth} 
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/modal_bootstrap.png}
-		\caption{Bootstrap 4.} 
-	\end{subfigure}
-	\caption{Komponen modal.}
-	\label{fig:modal}
+	\includegraphics[scale=0.7]{analisis/modal_foundation.png}
+	\caption{Komponen modal pada Foundation 6.}
+	\label{fig:modalFoundation}
 \end{figure}
 
-\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 di gambar ~\ref{fig:modal} pada komponen modal tertera pada tabel ~\ref{table:modal}.\\
+\subsubsection{Bootstrap 4: Modal}
+Berikut ini visualisasi komponen \textit{modal} di Bootstrap 4 terlihat pada gambar ~\ref{fig:modalBootstrap}:
+\begin{figure} [H]
+	\centering
+	\includegraphics[scale=0.7]{analisis/modal_bootstrap.png}
+	\caption{Komponen modal pada Bootstrap 4.}
+	\label{fig:modalBootstrap}
+\end{figure}
+
+\subsubsection{Perbedaan penggunaan kelas}
+\noindent Perbandingan penggunaan kelas pada Foundation 6 (gambar ~\ref{fig:modalFoundation}) dan Bootstrap 4 (gambar ~\ref{fig:modalBootstrap}) pada komponen modal tertera pada tabel ~\ref{table:modal}.\\
 
 
 \begin{table}[H] 
@@ -329,22 +361,27 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:modal}
 \end{table}
 
-\subsubsection{Table}
+\section{Table}
+\subsubsection{Foundation 6: Table}
+Berikut ini visualisasi komponen \textit{table} di Foundation 6 terlihat pada gambar ~\ref{fig:tabelFoundation}:
 \begin{figure} [H]	
 	\centering
-	\begin{subfigure}[b]{0.45\linewidth}   
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/table_foundation.png}
-		\caption{Foundation 6.} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\linewidth} 
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/table_bootstrap.png}
-		\caption{Bootstrap 4.} 
-	\end{subfigure}
-	\caption{Komponen tabel.}
-	\label{fig:tabel}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/table_foundation.png}
+	\caption{Komponen tabel pada Foundation 6.}
+	\label{fig:tabelFoundation}
 \end{figure}
 
-\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 di gambar ~\ref{fig:tabel} pada komponen tabel tertera pada tabel ~\ref{table:tabel}.\\
+\subsubsection{Bootstrap 4: Table}
+Berikut ini visualisasi komponen \textit{table} di Bootstrap 4 terlihat pada gambar ~\ref{fig:tabelBootstrap}:
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/table_bootstrap.png}
+	\caption{Komponen tabel pada Bootstrap 4.}
+	\label{fig:tabelBootstrap}
+\end{figure}
+
+\subsubsection{Perbedaan penggunaan kelas}
+\noindent Perbandingan penggunaan kelas pada Foundation 6 (gambar ~\ref{fig:tabelFoundation}) dan Bootstrap 4 di gambar ~\ref{fig:tabelBootstrap} pada komponen tabel tertera pada tabel ~\ref{table:tabel}.\\
 
 \begin{table}[H] 
 	\caption{Kelas modal pada Foundation 6 dan Bootstrap 4.}
@@ -358,22 +395,27 @@ Pemberian kelas pada daftar submenu dan link tidak terjadi pada Foundation 6, ha
 	\label{table:tabel}
 \end{table}
 
-\subsubsection{Tabs}
+\section{Tabs}
+\subsubsection{Foundation 6: Tabs}
+Berikut ini visualisasi komponen \textit{tabs} di Foundation 6 terlihat pada gambar ~\ref{fig:tabsFoundation}:
 \begin{figure} [H]	
 	\centering
-	\begin{subfigure}[b]{0.45\linewidth}   
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/tabs_foundation.png}
-		\caption{Foundation 6.} 
-	\end{subfigure}
-	\begin{subfigure}[b]{0.45\linewidth} 
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/tabs_bootstrap.png}
-		\caption{Bootstrap 4.} 
-	\end{subfigure}
-	\caption{Komponen tabs.}
-	\label{fig:tabs}
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/tabs_foundation.png}
+	\caption{Komponen tabs pada Foundation 6.}
+	\label{fig:tabsFoundation}
 \end{figure}
 
-\noindent Perbandingan penggunaan kelas pada Foundation 6 dan Bootstrap 4 di gambar ~\ref{fig:tabs} pada komponen modal tertera pada tabel ~\ref{table:tabs}.\\
+\subsubsection{Bootstrap 4: Tabs}
+Berikut ini visualisasi komponen \textit{tabs} di Bootstrap 4 terlihat pada gambar ~\ref{fig:tabsBootstrap}:
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{analisis/tabs_bootstrap.png}
+	\caption{Komponen tabs pada Bootstrap 4.}
+	\label{fig:tabsBootstrap}
+\end{figure}
+
+\subsubsection{Perbedaan penggunaan kelas}
+\noindent Perbandingan penggunaan kelas pada Foundation 6 (gambar ~\ref{fig:tabsFoundation}) dan Bootstrap 4  (gambar ~\ref{fig:tabsBootstrap}) pada komponen modal tertera pada tabel ~\ref{table:tabs}.\\
 
 \begin{table}[H] 
 	\caption{Kelas modal pada Foundation 6 dan Bootstrap 4.}
